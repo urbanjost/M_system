@@ -22,39 +22,15 @@
       <h3><a name="2">DESCRIPTION</a></h3>
 
       <blockquote>
-        <table cellpadding="3">
-          <tr valign="top">
-            <td class="c167" width="6%" nowrap="nowrap">The</td>
-
-            <td valign="bottom"><b>setsid</b>() function creates a new session, if the calling process is not a process group leader. Upon return the</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" colspan="2">calling process shall be the session leader of this new session, shall be the process</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
-            <td>group leader of a new process</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" width="6%" nowrap="nowrap">group,</td>
-
-            <td valign="bottom">and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" colspan="2">process ID of the calling process. The calling process shall be the only process in the new process group</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
-            <td>and the only process in the new session.</td>
-          </tr>
-        </table>
+            The <b>setsid</b>() function creates a new session, if the
+            calling process is not a process group leader. Upon return
+            the calling process shall be the session leader of this new
+            session, shall be the process group leader of a new process
+            group, and shall have no controlling terminal. The process
+            group ID of the calling process shall be set equal to the
+            process ID of the calling process. The calling process shall
+            be the only process in the new process group and the only
+            process in the new session.
       </blockquote><a name="3"></a>
 
       <h3><a name="3">RETURN VALUE</a></h3>

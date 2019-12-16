@@ -45,12 +45,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">pathname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">pathname</td>
             <td>name of the file whose access and modification times are to be updated.</td>
           </tr>
         </table>
@@ -83,12 +78,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">ENAMETOOLONG</td>
             <td>The length of a component of a pathname is longer than {NAME_MAX}.</td>
           </tr>
 
@@ -99,12 +89,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">ENOTDIR</td>
             <td>A component of the path prefix names an existing file that is neither a directory nor a symbolic link to a directory, or the path argument
             contains at least one non-&lt;slash&gt; character and ends with one or more trailing &lt;slash&gt; characters and the last pathname component
             names an existing file that is neither a directory nor a symbolic link to a directory.</td>

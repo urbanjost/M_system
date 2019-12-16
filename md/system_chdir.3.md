@@ -65,12 +65,7 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td class="c10" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c10" colspan="1">ENAMETOOLONG</td>
             <td><i>path</i> is too long.</td>
           </tr>
 
@@ -87,12 +82,7 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td class="c10" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c10" colspan="1">ENOTDIR</td>
             <td>A component of <i>path</i> is not a directory.</td>
           </tr>
         </table>

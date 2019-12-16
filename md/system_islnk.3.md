@@ -20,12 +20,7 @@ logical function <b>system_islnk</b>(<i>pathname</i>)
 
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c102" colspan="2">logical</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c102" colspan="1">logical</td>
             <td>:: system_islnk</td>
           </tr>
         </table>

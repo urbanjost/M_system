@@ -46,12 +46,7 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c141" colspan="2">FILENAME</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c141" colspan="1">FILENAME</td>
             <td>
               the name of the directory entry at the current position in the directory stream specified by the argument DIR, and positions the directory
               stream at the next entry.

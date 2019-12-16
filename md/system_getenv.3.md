@@ -53,11 +53,9 @@ function <b>system_getenv</b>(<i>name</i>)
       write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME')
       write(*,'("USERNAME : ",a)')system_getenv('USERNAME')
 <br />
+   end program demo_system_getenv
 </pre>
 
-        <blockquote>
-          end program demo_system_getenv
-        </blockquote>
       </blockquote><a name="5"></a>
     </div>
   </div>

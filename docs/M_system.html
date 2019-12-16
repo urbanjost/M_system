@@ -1488,12 +1488,7 @@ logical function <b>system_access</b>(pathname,amode)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c6" colspan="2">pathname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c6" colspan="1">pathname</td>
             <td>a character string representing a directory pathname. Trailing spaces are ignored.</td>
           </tr>
 
@@ -1607,12 +1602,7 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td class="c10" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c10" colspan="1">ENAMETOOLONG</td>
             <td><i>path</i> is too long.</td>
           </tr>
 
@@ -1629,12 +1619,7 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td class="c10" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c10" colspan="1">ENOTDIR</td>
             <td>A component of <i>path</i> is not a directory.</td>
           </tr>
         </table>
@@ -1716,9 +1701,8 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
         <p>Upon successful completion, <b>system_chmod</b>() marks for update the last file status change timestamp of the file.</p>
 
         <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
-      </blockquote><a name=""></a>
-
-      <h4><a name="">AT_SYMLINK_NOFOLLOW</a></h4>
+        <h4>AT_SYMLINK_NOFOLLOW</h4>
+      </blockquote>
 
       <blockquote>
         If path names a symbolic link, then the mode of the symbolic link is changed.
@@ -1755,31 +1739,34 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
       write(10,*)'TEST FILE 1'
       close(unit=10)
       ierr=system_chmod('_test1', IANY([R_USR,R_GRP,R_OTH]))
-<br />      !Setting Read, Write, and Execute Permissions for the Owner Only
-      ! The following example sets read, write, and execute permissions for the owner, and no permissions for group and others.
+      !Setting Read, Write, and Execute Permissions for the Owner Only
+      ! The following example sets read, write, and execute permissions for the owner, 
+      ! and no permissions for group and others.
       open(file='_test2',unit=10)
       write(10,*)'TEST FILE 2'
       close(unit=10)
       ierr=system_chmod('_test2', RWX_U)
-<br />      !Setting Different Permissions for Owner, Group, and Other
-      ! The following example sets owner permissions for CHANGEFILE to read, write, and execute, group permissions to read and
+      !Setting Different Permissions for Owner, Group, and Other
+      ! The following example sets owner permissions for CHANGEFILE to 
+      ! read, write, and execute, group permissions to read and
       ! execute, and other permissions to read.
       open(file='_test3',unit=10)
       write(10,*)'TEST FILE 3'
       close(unit=10)
       ierr=system_chmod('_test3', IANY([RWX_U,R_GRP,X_GRP,R_OTH]));
-<br />      !Setting and Checking File Permissions
-      ! The following example sets the file permission bits for a file named /home/cnd/mod1, then calls the stat() function to
+      !Setting and Checking File Permissions
+      ! The following example sets the file permission bits for 
+      ! a file named /home/cnd/mod1, then calls the stat() function to
       ! verify the permissions.
-<br />      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
+      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
       call system_stat("home/cnd/mod1", buffer,status)
-<br />      ! In order to ensure that the S_ISUID and S_ISGID bits are set, an application requiring this should use stat() after a
+      ! In order to ensure that the S_ISUID and S_ISGID bits are set, 
+      ! an application requiring this should use stat() after a
       ! successful chmod() to verify this.
-<br />      !    Any files currently open could possibly become invalid if the mode
+      !    Any files currently open could possibly become invalid if the mode
       !    of the file is changed to a value which would deny access to
       !    that process.
-<br />   end program demo_system_chmod
-<br /><br />
+      end program demo_system_chmod
 </pre>
       </blockquote>
     </div>
@@ -2010,16 +1997,6 @@ subroutine <b>system_closedir</b>(dir,ierr)
         <b>system_closedir</b>(3f) may fail if:
 
         <table cellpadding="3">
-          <!-- tsb: <B>system_closedir</B>(3f) may fail if:
- -->
-
-          <tr>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td></td>
-          </tr>
 
           <tr valign="top">
             <td class="c29" width="6%" nowrap="nowrap">EBADF</td>
@@ -2033,9 +2010,6 @@ subroutine <b>system_closedir</b>(dir,ierr)
             <td valign="bottom">The <b>closedir</b>() function was interrupted by a signal.</td>
           </tr>
 
-          <tr>
-            <td></td>
-          </tr>
         </table>
       </blockquote><a name="5"></a>
 
@@ -2100,12 +2074,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c33" colspan="2">c_total</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c33" colspan="1">c_total</td>
             <td>total processor time ( <i>c_user</i> + <i>c_system</i> )</td>
           </tr>
 
@@ -2116,12 +2085,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
           </tr>
 
           <tr valign="top">
-            <td class="c33" colspan="2">c_system</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c33" colspan="1">c_system</td>
             <td>processor system time</td>
           </tr>
         </table>
@@ -2139,7 +2103,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
         <p>Sample program:</p>
         <pre>
    program demo_system_cpu_time
-<br />   use M_system, only : system_cpu_time
+   use M_system, only : system_cpu_time
    use ISO_C_BINDING, only : c_float
    implicit none
    real    :: user_start, system_start, total_start
@@ -2147,8 +2111,8 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
    integer :: i
    integer :: itimes=1000000
    real    :: value
-<br />      call system_cpu_time(total_start,user_start,system_start)
-<br />      value=0.0
+   call system_cpu_time(total_start,user_start,system_start)
+      value=0.0
       do i=1,itimes
          value=sqrt(real(i)+value)
       enddo
@@ -2159,12 +2123,9 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
       write(*,*)'USER ......',user_finish-user_start
       write(*,*)'SYSTEM ....',system_finish-system_start
       write(*,*)'TOTAL .....',total_finish-total_start
-<br />
+   end program demo_system_cpu_time
 </pre>
 
-        <blockquote>
-          end program demo_system_cpu_time
-        </blockquote>
 
         <p>Typical Results:</p>
       </blockquote>
@@ -2413,11 +2374,9 @@ function <b>system_getenv</b>(<i>name</i>)
       write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME')
       write(*,'("USERNAME : ",a)')system_getenv('USERNAME')
 <br />
+   end program demo_system_getenv
 </pre>
 
-        <blockquote>
-          end program demo_system_getenv
-        </blockquote>
       </blockquote><a name="5"></a>
     </div>
   </div>
@@ -2736,12 +2695,7 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c62" colspan="2">fname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="3%"></td>
-
+            <td class="c62" colspan="1">fname</td>
             <td>returns the login name.</td>
           </tr>
         </table>
@@ -3547,12 +3501,7 @@ logical function <b>system_islnk</b>(<i>pathname</i>)
 
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c102" colspan="2">logical</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c102" colspan="1">logical</td>
             <td>:: system_islnk</td>
           </tr>
         </table>
@@ -4266,12 +4215,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENAMETOOLONG</td>
             <td>The length of a component of a pathname is longer than {NAME_MAX}.</td>
           </tr>
 
@@ -4282,12 +4226,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENOTDIR</td>
             <td>A component of dirname names an existing file that is neither a directory nor a symbolic link to a directory.</td>
           </tr>
 
@@ -4304,12 +4243,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENAMETOOLONG</td>
             <td>The length of a pathname exceeds {PATH_MAX}, or pathname resolution of a symbolic link produced an intermediate result with a length that
             exceeds {PATH_MAX}.</td>
           </tr>
@@ -4663,12 +4597,7 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c141" colspan="2">FILENAME</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c141" colspan="1">FILENAME</td>
             <td>
               the name of the directory entry at the current position in the directory stream specified by the argument DIR, and positions the directory
               stream at the next entry.
@@ -5211,12 +5140,7 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c163" colspan="2">DIRECTORY</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c163" colspan="1">DIRECTORY</td>
             <td>The name of a directory to remove if it is empty</td>
           </tr>
 
@@ -5285,39 +5209,15 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
       <h3><a name="2">DESCRIPTION</a></h3>
 
       <blockquote>
-        <table cellpadding="3">
-          <tr valign="top">
-            <td class="c167" width="6%" nowrap="nowrap">The</td>
-
-            <td valign="bottom"><b>setsid</b>() function creates a new session, if the calling process is not a process group leader. Upon return the</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" colspan="2">calling process shall be the session leader of this new session, shall be the process</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
-            <td>group leader of a new process</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" width="6%" nowrap="nowrap">group,</td>
-
-            <td valign="bottom">and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c167" colspan="2">process ID of the calling process. The calling process shall be the only process in the new process group</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
-            <td>and the only process in the new session.</td>
-          </tr>
-        </table>
+            The <b>setsid</b>() function creates a new session, if the
+            calling process is not a process group leader. Upon return
+            the calling process shall be the session leader of this new
+            session, shall be the process group leader of a new process
+            group, and shall have no controlling terminal. The process
+            group ID of the calling process shall be set equal to the
+            process ID of the calling process. The calling process shall
+            be the only process in the new process group and the only
+            process in the new session.
       </blockquote><a name="3"></a>
 
       <h3><a name="3">RETURN VALUE</a></h3>
@@ -5511,8 +5411,13 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
       <h3><a name="2">DESCRIPTION</a></h3>
 
       <blockquote>
-        <p>This function returns information about a file. No permissions are required on the file itself, but execute (search) permission is required on
-        all of the directories in path that lead to the file. The elements that are obtained and stored in the array VALUES:</p>
+        <p>
+        This function returns information about a file. No permissions
+        are required on the file itself, but execute (search) permission
+        is required on all of the directories in path that lead to the
+        file. The elements that are obtained and stored in the array
+        VALUES:
+        </p>
         <pre>
       VALUES(1) Device ID
       VALUES(2) Inode number
@@ -5574,8 +5479,8 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
    integer(kind=int32)  :: status
    character(len=*),parameter :: fmt_date='year-month-day hour:minute:second'
 <br />   integer(kind=int64) :: &amp;
-      Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &amp;
-      Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &amp;
+      Device_ID, Inode_number,     File_mode,  Number_of_links,  Owner_uid,         &amp;
+      Owner_gid, Directory_device, File_size,  Last_access,      Last_modification, &amp;
       Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
    equivalence                                    &amp;
       ( buff(1)  , Device_ID                  ) , &amp;
@@ -5593,19 +5498,32 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
       ( buff(13) , Number_of_blocks_allocated )
 <br />   CALL SYSTEM_STAT("/etc/hosts", buff, status)
 <br />   if (status == 0) then
-      write (*, FMT="('Device ID(hex/decimal):',      T30, Z0,'h/',I0,'d')") buff(1),buff(1)
-      write (*, FMT="('Inode number:',                T30, I0)") buff(2)
-      write (*, FMT="('File mode (octal):',           T30, O19)") buff(3)
-      write (*, FMT="('Number of links:',             T30, I0)") buff(4)
-      write (*, FMT="('Owner''s uid/username:',       T30, I0,1x, A)") buff(5), system_getpwuid(buff(5))
-      write (*, FMT="('Owner''s gid/group:',          T30, I0,1x, A)") buff(6), system_getgrgid(buff(6))
-      write (*, FMT="('Device where located:',        T30, I0)") buff(7)
-      write (*, FMT="('File size(bytes):',            T30, I0)") buff(8)
-      write (*, FMT="('Last access time:',            T30, I0,1x, A)") buff(9), fmtdate(u2d(int(buff(9))),fmt_date)
-      write (*, FMT="('Last modification time:',      T30, I0,1x, A)") buff(10),fmtdate(u2d(int(buff(10))),fmt_date)
-      write (*, FMT="('Last status change time:',     T30, I0,1x, A)") buff(11),fmtdate(u2d(int(buff(11))),fmt_date)
-      write (*, FMT="('Preferred block size(bytes):', T30, I0)") buff(12)
-      write (*, FMT="('No. of blocks allocated:',     T30, I0)") buff(13)
+      write (*, FMT="('Device ID(hex/decimal):',      &
+      & T30, Z0,'h/',I0,'d')") buff(1),buff(1)
+      write (*, FMT="('Inode number:',                &
+      & T30, I0)") buff(2)
+      write (*, FMT="('File mode (octal):',           &
+      & T30, O19)") buff(3)
+      write (*, FMT="('Number of links:',             &
+      & T30, I0)") buff(4)
+      write (*, FMT="('Owner''s uid/username:',       &
+      & T30, I0,1x, A)") buff(5), system_getpwuid(buff(5))
+      write (*, FMT="('Owner''s gid/group:',          &
+      & T30, I0,1x, A)") buff(6), system_getgrgid(buff(6))
+      write (*, FMT="('Device where located:',        &
+      & T30, I0)") buff(7)
+      write (*, FMT="('File size(bytes):',            &
+      & T30, I0)") buff(8)
+      write (*, FMT="('Last access time:',            &
+      & T30, I0,1x, A)") buff(9), fmtdate(u2d(int(buff(9))),fmt_date)
+      write (*, FMT="('Last modification time:',      &
+      & T30, I0,1x, A)") buff(10),fmtdate(u2d(int(buff(10))),fmt_date)
+      write (*, FMT="('Last status change time:',     &
+      & T30, I0,1x, A)") buff(11),fmtdate(u2d(int(buff(11))),fmt_date)
+      write (*, FMT="('Preferred block size(bytes):', &
+      & T30, I0)") buff(12)
+      write (*, FMT="('No. of blocks allocated:',     &
+      & T30, I0)") buff(13)
    endif
 <br />   end program demo_system_stat
 <br />
@@ -5911,12 +5829,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">pathname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">pathname</td>
             <td>name of the file whose access and modification times are to be updated.</td>
           </tr>
         </table>
@@ -5949,12 +5862,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">ENAMETOOLONG</td>
             <td>The length of a component of a pathname is longer than {NAME_MAX}.</td>
           </tr>
 
@@ -5965,12 +5873,7 @@ function <b>utime</b>(pathname,times)
           </tr>
 
           <tr valign="top">
-            <td class="c194" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c194" colspan="1">ENOTDIR</td>
             <td>A component of the path prefix names an existing file that is neither a directory nor a symbolic link to a directory, or the path argument
             contains at least one non-&lt;slash&gt; character and ends with one or more trailing &lt;slash&gt; characters and the last pathname component
             names an existing file that is neither a directory nor a symbolic link to a directory.</td>

@@ -26,12 +26,7 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c163" colspan="2">DIRECTORY</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c163" colspan="1">DIRECTORY</td>
             <td>The name of a directory to remove if it is empty</td>
           </tr>
 

@@ -29,12 +29,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c33" colspan="2">c_total</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c33" colspan="1">c_total</td>
             <td>total processor time ( <i>c_user</i> + <i>c_system</i> )</td>
           </tr>
 
@@ -45,12 +40,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
           </tr>
 
           <tr valign="top">
-            <td class="c33" colspan="2">c_system</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c33" colspan="1">c_system</td>
             <td>processor system time</td>
           </tr>
         </table>
@@ -68,7 +58,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
         <p>Sample program:</p>
         <pre>
    program demo_system_cpu_time
-<br />   use M_system, only : system_cpu_time
+   use M_system, only : system_cpu_time
    use ISO_C_BINDING, only : c_float
    implicit none
    real    :: user_start, system_start, total_start
@@ -76,8 +66,8 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
    integer :: i
    integer :: itimes=1000000
    real    :: value
-<br />      call system_cpu_time(total_start,user_start,system_start)
-<br />      value=0.0
+   call system_cpu_time(total_start,user_start,system_start)
+      value=0.0
       do i=1,itimes
          value=sqrt(real(i)+value)
       enddo
@@ -88,12 +78,9 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
       write(*,*)'USER ......',user_finish-user_start
       write(*,*)'SYSTEM ....',system_finish-system_start
       write(*,*)'TOTAL .....',total_finish-total_start
-<br />
+   end program demo_system_cpu_time
 </pre>
 
-        <blockquote>
-          end program demo_system_cpu_time
-        </blockquote>
 
         <p>Typical Results:</p>
       </blockquote>

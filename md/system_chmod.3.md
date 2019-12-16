@@ -41,9 +41,8 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
         <p>Upon successful completion, <b>system_chmod</b>() marks for update the last file status change timestamp of the file.</p>
 
         <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
-      </blockquote><a name=""></a>
-
-      <h4><a name="">AT_SYMLINK_NOFOLLOW</a></h4>
+        <h4>AT_SYMLINK_NOFOLLOW</h4>
+      </blockquote>
 
       <blockquote>
         If path names a symbolic link, then the mode of the symbolic link is changed.
@@ -80,31 +79,34 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
       write(10,*)'TEST FILE 1'
       close(unit=10)
       ierr=system_chmod('_test1', IANY([R_USR,R_GRP,R_OTH]))
-<br />      !Setting Read, Write, and Execute Permissions for the Owner Only
-      ! The following example sets read, write, and execute permissions for the owner, and no permissions for group and others.
+      !Setting Read, Write, and Execute Permissions for the Owner Only
+      ! The following example sets read, write, and execute permissions for the owner, 
+      ! and no permissions for group and others.
       open(file='_test2',unit=10)
       write(10,*)'TEST FILE 2'
       close(unit=10)
       ierr=system_chmod('_test2', RWX_U)
-<br />      !Setting Different Permissions for Owner, Group, and Other
-      ! The following example sets owner permissions for CHANGEFILE to read, write, and execute, group permissions to read and
+      !Setting Different Permissions for Owner, Group, and Other
+      ! The following example sets owner permissions for CHANGEFILE to 
+      ! read, write, and execute, group permissions to read and
       ! execute, and other permissions to read.
       open(file='_test3',unit=10)
       write(10,*)'TEST FILE 3'
       close(unit=10)
       ierr=system_chmod('_test3', IANY([RWX_U,R_GRP,X_GRP,R_OTH]));
-<br />      !Setting and Checking File Permissions
-      ! The following example sets the file permission bits for a file named /home/cnd/mod1, then calls the stat() function to
+      !Setting and Checking File Permissions
+      ! The following example sets the file permission bits for 
+      ! a file named /home/cnd/mod1, then calls the stat() function to
       ! verify the permissions.
-<br />      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
+      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
       call system_stat("home/cnd/mod1", buffer,status)
-<br />      ! In order to ensure that the S_ISUID and S_ISGID bits are set, an application requiring this should use stat() after a
+      ! In order to ensure that the S_ISUID and S_ISGID bits are set, 
+      ! an application requiring this should use stat() after a
       ! successful chmod() to verify this.
-<br />      !    Any files currently open could possibly become invalid if the mode
+      !    Any files currently open could possibly become invalid if the mode
       !    of the file is changed to a value which would deny access to
       !    that process.
-<br />   end program demo_system_chmod
-<br /><br />
+      end program demo_system_chmod
 </pre>
       </blockquote>
     </div>

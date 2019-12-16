@@ -51,16 +51,6 @@ subroutine <b>system_closedir</b>(dir,ierr)
         <b>system_closedir</b>(3f) may fail if:
 
         <table cellpadding="3">
-          <!-- tsb: <B>system_closedir</B>(3f) may fail if:
- -->
-
-          <tr>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td></td>
-          </tr>
 
           <tr valign="top">
             <td class="c29" width="6%" nowrap="nowrap">EBADF</td>
@@ -74,9 +64,6 @@ subroutine <b>system_closedir</b>(dir,ierr)
             <td valign="bottom">The <b>closedir</b>() function was interrupted by a signal.</td>
           </tr>
 
-          <tr>
-            <td></td>
-          </tr>
         </table>
       </blockquote><a name="5"></a>
 

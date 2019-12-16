@@ -37,12 +37,7 @@ logical function <b>system_access</b>(pathname,amode)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c6" colspan="2">pathname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c6" colspan="1">pathname</td>
             <td>a character string representing a directory pathname. Trailing spaces are ignored.</td>
           </tr>
 

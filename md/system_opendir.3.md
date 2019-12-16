@@ -55,12 +55,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENAMETOOLONG</td>
             <td>The length of a component of a pathname is longer than {NAME_MAX}.</td>
           </tr>
 
@@ -71,12 +66,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENOTDIR</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENOTDIR</td>
             <td>A component of dirname names an existing file that is neither a directory nor a symbolic link to a directory.</td>
           </tr>
 
@@ -93,12 +83,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td class="c127" colspan="2">ENAMETOOLONG</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"></td>
-
+            <td class="c127" colspan="1">ENAMETOOLONG</td>
             <td>The length of a pathname exceeds {PATH_MAX}, or pathname resolution of a symbolic link produced an intermediate result with a length that
             exceeds {PATH_MAX}.</td>
           </tr>

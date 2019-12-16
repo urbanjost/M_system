@@ -56,12 +56,7 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-            <td class="c62" colspan="2">fname</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="3%"></td>
-
+            <td class="c62" colspan="1">fname</td>
             <td>returns the login name.</td>
           </tr>
         </table>

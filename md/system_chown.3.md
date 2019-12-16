@@ -1,15 +1,4 @@
 <?
-<body?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
-
-  <title></title>
-</head>
-
 <body>
   <div id="Container">
     <div id="Content">
@@ -105,4 +94,3 @@ logical function <b>system_chown</b>(path,owner,group)
     </div>
   </div>
 </body>
-</html>

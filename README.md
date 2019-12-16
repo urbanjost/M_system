@@ -19,9 +19,9 @@ GPF package this library is intertwined with several other large modules.
 This will compile the M_system module and build all the example programs from
 the document pages in the PROGRAMS/ sub-directory.
 
+<?
 <h3><a name="3">ENVIRONMENT</a></h3>
 <blockquote>
-
 <table cellpadding="3">
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_putenv.3.md">system_putenv</a></b>(3f): call <b>putenv</b>(3c)</td> </tr>
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_getenv.3.md">system_getenv</a></b>(3f): function call to get_environment_variable</td> </tr>
@@ -31,7 +31,6 @@ the document pages in the PROGRAMS/ sub-directory.
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_readenv.3.md">system_readenv</a></b>(3f): read next entry from environment table</td> </tr>
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_clearenv.3.md">system_clearenv</a></b>(3f): emulate <b>clearenv</b>(3c) to clear environment</td> </tr>
 </table>
-
 </blockquote><a name="4"></a>
 
 <h3><a name="4">FILE SYSTEM</a></h3>
@@ -62,9 +61,9 @@ the document pages in the PROGRAMS/ sub-directory.
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_unlink.3.md">system_unlink</a></b>(3f): call <b>unlink</b>(3c) to remove a link to a file</td> </tr>
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_utime.3.md">system_utime</a></b>(3f): call <b>utime</b>(3c) to set file access and modification times</td> </tr>
 <tr valign="top"> <td valign="bottom"><b><a href="md/fileglob.3.md">fileglob</a></b>(3f): Returns list of files using a file globbing pattern</td> </tr>
-
 </table>
 </blockquote><a name="5"></a>
+
 <h3><a name="5">STREAM IO</a></h3>
 <blockquote>
 <table cellpadding="3">
@@ -72,6 +71,7 @@ the document pages in the PROGRAMS/ sub-directory.
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_putc.3.md">system_putc</a></b>(3f): put a character on stdout</td> </tr>
 </table>
 </blockquote><a name="6"></a>
+
 <h3><a name="6">RANDOM NUMBERS</a></h3>
 <blockquote>
 <table cellpadding="3">
@@ -79,14 +79,15 @@ the document pages in the PROGRAMS/ sub-directory.
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_rand.3.md">system_rand</a></b>(3f): call <b>rand</b>(3c)</td> </tr>
 </table>
 </blockquote><a name="7"></a>
+
 <h3><a name="7">C ERROR INFORMATION</a></h3>
 <blockquote>
 <table cellpadding="3">
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_errno.3.md">system_errno</a></b>(3f): return <b>errno</b>(3c)</td> </tr>
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_perror.3.md">system_perror</a></b>(3f): call <b>perror</b>(3c) to display last C error message</td> </tr>
 </table>
+</blockquote><a name="8"></a>
 
-/blockquote><a name="8"></a>
 <h3><a name="8">QUERIES</a></h3>
 <blockquote>
 <table cellpadding="3">
@@ -104,3 +105,4 @@ the document pages in the PROGRAMS/ sub-directory.
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_cpu_time.3.md">system_cpu_time</a></b>(3f) : get processor time in seconds using <b>times</b>(3c)</td> </tr>
 </table>
 </blockquote>
+</body>

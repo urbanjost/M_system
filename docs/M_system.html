@@ -983,28 +983,23 @@
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c1">
-      </div><a name="0"></a>
+      <div class="c1"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>M_system(3fm)</b> - [M_system::INTRO] Fortran interface to C system interface <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="11"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="11"></a>
 
       <h3><a name="11">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 <b>Public</b> objects:
-<br />
-   ! ENVIRONMENT
+<br />   ! ENVIRONMENT
    use m_system, only : set_environment_variable, system_unsetenv, &amp;
    system_putenv, system_getenv
-<br />
-   use m_system, only :  system_intenv, system_readenv, system_clearenv
+<br />   use m_system, only :  system_intenv, system_readenv, system_clearenv
    ! FILE SYSTEM
    use M_system, only : system_getcwd, system_link,       &amp;
    system_mkfifo, system_remove, system_rename,           &amp;
@@ -1017,8 +1012,7 @@
    system_utime,                                          &amp;
    system_issock, system_perm,                            &amp;
    system_memcpy
-<br />
-   !!use M_system, only : system_getc, system_putc
+<br />   !!use M_system, only : system_getc, system_putc
    ! ERROR PROCESSING
    use M_system, only : system_errno, system_perror
    ! INFO
@@ -1093,7 +1087,6 @@
 
             <td valign="bottom"><b>system_clearenv</b>(3f): emulate <b>clearenv</b>(3c) to clear environment</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -1256,7 +1249,6 @@
 
             <td valign="bottom"><b>fileglob</b>(3f): Returns list of files using a file globbing pattern</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -1275,7 +1267,6 @@
 
             <td valign="bottom"><b>system_putc</b>(3f): put a character on stdout</td>
           </tr>
-
         </table>
       </blockquote><a name="6"></a>
 
@@ -1294,7 +1285,6 @@
 
             <td valign="bottom"><b>system_rand</b>(3f): call <b>rand</b>(3c)</td>
           </tr>
-
         </table>
       </blockquote><a name="7"></a>
 
@@ -1313,7 +1303,6 @@
 
             <td valign="bottom"><b>system_perror</b>(3f): call <b>perror</b>(3c) to display last C error message</td>
           </tr>
-
         </table>
       </blockquote><a name="8"></a>
 
@@ -1392,7 +1381,6 @@
 
             <td valign="bottom"><b>system_cpu_time</b>(3f) : get processor time in seconds using <b>times</b>(3c)</td>
           </tr>
-
         </table>
       </blockquote><a name="9"></a>
 
@@ -1415,7 +1403,6 @@
             <!-- tsb: Some vendors provide their own way to access POSIX functions and make
  -->
 
-
             <tr valign="top">
               <td width="3%">o</td>
 
@@ -1435,57 +1422,51 @@
                 There are also other compiler-independent efforts to make the POSIX procedures accessible from Fortran...
 
                 <table width="100%" cellpadding="3">
-
                   <tr valign="top">
                     <td width="3%">o</td>
+
                     <td>Posix90 (doc),</td>
                   </tr>
 
                   <tr valign="top">
                     <td width="3%">o</td>
+
                     <td>flib.a platform/files and directories,</td>
                   </tr>
 
                   <tr valign="top">
                     <td width="3%">o</td>
+
                     <td>fortranposix.</td>
                   </tr>
-
                 </table>
               </td>
             </tr>
-
           </table>
         </blockquote>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c5">
-      </div><a name="0"></a>
+      <div class="c5"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_access(3f)</b> - [M_system] checks accessibility or existence of a pathname <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="6"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="6"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_access</b>(pathname,amode)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    integer,intent(in)          :: amode
 <br />
 </pre>
@@ -1511,7 +1492,7 @@ logical function <b>system_access</b>(pathname,amode)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>a character string representing a directory pathname. Trailing spaces are ignored.</td>
           </tr>
@@ -1521,7 +1502,6 @@ logical function <b>system_access</b>(pathname,amode)
 
             <td valign="bottom">bitwise-inclusive OR of the values R_OK, W_OK, X_OK, or F_OK.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -1537,8 +1517,7 @@ logical function <b>system_access</b>(pathname,amode)
         check if filename is accessible
         <pre>
        Sample program:
-<br />
-          program demo_system_access
+<br />          program demo_system_access
           Use M_system, only : system_access, F_OK, R_OK, W_OK, X_OK
           implicit none
           integer                     :: i
@@ -1558,33 +1537,27 @@ logical function <b>system_access</b>(pathname,amode)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c9">
-      </div><a name="0"></a>
+      <div class="c9"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_chdir(3f)</b> - [M_system] call <b>chdir</b>(3c) from Fortran to change working directory <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="6"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="6"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
-<br />
-    character(len=*)               :: path
+<br />    character(len=*)               :: path
     integer, optional, intent(out) :: err
 <br />
 </pre>
@@ -1609,7 +1582,6 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
         <p>Errors</p>
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c10" width="6%" nowrap="nowrap">EACCES</td>
 
@@ -1639,7 +1611,7 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td><i>path</i> is too long.</td>
           </tr>
@@ -1661,11 +1633,10 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>A component of <i>path</i> is not a directory.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -1684,13 +1655,11 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
      use M_system, only : system_chdir
      implicit none
      integer :: ierr
-<br />
-     call execute_command_line('pwd')
+<br />     call execute_command_line('pwd')
      call system_chdir('/tmp',ierr)
      call execute_command_line('pwd')
      write(*,*)'*CHDIR TEST* IERR=',ierr
-<br />
-     end program demo_system_chdir
+<br />     end program demo_system_chdir
 <br />
 </pre>
       </blockquote>RESULTS: Sample run output:
@@ -1701,34 +1670,28 @@ subroutine <b>system_chdir</b>(<i>path</i>, <i>err</i>)
 <br />
 </pre>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c13">
-      </div><a name="0"></a>
+      <div class="c13"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_chmod(3f)</b> - [M_system] call <b>chmod</b>(3c) to change permission mode of a file relative to directory file descriptor
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
-<br />
-      character(len=*),intent(in)  :: filename
+<br />      character(len=*),intent(in)  :: filename
       integer,value,intent(in)     :: mode
       integer                      :: ierr
 <br />
@@ -1755,7 +1718,7 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
         <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
       </blockquote><a name=""></a>
 
-      <h4><a name="">    AT_SYMLINK_NOFOLLOW</a></h4>
+      <h4><a name="">AT_SYMLINK_NOFOLLOW</a></h4>
 
       <blockquote>
         If path names a symbolic link, then the mode of the symbolic link is changed.
@@ -1792,81 +1755,54 @@ function <b>system_chmod</b>(filename,mode) <b>result</b>(<i>ierr</i>)
       write(10,*)'TEST FILE 1'
       close(unit=10)
       ierr=system_chmod('_test1', IANY([R_USR,R_GRP,R_OTH]))
-<br />
-      !Setting Read, Write, and Execute Permissions for the Owner Only
+<br />      !Setting Read, Write, and Execute Permissions for the Owner Only
       ! The following example sets read, write, and execute permissions for the owner, and no permissions for group and others.
       open(file='_test2',unit=10)
       write(10,*)'TEST FILE 2'
       close(unit=10)
       ierr=system_chmod('_test2', RWX_U)
-<br />
-      !Setting Different Permissions for Owner, Group, and Other
+<br />      !Setting Different Permissions for Owner, Group, and Other
       ! The following example sets owner permissions for CHANGEFILE to read, write, and execute, group permissions to read and
       ! execute, and other permissions to read.
       open(file='_test3',unit=10)
       write(10,*)'TEST FILE 3'
       close(unit=10)
       ierr=system_chmod('_test3', IANY([RWX_U,R_GRP,X_GRP,R_OTH]));
-<br />
-      !Setting and Checking File Permissions
+<br />      !Setting and Checking File Permissions
       ! The following example sets the file permission bits for a file named /home/cnd/mod1, then calls the stat() function to
       ! verify the permissions.
-<br />
-      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
+<br />      ierr=system_chmod("home/cnd/mod1", IANY([RWX_U,RWX_G,R_OTH,W_OTH]))
       call system_stat("home/cnd/mod1", buffer,status)
-<br />
-      ! In order to ensure that the S_ISUID and S_ISGID bits are set, an application requiring this should use stat() after a
+<br />      ! In order to ensure that the S_ISUID and S_ISGID bits are set, an application requiring this should use stat() after a
       ! successful chmod() to verify this.
-<br />
-      !    Any files currently open could possibly become invalid if the mode
+<br />      !    Any files currently open could possibly become invalid if the mode
       !    of the file is changed to a value which would deny access to
       !    that process.
-<br />
-   end program demo_system_chmod
-<br />
-<br />
+<br />   end program demo_system_chmod
+<br /><br />
 </pre>
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
       </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c16">
-      </div><a name="0"></a>
+      <div class="c16"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_chown(3f)</b> - [M_system] change file owner and group <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="6"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="6"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_chown</b>(path,owner,group)
-<br />
-   character(len=*),intent(in) :: path
+<br />   character(len=*),intent(in) :: path
    integer,intent(in)          :: owner
    integer,intent(in)          :: group
 <br />
@@ -1905,40 +1841,14 @@ logical function <b>system_chown</b>(path,owner,group)
 
             <td valign="bottom">GID of group that ownership is to be changed to</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
       <h3><a name="4">RETURN VALUE</a></h3>
 
       <blockquote>
-        The <b>system_chown</b>() function should return zero (0) if successful.
-
-        <table cellpadding="3">
-          <!-- tsb: The <B>system_chown</B>() function should return zero (0) if successful.
- -->
-
-          <tr valign="top">
-            <td class="c17" colspan="2">Otherwise, these functions shall return</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"> </td>
-
-            <td>1 and set errno to</td>
-          </tr>
-
-          <tr valign="top">
-            <td class="c17" colspan="2">indicate the error. If</td>
-          </tr>
-
-          <tr valign="top">
-            <td width="6%"> </td>
-
-            <td>1 is returned, no changes are made in the user ID and group ID of the file.</td>
-          </tr>
-
-        </table>
+        The <b>system_chown</b>() function should return zero (0) if successful. Otherwise, these functions shall return 1 and set errno to indicate the
+        error. If 1 is returned, no changes are made in the user ID and group ID of the file.
       </blockquote><a name="5"></a>
 
       <h3><a name="5">EXAMPLE</a></h3>
@@ -1968,33 +1878,27 @@ logical function <b>system_chown</b>(path,owner,group)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c20">
-      </div><a name="0"></a>
+      <div class="c20"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_clearenv(3f)</b> - [M_system:ENVIRONMENT] clear environment by calling <b>clearenv</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_clearenv</b>(<i>ierr</i>)
-<br />
-    integer,intent(out),optional :: ierr
+<br />    integer,intent(out),optional :: ierr
 <br />
 </pre>
       </blockquote><a name="2"></a>
@@ -2005,14 +1909,12 @@ subroutine <b>system_clearenv</b>(<i>ierr</i>)
         The <b>clearenv</b>() procedure clears the environment of all name-value
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c21" width="6%" nowrap="nowrap">pairs.</td>
 
             <td valign="bottom">Typically used in security-conscious applications or ones where configuration control requires ensuring specific variables
             are set.</td>
           </tr>
-
         </table>
       </blockquote><a name="3"></a>
 
@@ -2026,7 +1928,6 @@ subroutine <b>system_clearenv</b>(<i>ierr</i>)
             <td valign="bottom">returns zero on success, and a nonzero value on failure. Optional. If not present and an error occurs the program
             stops.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2052,47 +1953,28 @@ subroutine <b>system_clearenv</b>(<i>ierr</i>)
      SHLVL=1
 <br />
 </pre>
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
       </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c28">
-      </div><a name="0"></a>
+      <div class="c28"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_closedir(3f)</b> - [M_system] close a directory stream by calling <b>closedir</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="8"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="8"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_closedir</b>(dir,ierr)
-<br />
-        type(c_ptr)         :: dir
+<br />        type(c_ptr)         :: dir
         integer,intent(out) :: ierr
 </pre>
       </blockquote><a name="2"></a>
@@ -2119,7 +2001,6 @@ subroutine <b>system_closedir</b>(dir,ierr)
 
             <td valign="bottom">Upon successful completion, <b>SYSTEM_CLOSEDIR</b>(3f) returns 0; otherwise, an error has occurred.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2184,47 +2065,28 @@ subroutine <b>system_closedir</b>(dir,ierr)
    call system_closedir(dir,ierr)
    end program demo_system_closedir
 </pre>
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="7"></a>
-
-      <h3><a name="7">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
       </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c32">
-      </div><a name="0"></a>
+      <div class="c32"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_cpu_time(3f)</b> - [M_system] get processor time by calling <b>times</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="6"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="6"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>)
-<br />
-        real,intent(out) :: c_total
+<br />        real,intent(out) :: c_total
         real,intent(out) :: c_user
         real,intent(out) :: c_system
 <br />
@@ -2242,7 +2104,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>total processor time ( <i>c_user</i> + <i>c_system</i> )</td>
           </tr>
@@ -2258,11 +2120,10 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>processor system time</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2278,8 +2139,7 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
         <p>Sample program:</p>
         <pre>
    program demo_system_cpu_time
-<br />
-   use M_system, only : system_cpu_time
+<br />   use M_system, only : system_cpu_time
    use ISO_C_BINDING, only : c_float
    implicit none
    real    :: user_start, system_start, total_start
@@ -2287,10 +2147,8 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
    integer :: i
    integer :: itimes=1000000
    real    :: value
-<br />
-      call system_cpu_time(total_start,user_start,system_start)
-<br />
-      value=0.0
+<br />      call system_cpu_time(total_start,user_start,system_start)
+<br />      value=0.0
       do i=1,itimes
          value=sqrt(real(i)+value)
       enddo
@@ -2311,25 +2169,20 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
         <p>Typical Results:</p>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c35">
-      </div><a name="0"></a>
+      <div class="c35"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_errno(3f)</b> - [M_system] C error return value <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="4"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="4"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
@@ -2369,33 +2222,27 @@ subroutine <b>system_cpu_time</b>(<i>c_user</i>, <i>c_system</i>, <i>c_total</i>
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c38">
-      </div><a name="0"></a>
+      <div class="c38"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getcwd(3f)</b> - [M_system] call <b>getcwd</b>(3c) to get the pathname of the current working directory <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_getcwd</b>(output,ierr)
-<br />
-       character(len=:),allocatable,intent(out) :: output
+<br />       character(len=:),allocatable,intent(out) :: output
        integer,intent(out)                      :: ierr
 </pre>
       </blockquote><a name="2"></a>
@@ -2422,7 +2269,6 @@ subroutine <b>system_getcwd</b>(output,ierr)
 
             <td valign="bottom">is not zero if an error occurs.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2445,40 +2291,22 @@ subroutine <b>system_getcwd</b>(output,ierr)
      end program demo_system_getcwd
 <br />
 </pre>
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
       </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c42">
-      </div><a name="0"></a>
+      <div class="c42"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getegid(3f)</b> - [M_system:QUERY] get the effective group ID (GID) of current process from Fortran by calling <b>getegid</b>(3c)
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
@@ -2527,34 +2355,28 @@ subroutine <b>system_getcwd</b>(output,ierr)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c45">
-      </div><a name="0"></a>
+      <div class="c45"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getenv(3f)</b> - [M_system:ENVIRONMENT] get environment variable from Fortran by calling <b>get_environment_variable</b>(3f)
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_getenv</b>(<i>name</i>)
-<br />
-    character(len=:),allocatable   :: system_getenv
+<br />    character(len=:),allocatable   :: system_getenv
     character(len=*),intent(in)    :: name
 <br />
 </pre>
@@ -2575,7 +2397,6 @@ function <b>system_getenv</b>(<i>name</i>)
 
             <td valign="bottom">Return the value of the specified environment variable or blank if the variable is not defined.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2588,8 +2409,7 @@ function <b>system_getenv</b>(<i>name</i>)
    use M_system, only : system_getenv
    implicit none
    integer :: ierr
-<br />
-      write(*,'("USER     : ",a)')system_getenv('USER')
+<br />      write(*,'("USER     : ",a)')system_getenv('USER')
       write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME')
       write(*,'("USERNAME : ",a)')system_getenv('USERNAME')
 <br />
@@ -2599,38 +2419,20 @@ function <b>system_getenv</b>(<i>name</i>)
           end program demo_system_getenv
         </blockquote>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c48">
-      </div><a name="0"></a>
+      <div class="c48"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_geteuid(3f)</b> - [M_system:QUERY] get effective UID of current process from Fortran by calling <b>geteuid</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="4"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="4"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
@@ -2661,26 +2463,21 @@ function <b>system_getenv</b>(<i>name</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c51">
-      </div><a name="0"></a>
+      <div class="c51"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getgid(3f)</b> - [M_system:QUERY] get the real group ID (GID) of current process from Fortran by calling <b>getgid</b>(3c)
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
@@ -2729,33 +2526,27 @@ function <b>system_getenv</b>(<i>name</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c54">
-      </div><a name="0"></a>
+      <div class="c54"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getgrgid(3f)</b> - [M_system:QUERY] get groupd name associated with a GID <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="8"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="8"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_getgrgid</b>(<i>gid</i>) result (<i>gname</i>)
-<br />
-   class(*),intent(in)          :: gid   ! any INTEGER type
+<br />   class(*),intent(in)          :: gid   ! any INTEGER type
    character(len=:),allocatable :: gname
 <br />
 </pre>
@@ -2777,7 +2568,6 @@ function <b>system_getgrgid</b>(<i>gid</i>) result (<i>gname</i>)
 
             <td valign="bottom">GID to try to look up associated group for. Can be of any INTEGER type.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2790,7 +2580,6 @@ function <b>system_getgrgid</b>(<i>gid</i>) result (<i>gname</i>)
 
             <td valign="bottom">returns the group name. Blank if an error occurs</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -2814,46 +2603,27 @@ function <b>system_getgrgid</b>(<i>gid</i>) result (<i>gname</i>)
 <br />
 </pre>
       </blockquote><a name="6"></a>
-
-      <h3><a name="6">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="7"></a>
-
-      <h3><a name="7">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c57">
-      </div><a name="0"></a>
+      <div class="c57"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_gethostname(3f)</b> - [M_system:QUERY] get name of current host <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_gethostname</b>(string,ierr)
-<br />
-       character(len=:),allocatable,intent(out) :: NAME
+<br />       character(len=:),allocatable,intent(out) :: NAME
        integer,intent(out)                      :: IERR
 </pre>
       </blockquote><a name="2"></a>
@@ -2879,7 +2649,6 @@ subroutine <b>system_gethostname</b>(string,ierr)
 
             <td valign="bottom">Upon successful completion, 0 shall be returned; otherwise, <b>-1</b> shall be returned.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -2889,13 +2658,11 @@ subroutine <b>system_gethostname</b>(string,ierr)
         Sample program:
         <pre>
    program demo_system_gethostname
-<br />
-   use M_system, only : system_gethostname
+<br />   use M_system, only : system_gethostname
    implicit none
    character(len=:),allocatable :: name
    integer                      :: ierr
-<br />
-      call system_gethostname(name,ierr)
+<br />      call system_gethostname(name,ierr)
       if(ierr.eq.0)then
          write(*,'("hostname[",a,"]")')name
       else
@@ -2908,46 +2675,27 @@ subroutine <b>system_gethostname</b>(string,ierr)
           end program demo_system_gethostname
         </blockquote>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c61">
-      </div><a name="0"></a>
+      <div class="c61"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getlogin(3f)</b> - [M_system:QUERY] get login name <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_getlogin</b>() result (<i>fname</i>)
-<br />
-   character(len=:),allocatable :: FNAME
+<br />   character(len=:),allocatable :: FNAME
 <br />
 </pre>
       </blockquote><a name="2"></a>
@@ -2962,7 +2710,6 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
 
         <blockquote>
           <table cellpadding="3">
-
             <tr valign="top">
               <td width="3%">o</td>
 
@@ -2980,7 +2727,6 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
 
               <td><b>system_getlogin</b>() returns the name associated with the current login activity</td>
             </tr>
-
           </table>
         </blockquote>
       </blockquote><a name="3"></a>
@@ -2994,11 +2740,10 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
           </tr>
 
           <tr valign="top">
-            <td width="3%"> </td>
+            <td width="3%"></td>
 
             <td>returns the login name.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3021,38 +2766,20 @@ function <b>system_getlogin</b>() result (<i>fname</i>)
 <br />
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c64">
-      </div><a name="0"></a>
+      <div class="c64"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getpid(3f)</b> - [M_system:QUERY] get PID (process ID) of current process from Fortran by calling <b>getpid</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="5"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="5"></a>
 
       <h3><a name="5">SYNOPSIS</a></h3>
 
@@ -3089,26 +2816,21 @@ integer function <b>system_getpid</b>()
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c67">
-      </div><a name="0"></a>
+      <div class="c67"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getppid(3f)</b> - [M_system:QUERY] get parent process ID (PPID) of current process from Fortran by calling <b>getppid</b>(3c)
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="7"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="7"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
@@ -3150,41 +2872,33 @@ integer function <b>system_getpid</b>()
    program demo_system_getppid
    use M_system, only : system_getppid
    implicit none
-<br />
-   write(*,*)'PPID=',system_getppid()
-<br />
-   end program demo_system_getppid
+<br />   write(*,*)'PPID=',system_getppid()
+<br />   end program demo_system_getppid
 <br />
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c70">
-      </div><a name="0"></a>
+      <div class="c70"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getpwuid(3f)</b> - [M_system:QUERY] get login name associated with a UID <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="8"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="8"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
-<br />
-   class(*),intent(in)          :: uid    ! any INTEGER type
+<br />   class(*),intent(in)          :: uid    ! any INTEGER type
    character(len=:),allocatable :: uname
 <br />
 </pre>
@@ -3206,7 +2920,6 @@ function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
 
             <td valign="bottom">UID to try to look up associated username for. Can be of any INTEGER type.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3219,7 +2932,6 @@ function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
 
             <td valign="bottom">returns the login name.</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -3242,38 +2954,20 @@ function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
 <br />
 </pre>
       </blockquote><a name="6"></a>
-
-      <h3><a name="6">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="7"></a>
-
-      <h3><a name="7">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c73">
-      </div><a name="0"></a>
+      <div class="c73"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getsid(3f)</b> - [M_system:QUERY] get the process group ID of a session leader <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="5"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="5"></a>
 
       <h3><a name="5">SYNOPSIS</a></h3>
 
@@ -3313,25 +3007,20 @@ function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c76">
-      </div><a name="0"></a>
+      <div class="c76"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getuid(3f)</b> - [M_system:QUERY] get real UID of current process from Fortran by calling <b>getuid</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="4"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="4"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
@@ -3366,25 +3055,20 @@ function <b>system_getpwuid</b>(<i>uid</i>) result (<i>uname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c79">
-      </div><a name="0"></a>
+      <div class="c79"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_getumask(3f)</b> - [M_system] get current umask <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="4"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="4"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
@@ -3418,26 +3102,21 @@ integer function <b>system_getumask</b>() result (<i>umask_value</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c82">
-      </div><a name="0"></a>
+      <div class="c82"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_initenv(3f)</b> - [M_system:ENVIRONMENT] initialize environment table pointer and size so table can be read by <b>readenv</b>(3f)
         <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
-
-      <a name="4"></a>
+      </blockquote><a name="contents" id="contents"></a> <a name="4"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
@@ -3492,31 +3171,27 @@ subroutine <b>system_initenv</b>()
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c85">
-      </div><a name="0"></a>
+      <div class="c85"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_isblk(3f)</b> - [M_system] checks if argument is a block device <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_isblk</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_isblk
 <br />
 </pre>
@@ -3537,7 +3212,6 @@ logical function <b>system_isblk</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a block device <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3583,31 +3257,27 @@ logical function <b>system_isblk</b>(<i>pathname</i>)
 </pre>Results:
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c89">
-      </div><a name="0"></a>
+      <div class="c89"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_ischr(3f)</b> - [M_system] checks if argument is a character device <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_ischr</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_ischr
 <br />
 </pre>
@@ -3624,11 +3294,10 @@ logical function <b>system_ischr</b>(<i>pathname</i>)
       <blockquote>
         <table cellpadding="3">
           <tr valign="top">
-           <td class="c90" width="6%" nowrap="nowrap">path</td>
+            <td class="c90" width="6%" nowrap="nowrap">path</td>
 
-           <td valign="bottom">a character string representing a character device <i>pathname</i>. Trailing spaces are ignored.</td>
+            <td valign="bottom">a character string representing a character device <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3674,31 +3343,27 @@ logical function <b>system_ischr</b>(<i>pathname</i>)
 </pre>Results:
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c93">
-      </div><a name="0"></a>
+      <div class="c93"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_isdir(3f)</b> - [M_system] checks if argument is a directory path <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_isdir</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_isdir
 <br />
 </pre>
@@ -3719,7 +3384,6 @@ logical function <b>system_isdir</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a directory <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3772,31 +3436,27 @@ logical function <b>system_isdir</b>(<i>pathname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c97">
-      </div><a name="0"></a>
+      <div class="c97"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_isfifo(3f)</b> - [M_system] checks if argument is a fifo - named pipe <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_isfifo</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_isfifo
 <br />
 </pre>
@@ -3817,7 +3477,6 @@ logical function <b>system_isfifo</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a fifo - named pipe <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3863,31 +3522,27 @@ logical function <b>system_isfifo</b>(<i>pathname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c101">
-      </div><a name="0"></a>
+      <div class="c101"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_islnk(3f)</b> - [M_system] checks if argument is a link <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_islnk</b>(<i>pathname</i>)
-<br />
-<b>character</b>(len=*),intent(<i>in</i>) :: <i>pathname</i>
+<br /><b>character</b>(len=*),intent(<i>in</i>) :: <i>pathname</i>
 </pre>
 
         <table cellpadding="3">
@@ -3896,11 +3551,10 @@ logical function <b>system_islnk</b>(<i>pathname</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>:: system_islnk</td>
           </tr>
-
         </table>
       </blockquote><a name="2"></a>
 
@@ -3919,7 +3573,6 @@ logical function <b>system_islnk</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a link <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -3965,31 +3618,27 @@ logical function <b>system_islnk</b>(<i>pathname</i>)
 </pre>Results:
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c105">
-      </div><a name="0"></a>
+      <div class="c105"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_isreg(3f)</b> - [M_system] checks if argument is a regular file <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_isreg</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_isreg
 <br />
 </pre>
@@ -4010,7 +3659,6 @@ logical function <b>system_isreg</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -4053,31 +3701,27 @@ logical function <b>system_isreg</b>(<i>pathname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c109">
-      </div><a name="0"></a>
+      <div class="c109"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_issock(3f)</b> - [M_system] checks if argument is a socket <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 logical function <b>system_issock</b>(<i>pathname</i>)
-<br />
-   character(len=*),intent(in) :: pathname
+<br />   character(len=*),intent(in) :: pathname
    logical                     :: system_issock
 <br />
 </pre>
@@ -4098,7 +3742,6 @@ logical function <b>system_issock</b>(<i>pathname</i>)
 
             <td valign="bottom">a character string representing a socket <i>pathname</i>. Trailing spaces are ignored.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -4144,31 +3787,27 @@ logical function <b>system_issock</b>(<i>pathname</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c113">
-      </div><a name="0"></a>
+      <div class="c113"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_kill(3f)</b> - [M_system] send a signal to a process or a group of processes <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 <b>integer</b>(kind=c_int) function <b>system_kill</b>(pid,sig)
-<br />
-      integer,intent(in) :: pid
+<br />      integer,intent(in) :: pid
       integer,intent(in) :: sig
 <br />
 </pre>
@@ -4223,7 +3862,6 @@ logical function <b>system_issock</b>(<i>pathname</i>)
         The <b>kill</b>() function shall fail if:
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c114" width="6%" nowrap="nowrap">EINVAL</td>
 
@@ -4260,8 +3898,7 @@ logical function <b>system_issock</b>(<i>pathname</i>)
    implicit none
    integer           :: i,pid,ios,ierr,signal=9
    character(len=80) :: argument
-<br />
-      do i=1,command_argument_count()
+<br />      do i=1,command_argument_count()
          ! get arguments from command line
          call get_command_argument(i, argument)
          ! convert arguments to integers assuming they are PID numbers
@@ -4287,31 +3924,27 @@ logical function <b>system_issock</b>(<i>pathname</i>)
         <b>getpid</b>(), <b>raise</b>(), <b>setsid</b>(), <b>sigaction</b>(), <b>sigqueue</b>(),
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c117">
-      </div><a name="0"></a>
+      <div class="c117"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_link(3f)</b> - [M_system] link one file to another file relative to two directory file descriptors <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="5">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 integer function <b>link</b>(oldpath,newpath);
-<br />
-    character(len=*),intent(in) :: oldpath
+<br />    character(len=*),intent(in) :: oldpath
     character(len=*),intent(in) :: newpath
 <br />
 </pre>
@@ -4349,7 +3982,7 @@ integer function <b>link</b>(oldpath,newpath);
         <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
       </blockquote><a name=""></a>
 
-      <h4><a name="">    AT_SYMLINK_FOLLOW</a></h4>
+      <h4><a name="">AT_SYMLINK_FOLLOW</a></h4>
 
       <blockquote>
         If path1 names a symbolic link, a new link for the target of the symbolic link is created.
@@ -4392,23 +4025,20 @@ integer function <b>link</b>(oldpath,newpath);
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c120">
-      </div><a name="0"></a>
+      <div class="c120"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_mkdir(3f)</b> - [M_system] call <b>mkdir</b>(3c) to create a new directory <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3><a name="2"></a>
 
@@ -4461,44 +4091,27 @@ following <b>mkdir</b>() calls equivalently:
 <br />
 </pre>
       </blockquote><a name="4"></a>
-
-      <h3><a name="4">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c123">
-      </div><a name="0"></a>
+      <div class="c123"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_mkfifo(3f)</b> - [M_system] make a FIFO special file relative to directory file descriptor <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_mkfifo</b>(pathname,mode) <b>result</b>(<i>ierr</i>)
-<br />
-   character(len=*),intent(in)       :: pathname
+<br />   character(len=*),intent(in)       :: pathname
    integer,intent(in)                :: mode
    integer :: ierr
 <br />
@@ -4593,44 +4206,27 @@ following <b>mkfifo</b>() calls equivalently:
 <br />
 </pre>Now some other process (or this one) can read from /tmp/buffer while this program is running or after, consuming the data as it is read.
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c126">
-      </div><a name="0"></a>
+      <div class="c126"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_opendir(3f)</b> - [M_system] open directory stream by calling <b>opendir</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="11">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_opendir</b>(dirname,dir,ierr)
-<br />
-   character(len=*), intent(in) :: dirname
+<br />   character(len=*), intent(in) :: dirname
    type(c_ptr)                  :: dir
    integer,intent(out)          :: ierr
 <br />
@@ -4657,7 +4253,6 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
         <p>An error corresponds to a condition described in <b>opendir</b>(3c):</p>
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c127" width="6%" nowrap="nowrap">EACCES</td>
 
@@ -4675,7 +4270,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>The length of a component of a pathname is longer than {NAME_MAX}.</td>
           </tr>
@@ -4691,7 +4286,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>A component of dirname names an existing file that is neither a directory nor a symbolic link to a directory.</td>
           </tr>
@@ -4713,7 +4308,7 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>The length of a pathname exceeds {PATH_MAX}, or pathname resolution of a symbolic link produced an intermediate result with a length that
             exceeds {PATH_MAX}.</td>
@@ -4724,7 +4319,6 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
 
             <td valign="bottom">Too many files are currently open in the system.</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -4756,7 +4350,6 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
 
             <td valign="bottom">0 indicates no error occurred</td>
           </tr>
-
         </table>
       </blockquote><a name="8"></a>
 
@@ -4788,44 +4381,27 @@ subroutine <b>system_opendir</b>(dirname,dir,ierr)
    end program demo_system_opendir
 </pre>
       </blockquote><a name="9"></a>
-
-      <h3><a name="9">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="10"></a>
-
-      <h3><a name="10">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c130">
-      </div><a name="0"></a>
+      <div class="c130"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_perm(3f)</b> - [M_system] get file type and permission as a string <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_perm</b>(<i>mode</i>) result (<i>perms</i>)
-<br />
-   integer(kind=int64),intent(in)   :: MODE
+<br />   integer(kind=int64),intent(in)   :: MODE
    character(len=:),allocatable :: PERMS
 <br />
 </pre>
@@ -4847,7 +4423,6 @@ function <b>system_perm</b>(<i>mode</i>) result (<i>perms</i>)
 
             <td valign="bottom">returns the permission string in a format similar to that used by Unix commands such as <b>ls</b>(1).</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -4878,49 +4453,31 @@ function <b>system_perm</b>(<i>mode</i>) result (<i>perms</i>)
 </pre>Results:
         <pre>
    demo_system_perm /tmp
-<br />
-   for /tmp permits[drwxrwxrwx --S] 17407 41777
+<br />   for /tmp permits[drwxrwxrwx --S] 17407 41777
 <br />
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c134">
-      </div><a name="0"></a>
+      <div class="c134"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>perror(3f)</b> - [M_system] print error message for last C error on stderr <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="4">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_perror</b>(<i>prefix</i>)
-<br />
-      character(len=*),intent(in) :: prefix
+<br />      character(len=*),intent(in) :: prefix
 <br />
 </pre>
       </blockquote><a name="2"></a>
@@ -4958,31 +4515,27 @@ subroutine <b>system_perror</b>(<i>prefix</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c137">
-      </div><a name="0"></a>
+      <div class="c137"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_putenv(3f)</b> - [M_system:ENVIRONMENT] set environment variable from Fortran by calling <b>putenv</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_putenv</b>(<i>string</i>, <i>err</i>)
-<br />
-    character(len=*),intent(in)    :: string
+<br />    character(len=*),intent(in)    :: string
     integer, optional, intent(out) :: err
 <br />
 </pre>
@@ -5013,7 +4566,6 @@ subroutine <b>system_putenv</b>(<i>string</i>, <i>err</i>)
             <td valign="bottom">The <b>system_putenv</b>() function returns zero on success, or nonzero if an error occurs. A non-zero error usually
             indicates sufficient memory does not exist to store the variable.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5060,44 +4612,27 @@ subroutine <b>system_putenv</b>(<i>string</i>, <i>err</i>)
 <br />
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c140">
-      </div><a name="0"></a>
+      <div class="c140"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_readdir(3f)</b> - [M_system] read a directory using <b>readdir</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_readdir</b>(dir,filename,ierr)
-<br />
- type(c_ptr),value                         :: dir
+<br /> type(c_ptr),value                         :: dir
  character(len=:),intent(out),allocatable  :: filename
  integer,intent(out)                       :: ierr
 <br />
@@ -5120,7 +4655,6 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
 
             <td valign="bottom">A pointer to the directory opened by <b>system_opendir</b>(3f).</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5133,7 +4667,7 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>
               the name of the directory entry at the current position in the directory stream specified by the argument DIR, and positions the directory
@@ -5153,7 +4687,6 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
 
             <td valign="bottom">If IERR is set to non-zero on return, an error occurred.</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -5167,8 +4700,7 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
    use M_system, only : system_rewinddir,system_closedir
    use iso_c_binding
    implicit none
-<br />
-   type(c_ptr)                  :: dir
+<br />   type(c_ptr)                  :: dir
    character(len=:),allocatable :: filename
    integer                      :: i, ierr
    !--- open directory stream to read from
@@ -5187,49 +4719,31 @@ subroutine <b>system_readdir</b>(dir,filename,ierr)
    endif
    !--- close directory stream
    call system_closedir(dir,ierr)
-<br />
-   end program demo_system_readdir
+<br />   end program demo_system_readdir
 <br />
 </pre>
       </blockquote><a name="6"></a>
-
-      <h3><a name="6">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="7"></a>
-
-      <h3><a name="7">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c144">
-      </div><a name="0"></a>
+      <div class="c144"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_readenv(3f)</b> - [M_system:ENVIRONMENT] step thru and read environment table <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_readenv</b>() <b>result</b>(<i>string</i>)
-<br />
-       character(len=:),allocatable  :: string
+<br />       character(len=:),allocatable  :: string
 </pre>
       </blockquote><a name="2"></a>
 
@@ -5250,7 +4764,6 @@ function <b>system_readenv</b>() <b>result</b>(<i>string</i>)
 
             <td valign="bottom">the <i>string</i> returned from the environment of the form "NAME=VALUE"</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5290,44 +4803,27 @@ function <b>system_readenv</b>() <b>result</b>(<i>string</i>)
         :
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c147">
-      </div><a name="0"></a>
+      <div class="c147"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_realpath(3f)</b> - [M_system] call <b>realpath</b>(3c) to resolve a pathname <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_realpath</b>(<i>input</i>) <b>result</b>(<i>output</i>)
-<br />
-       character(len=*),intent(in)  :: input
+<br />       character(len=*),intent(in)  :: input
        character(len=:),allocatable :: output
 </pre>
       </blockquote><a name="2"></a>
@@ -5347,7 +4843,6 @@ function <b>system_realpath</b>(<i>input</i>) <b>result</b>(<i>output</i>)
 
             <td valign="bottom">pathname to resolve</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5361,7 +4856,6 @@ function <b>system_realpath</b>(<i>input</i>) <b>result</b>(<i>output</i>)
             <td valign="bottom">The absolute pathname of the given <i>input</i> pathname. The pathname shall contain no components that are dot or dot-dot,
             or are symbolic links. It is equal to the NULL character if an error occurred.</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -5405,8 +4899,7 @@ function <b>system_realpath</b>(<i>input</i>) <b>result</b>(<i>output</i>)
       <pre>
   demo_system_realpath
   .=&gt;/home/urbanjs/V600
-<br />
-  cd /usr/share/man
+<br />  cd /usr/share/man
   demo_system_realpath . .. NotThere
   .=&gt;/usr/share/man
   ..=&gt;/usr/share
@@ -5414,31 +4907,27 @@ function <b>system_realpath</b>(<i>input</i>) <b>result</b>(<i>output</i>)
   NotThere=&gt;NotThere
 <br />
 </pre>
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c151">
-      </div><a name="0"></a>
+      <div class="c151"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_remove(3f)</b> - [M_system] call <b>remove</b>(3c) to remove file <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_remove</b>(<i>path</i>) <b>result</b>(<i>err</i>)
-<br />
-   character(*),intent(in) :: path
+<br />   character(*),intent(in) :: path
    integer(c_int)          :: err
 <br />
 </pre>
@@ -5463,25 +4952,21 @@ function <b>system_remove</b>(<i>path</i>) <b>result</b>(<i>err</i>)
    write(*,*)'BEFORE CREATED '//FILE
    call execute_command_line('ls -l '//FILE)
    write(*,*)
-<br />
-   ! note intentionally causes error if file exists
+<br />   ! note intentionally causes error if file exists
    open(unit=10,file=FILE,status='NEW')
    write(*,*)'AFTER OPENED '//FILE
    call execute_command_line('ls -l '//FILE)
    write(*,*)
-<br />
-   write(10,'(a)') 'This is a file I want to delete'
+<br />   write(10,'(a)') 'This is a file I want to delete'
    close(unit=10)
    write(*,*)'AFTER CLOSED '
    call execute_command_line('ls -l '//FILE)
    write(*,*)
-<br />
-   ierr=system_remove(FILE)
+<br />   ierr=system_remove(FILE)
    write(*,*)'AFTER REMOVED',IERR
    call execute_command_line('ls -l '//FILE)
    write(*,*)
-<br />
-   end program demo_system_remove
+<br />   end program demo_system_remove
 <br />
 </pre>Expected Results:
         <pre>
@@ -5499,44 +4984,27 @@ function <b>system_remove</b>(<i>path</i>) <b>result</b>(<i>err</i>)
 <br />
 </pre>
       </blockquote><a name="4"></a>
-
-      <h3><a name="4">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c154">
-      </div><a name="0"></a>
+      <div class="c154"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_rename(3f)</b> - [M_system] call <b>rename</b>(3c) to rename a system file <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="8">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
-<br />
-   character(*),intent(in)    :: input,output
+<br />   character(*),intent(in)    :: input,output
    integer                    :: ierr
 </pre>
       </blockquote><a name="2"></a>
@@ -5565,7 +5033,6 @@ function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
 
             <td valign="bottom">system filename to be created or overwritten by INPUT file. Must be on the same device as the INPUT file.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5579,7 +5046,6 @@ function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
             <td valign="bottom">zero (0) if no error occurs. If not zero a call to <b>system_errno</b>(3f) or <b>system_perror</b>(3f) is supported to
             diagnose error</td>
           </tr>
-
         </table>
       </blockquote><a name="5"></a>
 
@@ -5595,16 +5061,14 @@ function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
      implicit none
      character(len=256) :: string
      integer            :: ios, ierr
-<br />
-     ! try to remove junk files just in case
+<br />     ! try to remove junk files just in case
      ierr=system_remove('_scratch_file_')
      write(*,'(a,i0)') 'should not be zero ',ierr
      call system_perror('*demo_system_rename*')
      ierr=system_remove('_renamed_scratch_file_')
      write(*,'(a,i0)') 'should not be zero ',ierr
      call system_perror('*demo_system_rename*')
-<br />
-     ! create scratch file to rename
+<br />     ! create scratch file to rename
      open(unit=10,file='_scratch_file_',status='new')
      write(10,'(a)') 'Test by renaming "_scratch_file_" to "_renamed_scratch_file_"'
      write(10,'(a)') 'IF YOU SEE THIS ON OUTPUT THE RENAME WORKED'
@@ -5622,14 +5086,12 @@ function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
         write(*,'(a)')trim(string)
      enddo INFINITE
      close(unit=11)
-<br />
-     ! clean up
+<br />     ! clean up
      ierr=system_remove('_scratch_file_')
      write(*,'(a,i0)') 'should not be zero ',ierr
      ierr=system_remove('_renamed_scratch_file_')
      write(*,'(a,i0)') 'should be zero ',ierr
-<br />
-     end program demo_system_rename
+<br />     end program demo_system_rename
 <br />
 </pre>
       </blockquote>Expected output:
@@ -5644,44 +5106,27 @@ function <b>system_rename</b>(input,output) <b>result</b>(<i>ierr</i>)
    &gt; should be zero 0
 <br />
 </pre><a name="6"></a>
-
-      <h3><a name="6">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="7"></a>
-
-      <h3><a name="7">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c158">
-      </div><a name="0"></a>
+      <div class="c158"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_rewinddir(3f)</b> - [M_system] call <b>rewinddir</b>(3c) to rewind directory stream <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_rewinddir</b>(<i>dir</i>)
-<br />
-    type(c_ptr),value :: dir
+<br />    type(c_ptr),value :: dir
 <br />
 </pre>
       </blockquote><a name="2"></a>
@@ -5701,7 +5146,6 @@ subroutine <b>system_rewinddir</b>(<i>dir</i>)
 
             <td valign="bottom">A C_pointer assumed to have been allocated by a call to <b>SYSTEM_OPENDIR</b>(3f).</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5715,8 +5159,7 @@ subroutine <b>system_rewinddir</b>(<i>dir</i>)
    use M_system, only : system_rewinddir,system_closedir
    use iso_c_binding
    implicit none
-<br />
-   type(c_ptr)                  :: dir
+<br />   type(c_ptr)                  :: dir
    character(len=:),allocatable :: filename
    integer                      :: i, ierr
    !&gt;&gt;&gt; open directory stream to read from
@@ -5734,48 +5177,30 @@ subroutine <b>system_rewinddir</b>(<i>dir</i>)
    enddo
    !&gt;&gt;&gt; close directory stream
    call system_closedir(dir,ierr)
-<br />
-   end program demo_system_rewinddir
+<br />   end program demo_system_rewinddir
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c162">
-      </div><a name="0"></a>
+      <div class="c162"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_rmdir(3f)</b> - [M_system] call <b>rmdir</b>(3c) to remove empty directories <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
-<br />
-    character(*),intent(in) :: dirname
+<br />    character(*),intent(in) :: dirname
     integer(c_int) :: err
 <br />
 </pre>
@@ -5790,7 +5215,7 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>The name of a directory to remove if it is empty</td>
           </tr>
@@ -5800,7 +5225,6 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
 
             <td valign="bottom">zero (0) if no error occurred</td>
           </tr>
-
         </table>
       </blockquote><a name="3"></a>
 
@@ -5817,57 +5241,37 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
    integer :: ierr
    write(*,*)'BEFORE TRY TO CREATE _scratch/'
    call execute_command_line('ls -ld _scratch')
-<br />
-   write(*,*)'TRY TO CREATE _scratch/'
+<br />   write(*,*)'TRY TO CREATE _scratch/'
    ierr=system_mkdir('_scratch',RWX_U)
    write(*,*)'IERR=',ierr
    call execute_command_line('ls -ld _scratch')
-<br />
-   write(*,*)'TRY TO REMOVE _scratch/'
+<br />   write(*,*)'TRY TO REMOVE _scratch/'
    ierr=system_rmdir('_scratch')
    write(*,*)'IERR=',ierr
    call execute_command_line('ls -ld _scratch')
-<br />
-   write(*,*)'TRY TO REMOVE _scratch when it should be gone/'
+<br />   write(*,*)'TRY TO REMOVE _scratch when it should be gone/'
    ierr=system_rmdir('_scratch')
    call system_perror('*test of system_rmdir*')
    write(*,*)'IERR=',ierr
    call execute_command_line('ls -ld _scratch')
-<br />
-   end program demo_system_rmdir
+<br />   end program demo_system_rmdir
 <br />
 </pre>Expected output:
       </blockquote><a name="4"></a>
-
-      <h3><a name="4">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c166">
-      </div><a name="0"></a>
+      <div class="c166"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_setsid(3f)</b> - [M_system:QUERY] create session and set the process group ID of a session leader <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
@@ -5893,7 +5297,7 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>group leader of a new process</td>
           </tr>
@@ -5909,11 +5313,10 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
           </tr>
 
           <tr valign="top">
-            <td width="6%"> </td>
+            <td width="6%"></td>
 
             <td>and the only process in the new session.</td>
           </tr>
-
         </table>
       </blockquote><a name="3"></a>
 
@@ -5925,9 +5328,8 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
             <td class="c167" width="6%" nowrap="nowrap">Upon</td>
 
             <td valign="bottom">successful completion, <b>setsid</b>() shall return the value of the new process group ID of the calling process.
-            Other&#226;&#8364; wise, it shall return &#226;&#710;'1 and set errno to indicate the error.</td>
+            Other&acirc;&euro; wise, it shall return &acirc;&circ;'1 and set errno to indicate the error.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -5938,7 +5340,6 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
 
         <blockquote>
           <table cellpadding="3">
-
             <tr valign="top">
               <td width="3%">o</td>
 
@@ -5950,7 +5351,6 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
 
               <td>the process group ID of a process other than the calling process matches the process ID of the calling process.</td>
             </tr>
-
           </table>
         </blockquote>
       </blockquote><a name="5"></a>
@@ -5969,31 +5369,27 @@ function <b>system_rmdir</b>(<i>dirname</i>) <b>result</b>(<i>err</i>)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c170">
-      </div><a name="0"></a>
+      <div class="c170"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_setumask(3f)</b> - [M_system] set the file mode creation umask <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</i>)
-<br />
-    integer,intent(in)  :: new_umask
+<br />    integer,intent(in)  :: new_umask
     integer(kind=c_int) :: umask_c
 <br />
 </pre>
@@ -6010,7 +5406,6 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
 
         <blockquote>
           <table cellpadding="3">
-
             <tr valign="top">
               <td class="c171" width="6%" nowrap="nowrap">*</td>
 
@@ -6035,7 +5430,6 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
 
               <td valign="bottom"><b>sem_open</b>()</td>
             </tr>
-
           </table>
         </blockquote>
 
@@ -6080,29 +5474,26 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
 </pre>
       </blockquote><a name=""></a>
 
-      <h4><a name="">    NEW</a></h4>
+      <h4><a name="">NEW</a></h4>
 
       <blockquote>
         63 O'077' Z"3F' B'000111111"
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c174">
-      </div><a name="0"></a>
+      <div class="c174"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>SYSTEM_STAT</b> - [M_system] Get file status information <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNTAX</a></h3>
 
@@ -6167,7 +5558,6 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
 
             <td valign="bottom">(Optional) print values being returned from C routine being called if value of 0 is used</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -6180,12 +5570,10 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
    use M_time, only :   fmtdate, u2d
    use, intrinsic :: iso_fortran_env, only : int32, int64
    implicit none
-<br />
-   integer(kind=int64)  :: buff(13)
+<br />   integer(kind=int64)  :: buff(13)
    integer(kind=int32)  :: status
    character(len=*),parameter :: fmt_date='year-month-day hour:minute:second'
-<br />
-   integer(kind=int64) :: &amp;
+<br />   integer(kind=int64) :: &amp;
       Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &amp;
       Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &amp;
       Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
@@ -6203,10 +5591,8 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
       ( buff(11) , Last_status_change         ) , &amp;
       ( buff(12) , Preferred_block_size       ) , &amp;
       ( buff(13) , Number_of_blocks_allocated )
-<br />
-   CALL SYSTEM_STAT("/etc/hosts", buff, status)
-<br />
-   if (status == 0) then
+<br />   CALL SYSTEM_STAT("/etc/hosts", buff, status)
+<br />   if (status == 0) then
       write (*, FMT="('Device ID(hex/decimal):',      T30, Z0,'h/',I0,'d')") buff(1),buff(1)
       write (*, FMT="('Inode number:',                T30, I0)") buff(2)
       write (*, FMT="('File mode (octal):',           T30, O19)") buff(3)
@@ -6221,8 +5607,7 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
       write (*, FMT="('Preferred block size(bytes):', T30, I0)") buff(12)
       write (*, FMT="('No. of blocks allocated:',     T30, I0)") buff(13)
    endif
-<br />
-   end program demo_system_stat
+<br />   end program demo_system_stat
 <br />
 </pre>Results:
         <pre>
@@ -6242,44 +5627,27 @@ integer function <b>system_setumask</b>(<i>new_umask</i>) result (<i>old_umask</
 <br />
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c182">
-      </div><a name="0"></a>
+      <div class="c182"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_uname(3f)</b> - [M_system] call a C wrapper that calls <b>uname</b>(3c) to get current system information from Fortran <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="6">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_uname</b>(WHICH,NAMEOUT)
-<br />
-    character(KIND=C_CHAR),intent(in) :: WHICH
+<br />    character(KIND=C_CHAR),intent(in) :: WHICH
     character(len=*),intent(out)      :: NAMEOUT
 </pre>
       </blockquote><a name="2"></a>
@@ -6291,7 +5659,6 @@ subroutine <b>system_uname</b>(WHICH,NAMEOUT)
         hold the value.
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c183" width="6%" nowrap="nowrap">s</td>
 
@@ -6327,7 +5694,6 @@ subroutine <b>system_uname</b>(WHICH,NAMEOUT)
 
             <td valign="bottom">test mode -- print all information, in the following order - srvnm</td>
           </tr>
-
         </table>
       </blockquote><a name="3"></a>
 
@@ -6343,54 +5709,35 @@ subroutine <b>system_uname</b>(WHICH,NAMEOUT)
       integer                    :: i
       character(len=*),parameter :: letters='srvnmxT'
       character(len=is)          :: string=' '
-<br />
-      do i=1,len(letters)
+<br />      do i=1,len(letters)
          write(*,'(80("="))')
          call system_uname(letters(i:i),string)
          write(*,*)'=====&gt; TESTING system_uname('//letters(i:i)//')---&gt;'//trim(string)
       enddo
-<br />
-   end program demo_system_uname
+<br />   end program demo_system_uname
 </pre>
       </blockquote><a name="4"></a>
-
-      <h3><a name="4">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="5"></a>
-
-      <h3><a name="5">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c186">
-      </div><a name="0"></a>
+      <div class="c186"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_unlink(3f)</b> - [M_system] remove a directory entry relative to directory file descriptor <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="5">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 integer function <b>unlink</b>(<i>path</i>);
-<br />
-    character(len=*) :: path
+<br />    character(len=*) :: path
 <br />
 </pre>
       </blockquote><a name="2"></a>
@@ -6415,7 +5762,7 @@ integer function <b>unlink</b>(<i>path</i>);
         <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
       </blockquote><a name=""></a>
 
-      <h4><a name="">    AT_REMOVEDIR</a></h4>
+      <h4><a name="">AT_REMOVEDIR</a></h4>
 
       <blockquote>
         <p>Remove the directory entry specified by fd and <i>path</i> as a directory, not a normal file.</p>
@@ -6444,31 +5791,27 @@ integer function <b>unlink</b>(<i>path</i>);
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c189">
-      </div><a name="0"></a>
+      <div class="c189"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
       <blockquote>
         <b>system_unsetenv(3f)</b> - [M_system:ENVIRONMENT] delete an environment variable by calling <b>unsetenv</b>(3c) <b>(LICENSE:PD)</b>
-      </blockquote><a name="contents"></a>
+      </blockquote><a name="contents" id="contents"></a>
 
       <h3><a name="7">SYNOPSIS</a></h3>
 
       <blockquote>
         <pre>
 subroutine <b>system_unsetenv</b>(name,ierr)
-<br />
-   character(len=*),intent(in)  :: name
+<br />   character(len=*),intent(in)  :: name
    integer,intent(out),optional :: ierr
 <br />
 </pre>
@@ -6497,7 +5840,6 @@ subroutine <b>system_unsetenv</b>(name,ierr)
             <td valign="bottom">The <b>system_unsetenv</b>(3f) function returns zero on success, or <b>-1</b> on error. name is NULL, points to a string of
             length 0, or contains an '=' character. Insufficient memory to add a new variable to the environment.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -6519,30 +5861,14 @@ subroutine <b>system_unsetenv</b>(name,ierr)
 <br />
 </pre>
       </blockquote><a name="5"></a>
-
-      <h3><a name="5">AUTHOR</a></h3>
-
-      <blockquote>
-        John S. Urban
-      </blockquote><a name="6"></a>
-
-      <h3><a name="6">LICENSE</a></h3>
-
-      <blockquote>
-        Public Domain
-      </blockquote>
-      <hr />
-
     </div>
   </div>
 </div>
-</html>
 <?
 <div><P style="page-break-before: always">
   <div id="Container">
     <div id="Content">
-      <div class="c193">
-      </div><a name="0"></a>
+      <div class="c193"></div><a name="0"></a>
 
       <h3><a name="0">NAME</a></h3>
 
@@ -6593,7 +5919,6 @@ function <b>utime</b>(pathname,times)
 
             <td>name of the file whose access and modification times are to be updated.</td>
           </tr>
-
         </table>
       </blockquote><a name="4"></a>
 
@@ -6609,7 +5934,6 @@ function <b>utime</b>(pathname,times)
         The underlying <b>utime</b>(3c) function fails if:
 
         <table cellpadding="3">
-
           <tr valign="top">
             <td class="c194" width="6%" nowrap="nowrap">EACCES</td>
 
@@ -6664,7 +5988,6 @@ function <b>utime</b>(pathname,times)
 
             <td valign="bottom">The file system containing the file is read-only.</td>
           </tr>
-
         </table>
       </blockquote>
 
@@ -6702,11 +6025,9 @@ function <b>utime</b>(pathname,times)
 </pre>
       </blockquote>
       <hr />
-
     </div>
   </div>
 </div>
-</html>
 </article>
 </body>
 </html>

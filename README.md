@@ -19,10 +19,6 @@ GPF package this library is intertwined with several other large modules.
 This will compile the M_system module and build all the example programs from
 the document pages in the PROGRAMS/ sub-directory.
 
-<!--
-<<<<<<< HEAD
-s@<b>\(.*\)<.b>(3f)@<b><a href="md/\1.3.md">\1</a></b>(3f)@
--->
 <blockquote>
 <table cellpadding="3">
 <tr valign="top"> <td valign="bottom"><b><a href="md/system_putenv.3.md">system_putenv</a></b>(3f): call <b>putenv</b>(3c)</td> </tr>
@@ -175,4 +171,3 @@ s@<b>\(.*\)<.b>(3f)@<b><a href="md/\1.md">\1</a></b>(3f)@
 >>>>>>> ece51109ad22f58f5a06902b6364b8db703a6429
 </table>
 </blockquote>
-

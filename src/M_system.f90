@@ -21,7 +21,7 @@
 !!    system_realpath,                                       &
 !!    system_access,                                         &
 !!    system_utime,                                          &
-!!    system_issock, system_perm                             &
+!!    system_issock, system_perm                   ,         &
 !!    system_memcpy
 !!
 !!    !!use M_system, only : system_getc, system_putc
@@ -5125,6 +5125,98 @@ class(*),intent(in)     :: intin
       !stop 'ERROR: *anyinteger_to_64* unknown integer type'
    end select
 end function anyinteger_to_64bit
+!-!!===================================================================================================================================
+!-!!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!-!!===================================================================================================================================
+!-!!>
+!-!!!##NAME
+!-!!!    system_stat_print(3f) - [M_system] print the principal info obtained for a pathname from system_stat(3f)
+!-!!!    (LICENSE:PD)
+!-!!!##SYNOPSIS
+!-!!!
+!-!!!   subroutine system_stat_print(filename)
+!-!!!
+!-!!!    character(len=*),intent(in)  :: filename
+!-!!!    integer,intent(in),optional :: lun
+!-!!!##DESCRIPTION
+!-!!!      Call the system_stat(3f) routine and print the results
+!-!!!##OPTIONS
+!-!!!    filename   pathname to print information for
+!-!!!    lun        unit number to write to. Optional
+!-!!!##EXAMPLE
+!-!!!
+!-!!!   Sample program
+!-!!!
+!-!!!    program demo_system_stat_print
+!-!!!    use M_system, only : system_stat_print
+!-!!!    implicit none
+!-!!!       call system_stat_print('/tmp')
+!-!!!       call system_stat_print('/etc/hosts')
+!-!!!    end program demo_system_stat_print
+!-!!!
+!-!!!   Sample Result
+!-!!!
+!-!!!     41777 drwxrwxrwx --S 1  JSU      None     0    2018-10-19T21:10:39 /tmp
+!-!!!    100750 -rwxr-x--- --- 1  SYSTEM   SYSTEM   824  2018-08-17T01:21:55 /etc/hosts
+!-!!!
+!-!!!##AUTHOR
+!-!!!    John S. Urban
+!-!!!##LICENSE
+!-!!!    Public Domain
+!-!subroutine system_stat_print(filename,lun)
+!-!!!use M_system, only      : system_getpwuid, system_getgrgid, system_perm, system_stat
+!-!use M_time, only          : fmtdate, u2d
+!-!use, intrinsic :: iso_fortran_env, only : OUTPUT_UNIT
+!-!implicit none
+!-!character(len=*),intent(in)  :: filename
+!-!integer,intent(in),optional  :: lun
+!-!integer                      :: lun_local
+!-!character(len=*),parameter   :: dfmt='year-month-dayThour:minute:second'
+!-!integer                      :: ierr
+!-!integer(kind=int64)              :: values(13)
+!-!integer(kind=int64) :: &
+!-!   Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &
+!-!   Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &
+!-!   Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
+!-!EQUIVALENCE                                      &
+!-!   ( VALUES(1)  , Device_ID                  ) , &
+!-!   ( VALUES(2)  , Inode_number               ) , &
+!-!   ( VALUES(3)  , File_mode                  ) , &
+!-!   ( VALUES(4)  , Number_of_links            ) , &
+!-!   ( VALUES(5)  , Owner_uid                  ) , &
+!-!   ( VALUES(6)  , Owner_gid                  ) , &
+!-!   ( VALUES(7)  , Directory_device           ) , &
+!-!   ( VALUES(8)  , File_size                  ) , &
+!-!   ( VALUES(9)  , Last_access                ) , &
+!-!   ( VALUES(10) , Last_modification          ) , &
+!-!   ( VALUES(11) , Last_status_change         ) , &
+!-!   ( VALUES(12) , Preferred_block_size       ) , &
+!-!   ( VALUES(13) , Number_of_blocks_allocated )
+!-!
+!-!   if(present(lun))then
+!-!      lun_local=lun
+!-!   else
+!-!      lun_local=OUTPUT_UNIT
+!-!   endif
+!-!
+!-!   !write(lun, FMT="('Inode number:',                T30, I0)",advance='no') values(2)
+!-!   !write(lun, FMT="(' No. of blocks allocated:',     I0)",advance='no') values(13)
+!-!
+!-!   call system_stat(filename,values,ierr)
+!-!   if(ierr.eq.0)then
+!-!      write(lun_local, FMT="(o6.0,t7,1x,a)",advance='no') File_mode,system_perm(File_mode)
+!-!      write(lun_local, FMT="(1x,I0,t4)",advance='no')  Number_of_links
+!-!      write(lun_local, FMT="(1x,A,t10)",advance='no')  system_getpwuid(Owner_uid)
+!-!      write(lun_local, FMT="(1x,A,t10)",advance='no')  system_getgrgid(Owner_gid)
+!-!      write(lun_local, FMT="(1x,bn,I0,t10)",advance='no') File_size
+!-!      write(lun_local, FMT="(1x,A)",advance='no')      fmtdate(u2d(int(max(Last_access,Last_modification,Last_status_change))),dfmt)
+!-!      write(lun_local, FMT="(1x,a)")filename
+!-!   endif
+!-!
+!-!end subroutine system_stat_print
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
 end module M_system
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!

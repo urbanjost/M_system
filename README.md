@@ -40,9 +40,9 @@ Manager](https://github.com/fortran-lang/fpm) )
 
 Note that the unit test is dependent on several other modules built via
 fpm(1) so it can not be run from the standard Makefile described above
-(ie the test requires several other modules not in this repository but
-if you are on the network fpm(1) will download an build those for the
-test automatically.
+_(ie. the test requires several other modules not in this repository but
+if you are on the network fpm(1) will download and build those for the
+test automatically)_.
 
 or just list it as a dependency in your fpm.toml project file.
 
@@ -59,6 +59,6 @@ the document pages in the PROGRAMS/ sub-directory.
    using the
    [*manpage index*](https://urbanjost.github.io/M_system/index.html)
  + or as a combined file in a
-   [*Javascript BOOK*](https://urbanjost.github.io/M_system/docs/BOOK_M_system.html)
- + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/docs/M_system.html).
+   [*Javascript BOOK*](https://urbanjost.github.io/M_system/BOOK_M_system.html)
+ + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
    if Javascript is not available.

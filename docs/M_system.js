@@ -57,5 +57,4 @@ append("system_uname.3m_system.html");
 append("system_unlink.3m_system.html");
 append("system_unsetenv.3m_system.html");
 append("system_utime.3m_system.html");
-append("penv.1.html");
 }

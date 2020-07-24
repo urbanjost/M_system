@@ -25,7 +25,8 @@ This will compile the M_system module and build all the example programs
 in the PROGRAMS/ directory. There is an example program for each procedure
 that is also part of the manpage for each procedure.
 
-## SUPPORTS FPM (registered at the [fpm(1) registry](https://github.com/fortran-lang/fpm-registry) )
+## SUPPORTS FPM 
+#### (registered at the [fpm(1) registry](https://github.com/fortran-lang/fpm-registry) )
 
 Alternatively, download the github repository and build it with 
 fpm ( as described at [Fortran Package Manager](https://github.com/fortran-lang/fpm) )

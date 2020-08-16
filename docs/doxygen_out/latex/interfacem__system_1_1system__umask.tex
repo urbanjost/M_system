@@ -1,0 +1,65 @@
+\hypertarget{interfacem__system_1_1system__umask}{}\section{m\+\_\+system\+:\+:system\+\_\+umask Interface Reference}
+\label{interfacem__system_1_1system__umask}\index{m\+\_\+system\+::system\+\_\+umask@{m\+\_\+system\+::system\+\_\+umask}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+umask(3fp) -\/ \mbox{[}M\+\_\+system\mbox{]} set and get the file mode creation mask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__umask_a10fa518062761065afc422f100ed0a76}{system\+\_\+umask}} (umask\+\_\+value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+umask(3fp) -\/ \mbox{[}M\+\_\+system\mbox{]} set and get the file mode creation mask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function system\+\_\+umask(umask\+\_\+value)
+
+\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The \mbox{\hyperlink{interfacem__system_1_1system__umask_a10fa518062761065afc422f100ed0a76}{system\+\_\+umask()}} function shall set the file mode creation mask of the process to cmask and return the previous value of the mask. Only the file permission bits of cmask (see $<$sys/stat.\+h$>$) are used; the meaning of the other bits is implementation-\/defined.
+
+The file mode creation mask of the process is used to turn off permission bits in the mode argument supplied during calls to the following functions\+:
+
+
+\begin{DoxyItemize}
+\item open(), openat(), creat(), mkdir(), mkdirat(), mkfifo(), and mkfifoat()
+\item mknod(), mknodat()
+\item mq\+\_\+open()
+\item sem\+\_\+open()
+\end{DoxyItemize}
+
+Bit positions that are set in cmask are cleared in the mode of the created file.
+
+\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+The file permission bits in the value returned by umask() shall be the previous value of the file mode creation mask. The state of any other bits in that value is unspecified, except that a subsequent call to umask() with the returned value as cmask shall leave the state of the mask the same as its state before the first call, including any unspecified use of those bits.
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Sample program\+:
+
+program demo\+\_\+system\+\_\+umask use M\+\_\+system, only \+: system\+\_\+getumask, system\+\_\+setumask implicit none integer value integer mask mask=O\textquotesingle{}002\textquotesingle{} value=system\+\_\+setumask(mask) write($\ast$,\textquotesingle{}(a,\char`\"{}octal=\char`\"{},O4.\+4,\char`\"{} decimal=\char`\"{},i0)\textquotesingle{})\textquotesingle{}O\+LD V\+A\+L\+UE=\textquotesingle{},value,value value=\mbox{\hyperlink{namespacem__system_aa9ca951be39d2ea738d627cf42c00ddd}{system\+\_\+getumask()}} write($\ast$,\textquotesingle{}(a,\char`\"{}octal=\char`\"{},O4.\+4,\char`\"{} decimal=\char`\"{},i0)\textquotesingle{})\textquotesingle{}M\+A\+SK=\textquotesingle{},mask,mask write($\ast$,\textquotesingle{}(a,\char`\"{}octal=\char`\"{},O4.\+4,\char`\"{} decimal=\char`\"{},i0)\textquotesingle{})\textquotesingle{}N\+EW V\+A\+L\+UE=\textquotesingle{},value,value end program demo\+\_\+system\+\_\+umask
+
+Expected results\+:
+
+O\+LD V\+A\+L\+UE=octal=0022 decimal=18 M\+A\+SK=octal=0002 decimal=2 N\+EW V\+A\+L\+UE=octal=0002 decimal=2 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__umask_a10fa518062761065afc422f100ed0a76}\label{interfacem__system_1_1system__umask_a10fa518062761065afc422f100ed0a76}} 
+\index{m\+\_\+system\+::system\+\_\+umask@{m\+\_\+system\+::system\+\_\+umask}!system\+\_\+umask@{system\+\_\+umask}}
+\index{system\+\_\+umask@{system\+\_\+umask}!m\+\_\+system\+::system\+\_\+umask@{m\+\_\+system\+::system\+\_\+umask}}
+\subsubsection{\texorpdfstring{system\+\_\+umask()}{system\_umask()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+umask\+::system\+\_\+umask (\begin{DoxyParamCaption}\item[{integer(kind=c\+\_\+int), value}]{umask\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

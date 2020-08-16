@@ -1,0 +1,55 @@
+\hypertarget{interfacem__system_1_1system__getegid}{}\section{m\+\_\+system\+:\+:system\+\_\+getegid Interface Reference}
+\label{interfacem__system_1_1system__getegid}\index{m\+\_\+system\+::system\+\_\+getegid@{m\+\_\+system\+::system\+\_\+getegid}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getegid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the effective group ID (G\+ID) of current process from Fortran by calling getegid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}{system\+\_\+getegid}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getegid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the effective group ID (G\+ID) of current process from Fortran by calling getegid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}{system\+\_\+getegid()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The getegid() function returns the effective group ID of the calling process.
+
+\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+The getegid() should always be successful and no return value is reserved to indicate an error.
+
+\subsubsection*{E\+R\+R\+O\+RS}
+
+No errors are defined.
+
+\subsubsection*{S\+EE A\+L\+SO}
+
+getegid(), system\+\_\+geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Get group ID from Fortran
+
+program demo\+\_\+system\+\_\+getegid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}} implicit none write($\ast$,$\ast$)\textquotesingle{}G\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}{system\+\_\+getegid()}} end program demo\+\_\+system\+\_\+getegid 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}\label{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}} 
+\index{m\+\_\+system\+::system\+\_\+getegid@{m\+\_\+system\+::system\+\_\+getegid}!system\+\_\+getegid@{system\+\_\+getegid}}
+\index{system\+\_\+getegid@{system\+\_\+getegid}!m\+\_\+system\+::system\+\_\+getegid@{m\+\_\+system\+::system\+\_\+getegid}}
+\subsubsection{\texorpdfstring{system\+\_\+getegid()}{system\_getegid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getegid\+::system\+\_\+getegid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

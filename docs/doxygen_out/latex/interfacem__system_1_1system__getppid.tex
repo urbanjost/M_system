@@ -1,0 +1,59 @@
+\hypertarget{interfacem__system_1_1system__getppid}{}\section{m\+\_\+system\+:\+:system\+\_\+getppid Interface Reference}
+\label{interfacem__system_1_1system__getppid}\index{m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function returns the parent process ID of the calling process.
+
+\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function should always be successful and no return value is reserved to indicate an error.
+
+\subsubsection*{E\+R\+R\+O\+RS}
+
+No errors are defined.
+
+\subsubsection*{S\+EE A\+L\+SO}
+
+exec, fork(), getpgid(), getpgrp(), getpid(), kill(), setpgid(), setsid()
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Get parent process P\+ID (P\+P\+ID) from Fortran
+
+program demo\+\_\+system\+\_\+getppid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}} implicit none
+
+write($\ast$,$\ast$)\textquotesingle{}P\+P\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}}
+
+end program demo\+\_\+system\+\_\+getppid 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}\label{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}} 
+\index{m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}!system\+\_\+getppid@{system\+\_\+getppid}}
+\index{system\+\_\+getppid@{system\+\_\+getppid}!m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}}
+\subsubsection{\texorpdfstring{system\+\_\+getppid()}{system\_getppid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getppid\+::system\+\_\+getppid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

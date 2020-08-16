@@ -1,0 +1,43 @@
+\hypertarget{interfacem__system_1_1system__getpid}{}\section{m\+\_\+system\+:\+:system\+\_\+getpid Interface Reference}
+\label{interfacem__system_1_1system__getpid}\index{m\+\_\+system\+::system\+\_\+getpid@{m\+\_\+system\+::system\+\_\+getpid}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getpid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get P\+ID (process ID) of current process from Fortran by calling getpid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+pure integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}{system\+\_\+getpid}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getpid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get P\+ID (process ID) of current process from Fortran by calling getpid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer function \mbox{\hyperlink{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}{system\+\_\+getpid()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The \mbox{\hyperlink{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}{system\+\_\+getpid()}} function returns the process ID of the calling process. \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+The value returned is the integer process ID. The \mbox{\hyperlink{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}{system\+\_\+getpid()}} function shall always be successful and no return value is reserved to indicate an error. \subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Get process P\+ID from Fortran
+
+program demo\+\_\+system\+\_\+getpid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getpid}{system\+\_\+getpid}} implicit none write($\ast$,$\ast$)\textquotesingle{}P\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}{system\+\_\+getpid()}} end program demo\+\_\+system\+\_\+getpid 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}\label{interfacem__system_1_1system__getpid_a57e3dc61f201783198e6dbb4ace1527b}} 
+\index{m\+\_\+system\+::system\+\_\+getpid@{m\+\_\+system\+::system\+\_\+getpid}!system\+\_\+getpid@{system\+\_\+getpid}}
+\index{system\+\_\+getpid@{system\+\_\+getpid}!m\+\_\+system\+::system\+\_\+getpid@{m\+\_\+system\+::system\+\_\+getpid}}
+\subsubsection{\texorpdfstring{system\+\_\+getpid()}{system\_getpid()}}
+{\footnotesize\ttfamily pure integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getpid\+::system\+\_\+getpid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

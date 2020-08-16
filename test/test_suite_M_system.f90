@@ -1,6 +1,6 @@
 include "M_debug.inc"
 program runtest
-use M_msg
+!use M_msg,     only : str
 use M_debug
 use M_debug, only : unit_check, unit_check_start, unit_check_good, unit_check_bad, unit_check_done
 use M_debug, only : unit_check_level
@@ -15,8 +15,7 @@ end program runtest
 subroutine test_suite_M_system()
 use M_system
 use M_debug,   only : unit_check_start,unit_check,unit_check_done,unit_check_good,unit_check_bad,unit_check_msg
-use M_debug,   only : unit_check_level
-use M_msg,     only : str
+use M_debug,   only : unit_check_level, str
 use M_process ,only : process_readall
 use,intrinsic :: iso_c_binding,   only : c_int32_t, c_int, c_ptr, c_size_t, c_short, c_float, c_char, c_null_char
 use, intrinsic :: iso_fortran_env, only : int8, int16, int32, int64, real32, real64, real128

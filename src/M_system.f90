@@ -427,7 +427,7 @@ end interface
 !!##SEE ALSO
 !!    drand48(3c), random(3c)
 !===================================================================================================================================
-character(len=*),parameter :: ident_srand="@(#) M_system::system_srand(3f): call srand(3c)"
+!character(len=*),parameter :: ident_srand="@(#) M_system::system_srand(3f): call srand(3c)"
 ! void srand_system(int *seed)
 interface
    subroutine system_srand(seed) bind(c,name='srand')
@@ -548,7 +548,7 @@ end interface
 !!##SEE ALSO
 !!    getpid(), raise(), setsid(), sigaction(), sigqueue(),
 !===================================================================================================================================
-character(len=*),parameter :: ident_kill="@(#) M_system::system_kill(3f): call kill(3c) to send a signal to a process"
+!character(len=*),parameter :: ident_kill="@(#) M_system::system_kill(3f): call kill(3c) to send a signal to a process"
 ! int kill(pid_t pid, int sig);
 interface
    function system_kill(c_pid,c_signal) bind(c,name="kill") result(c_ierr)
@@ -595,7 +595,7 @@ end interface
 !!    err=           2
 !!    *demo_system_errno*: No such file or directory
 !===================================================================================================================================
-character(len=*),parameter :: ident_errno="@(#) M_system::system_errno(3f): return errno(3c)"
+!character(len=*),parameter :: ident_errno="@(#) M_system::system_errno(3f): return errno(3c)"
 
 interface
    integer(kind=c_int) function system_errno() bind (C,name="my_errno")
@@ -634,7 +634,7 @@ end interface
 !!       write(*,*)'EFFECTIVE UID=',system_geteuid()
 !!    end program demo_system_geteuid
 !===================================================================================================================================
-character(len=*),parameter :: ident_euid="@(#) M_system::system_geteuid(3f): call geteuid(3c)"
+!character(len=*),parameter :: ident_euid="@(#) M_system::system_geteuid(3f): call geteuid(3c)"
 interface
    integer(kind=c_int) function system_geteuid() bind (C,name="geteuid")
       import c_int
@@ -669,7 +669,7 @@ end interface
 !!
 !!    UID=      197609
 !===================================================================================================================================
-character(len=*),parameter :: ident_uid="@(#) M_system::system_getuid(3f): call getuid(3c)"
+!character(len=*),parameter :: ident_uid="@(#) M_system::system_getuid(3f): call getuid(3c)"
 interface
    integer(kind=c_int) function system_getuid() bind (C,name="getuid")
       import c_int
@@ -710,7 +710,7 @@ end interface
 !!       write(*,*)'GID=',system_getegid()
 !!    end program demo_system_getegid
 !===================================================================================================================================
-character(len=*),parameter :: ident_egid="@(#) M_system::system_getegid(3f): call getegid(3c)"
+!character(len=*),parameter :: ident_egid="@(#) M_system::system_getegid(3f): call getegid(3c)"
 interface
    integer(kind=c_int) function system_getegid() bind (C,name="getegid")
       import c_int
@@ -750,7 +750,7 @@ end interface
 !!       write(*,*)'GID=',system_getgid()
 !!    end program demo_system_getgid
 !===================================================================================================================================
-character(len=*),parameter :: ident_gid="@(#) M_system::system_getgid(3f): call getgid(3c)"
+!character(len=*),parameter :: ident_gid="@(#) M_system::system_getgid(3f): call getgid(3c)"
 interface
    integer(kind=c_int) function system_getgid() bind (C,name="getgid")
       import c_int
@@ -792,7 +792,7 @@ end interface
 !!       write(*,*)'SID=',system_setsid()
 !!    end program demo_system_setsid
 !===================================================================================================================================
-character(len=*),parameter :: ident_setsid="@(#) M_system::system_setsid(3f): call setsid(3c) to set session leader for given pid"
+!character(len=*),parameter :: ident_setsid="@(#) M_system::system_setsid(3f): call setsid(3c) to set session leader for given pid"
 interface
    integer(kind=c_int) function system_setsid() bind (C,name="setsid")
       import c_int
@@ -828,7 +828,7 @@ end interface
 !!       write(*,*)'SID=',system_getsid(0_c_int)
 !!    end program demo_system_getsid
 !===================================================================================================================================
-character(len=*),parameter :: ident_getsid="@(#) M_system::system_getsid(3f): call getsid(3c) to get session leader for given pid"
+!character(len=*),parameter :: ident_getsid="@(#) M_system::system_getsid(3f): call getsid(3c) to get session leader for given pid"
 interface
    integer(kind=c_int) function system_getsid(c_pid) bind (C,name="getsid")
       import c_int
@@ -862,7 +862,7 @@ end interface
 !!       write(*,*)'PID=',system_getpid()
 !!    end program demo_system_getpid
 !===================================================================================================================================
-character(len=*),parameter :: ident_pid="@(#) M_system::system_getpid(3f): call getpid(3c)"
+!character(len=*),parameter :: ident_pid="@(#) M_system::system_getpid(3f): call getpid(3c)"
 
 interface
    pure integer(kind=c_int) function system_getpid() bind (C,name="getpid")
@@ -906,7 +906,7 @@ end interface
 !!
 !!    end program demo_system_getppid
 !===================================================================================================================================
-character(len=*),parameter :: ident_ppid="@(#) M_system::system_getppid(3f): call getppid(3c)"
+!character(len=*),parameter :: ident_ppid="@(#) M_system::system_getppid(3f): call getppid(3c)"
 interface
    integer(kind=c_int) function system_getppid() bind (C,name="getppid")
    import c_int
@@ -971,7 +971,7 @@ end interface
 !!    MASK=octal=0002 decimal=2
 !!    NEW VALUE=octal=0002 decimal=2
 !===================================================================================================================================
-character(len=*),parameter :: ident_umask="@(#) M_system::system_umask(3f): call umask(3c)"
+!character(len=*),parameter :: ident_umask="@(#) M_system::system_umask(3f): call umask(3c)"
 interface
    integer(kind=c_int) function system_umask(umask_value) bind (C,name="umask")
    import c_int
@@ -1031,7 +1031,7 @@ end interface
 !!       347750200
 !!      1729645355
 !===================================================================================================================================
-character(len=*),parameter :: ident_rand="@(#) M_system::system_rand(3f): call rand(3c)"
+!character(len=*),parameter :: ident_rand="@(#) M_system::system_rand(3f): call rand(3c)"
 interface
    integer(kind=c_int) function system_rand() bind (C,name="rand")
       import c_int
@@ -1101,7 +1101,7 @@ integer(kind=c_long),bind(c,name="longest_env_variable") :: longest_env_variable
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-character(len=*),parameter :: ident_initenv="@(#) M_system::system_initenv(3f): initialize environment table for reading"
+!character(len=*),parameter :: ident_initenv="@(#) M_system::system_initenv(3f): initialize environment table for reading"
 interface
    subroutine system_initenv() bind (C,NAME='my_initenv')
    end subroutine system_initenv
@@ -1203,7 +1203,7 @@ contains
 function system_access(pathname,amode)
 implicit none
 
-character(len=*),parameter::ident_1="@(#)M_system::system_access(3f): checks accessibility or existence of a pathname"
+!character(len=*),parameter::ident_1="@(#)M_system::system_access(3f): checks accessibility or existence of a pathname"
 
 character(len=*),intent(in) :: pathname
 integer,intent(in)          :: amode
@@ -1333,7 +1333,7 @@ end function system_access
 function system_utime(pathname,times)
 implicit none
 
-character(len=*),parameter::ident_2="@(#)M_system::system_utime(3f): set access and modification times of a pathname"
+!character(len=*),parameter::ident_2="@(#)M_system::system_utime(3f): set access and modification times of a pathname"
 
 character(len=*),intent(in) :: pathname
 integer,intent(in)          :: times(2)
@@ -1430,8 +1430,8 @@ end function system_utime
 !===================================================================================================================================
 function system_realpath(input) result(string)
 
-character(len=*),parameter::ident_3="&
-&@(#)M_system::system_realpath(3f):call realpath(3c) to get pathname of current working directory"
+!character(len=*),parameter::ident_3="&
+!&@(#)M_system::system_realpath(3f):call realpath(3c) to get pathname of current working directory"
 
 character(len=*),intent(in)    :: input
 type(c_ptr)                    :: c_output
@@ -1505,7 +1505,7 @@ end function system_realpath
 function system_issock(pathname)
 implicit none
 
-character(len=*),parameter::ident_4="@(#)M_system::system_issock(3f): determine if pathname is a socket"
+!character(len=*),parameter::ident_4="@(#)M_system::system_issock(3f): determine if pathname is a socket"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_issock
@@ -1579,7 +1579,7 @@ end function system_issock
 function system_isfifo(pathname)
 implicit none
 
-character(len=*),parameter::ident_5="@(#)M_system::system_isfifo(3f): determine if pathname is a fifo(named pipe)"
+!character(len=*),parameter::ident_5="@(#)M_system::system_isfifo(3f): determine if pathname is a fifo(named pipe)"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isfifo
@@ -1655,7 +1655,7 @@ end function system_isfifo
 function system_ischr(pathname)
 implicit none
 
-character(len=*),parameter::ident_6="@(#)M_system::system_ischr(3f): determine if pathname is a link"
+!character(len=*),parameter::ident_6="@(#)M_system::system_ischr(3f): determine if pathname is a link"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_ischr
@@ -1726,7 +1726,7 @@ end function system_ischr
 function system_isreg(pathname)
 implicit none
 
-character(len=*),parameter::ident_7="@(#)M_system::system_isreg(3f): determine if pathname is a regular file"
+!character(len=*),parameter::ident_7="@(#)M_system::system_isreg(3f): determine if pathname is a regular file"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isreg
@@ -1803,7 +1803,7 @@ end function system_isreg
 function system_islnk(pathname)
 implicit none
 
-character(len=*),parameter::ident_8="@(#)M_system::system_islnk(3f): determine if pathname is a link"
+!character(len=*),parameter::ident_8="@(#)M_system::system_islnk(3f): determine if pathname is a link"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_islnk
@@ -1879,7 +1879,7 @@ end function system_islnk
 function system_isblk(pathname)
 implicit none
 
-character(len=*),parameter::ident_9="@(#)M_system::system_isblk(3f): determine if pathname is a block device"
+!character(len=*),parameter::ident_9="@(#)M_system::system_isblk(3f): determine if pathname is a block device"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isblk
@@ -1966,8 +1966,8 @@ end function system_isblk
 function system_chown(dirname,owner,group)
 implicit none
 
-character(len=*),parameter::ident_10="&
-&@(#)M_system::system_chown(3f): change owner and group of a file relative to directory file descriptor"
+!character(len=*),parameter::ident_10="&
+!&@(#)M_system::system_chown(3f): change owner and group of a file relative to directory file descriptor"
 
 character(len=*),intent(in) :: dirname
 integer,intent(in)          :: owner
@@ -2053,7 +2053,7 @@ end function system_chown
 function system_isdir(dirname)
 implicit none
 
-character(len=*),parameter::ident_11="@(#)M_system::system_isdir(3f): determine if DIRNAME is a directory name"
+!character(len=*),parameter::ident_11="@(#)M_system::system_isdir(3f): determine if DIRNAME is a directory name"
 
 character(len=*),intent(in) :: dirname
 logical                     :: system_isdir
@@ -2143,7 +2143,7 @@ end function system_isdir
 !!end interface
 subroutine system_cpu_time(total,user,system)
 
-character(len=*),parameter :: ident_cpu_time="@(#) M_system::system_cpu_time(3f): get processor time using times(3c)"
+!character(len=*),parameter :: ident_cpu_time="@(#) M_system::system_cpu_time(3f): get processor time using times(3c)"
 
 real,intent(out)   :: user,system,total
 real(kind=c_float) :: c_user,c_system,c_total
@@ -2241,7 +2241,7 @@ end subroutine system_cpu_time
 !===================================================================================================================================
 function system_link(oldname,newname) result(ierr)
 
-character(len=*),parameter::ident_12="@(#)M_system::system_link(3f): call link(3c) to create a file link"
+!character(len=*),parameter::ident_12="@(#)M_system::system_link(3f): call link(3c) to create a file link"
 
 character(len=*),intent(in) :: oldname
 character(len=*),intent(in) :: newname
@@ -2328,7 +2328,7 @@ end function system_link
 !===================================================================================================================================
 function system_unlink(fname) result (ierr)
 
-character(len=*),parameter::ident_13="@(#)M_system::system_unlink(3f): call unlink(3c) to rm file link"
+!character(len=*),parameter::ident_13="@(#)M_system::system_unlink(3f): call unlink(3c) to rm file link"
 
 character(len=*),intent(in) :: fname
 integer                     :: ierr
@@ -2503,7 +2503,7 @@ end function system_getumask
 subroutine system_perror(prefix)
 use, intrinsic :: iso_fortran_env, only : ERROR_UNIT, INPUT_UNIT, OUTPUT_UNIT     ! access computing environment
 
-character(len=*),parameter::ident_14="@(#)M_system::system_perror(3f): call perror(3c) to display error message"
+!character(len=*),parameter::ident_14="@(#)M_system::system_perror(3f): call perror(3c) to display error message"
 
 character(len=*),intent(in) :: prefix
    integer                  :: ios
@@ -2592,7 +2592,7 @@ end subroutine system_perror
 !===================================================================================================================================
 subroutine system_chdir(path, err)
 
-character(len=*),parameter::ident_15="@(#)M_system::system_chdir(3f): call chdir(3c)"
+!character(len=*),parameter::ident_15="@(#)M_system::system_chdir(3f): call chdir(3c)"
 
 character(len=*)               :: path
 integer, optional, intent(out) :: err
@@ -2682,7 +2682,7 @@ end subroutine system_chdir
 !===================================================================================================================================
 function system_remove(path) result(err)
 
-character(len=*),parameter::ident_16="@(#)M_system::system_remove(3f): call remove(3c) to remove file"
+!character(len=*),parameter::ident_16="@(#)M_system::system_remove(3f): call remove(3c) to remove file"
 
 character(*),intent(in) :: path
 integer(c_int)          :: err
@@ -2789,7 +2789,7 @@ end function system_remove
 !===================================================================================================================================
 function system_rename(input,output) result(ierr)
 
-character(len=*),parameter::ident_17="@(#)M_system::system_rename(3f): call rename(3c) to change filename"
+!character(len=*),parameter::ident_17="@(#)M_system::system_rename(3f): call rename(3c) to change filename"
 
 character(*),intent(in)    :: input,output
 integer                    :: ierr
@@ -2975,7 +2975,7 @@ end function system_chmod
 !===================================================================================================================================
 subroutine system_getcwd(output,ierr)
 
-character(len=*),parameter::ident_18="@(#)M_system::system_getcwd(3f):call getcwd(3c) to get pathname of current working directory"
+!character(len=*),parameter::ident_18="@(#)M_system::system_getcwd(3f):call getcwd(3c) to get pathname of current working directory"
 
 character(len=:),allocatable,intent(out) :: output
 integer,intent(out)                      :: ierr
@@ -3060,7 +3060,7 @@ end subroutine system_getcwd
 !===================================================================================================================================
 function system_rmdir(dirname) result(err)
 
-character(len=*),parameter::ident_19="@(#)M_system::system_rmdir(3f): call rmdir(3c) to remove empty directory"
+!character(len=*),parameter::ident_19="@(#)M_system::system_rmdir(3f): call rmdir(3c) to remove empty directory"
 
 character(*),intent(in) :: dirname
 integer(c_int) :: err
@@ -3197,7 +3197,7 @@ end function system_rmdir
 !===================================================================================================================================
 function system_mkfifo(pathname,mode) result(err)
 
-character(len=*),parameter::ident_20="@(#)M_system::system_mkfifo(3f): call mkfifo(3c) to create a new FIFO special file"
+!character(len=*),parameter::ident_20="@(#)M_system::system_mkfifo(3f): call mkfifo(3c) to create a new FIFO special file"
 
 character(len=*),intent(in)       :: pathname
 integer,intent(in)                :: mode
@@ -3277,7 +3277,7 @@ end function system_mkfifo
 !===================================================================================================================================
 function system_mkdir(dirname,mode) result(ierr)
 
-character(len=*),parameter::ident_21="@(#)M_system::system_mkdir(3f): call mkdir(3c) to create empty directory"
+!character(len=*),parameter::ident_21="@(#)M_system::system_mkdir(3f): call mkdir(3c) to create empty directory"
 
 character(len=*),intent(in)       :: dirname
 integer,intent(in)                :: mode
@@ -3752,7 +3752,7 @@ end subroutine system_closedir
 !===================================================================================================================================
 subroutine system_putenv(string, err)
 
-character(len=*),parameter::ident_22="@(#)M_system::system_putenv(3f): call putenv(3c)"
+!character(len=*),parameter::ident_22="@(#)M_system::system_putenv(3f): call putenv(3c)"
 
 interface
    integer(kind=c_int)  function c_putenv(c_string) bind(C,name="putenv")
@@ -3823,7 +3823,7 @@ end subroutine system_putenv
 !===================================================================================================================================
 function system_getenv(name) result(var)
 
-character(len=*),parameter::ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable(3f)"
+!character(len=*),parameter::ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable(3f)"
 
 character(len=*),intent(in)  :: name
 integer                      :: howbig
@@ -3904,7 +3904,7 @@ end function system_getenv
 !===================================================================================================================================
 subroutine set_environment_variable(NAME, VALUE, STATUS)
 
-character(len=*),parameter::ident_24="@(#)M_system::set_environment_variable(3f): call setenv(3c) to set environment variable"
+!character(len=*),parameter::ident_24="@(#)M_system::set_environment_variable(3f): call setenv(3c) to set environment variable"
 
    character(len=*)               :: NAME
    character(len=*)               :: VALUE
@@ -3975,7 +3975,7 @@ end subroutine set_environment_variable
 subroutine system_clearenv(ierr)
 !  emulating because not available on some platforms
 
-character(len=*),parameter::ident_25="@(#)M_system::system_clearenv(3f): emulate clearenv(3c) to clear environment"
+!character(len=*),parameter::ident_25="@(#)M_system::system_clearenv(3f): emulate clearenv(3c) to clear environment"
 
 integer,intent(out),optional    :: ierr
    character(len=:),allocatable :: string
@@ -4067,7 +4067,7 @@ end subroutine system_clearenv
 !===================================================================================================================================
 subroutine system_unsetenv(name,ierr)
 
-character(len=*),parameter::ident_26="@(#)M_system::system_unsetenv(3f): call unsetenv(3c) to remove variable from environment"
+!character(len=*),parameter::ident_26="@(#)M_system::system_unsetenv(3f): call unsetenv(3c) to remove variable from environment"
 
 character(len=*),intent(in)  :: name
 integer,intent(out),optional :: ierr
@@ -4151,7 +4151,7 @@ end subroutine system_unsetenv
 !===================================================================================================================================
 function system_readenv() result(string)
 
-character(len=*),parameter::ident_27="@(#)M_system::system_readenv(3f): read next entry from environment table"
+!character(len=*),parameter::ident_27="@(#)M_system::system_readenv(3f): read next entry from environment table"
 
 character(len=:),allocatable  :: string
 character(kind=c_char)        :: c_buff(longest_env_variable+1)
@@ -4223,7 +4223,7 @@ subroutine fileglob(glob, list) ! NON-PORTABLE AT THIS POINT. REQUIRES ls(1) com
 !  The list can be zero names long, it is still allocated.
 implicit none
 
-character(len=*),parameter::ident_28="@(#)M_system::fileglob(3f): Returns list of files using a file globbing pattern"
+!character(len=*),parameter::ident_28="@(#)M_system::fileglob(3f): Returns list of files using a file globbing pattern"
 
 !-----------------------------------------------------------------------------------------------------------------------------------
 character(len=*),intent(in)   :: glob                   ! Pattern for the filenames (like: *.txt)
@@ -4303,7 +4303,7 @@ end subroutine fileglob
 subroutine system_uname(WHICH,NAMEOUT)
 implicit none
 
-character(len=*),parameter::ident_29="@(#)M_system::system_uname(3f): call my_uname(3c) which calls uname(3c)"
+!character(len=*),parameter::ident_29="@(#)M_system::system_uname(3f): call my_uname(3c) which calls uname(3c)"
 
 character(KIND=C_CHAR),intent(in) :: WHICH
 character(len=*),intent(out)      :: NAMEOUT
@@ -4373,7 +4373,7 @@ end subroutine system_uname
 subroutine system_gethostname(NAME,IERR)
 implicit none
 
-character(len=*),parameter::ident_30="@(#)M_system::system_gethostname(3f): get name of current host by calling gethostname(3c)"
+!character(len=*),parameter::ident_30="@(#)M_system::system_gethostname(3f): get name of current host by calling gethostname(3c)"
 
 character(len=:),allocatable,intent(out) :: NAME
 integer,intent(out)                      :: IERR
@@ -4713,7 +4713,7 @@ end function system_getpwuid
 !===================================================================================================================================
 pure function arr2str(array)  result (string)
 
-character(len=*),parameter::ident_31="@(#)M_system::arr2str(3fp): function copies null-terminated char array to string"
+!character(len=*),parameter::ident_31="@(#)M_system::arr2str(3fp): function copies null-terminated char array to string"
 
 character(len=1),intent(in)  :: array(:)
 character(len=size(array))   :: string
@@ -4734,7 +4734,7 @@ end function arr2str
 !===================================================================================================================================
 pure function str2arr(string) result (array)
 
-character(len=*),parameter::ident_32="@(#)M_system::str2arr(3fp): function copies string to null terminated char array"
+!character(len=*),parameter::ident_32="@(#)M_system::str2arr(3fp): function copies string to null terminated char array"
 
 character(len=*),intent(in)     :: string
 character(len=1,kind=c_char)    :: array(len(string)+1)
@@ -4909,7 +4909,7 @@ end function C2F_string
 subroutine system_stat(pathname,values,ierr)
 implicit none
 
-character(len=*),parameter::ident_33="@(#)M_system::system_stat(3f): call stat(3c) to get pathname information"
+!character(len=*),parameter::ident_33="@(#)M_system::system_stat(3f): call stat(3c) to get pathname information"
 
 character(len=*),intent(in)          :: pathname
 

@@ -1,0 +1,9 @@
+'mainpage.txt
+/**
+     @mainpage M_system Fortran Library
+
+     @section Introduction
+      system interface using C_ISO_BINDING interface to common POSIX routines
+
+     @image html html/images/swirl.gif
+*/'

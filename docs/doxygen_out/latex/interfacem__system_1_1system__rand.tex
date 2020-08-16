@@ -1,0 +1,60 @@
+\hypertarget{interfacem__system_1_1system__rand}{}\section{m\+\_\+system\+:\+:system\+\_\+rand Interface Reference}
+\label{interfacem__system_1_1system__rand}\index{m\+\_\+system\+::system\+\_\+rand@{m\+\_\+system\+::system\+\_\+rand}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+rand(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call pseudo-\/random number generator rand(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__rand_a35d3d17489a09dede93091bdc4ab69e0}{system\+\_\+rand}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+rand(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call pseudo-\/random number generator rand(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) \+:\+: function \mbox{\hyperlink{interfacem__system_1_1system__rand_a35d3d17489a09dede93091bdc4ab69e0}{system\+\_\+rand()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+Use rand(3c) to generate pseudo-\/random numbers.
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+\begin{DoxyVerb}Sample program:
+
+   program demo_system_rand
+   use M_system, only : system_srand, system_rand
+   implicit none
+   integer :: i
+
+   call system_srand(1001)
+   do i=1,10
+      write(*,*)system_rand()
+   enddo
+   write(*,*)
+
+   end program demo_system_rand
+\end{DoxyVerb}
+ expected results\+:
+
+1512084687 1329390995 1874040748 60731048 239808950 2017891911 22055588 1105177318 347750200 1729645355
+
+1512084687 1329390995 1874040748 60731048 239808950 2017891911 22055588 1105177318 347750200 1729645355 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__rand_a35d3d17489a09dede93091bdc4ab69e0}\label{interfacem__system_1_1system__rand_a35d3d17489a09dede93091bdc4ab69e0}} 
+\index{m\+\_\+system\+::system\+\_\+rand@{m\+\_\+system\+::system\+\_\+rand}!system\+\_\+rand@{system\+\_\+rand}}
+\index{system\+\_\+rand@{system\+\_\+rand}!m\+\_\+system\+::system\+\_\+rand@{m\+\_\+system\+::system\+\_\+rand}}
+\subsubsection{\texorpdfstring{system\+\_\+rand()}{system\_rand()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+rand\+::system\+\_\+rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

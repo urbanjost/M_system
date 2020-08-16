@@ -1,0 +1,43 @@
+\hypertarget{interfacem__system_1_1system__getsid}{}\section{m\+\_\+system\+:\+:system\+\_\+getsid Interface Reference}
+\label{interfacem__system_1_1system__getsid}\index{m\+\_\+system\+::system\+\_\+getsid@{m\+\_\+system\+::system\+\_\+getsid}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid}} (c\+\_\+pid)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+getsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function system\+\_\+getsid(pid) integer(kind=c\+\_\+int) \+:\+: pid \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} function obtains the process group ID of the process that is the session leader of the process specified by pid. If pid is 0, it specifies the calling process. \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+Upon successful completion, \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} shall return the process group ID of the session leader of the specified process. Otherwise, it shall return -\/1 and set errno to indicate the error. \subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Get S\+ID from Fortran
+
+program demo\+\_\+system\+\_\+getsid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getsid}{system\+\_\+getsid}} use I\+S\+O\+\_\+\+C\+\_\+\+B\+I\+N\+D\+I\+NG, only \+: c\+\_\+int implicit none write($\ast$,$\ast$)\textquotesingle{}S\+ID=\textquotesingle{},system\+\_\+getsid(0\+\_\+c\+\_\+int) end program demo\+\_\+system\+\_\+getsid 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}\label{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}} 
+\index{m\+\_\+system\+::system\+\_\+getsid@{m\+\_\+system\+::system\+\_\+getsid}!system\+\_\+getsid@{system\+\_\+getsid}}
+\index{system\+\_\+getsid@{system\+\_\+getsid}!m\+\_\+system\+::system\+\_\+getsid@{m\+\_\+system\+::system\+\_\+getsid}}
+\subsubsection{\texorpdfstring{system\+\_\+getsid()}{system\_getsid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getsid\+::system\+\_\+getsid (\begin{DoxyParamCaption}\item[{integer(kind=c\+\_\+int)}]{c\+\_\+pid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

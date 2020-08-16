@@ -58,6 +58,7 @@ PROGFILES = \
    ../PROGRAMS/perror/demo_system_perror.f90 \
    ../PROGRAMS/utime/demo_system_utime.f90 \
 $(NULL)
+#   ../test/test_suite_M_system.f90 \
 
 CPROGFILES = 
 
@@ -103,13 +104,21 @@ clean:
 .PHONY: run
 run: $(PROG)
 	# run everything
+	rm -f fort.10 _test1 _test2 _test3
+	[ -d _scratch ] && rmdir _scratch
 	echo $? |xargs -n 1|xargs -iXX time XX
+	rm -f fort.10 _test1 _test2 _test3
+	[ -d _scratch ] && rmdir _scratch
 
 .PHONY: man
 man:
 	@mandb ../man 1>&2
 	@env MANPATH=../man MANWIDTH=256 man -k .|col -b
-	@env MANPATH=../man MANWIDTH=80  man --regex '.*'|col -b
+	@env MANWIDTH=80 MANPATH=../man MANWIDTH=80  man --regex '.*'|col -b
+.PHONY: doxygen
+doxygen: 
+	doxygen dox.in
+
 .PHONY: help
 help:
 	: make    '-- build M_time module'

@@ -63,3 +63,7 @@ the document pages in the PROGRAMS/ sub-directory.
    [*Javascript BOOK*](https://urbanjost.github.io/M_system/BOOK_M_system.html)
  + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
    if Javascript is not available.
+
+     git clone https://github.com/urbanjost/M_system.git
+     [dependencies]
+     M_system        = { git = "https://github.com/urbanjost/M_system.git" }

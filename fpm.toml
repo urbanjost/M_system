@@ -5,83 +5,73 @@ author = "John S. Urban"
 maintainer = "urbanjost@comcast.net"
 copyright = "2020 John S. Urban"
 
-[library]
-source-dir = "src"
-build-script = "fpm.mk"
-
-[[test]]  name="demo_system_putenv"       source-dir="PROGRAMS/putenv"       main="demo_system_putenv.f90"
-[[test]]  name="demo_system_rand"         source-dir="PROGRAMS/rand"         main="demo_system_rand.f90"
-[[test]]  name="demo_system_readdir"      source-dir="PROGRAMS/readdir"      main="demo_system_readdir.f90"
-[[test]]  name="demo_system_readenv"      source-dir="PROGRAMS/readenv"      main="demo_system_readenv.f90"
-[[test]]  name="demo_system_realpath"     source-dir="PROGRAMS/realpath"     main="demo_system_realpath.f90"
-[[test]]  name="demo_system_remove"       source-dir="PROGRAMS/remove"       main="demo_system_remove.f90"
-[[test]]  name="demo_system_rename"       source-dir="PROGRAMS/rename"       main="demo_system_rename.f90"
-[[test]]  name="demo_system_rewinddir"    source-dir="PROGRAMS/rewinddir"    main="demo_system_rewinddir.f90"
-[[test]]  name="demo_system_rmdir"        source-dir="PROGRAMS/rmdir"        main="demo_system_rmdir.f90"
-[[test]]  name="demo_system_setsid"       source-dir="PROGRAMS/setsid"       main="demo_system_setsid.f90"
-[[test]]  name="demo_system_setumask"     source-dir="PROGRAMS/setumask"     main="demo_system_setumask.f90"
-[[test]]  name="demo_system_srand"        source-dir="PROGRAMS/srand"        main="demo_system_srand.f90"
-[[test]]  name="demo_system_stat"         source-dir="PROGRAMS/stat"         main="demo_system_stat.f90"
-[[test]]  name="demo_system_uname"        source-dir="PROGRAMS/uname"        main="demo_system_uname.f90"
-[[test]]  name="demo_system_unlink"       source-dir="PROGRAMS/unlink"       main="demo_system_unlink.f90"
-[[test]]  name="demo_system_unsetenv"     source-dir="PROGRAMS/unsetenv"     main="demo_system_unsetenv.f90"
-[[test]]  name="demo_system_access"       source-dir="PROGRAMS/access"       main="demo_system_access.f90"
-[[test]]  name="demo_system_chdir"        source-dir="PROGRAMS/chdir"        main="demo_system_chdir.f90"
-[[test]]  name="demo_system_chmod"        source-dir="PROGRAMS/chmod"        main="demo_system_chmod.f90"
-[[test]]  name="demo_system_chown"        source-dir="PROGRAMS/chown"        main="demo_system_chown.f90"
-[[test]]  name="demo_system_clearenv"     source-dir="PROGRAMS/clearenv"     main="demo_system_clearenv.f90"
-[[test]]  name="demo_system_closedir"     source-dir="PROGRAMS/closedir"     main="demo_system_closedir.f90"
-[[test]]  name="demo_system_cpu_time"     source-dir="PROGRAMS/cpu_time"     main="demo_system_cpu_time.f90"
-[[test]]  name="demo_system_errno"        source-dir="PROGRAMS/errno"        main="demo_system_errno.f90"
-[[test]]  name="demo_system_getcwd"       source-dir="PROGRAMS/getcwd"       main="demo_system_getcwd.f90"
-[[test]]  name="demo_system_getegid"      source-dir="PROGRAMS/getegid"      main="demo_system_getegid.f90"
-[[test]]  name="demo_system_getenv"       source-dir="PROGRAMS/getenv"       main="demo_system_getenv.f90"
-[[test]]  name="demo_system_geteuid"      source-dir="PROGRAMS/geteuid"      main="demo_system_geteuid.f90"
-[[test]]  name="demo_system_getgid"       source-dir="PROGRAMS/getgid"       main="demo_system_getgid.f90"
-[[test]]  name="demo_system_getgrgid"     source-dir="PROGRAMS/getgrgid"     main="demo_system_getgrgid.f90"
-[[test]]  name="demo_system_gethostname"  source-dir="PROGRAMS/gethostname"  main="demo_system_gethostname.f90"
-[[test]]  name="demo_system_getlogin"     source-dir="PROGRAMS/getlogin"     main="demo_system_getlogin.f90"
-[[test]]  name="demo_system_getpid"       source-dir="PROGRAMS/getpid"       main="demo_system_getpid.f90"
-[[test]]  name="demo_system_getppid"      source-dir="PROGRAMS/getppid"      main="demo_system_getppid.f90"
-[[test]]  name="demo_system_getpwuid"     source-dir="PROGRAMS/getpwuid"     main="demo_system_getpwuid.f90"
-[[test]]  name="demo_system_getsid"       source-dir="PROGRAMS/getsid"       main="demo_system_getsid.f90"
-[[test]]  name="demo_system_getuid"       source-dir="PROGRAMS/getuid"       main="demo_system_getuid.f90"
-[[test]]  name="demo_system_getumask"     source-dir="PROGRAMS/getumask"     main="demo_system_getumask.f90"
-[[test]]  name="demo_system_initenv"      source-dir="PROGRAMS/initenv"      main="demo_system_initenv.f90"
-[[test]]  name="demo_system_isblk"        source-dir="PROGRAMS/isblk"        main="demo_system_isblk.f90"
-[[test]]  name="demo_system_ischr"        source-dir="PROGRAMS/ischr"        main="demo_system_ischr.f90"
-[[test]]  name="demo_system_isdir"        source-dir="PROGRAMS/isdir"        main="demo_system_isdir.f90"
-[[test]]  name="demo_system_isfifo"       source-dir="PROGRAMS/isfifo"       main="demo_system_isfifo.f90"
-[[test]]  name="demo_system_islnk"        source-dir="PROGRAMS/islnk"        main="demo_system_islnk.f90"
-[[test]]  name="demo_system_isreg"        source-dir="PROGRAMS/isreg"        main="demo_system_isreg.f90"
-[[test]]  name="demo_system_issock"       source-dir="PROGRAMS/issock"       main="demo_system_issock.f90"
-[[test]]  name="demo_system_kill"         source-dir="PROGRAMS/kill"         main="demo_system_kill.f90"
-[[test]]  name="demo_system_link"         source-dir="PROGRAMS/link"         main="demo_system_link.f90"
-[[test]]  name="demo_system_mkdir"        source-dir="PROGRAMS/mkdir"        main="demo_system_mkdir.f90"
-[[test]]  name="demo_system_mkfifo"       source-dir="PROGRAMS/mkfifo"       main="demo_system_mkfifo.f90"
-[[test]]  name="demo_system_opendir"      source-dir="PROGRAMS/opendir"      main="demo_system_opendir.f90"
-[[test]]  name="demo_system_perm"         source-dir="PROGRAMS/perm"         main="demo_system_perm.f90"
-[[test]]  name="demo_system_perror"       source-dir="PROGRAMS/perror"       main="demo_system_perror.f90"
-[[test]]  name="demo_system_utime"        source-dir="PROGRAMS/utime"        main="demo_system_utime.f90"
+test = [
+{  name="demo_system_access",       source-dir="PROGRAMS/access",       main="demo_system_access.f90"       },
+{  name="demo_system_chdir",        source-dir="PROGRAMS/chdir",        main="demo_system_chdir.f90"        },
+{  name="demo_system_chmod",        source-dir="PROGRAMS/chmod",        main="demo_system_chmod.f90"        },
+{  name="demo_system_chown",        source-dir="PROGRAMS/chown",        main="demo_system_chown.f90"        },
+{  name="demo_system_clearenv",     source-dir="PROGRAMS/clearenv",     main="demo_system_clearenv.f90"     },
+{  name="demo_system_closedir",     source-dir="PROGRAMS/closedir",     main="demo_system_closedir.f90"     },
+{  name="demo_system_cpu_time",     source-dir="PROGRAMS/cpu_time",     main="demo_system_cpu_time.f90"     },
+{  name="demo_system_errno",        source-dir="PROGRAMS/errno",        main="demo_system_errno.f90"        },
+{  name="demo_system_getcwd",       source-dir="PROGRAMS/getcwd",       main="demo_system_getcwd.f90"       },
+{  name="demo_system_getegid",      source-dir="PROGRAMS/getegid",      main="demo_system_getegid.f90"      },
+{  name="demo_system_getenv",       source-dir="PROGRAMS/getenv",       main="demo_system_getenv.f90"       },
+{  name="demo_system_geteuid",      source-dir="PROGRAMS/geteuid",      main="demo_system_geteuid.f90"      },
+{  name="demo_system_getgid",       source-dir="PROGRAMS/getgid",       main="demo_system_getgid.f90"       },
+{  name="demo_system_getgrgid",     source-dir="PROGRAMS/getgrgid",     main="demo_system_getgrgid.f90"     },
+{  name="demo_system_gethostname",  source-dir="PROGRAMS/gethostname",  main="demo_system_gethostname.f90"  },
+{  name="demo_system_getlogin",     source-dir="PROGRAMS/getlogin",     main="demo_system_getlogin.f90"     },
+{  name="demo_system_getpid",       source-dir="PROGRAMS/getpid",       main="demo_system_getpid.f90"       },
+{  name="demo_system_getppid",      source-dir="PROGRAMS/getppid",      main="demo_system_getppid.f90"      },
+{  name="demo_system_getpwuid",     source-dir="PROGRAMS/getpwuid",     main="demo_system_getpwuid.f90"     },
+{  name="demo_system_getsid",       source-dir="PROGRAMS/getsid",       main="demo_system_getsid.f90"       },
+{  name="demo_system_getuid",       source-dir="PROGRAMS/getuid",       main="demo_system_getuid.f90"       },
+{  name="demo_system_getumask",     source-dir="PROGRAMS/getumask",     main="demo_system_getumask.f90"     },
+{  name="demo_system_initenv",      source-dir="PROGRAMS/initenv",      main="demo_system_initenv.f90"      },
+{  name="demo_system_isblk",        source-dir="PROGRAMS/isblk",        main="demo_system_isblk.f90"        },
+{  name="demo_system_ischr",        source-dir="PROGRAMS/ischr",        main="demo_system_ischr.f90"        },
+{  name="demo_system_isdir",        source-dir="PROGRAMS/isdir",        main="demo_system_isdir.f90"        },
+{  name="demo_system_isfifo",       source-dir="PROGRAMS/isfifo",       main="demo_system_isfifo.f90"       },
+{  name="demo_system_islnk",        source-dir="PROGRAMS/islnk",        main="demo_system_islnk.f90"        },
+{  name="demo_system_isreg",        source-dir="PROGRAMS/isreg",        main="demo_system_isreg.f90"        },
+{  name="demo_system_issock",       source-dir="PROGRAMS/issock",       main="demo_system_issock.f90"       },
+{  name="demo_system_kill",         source-dir="PROGRAMS/kill",         main="demo_system_kill.f90"         },
+{  name="demo_system_link",         source-dir="PROGRAMS/link",         main="demo_system_link.f90"         },
+{  name="demo_system_mkdir",        source-dir="PROGRAMS/mkdir",        main="demo_system_mkdir.f90"        },
+{  name="demo_system_mkfifo",       source-dir="PROGRAMS/mkfifo",       main="demo_system_mkfifo.f90"       },
+{  name="demo_system_opendir",      source-dir="PROGRAMS/opendir",      main="demo_system_opendir.f90"      },
+{  name="demo_system_perm",         source-dir="PROGRAMS/perm",         main="demo_system_perm.f90"         },
+{  name="demo_system_perror",       source-dir="PROGRAMS/perror",       main="demo_system_perror.f90"       },
+{  name="demo_system_putenv",       source-dir="PROGRAMS/putenv",       main="demo_system_putenv.f90"       },
+{  name="demo_system_rand",         source-dir="PROGRAMS/rand",         main="demo_system_rand.f90"         },
+{  name="demo_system_readdir",      source-dir="PROGRAMS/readdir",      main="demo_system_readdir.f90"      },
+{  name="demo_system_readenv",      source-dir="PROGRAMS/readenv",      main="demo_system_readenv.f90"      },
+{  name="demo_system_realpath",     source-dir="PROGRAMS/realpath",     main="demo_system_realpath.f90"     },
+{  name="demo_system_remove",       source-dir="PROGRAMS/remove",       main="demo_system_remove.f90"       },
+{  name="demo_system_rename",       source-dir="PROGRAMS/rename",       main="demo_system_rename.f90"       },
+{  name="demo_system_rewinddir",    source-dir="PROGRAMS/rewinddir",    main="demo_system_rewinddir.f90"    },
+{  name="demo_system_rmdir",        source-dir="PROGRAMS/rmdir",        main="demo_system_rmdir.f90"        },
+{  name="demo_system_setsid",       source-dir="PROGRAMS/setsid",       main="demo_system_setsid.f90"       },
+{  name="demo_system_setumask",     source-dir="PROGRAMS/setumask",     main="demo_system_setumask.f90"     },
+{  name="demo_system_srand",        source-dir="PROGRAMS/srand",        main="demo_system_srand.f90"        },
+{  name="demo_system_stat",         source-dir="PROGRAMS/stat",         main="demo_system_stat.f90"         },
+{  name="demo_system_uname",        source-dir="PROGRAMS/uname",        main="demo_system_uname.f90"        },
+{  name="demo_system_unlink",       source-dir="PROGRAMS/unlink",       main="demo_system_unlink.f90"       },
+{  name="demo_system_unsetenv",     source-dir="PROGRAMS/unsetenv",     main="demo_system_unsetenv.f90"     },
+{  name="demo_system_utime",        source-dir="PROGRAMS/utime",        main="demo_system_utime.f90"        } 
+]
 
 [[test]]
-name="test_suite"
-source-dir="test"
-main="test_suite_M_system.f90"
-[test.dependencies]
-M_msg          = { git = "https://github.com/urbanjost/M_msg.git" }
-M_time         = { git = "https://github.com/urbanjost/M_time.git" }
-M_process      = { git = "https://github.com/urbanjost/M_process.git" }
-#M_debug.inc
+   name       = "test_suite"
+   source-dir = "test"
+   main       = "test_suite_M_system.f90"
 
-#M_cli         = { git = "https://github.com/urbanjost/M_cli.git"  }
-#M_calculator  = { git = "https://github.com/urbanjost/M_calculator.git" }
-#M_change      = { git = "https://github.com/urbanjost/M_change.git" }
-#M_color       = { git = "https://github.com/urbanjost/M_color.git" }
-#M_history     = { git = "https://github.com/urbanjost/M_history.git" }
-#M_io          = { git = "https://github.com/urbanjost/M_io.git" }
-#M_strings     = { git = "https://github.com/urbanjost/M_strings.git" }
-#M_kracken95   = { git = "https://github.com/urbanjost/M_kracken95.git" }
-#M_commandline = { git = "https://github.com/urbanjost/M_commandline.git" }
-#M_draw        = { git = "https://github.com/urbanjost/M_draw.git" }
-#M_system      = { git = "https://github.com/urbanjost/M_system.git" }
+   [test.dependencies]
+   M_msg          = { git = "https://github.com/urbanjost/M_msg.git" }
+   M_time         = { git = "https://github.com/urbanjost/M_time.git" }
+   M_process      = { git = "https://github.com/urbanjost/M_process.git" }
+
+[library]
+   source-dir   = "src"
+   build-script = "fpm.mk"

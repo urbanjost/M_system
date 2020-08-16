@@ -1,0 +1,49 @@
+\hypertarget{interfacem__system_1_1system__setsid}{}\section{m\+\_\+system\+:\+:system\+\_\+setsid Interface Reference}
+\label{interfacem__system_1_1system__setsid}\index{m\+\_\+system\+::system\+\_\+setsid@{m\+\_\+system\+::system\+\_\+setsid}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+setsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} create session and set the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__setsid_a3368836e902ccbf8e0418c56f18e2df3}{system\+\_\+setsid}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+setsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} create session and set the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function system\+\_\+setsid(pid) integer(kind=c\+\_\+int) \+:\+: pid \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.
+
+\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
+
+Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Other‐ wise, it shall return −1 and set errno to indicate the error. \subsubsection*{E\+R\+R\+O\+RS}
+
+The setsid() function shall fail if\+:
+
+o The calling process is already a process group leader o the process group ID of a process other than the calling process matches the process ID of the calling process. \subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Set S\+ID from Fortran
+
+program demo\+\_\+system\+\_\+setsid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}} implicit none write($\ast$,$\ast$)\textquotesingle{}S\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__setsid_a3368836e902ccbf8e0418c56f18e2df3}{system\+\_\+setsid()}} end program demo\+\_\+system\+\_\+setsid 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__setsid_a3368836e902ccbf8e0418c56f18e2df3}\label{interfacem__system_1_1system__setsid_a3368836e902ccbf8e0418c56f18e2df3}} 
+\index{m\+\_\+system\+::system\+\_\+setsid@{m\+\_\+system\+::system\+\_\+setsid}!system\+\_\+setsid@{system\+\_\+setsid}}
+\index{system\+\_\+setsid@{system\+\_\+setsid}!m\+\_\+system\+::system\+\_\+setsid@{m\+\_\+system\+::system\+\_\+setsid}}
+\subsubsection{\texorpdfstring{system\+\_\+setsid()}{system\_setsid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+setsid\+::system\+\_\+setsid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

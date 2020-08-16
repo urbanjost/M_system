@@ -1,0 +1,49 @@
+\hypertarget{interfacem__system_1_1system__errno}{}\section{m\+\_\+system\+:\+:system\+\_\+errno Interface Reference}
+\label{interfacem__system_1_1system__errno}\index{m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}}
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
+
+
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno()}}
+
+\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+Many C routines return an error code which can be queried by errno. The M\+\_\+system(3fm) is primarily composed of Fortran routines that call C routines. In the cases where an error code is returned vi system\+\_\+errno(3f) these routines will indicate it.
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Sample program\+:
+
+program demo\+\_\+system\+\_\+errno use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+unlink, system\+\_\+perror implicit none integer \+:\+: stat stat=system\+\_\+unlink(\textquotesingle{}not there/\+O\+R/anywhere\textquotesingle{}) if(stat.\+ne.\+0)then write($\ast$,$\ast$)\textquotesingle{}err=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno()}} call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+errno}\textquotesingle{}) endif end program demo\+\_\+system\+\_\+errno
+
+Typical Results\+:
+
+err= 2 {\itshape demo\+\_\+system\+\_\+errno}\+: No such file or directory 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}\label{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}} 
+\index{m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}!system\+\_\+errno@{system\+\_\+errno}}
+\index{system\+\_\+errno@{system\+\_\+errno}!m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}}
+\subsubsection{\texorpdfstring{system\+\_\+errno()}{system\_errno()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+errno\+::system\+\_\+errno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/urbanjs/venus/\+V600/github/\+M\+\_\+system/src/\mbox{\hyperlink{M__system_8f90}{M\+\_\+system.\+f90}}\end{DoxyCompactItemize}

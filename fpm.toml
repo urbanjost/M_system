@@ -4,6 +4,7 @@ license = "Public Domain"
 author = "John S. Urban"
 maintainer = "urbanjost@comcast.net"
 copyright = "2020 John S. Urban"
+description = "(mostly)POSIX system routine interface"
 
 test = [
 {  name="demo_system_access",       source-dir="PROGRAMS/access",       main="demo_system_access.f90"       },

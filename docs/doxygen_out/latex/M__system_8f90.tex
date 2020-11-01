@@ -89,7 +89,7 @@ M\+\_\+system(3fm) -\/ \mbox{[}M\+\_\+system\+::\+I\+N\+T\+RO\mbox{]} Fortran in
 \subsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
-logical function, public \mbox{\hyperlink{namespacem__system_a4687a363acbb7084a51bc77844789275}{m\+\_\+system\+::system\+\_\+access}} (pathname, amode)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a4c1c906730e61629a8277e1daeda90f6}{m\+\_\+system\+::system\+\_\+access}} (pathname, amode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
@@ -97,6 +97,8 @@ logical function, public \mbox{\hyperlink{namespacem__system_a83a121ba0b525210b5
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+integer(kind=8) function \mbox{\hyperlink{namespacem__system_a635baf5850927faa97461afaca512235}{m\+\_\+system\+::timestamp}} ()
+\item 
 character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_a70bbfa0a0be084b9717cbc04408041fc}{m\+\_\+system\+::system\+\_\+realpath}} (input)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -105,43 +107,43 @@ logical function, public \mbox{\hyperlink{namespacem__system_af6eb5074fe74552bc7
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3}{m\+\_\+system\+::system\+\_\+isfifo}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_aa2bdb5f75405d87934c10756b539d082}{m\+\_\+system\+::system\+\_\+isfifo}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6}{m\+\_\+system\+::system\+\_\+ischr}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a49f1d027d438aab86024660b0802768f}{m\+\_\+system\+::system\+\_\+ischr}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b}{m\+\_\+system\+::system\+\_\+isreg}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}{m\+\_\+system\+::system\+\_\+isreg}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217}{m\+\_\+system\+::system\+\_\+islnk}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}{m\+\_\+system\+::system\+\_\+islnk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f}{m\+\_\+system\+::system\+\_\+isblk}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}{m\+\_\+system\+::system\+\_\+isblk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd}{m\+\_\+system\+::system\+\_\+chown}} (dirname, owner, group)
-\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
-
-system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_ad097988a031e64b4f21f856cf45c9c73}{m\+\_\+system\+::system\+\_\+isdir}} (dirname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a7946ea976f399baff21caebcbe931f6d}{m\+\_\+system\+::system\+\_\+isdir}} (dirname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b}{m\+\_\+system\+::system\+\_\+chown}} (dirname, owner, group)
+\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
+
+system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}{m\+\_\+system\+::system\+\_\+cpu\+\_\+time}} (total, user, system)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+cpu\+\_\+time(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get processor time by calling times(3c) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-integer function, public \mbox{\hyperlink{namespacem__system_aa77d9c9ae68750f515ba3d04d022c43c}{m\+\_\+system\+::system\+\_\+link}} (oldname, newname)
+elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a0e04b5499fc3367eda9758b6e396a103}{m\+\_\+system\+::system\+\_\+link}} (oldname, newname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-integer function, public \mbox{\hyperlink{namespacem__system_a14ce0b9177815bc357dbdf3778687bb7}{m\+\_\+system\+::system\+\_\+unlink}} (fname)
+elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a3561c9beafec28439f760d701d55a6b8}{m\+\_\+system\+::system\+\_\+unlink}} (fname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
@@ -161,7 +163,7 @@ subroutine, public \mbox{\hyperlink{namespacem__system_a47746b670cb21bae0957c9bb
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
-integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a730ae64294e3cd73bde8f0c63cdf9972}{m\+\_\+system\+::system\+\_\+remove}} (path)
+elemental impure integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a7fa10b991ae066609b687423918cff52}{m\+\_\+system\+::system\+\_\+remove}} (path)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
@@ -259,7 +261,7 @@ character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__sy
 system\+\_\+getpwuid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get login name associated with a U\+ID (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 pure character(len=size(array)) function \mbox{\hyperlink{namespacem__system_aeb3d7d4cb39d59917910a3ae2532206d}{m\+\_\+system\+::arr2str}} (array)
 \item 
-pure character(len=1, kind=c\+\_\+char) function, dimension(len(string)+1) \mbox{\hyperlink{namespacem__system_af7e778ffc24aa7bc00b842a8e673aeaa}{m\+\_\+system\+::str2arr}} (string)
+pure character(len=1, kind=c\+\_\+char) function, dimension(len(string)+1) \mbox{\hyperlink{namespacem__system_a58bb591b5b9fefec3960a28361aae07a}{m\+\_\+system\+::str2\+\_\+carr}} (string)
 \item 
 character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_aa7c5445619aa15cd2301fe17f7c3b73c}{m\+\_\+system\+::c2f\+\_\+string}} (c\+\_\+string\+\_\+pointer)
 \item 
@@ -267,7 +269,11 @@ subroutine, public \mbox{\hyperlink{namespacem__system_a5bb1ebcebe181e07fd24e908
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_a403bef1f7fdc42dd75a5b082a15237ff}{m\+\_\+system\+::uniq}} (name, istart, verbose, create)
+character(len=\+:) function, dimension(\+:), allocatable, public \mbox{\hyperlink{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}{m\+\_\+system\+::system\+\_\+dir}} (directory, pattern)
+\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
+
+system\+\_\+dir(3f) -\/ \mbox{[}M\+\_\+io\mbox{]} return filenames in a directory matching specified wildcard string (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea}{m\+\_\+system\+::matchw}} (tame, wild)
 \item 
 pure elemental integer(kind=int64) function \mbox{\hyperlink{namespacem__system_a151da54be39dddcf270cceeff3243438}{m\+\_\+system\+::anyinteger\+\_\+to\+\_\+64bit}} (intin)
 \begin{DoxyCompactList}\small\item\em N\+A\+ME. \end{DoxyCompactList}\end{DoxyCompactItemize}

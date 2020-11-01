@@ -89,7 +89,7 @@ system\+\_\+umask(3fp) -\/ \mbox{[}M\+\_\+system\mbox{]} set and get the file mo
 \subsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
-logical function, public \mbox{\hyperlink{namespacem__system_a4687a363acbb7084a51bc77844789275}{system\+\_\+access}} (pathname, amode)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a4c1c906730e61629a8277e1daeda90f6}{system\+\_\+access}} (pathname, amode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
@@ -97,6 +97,8 @@ logical function, public \mbox{\hyperlink{namespacem__system_a83a121ba0b525210b5
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+integer(kind=8) function \mbox{\hyperlink{namespacem__system_a635baf5850927faa97461afaca512235}{timestamp}} ()
+\item 
 character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_a70bbfa0a0be084b9717cbc04408041fc}{system\+\_\+realpath}} (input)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -105,43 +107,43 @@ logical function, public \mbox{\hyperlink{namespacem__system_af6eb5074fe74552bc7
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3}{system\+\_\+isfifo}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_aa2bdb5f75405d87934c10756b539d082}{system\+\_\+isfifo}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6}{system\+\_\+ischr}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a49f1d027d438aab86024660b0802768f}{system\+\_\+ischr}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b}{system\+\_\+isreg}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}{system\+\_\+isreg}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217}{system\+\_\+islnk}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}{system\+\_\+islnk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f}{system\+\_\+isblk}} (pathname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}{system\+\_\+isblk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd}{system\+\_\+chown}} (dirname, owner, group)
-\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
-
-system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-logical function, public \mbox{\hyperlink{namespacem__system_ad097988a031e64b4f21f856cf45c9c73}{system\+\_\+isdir}} (dirname)
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a7946ea976f399baff21caebcbe931f6d}{system\+\_\+isdir}} (dirname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+elemental impure logical function, public \mbox{\hyperlink{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b}{system\+\_\+chown}} (dirname, owner, group)
+\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
+
+system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}{system\+\_\+cpu\+\_\+time}} (total, user, system)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+cpu\+\_\+time(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get processor time by calling times(3c) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-integer function, public \mbox{\hyperlink{namespacem__system_aa77d9c9ae68750f515ba3d04d022c43c}{system\+\_\+link}} (oldname, newname)
+elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a0e04b5499fc3367eda9758b6e396a103}{system\+\_\+link}} (oldname, newname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-integer function, public \mbox{\hyperlink{namespacem__system_a14ce0b9177815bc357dbdf3778687bb7}{system\+\_\+unlink}} (fname)
+elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a3561c9beafec28439f760d701d55a6b8}{system\+\_\+unlink}} (fname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
@@ -161,7 +163,7 @@ subroutine, public \mbox{\hyperlink{namespacem__system_a47746b670cb21bae0957c9bb
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
-integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a730ae64294e3cd73bde8f0c63cdf9972}{system\+\_\+remove}} (path)
+elemental impure integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a7fa10b991ae066609b687423918cff52}{system\+\_\+remove}} (path)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
@@ -259,7 +261,7 @@ character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__sy
 system\+\_\+getpwuid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get login name associated with a U\+ID (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 pure character(len=size(array)) function \mbox{\hyperlink{namespacem__system_aeb3d7d4cb39d59917910a3ae2532206d}{arr2str}} (array)
 \item 
-pure character(len=1, kind=c\+\_\+char) function, dimension(len(string)+1) \mbox{\hyperlink{namespacem__system_af7e778ffc24aa7bc00b842a8e673aeaa}{str2arr}} (string)
+pure character(len=1, kind=c\+\_\+char) function, dimension(len(string)+1) \mbox{\hyperlink{namespacem__system_a58bb591b5b9fefec3960a28361aae07a}{str2\+\_\+carr}} (string)
 \item 
 character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_aa7c5445619aa15cd2301fe17f7c3b73c}{c2f\+\_\+string}} (c\+\_\+string\+\_\+pointer)
 \item 
@@ -267,7 +269,11 @@ subroutine, public \mbox{\hyperlink{namespacem__system_a5bb1ebcebe181e07fd24e908
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_a403bef1f7fdc42dd75a5b082a15237ff}{uniq}} (name, istart, verbose, create)
+character(len=\+:) function, dimension(\+:), allocatable, public \mbox{\hyperlink{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}{system\+\_\+dir}} (directory, pattern)
+\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
+
+system\+\_\+dir(3f) -\/ \mbox{[}M\+\_\+io\mbox{]} return filenames in a directory matching specified wildcard string (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea}{matchw}} (tame, wild)
 \item 
 pure elemental integer(kind=int64) function \mbox{\hyperlink{namespacem__system_a151da54be39dddcf270cceeff3243438}{anyinteger\+\_\+to\+\_\+64bit}} (intin)
 \begin{DoxyCompactList}\small\item\em N\+A\+ME. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -329,9 +335,9 @@ M\+\_\+system(3fm) -\/ \mbox{[}M\+\_\+system\+::\+I\+N\+T\+RO\mbox{]} Fortran in
 
 Public objects\+:
 
-! E\+N\+V\+I\+R\+O\+N\+M\+E\+NT use \mbox{\hyperlink{namespacem__system}{m\+\_\+system}}, only \+: set\+\_\+environment\+\_\+variable, system\+\_\+unsetenv, \& system\+\_\+putenv, system\+\_\+getenv
+! E\+N\+V\+I\+R\+O\+N\+M\+E\+NT use M\+\_\+system, only \+: set\+\_\+environment\+\_\+variable, system\+\_\+unsetenv, \& system\+\_\+putenv, system\+\_\+getenv
 
-use \mbox{\hyperlink{namespacem__system}{m\+\_\+system}}, only \+: system\+\_\+intenv, system\+\_\+readenv, system\+\_\+clearenv ! F\+I\+LE S\+Y\+S\+T\+EM use M\+\_\+system, only \+: system\+\_\+getcwd, system\+\_\+link, \& system\+\_\+mkfifo, system\+\_\+remove, system\+\_\+rename, \& \mbox{\hyperlink{interfacem__system_1_1system__umask}{system\+\_\+umask}}, system\+\_\+unlink, fileglob, \& system\+\_\+rmdir, system\+\_\+chdir, system\+\_\+mkdir, \& system\+\_\+stat, system\+\_\+isdir, system\+\_\+islnk, system\+\_\+isreg, \& system\+\_\+isblk, system\+\_\+ischr, system\+\_\+isfifo, \& system\+\_\+realpath, \& system\+\_\+access, \& system\+\_\+utime, \& system\+\_\+issock, system\+\_\+perm , \& \mbox{\hyperlink{interfacem__system_1_1system__memcpy}{system\+\_\+memcpy}}
+use M\+\_\+system, only \+: system\+\_\+intenv, system\+\_\+readenv, system\+\_\+clearenv ! F\+I\+LE S\+Y\+S\+T\+EM use M\+\_\+system, only \+: system\+\_\+getcwd, system\+\_\+link, \& system\+\_\+mkfifo, system\+\_\+remove, system\+\_\+rename, \& \mbox{\hyperlink{interfacem__system_1_1system__umask}{system\+\_\+umask}}, system\+\_\+unlink, fileglob, \& system\+\_\+rmdir, system\+\_\+chdir, system\+\_\+mkdir, \& system\+\_\+stat, system\+\_\+isdir, system\+\_\+islnk, system\+\_\+isreg, \& system\+\_\+isblk, system\+\_\+ischr, system\+\_\+isfifo, \& system\+\_\+realpath, \& system\+\_\+access, \& system\+\_\+utime, \& system\+\_\+issock, system\+\_\+perm, \& system\+\_\+dir, \& \mbox{\hyperlink{interfacem__system_1_1system__memcpy}{system\+\_\+memcpy}}
 
 !!use M\+\_\+system, only \+: system\+\_\+getc, system\+\_\+putc ! E\+R\+R\+OR P\+R\+O\+C\+E\+S\+S\+I\+NG use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+perror ! I\+N\+FO use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}}, \mbox{\hyperlink{interfacem__system_1_1system__geteuid}{system\+\_\+geteuid}}, \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}}, \& system\+\_\+gethostname, \mbox{\hyperlink{interfacem__system_1_1system__getpid}{system\+\_\+getpid}}, \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}}, \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}}, \& \mbox{\hyperlink{interfacem__system_1_1system__getsid}{system\+\_\+getsid}}, \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}}, system\+\_\+uname ! S\+I\+G\+N\+A\+LS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__kill}{system\+\_\+kill}} ! R\+A\+N\+D\+OM N\+U\+M\+B\+E\+RS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__rand}{system\+\_\+rand}}, \mbox{\hyperlink{interfacem__system_1_1system__srand}{system\+\_\+srand}} ! P\+R\+O\+C\+E\+SS I\+N\+F\+O\+R\+M\+A\+T\+I\+ON use M\+\_\+system, only \+: system\+\_\+cpu\+\_\+time
 
@@ -357,7 +363,7 @@ o system\+\_\+mkdir(3f)\+: call mkdir(3c) to create empty directory o system\+\_
 
 o system\+\_\+rename(3f)\+: call rename(3c) to change filename
 
-o system\+\_\+remove(3f)\+: call remove(3c) to remove file o system\+\_\+rmdir(3f)\+: call rmdir(3c) to remove empty directory o system\+\_\+unlink(3f)\+: call unlink(3c) to remove a link to a file o system\+\_\+utime(3f)\+: call utime(3c) to set file access and modification times
+o system\+\_\+remove(3f)\+: call remove(3c) to remove file o system\+\_\+rmdir(3f)\+: call rmdir(3c) to remove empty directory o system\+\_\+unlink(3f)\+: call unlink(3c) to remove a link to a file o system\+\_\+utime(3f)\+: call utime(3c) to set file access and modification times o system\+\_\+dir(3f)\+: read name of files in specified directory matching a wildcard string
 
 o fileglob(3f)\+: Returns list of files using a file globbing pattern
 
@@ -416,8 +422,7 @@ Results
 
 16129.\+000000000000 127 \textbackslash{} 16129 1073676289.\+0000000 32767 \textbackslash{} 1073676289 4.\+6116860141324206E+018 2147483647 \textbackslash{} 4611686014132420609 8.\+5070591730234616E+037 9223372036854775807 \textbackslash{} 85070591730234615847396907784232501249 2.\+8948022309329049E+076 170141183460469231731687303715884105727 \textbackslash{} 28948022309329048855892746252171976962977213799489202546401021394546514198529
 
-A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:
-\nopagebreak
+A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -430,8 +435,7 @@ A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller 
 \subsubsection{\texorpdfstring{arr2str()}{arr2str()}}
 {\footnotesize\ttfamily pure character(len=size(array)) function m\+\_\+system\+::arr2str (\begin{DoxyParamCaption}\item[{character(len=1), dimension(\+:), intent(in)}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -444,8 +448,7 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{c2f\+\_\+string()}{c2f\_string()}}
 {\footnotesize\ttfamily character(len=\+:) function, allocatable m\+\_\+system\+::c2f\+\_\+string (\begin{DoxyParamCaption}\item[{type(c\+\_\+ptr), intent(in)}]{c\+\_\+string\+\_\+pointer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -494,14 +497,26 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References uniq().
+References timestamp().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=321pt]{namespacem__system_a79656f76ad75168302e0d770052e901e_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a79656f76ad75168302e0d770052e901e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea}\label{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea}} 
+\index{m\+\_\+system@{m\+\_\+system}!matchw@{matchw}}
+\index{matchw@{matchw}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{matchw()}{matchw()}}
+{\footnotesize\ttfamily logical function m\+\_\+system\+::matchw (\begin{DoxyParamCaption}\item[{character(len=$\ast$)}]{tame,  }\item[{character(len=$\ast$)}]{wild }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_ad813765403a5d9d6fb7a2edcb669fe4b}\label{namespacem__system_ad813765403a5d9d6fb7a2edcb669fe4b}} 
@@ -544,35 +559,33 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_ad813765403a5d9d6fb7a2edcb669fe4b_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_af7e778ffc24aa7bc00b842a8e673aeaa}\label{namespacem__system_af7e778ffc24aa7bc00b842a8e673aeaa}} 
-\index{m\+\_\+system@{m\+\_\+system}!str2arr@{str2arr}}
-\index{str2arr@{str2arr}!m\+\_\+system@{m\+\_\+system}}
-\subsubsection{\texorpdfstring{str2arr()}{str2arr()}}
-{\footnotesize\ttfamily pure character(len=1,kind=c\+\_\+char) function, dimension(len(string)+1) m\+\_\+system\+::str2arr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{namespacem__system_a58bb591b5b9fefec3960a28361aae07a}\label{namespacem__system_a58bb591b5b9fefec3960a28361aae07a}} 
+\index{m\+\_\+system@{m\+\_\+system}!str2\+\_\+carr@{str2\+\_\+carr}}
+\index{str2\+\_\+carr@{str2\+\_\+carr}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{str2\+\_\+carr()}{str2\_carr()}}
+{\footnotesize\ttfamily pure character(len=1,kind=c\+\_\+char) function, dimension(len(string)+1) m\+\_\+system\+::str2\+\_\+carr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=550pt]{namespacem__system_af7e778ffc24aa7bc00b842a8e673aeaa_icgraph}
+\includegraphics[height=550pt]{namespacem__system_a58bb591b5b9fefec3960a28361aae07a_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a4687a363acbb7084a51bc77844789275}\label{namespacem__system_a4687a363acbb7084a51bc77844789275}} 
+\mbox{\Hypertarget{namespacem__system_a4c1c906730e61629a8277e1daeda90f6}\label{namespacem__system_a4c1c906730e61629a8277e1daeda90f6}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+access@{system\+\_\+access}}
 \index{system\+\_\+access@{system\+\_\+access}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+access()}{system\_access()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+access (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname,  }\item[{integer, intent(in)}]{amode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+access (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname,  }\item[{integer, intent(in)}]{amode }\end{DoxyParamCaption})}
 
 
 
@@ -582,7 +595,7 @@ system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks accessibility or
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+access(pathname,amode)
+elemental impure logical function system\+\_\+access(pathname,amode)
 
 character(len=$\ast$),intent(in) \+:\+: pathname integer,intent(in) \+:\+: amode
 
@@ -612,7 +625,7 @@ If not true an error occurred or the requested access is not granted
 check if filename is accessible \begin{DoxyVerb} Sample program:
 
     program demo_system_access
-    Use M_system, only : system_access, F_OK, R_OK, W_OK, X_OK
+    use M_system, only : system_access, F_OK, R_OK, W_OK, X_OK
     implicit none
     integer                     :: i
     character(len=80),parameter :: names(*)=[ &
@@ -630,14 +643,13 @@ check if filename is accessible \begin{DoxyVerb} Sample program:
     end program demo_system_access \end{DoxyVerb}
  
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a4687a363acbb7084a51bc77844789275_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a4c1c906730e61629a8277e1daeda90f6_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_a47746b670cb21bae0957c9bb2bccf209}\label{namespacem__system_a47746b670cb21bae0957c9bb2bccf209}} 
@@ -717,10 +729,9 @@ Sample run output\+:
 
 /home/urbanjs/\+V600 /tmp {\itshape C\+H\+D\+IR T\+E\+ST} I\+E\+RR= 0 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -767,7 +778,7 @@ Upon successful completion, system\+\_\+chmod(3f) returns 0. Otherwise, it retur
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+chmod use M\+\_\+system, only \+: system\+\_\+chmod use M\+\_\+system, only \+: system\+\_\+stat use M\+\_\+system, only \+: R\+\_\+\+G\+RP,R\+\_\+\+O\+TH,R\+\_\+\+U\+SR,R\+W\+X\+\_\+G,R\+W\+X\+\_\+O use M\+\_\+system, only \+: R\+W\+X\+\_\+U,W\+\_\+\+G\+RP,W\+\_\+\+O\+TH,W\+\_\+\+U\+SR,X\+\_\+\+G\+RP,X\+\_\+\+O\+TH,X\+\_\+\+U\+SR use M\+\_\+system, only \+: D\+E\+F\+F\+I\+L\+E\+M\+O\+DE, A\+C\+C\+E\+S\+S\+P\+E\+R\+MS use,intrinsic \+:\+: iso\+\_\+fortran\+\_\+env, only \+: int64 implicit none integer \+:\+: ierr integer \+:\+: status integer(kind=int64) \+:\+: buffer(13) !\+Setting Read Permissions for User, Group, and Others ! The following example sets read permissions for the owner, group, and others. open(file=\textquotesingle{}\+\_\+test1\textquotesingle{},unit=10) write(10,$\ast$)\textquotesingle{}T\+E\+ST F\+I\+LE 1\textquotesingle{} close(unit=10) ierr=system\+\_\+chmod(\textquotesingle{}\+\_\+test1\textquotesingle{}, I\+A\+N\+Y(\mbox{[}\+R\+\_\+\+U\+S\+R,\+R\+\_\+\+G\+R\+P,\+R\+\_\+\+O\+T\+H\mbox{]}))
+program demo\+\_\+system\+\_\+chmod use M\+\_\+system, only \+: system\+\_\+chmod use M\+\_\+system, only \+: system\+\_\+stat use M\+\_\+system, only \+: R\+\_\+\+G\+RP,R\+\_\+\+O\+TH,R\+\_\+\+U\+SR, R\+W\+X\+\_\+G, R\+W\+X\+\_\+U, W\+\_\+\+O\+TH, X\+\_\+\+G\+RP !use M\+\_\+system, only \+: R\+W\+X\+\_\+O, W\+\_\+\+G\+RP,W\+\_\+\+U\+SR,X\+\_\+\+O\+TH,X\+\_\+\+U\+SR !use M\+\_\+system, only \+: D\+E\+F\+F\+I\+L\+E\+M\+O\+DE, A\+C\+C\+E\+S\+S\+P\+E\+R\+MS use,intrinsic \+:\+: iso\+\_\+fortran\+\_\+env, only \+: int64 implicit none integer \+:\+: ierr integer \+:\+: status integer(kind=int64) \+:\+: buffer(13) !\+Setting Read Permissions for User, Group, and Others ! The following example sets read permissions for the owner, group, and others. open(file=\textquotesingle{}\+\_\+test1\textquotesingle{},unit=10) write(10,$\ast$)\textquotesingle{}T\+E\+ST F\+I\+LE 1\textquotesingle{} close(unit=10) ierr=system\+\_\+chmod(\textquotesingle{}\+\_\+test1\textquotesingle{}, I\+A\+N\+Y(\mbox{[}\+R\+\_\+\+U\+S\+R,\+R\+\_\+\+G\+R\+P,\+R\+\_\+\+O\+T\+H\mbox{]}))
 
 !\+Setting Read, Write, and Execute Permissions for the Owner Only ! The following example sets read, write, and execute permissions for the owner, and no permissions for group and others. open(file=\textquotesingle{}\+\_\+test2\textquotesingle{},unit=10) write(10,$\ast$)\textquotesingle{}T\+E\+ST F\+I\+LE 2\textquotesingle{} close(unit=10) ierr=system\+\_\+chmod(\textquotesingle{}\+\_\+test2\textquotesingle{}, R\+W\+X\+\_\+U)
 
@@ -789,21 +800,20 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_ace9ce0c8a9c8341a76b8903cd2390ce3_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd}\label{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd}} 
+\mbox{\Hypertarget{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b}\label{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+chown@{system\+\_\+chown}}
 \index{system\+\_\+chown@{system\+\_\+chown}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+chown()}{system\_chown()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+chown (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname,  }\item[{integer, intent(in)}]{owner,  }\item[{integer, intent(in)}]{group }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+chown (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname,  }\item[{integer, intent(in)}]{owner,  }\item[{integer, intent(in)}]{group }\end{DoxyParamCaption})}
 
 
 
@@ -813,7 +823,7 @@ system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and gr
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+chown(path,owner,group)
+elemental impure logical function system\+\_\+chown(path,owner,group)
 
 character(len=$\ast$),intent(in) \+:\+: path integer,intent(in) \+:\+: owner integer,intent(in) \+:\+: group
 
@@ -831,22 +841,21 @@ path a character string representing a file pathname. Trailing spaces are ignore
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd}{system\+\_\+chown()}} function should return zero (0) if successful. Otherwise, these functions shall return 1 and set errno to indicate the error. If 1 is returned, no changes are made in the user ID and group ID of the file.
+The system\+\_\+chown(3f) function should return zero 0 if successful. Otherwise, these functions shall return 1 and set errno to indicate the error. If 1 is returned, no changes are made in the user ID and group ID of the file.
 
 \subsubsection*{E\+X\+A\+M\+P\+LE}
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+chown Use M\+\_\+system, only \+: system\+\_\+chown Use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}} Use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}} use M\+\_\+system, only \+: system\+\_\+perror implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[}character(len=80) \+:\+: \textquotesingle{}myfile1\textquotesingle{},\textquotesingle{}/usr/local\textquotesingle{}\mbox{]} do i=1,size(names) if(.not. system\+\_\+chown(\& \& trim(names(i)), \& \& system\+\_\+getuid(), \& \& system\+\_\+getgid()) \& )then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+chown} \textquotesingle{}//trim(names(i))) endif enddo end program demo\+\_\+system\+\_\+chown 
+program demo\+\_\+system\+\_\+chown use M\+\_\+system, only \+: system\+\_\+chown use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}} use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}} use M\+\_\+system, only \+: system\+\_\+perror implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[}character(len=80) \+:\+: \textquotesingle{}myfile1\textquotesingle{},\textquotesingle{}/usr/local\textquotesingle{}\mbox{]} do i=1,size(names) if(.not. system\+\_\+chown(\& \& trim(names(i)), \& \& system\+\_\+getuid(), \& \& system\+\_\+getgid()) \& )then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+chown} \textquotesingle{}//trim(names(i))) endif enddo end program demo\+\_\+system\+\_\+chown 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a3353c1cff032fcfe2985a69f10038ddd_cgraph}
+\includegraphics[width=350pt]{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_a9c34787b170ab8d41000d7c3acb60736}\label{namespacem__system_a9c34787b170ab8d41000d7c3acb60736}} 
@@ -895,8 +904,7 @@ Public Domain
 
 References system\+\_\+readenv(), and system\+\_\+unsetenv().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -933,7 +941,14 @@ program demo\+\_\+system\+\_\+closedir use M\+\_\+system, only \+: system\+\_\+o
 
 John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
-Public Domain \mbox{\Hypertarget{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}\label{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}} 
+Public Domain Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}\label{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+cpu\+\_\+time@{system\+\_\+cpu\+\_\+time}}
 \index{system\+\_\+cpu\+\_\+time@{system\+\_\+cpu\+\_\+time}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+cpu\+\_\+time()}{system\_cpu\_time()}}
@@ -979,7 +994,60 @@ value=0.\+0 do i=1,itimes value=sqrt(real(i)+value) enddo write(10,$\ast$)value 
 
 end program demo\+\_\+system\+\_\+cpu\+\_\+time
 
-Typical Results\+: \mbox{\Hypertarget{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560}\label{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560}} 
+Typical Results\+: \mbox{\Hypertarget{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}\label{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}} 
+\index{m\+\_\+system@{m\+\_\+system}!system\+\_\+dir@{system\+\_\+dir}}
+\index{system\+\_\+dir@{system\+\_\+dir}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{system\+\_\+dir()}{system\_dir()}}
+{\footnotesize\ttfamily character(len=\+:) function, dimension(\+:), allocatable, public m\+\_\+system\+::system\+\_\+dir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in), optional}]{directory,  }\item[{character(len=$\ast$), intent(in), optional}]{pattern }\end{DoxyParamCaption})}
+
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+dir(3f) -\/ \mbox{[}M\+\_\+io\mbox{]} return filenames in a directory matching specified wildcard string (L\+I\+C\+E\+N\+SE\+:PD) 
+
+\subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+function system\+\_\+dir(directory,pattern)
+
+character(len=$\ast$),intent(in),optional \+:\+: directory character(len=$\ast$),intent(in),optional \+:\+: pattern character(len=\+:),allocatable \+:\+: system\+\_\+dir(\+:)
+
+\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+returns an array of filenames in the specified directory matching the wildcard string (which defaults to \char`\"{}$\ast$\char`\"{}).
+
+\subsubsection*{O\+P\+T\+I\+O\+NS}
+
+D\+I\+R\+E\+C\+T\+O\+RY name of directory to match filenames in. Defaults to \char`\"{}.\char`\"{}. P\+A\+T\+T\+E\+RN wildcard string matching the rules of the matchw(3f) function. Basically o \char`\"{}$\ast$\char`\"{} matches anything o \char`\"{}?\char`\"{} matches any single character
+
+\subsubsection*{R\+E\+T\+U\+R\+NS}
+
+system\+\_\+dir An array right-\/padded to the length of the longest filename. Note that this means filenames actually containing trailing spaces in their names may be incorrect.
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+Sample program\+:
+
+program demo\+\_\+system\+\_\+dir use M\+\_\+system, only \+: system\+\_\+dir implicit none write($\ast$, \textquotesingle{}(a)\textquotesingle{})system\+\_\+dir(pattern=\textquotesingle{}$\ast$.f90\textquotesingle{}) end program demo\+\_\+system\+\_\+dir
+
+\subsubsection*{A\+U\+T\+H\+OR}
+
+John S. Urban
+
+\subsubsection*{L\+I\+C\+E\+N\+SE}
+
+Public Domain 
+
+References matchw(), system\+\_\+closedir(), system\+\_\+opendir(), system\+\_\+readdir(), and system\+\_\+rewinddir().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560}\label{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+getcwd@{system\+\_\+getcwd}}
 \index{system\+\_\+getcwd@{system\+\_\+getcwd}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+getcwd()}{system\_getcwd()}}
@@ -1015,8 +1083,7 @@ Public Domain
 
 References arr2str().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1056,11 +1123,7 @@ name Return the value of the specified environment variable or blank if the vari
 
 Sample setting an environment variable from Fortran\+:
 
-program demo\+\_\+system\+\_\+getenv use M\+\_\+system, only \+: system\+\_\+getenv implicit none integer \+:\+: ierr
-
-write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R     \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+ER\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+L\+O\+G\+N\+A\+M\+E  \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}L\+O\+G\+N\+A\+ME\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R\+N\+A\+M\+E \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+E\+R\+N\+A\+ME\textquotesingle{})
-
-end program demo\+\_\+system\+\_\+getenv
+program demo\+\_\+system\+\_\+getenv use M\+\_\+system, only \+: system\+\_\+getenv implicit none write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R     \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+ER\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+L\+O\+G\+N\+A\+M\+E  \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}L\+O\+G\+N\+A\+ME\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R\+N\+A\+M\+E \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+E\+R\+N\+A\+ME\textquotesingle{}) end program demo\+\_\+system\+\_\+getenv
 
 \subsubsection*{A\+U\+T\+H\+OR}
 
@@ -1116,8 +1179,7 @@ Public Domain
 
 References anyinteger\+\_\+to\+\_\+64bit(), and arr2str().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1148,13 +1210,7 @@ string returns the hostname. Must be an allocatable C\+H\+A\+R\+A\+C\+T\+ER vari
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+gethostname
-
-use M\+\_\+system, only \+: system\+\_\+gethostname implicit none character(len=\+:),allocatable \+:\+: name integer \+:\+: ierr
-
-call system\+\_\+gethostname(name,ierr) if(ierr.\+eq.\+0)then write($\ast$,\textquotesingle{}(\char`\"{}hostname\mbox{[}\char`\"{},a,\char`\"{}\mbox{]}\char`\"{})\textquotesingle{})name else write($\ast$,\textquotesingle{}(a)\textquotesingle{})\textquotesingle{}E\+R\+R\+OR\+: could not get hostname\textquotesingle{} endif
-
-end program demo\+\_\+system\+\_\+gethostname
+program demo\+\_\+system\+\_\+gethostname use M\+\_\+system, only \+: system\+\_\+gethostname implicit none character(len=\+:),allocatable \+:\+: name integer \+:\+: ierr call system\+\_\+gethostname(name,ierr) if(ierr.\+eq.\+0)then write($\ast$,\textquotesingle{}(\char`\"{}hostname\mbox{[}\char`\"{},a,\char`\"{}\mbox{]}\char`\"{})\textquotesingle{})name else write($\ast$,\textquotesingle{}(a)\textquotesingle{})\textquotesingle{}E\+R\+R\+OR\+: could not get hostname\textquotesingle{} endif end program demo\+\_\+system\+\_\+gethostname
 
 \subsubsection*{A\+U\+T\+H\+OR}
 
@@ -1164,8 +1220,7 @@ Public Domain
 
 References arr2str(), and host\+\_\+name\+\_\+max.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1192,12 +1247,13 @@ character(len=\+:),allocatable \+:\+: F\+N\+A\+ME
 
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
-\begin{DoxyVerb}The system_getlogin() function returns a string containing the user
+\begin{DoxyVerb}The system_getlogin(3f) function returns a string containing the user
 name associated by the login activity with the controlling terminal
 of the current process. Otherwise, it returns a null string and sets
 errno to indicate the error.
 
 Three names associated with the current process can be determined:
+
    o system_getpwuid(system_getuid()) returns the name associated with the real user ID of the process.
    o system_getpwuid(system_geteuid()) returns the name associated with the effective user ID of the process
    o system_getlogin() returns the name associated with the current login activity
@@ -1226,8 +1282,7 @@ Public Domain
 
 References c2f\+\_\+string(), and system\+\_\+getpwuid().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1280,16 +1335,14 @@ Public Domain
 
 References anyinteger\+\_\+to\+\_\+64bit(), and arr2str().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a59cd13de95dc9a65b444f02614ea39ce_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1318,11 +1371,11 @@ program demo\+\_\+getumask use M\+\_\+system, only \+: system\+\_\+getumask, sys
 
 Expected output
 
-18 O\textquotesingle{}022\textquotesingle{} Z\char`\"{}12\textquotesingle{} B\textquotesingle{}000010010\char`\"{} \mbox{\Hypertarget{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f}\label{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f}} 
+18 O\textquotesingle{}022\textquotesingle{} Z\char`\"{}12\textquotesingle{} B\textquotesingle{}000010010\char`\"{} \mbox{\Hypertarget{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}\label{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+isblk@{system\+\_\+isblk}}
 \index{system\+\_\+isblk@{system\+\_\+isblk}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+isblk()}{system\_isblk()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+isblk (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+isblk (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
 
 
 
@@ -1332,7 +1385,7 @@ system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+isblk(pathname)
+elemental impure logical function system\+\_\+isblk(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+isblk
 
@@ -1346,7 +1399,7 @@ path a character string representing a block device pathname. Trailing spaces ar
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f}{system\+\_\+isblk()}} function should always be successful and no return value is reserved to indicate an error.
+The \mbox{\hyperlink{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}{system\+\_\+isblk()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1360,25 +1413,24 @@ system\+\_\+isreg(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 check if filename is a block device
 
-program demo\+\_\+system\+\_\+isblk Use M\+\_\+system, only \+: system\+\_\+isblk implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}block\+\_\+device.\+tst\textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a block device? \textquotesingle{}, system\+\_\+isblk(names(i)) enddo end program demo\+\_\+system\+\_\+isblk
+program demo\+\_\+system\+\_\+isblk use M\+\_\+system, only \+: system\+\_\+isblk implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}block\+\_\+device.\+tst\textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a block device? \textquotesingle{}, system\+\_\+isblk(names(i)) enddo end program demo\+\_\+system\+\_\+isblk
 
 Results\+: 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a791fa587005ec07cbcd7b0045ee6f43f_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6}\label{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6}} 
+\mbox{\Hypertarget{namespacem__system_a49f1d027d438aab86024660b0802768f}\label{namespacem__system_a49f1d027d438aab86024660b0802768f}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+ischr@{system\+\_\+ischr}}
 \index{system\+\_\+ischr@{system\+\_\+ischr}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+ischr()}{system\_ischr()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+ischr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+ischr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
 
 
 
@@ -1388,7 +1440,7 @@ system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+ischr(pathname)
+elemental impure logical function system\+\_\+ischr(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+ischr
 
@@ -1402,7 +1454,7 @@ path a character string representing a character device pathname. Trailing space
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6}{system\+\_\+ischr()}} function should always be successful and no return value is reserved to indicate an error.
+The \mbox{\hyperlink{namespacem__system_a49f1d027d438aab86024660b0802768f}{system\+\_\+ischr()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1416,25 +1468,24 @@ system\+\_\+isreg(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 check if filename is a character file
 
-program demo\+\_\+system\+\_\+ischr Use M\+\_\+system, only \+: system\+\_\+ischr implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}char\+\_\+dev.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a character device? \textquotesingle{}, system\+\_\+ischr(names(i)) enddo end program demo\+\_\+system\+\_\+ischr
+program demo\+\_\+system\+\_\+ischr use M\+\_\+system, only \+: system\+\_\+ischr implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}char\+\_\+dev.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a character device? \textquotesingle{}, system\+\_\+ischr(names(i)) enddo end program demo\+\_\+system\+\_\+ischr
 
 Results\+: 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a12a948fa4aacda084a538ae3a5ae3cc6_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a49f1d027d438aab86024660b0802768f_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_ad097988a031e64b4f21f856cf45c9c73}\label{namespacem__system_ad097988a031e64b4f21f856cf45c9c73}} 
+\mbox{\Hypertarget{namespacem__system_a7946ea976f399baff21caebcbe931f6d}\label{namespacem__system_a7946ea976f399baff21caebcbe931f6d}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+isdir@{system\+\_\+isdir}}
 \index{system\+\_\+isdir@{system\+\_\+isdir}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+isdir()}{system\_isdir()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+isdir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+isdir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname }\end{DoxyParamCaption})}
 
 
 
@@ -1444,7 +1495,7 @@ system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+isdir(pathname)
+elemental impure logical function system\+\_\+isdir(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+isdir
 
@@ -1458,7 +1509,7 @@ path a character string representing a directory pathname. Trailing spaces are i
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_ad097988a031e64b4f21f856cf45c9c73}{system\+\_\+isdir()}} function should always be successful and no return value is reserved to indicate an error.
+The \mbox{\hyperlink{namespacem__system_a7946ea976f399baff21caebcbe931f6d}{system\+\_\+isdir()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1470,29 +1521,30 @@ system\+\_\+islnk(3f), system\+\_\+stat(3f), isreg(3f), system\+\_\+perm(3f)
 
 \subsubsection*{E\+X\+A\+M\+P\+LE}
 
-check if filename is a directory
+Sample program
 
-program demo\+\_\+system\+\_\+isdir Use M\+\_\+system, only \+: system\+\_\+isdir implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a directory? \textquotesingle{}, system\+\_\+isdir(names(i)) enddo end program demo\+\_\+system\+\_\+isdir
+program demo\+\_\+system\+\_\+isdir use M\+\_\+system, only \+: system\+\_\+isdir use M\+\_\+system, only \+: access=$>$system\+\_\+access, R\+\_\+\+OK use M\+\_\+system, only \+: system\+\_\+dir implicit none character(len=1024),allocatable \+:\+: filenames(\+:) ! B\+UG\+: cannot use len=\+: in gfortran 8.\+3.\+1 integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \& \textquotesingle{}/tmp \textquotesingle{}, \& \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \& \textquotesingle{}/usr/local \textquotesingle{}, \& \& \textquotesingle{}. \textquotesingle{}, \& \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} ! do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a directory? \textquotesingle{}, system\+\_\+isdir(names(i)) enddo ! ! E\+X\+T\+E\+N\+D\+ED E\+X\+A\+M\+P\+LE\+: list readable non-\/hidden directories in current directory filenames=system\+\_\+dir(pattern=\textquotesingle{}$\ast$\textquotesingle{}) ! list all files in current directory ! select readable directories filenames=pack(filenames,system\+\_\+isdir(filenames).and.\+access(filenames,\+R\+\_\+\+O\+K)) filenames=pack(filenames,filenames(\+:)(1\+:1) .ne.\textquotesingle{}.\textquotesingle{}) ! skip hidden directories do i=1,size(filenames) write($\ast$,$\ast$)\textquotesingle{} \textquotesingle{},trim(filenames(i)),\textquotesingle{} is a directory\textquotesingle{} enddo ! end program demo\+\_\+system\+\_\+isdir
 
 Results\+:
 
-is /tmp a directory? T is /tmp/\+N\+O\+T\+T\+H\+E\+RE a directory? F is /usr/local a directory? T is . a directory? T is P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT a directory? F 
+is /tmp a directory? T is /tmp/\+N\+O\+T\+T\+H\+E\+RE a directory? F is /usr/local a directory? T is . a directory? T is P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT a directory? F
 
-References str2arr().
+T\+E\+ST is a directory E\+X\+A\+M\+P\+LE is a directory 
 
-Here is the call graph for this function\+:
-\nopagebreak
+References str2\+\_\+carr().
+
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_ad097988a031e64b4f21f856cf45c9c73_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a7946ea976f399baff21caebcbe931f6d_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3}\label{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3}} 
+\mbox{\Hypertarget{namespacem__system_aa2bdb5f75405d87934c10756b539d082}\label{namespacem__system_aa2bdb5f75405d87934c10756b539d082}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+isfifo@{system\+\_\+isfifo}}
 \index{system\+\_\+isfifo@{system\+\_\+isfifo}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+isfifo()}{system\_isfifo()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+isfifo (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+isfifo (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
 
 
 
@@ -1502,7 +1554,7 @@ system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+isfifo(pathname)
+elemental impure logical function system\+\_\+isfifo(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+isfifo
 
@@ -1516,7 +1568,7 @@ path a character string representing a fifo -\/ named pipe pathname. Trailing sp
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3}{system\+\_\+isfifo()}} function should always be successful and no return value is reserved to indicate an error.
+The \mbox{\hyperlink{namespacem__system_aa2bdb5f75405d87934c10756b539d082}{system\+\_\+isfifo()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1530,23 +1582,22 @@ system\+\_\+isreg(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 check if filename is a F\+I\+FO file
 
-program demo\+\_\+system\+\_\+isfifo Use M\+\_\+system, only \+: system\+\_\+isfifo implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}fifo.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a fifo(named pipe)? \textquotesingle{}, system\+\_\+isfifo(names(i)) enddo end program demo\+\_\+system\+\_\+isfifo 
+program demo\+\_\+system\+\_\+isfifo use M\+\_\+system, only \+: system\+\_\+isfifo implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}fifo.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a fifo(named pipe)? \textquotesingle{}, system\+\_\+isfifo(names(i)) enddo end program demo\+\_\+system\+\_\+isfifo 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_acbcaa0c5075ca103815f441ee410e1a3_cgraph}
+\includegraphics[width=350pt]{namespacem__system_aa2bdb5f75405d87934c10756b539d082_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217}\label{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217}} 
+\mbox{\Hypertarget{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}\label{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+islnk@{system\+\_\+islnk}}
 \index{system\+\_\+islnk@{system\+\_\+islnk}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+islnk()}{system\_islnk()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+islnk (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+islnk (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
 
 
 
@@ -1556,7 +1607,7 @@ system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-\begin{DoxyVerb}logical function system_islnk(pathname)
+\begin{DoxyVerb}elemental impure logical function system_islnk(pathname)
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_islnk
@@ -1573,7 +1624,7 @@ path a character string representing a link pathname. Trailing spaces are ignore
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217}{system\+\_\+islnk()}} function should always be successful and no return value is reserved to indicate an error.
+system\+\_\+islnk The \mbox{\hyperlink{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}{system\+\_\+islnk()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1587,25 +1638,24 @@ system\+\_\+isreg(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+islnk Use M\+\_\+system, only \+: system\+\_\+islnk implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}link.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a link? \textquotesingle{}, system\+\_\+islnk(names(i)) enddo end program demo\+\_\+system\+\_\+islnk
+program demo\+\_\+system\+\_\+islnk use M\+\_\+system, only \+: system\+\_\+islnk implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}link.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a link? \textquotesingle{}, system\+\_\+islnk(names(i)) enddo end program demo\+\_\+system\+\_\+islnk
 
 Results\+: 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_ab05694cc3d76a3ecc87e4b4490c4c217_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b}\label{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b}} 
+\mbox{\Hypertarget{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}\label{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+isreg@{system\+\_\+isreg}}
 \index{system\+\_\+isreg@{system\+\_\+isreg}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+isreg()}{system\_isreg()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+isreg (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure logical function, public m\+\_\+system\+::system\+\_\+isreg (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname }\end{DoxyParamCaption})}
 
 
 
@@ -1615,7 +1665,7 @@ system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+isreg(pathname)
+elemental impure logical function system\+\_\+isreg(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+isreg
 
@@ -1629,7 +1679,7 @@ path a character string representing a pathname. Trailing spaces are ignored.
 
 \subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
 
-The \mbox{\hyperlink{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b}{system\+\_\+isreg()}} function should always be successful and no return value is reserved to indicate an error.
+The \mbox{\hyperlink{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}{system\+\_\+isreg()}} function should always be successful and no return value is reserved to indicate an error.
 
 \subsubsection*{E\+R\+R\+O\+RS}
 
@@ -1643,16 +1693,19 @@ system\+\_\+islnk(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 check if filename is a regular file
 
-program demo\+\_\+system\+\_\+isreg Use M\+\_\+system, only \+: system\+\_\+isreg implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}test.\+txt \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a regular file? \textquotesingle{}, system\+\_\+isreg(names(i)) enddo end program demo\+\_\+system\+\_\+isreg 
+program simple use M\+\_\+system, only \+: system\+\_\+isreg implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}test.\+txt \textquotesingle{}, \& \textquotesingle{}$\sim$/.bashrc \textquotesingle{}, \& \textquotesingle{}.bashrc \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a regular file? \textquotesingle{}, system\+\_\+isreg(names(i)) enddo end program simple
 
-References str2arr().
+E\+X\+T\+E\+N\+D\+ED E\+X\+A\+M\+P\+LE list readable non-\/hidden regular files and links in current directory
 
-Here is the call graph for this function\+:
-\nopagebreak
+program demo\+\_\+system\+\_\+isreg use M\+\_\+system, only \+: isreg=$>$system\+\_\+isreg, islnk=$>$system\+\_\+islnk use M\+\_\+system, only \+: access=$>$system\+\_\+access, R\+\_\+\+OK use M\+\_\+system, only \+: system\+\_\+dir implicit none character(len=1024),allocatable \+:\+: filenames(\+:) ! B\+UG\+: cannot use len=\+: in gfortran 8.\+3.\+1 logical,allocatable \+:\+: mymask(\+:) integer \+:\+: i ! list readable non-\/hidden regular files and links in current directory filenames=system\+\_\+dir(pattern=\textquotesingle{}$\ast$\textquotesingle{}) ! make list of all files in current directory mymask= isreg(filenames).or.\+islnk(filenames) ! select regular files and links where(mymask) mymask=filenames(\+:)(1\+:1).ne.\textquotesingle{}.\textquotesingle{} ! skip hidden directories in those where(mymask) mymask=access(filenames,\+R\+\_\+\+O\+K) ! select readable files in those filenames=pack(filenames,mask=mymask) write($\ast$,\textquotesingle{}(a)\textquotesingle{})(trim(filenames(i)),i=1,size(filenames)) end program demo\+\_\+system\+\_\+isreg 
+
+References str2\+\_\+carr().
+
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a127bdd84ccd4b52f3f29abbc56af029b_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_af6eb5074fe74552bc7a5e7d00f459087}\label{namespacem__system_af6eb5074fe74552bc7a5e7d00f459087}} 
@@ -1669,7 +1722,7 @@ system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-logical function system\+\_\+issock(pathname)
+elemental impure logical function system\+\_\+issock(pathname)
 
 character(len=$\ast$),intent(in) \+:\+: pathname logical \+:\+: system\+\_\+issock
 
@@ -1697,23 +1750,22 @@ system\+\_\+isreg(3f), system\+\_\+stat(3f), system\+\_\+isdir(3f), system\+\_\+
 
 check if filename is a socket
 
-program demo\+\_\+system\+\_\+issock Use M\+\_\+system, only \+: system\+\_\+issock implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}sock.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a socket? \textquotesingle{}, system\+\_\+issock(names(i)) enddo end program demo\+\_\+system\+\_\+issock 
+program demo\+\_\+system\+\_\+issock use M\+\_\+system, only \+: system\+\_\+issock implicit none integer \+:\+: i character(len=80),parameter \+:\+: names($\ast$)=\mbox{[} \& \textquotesingle{}/tmp \textquotesingle{}, \& \textquotesingle{}/tmp/\+N\+O\+T\+T\+H\+E\+RE \textquotesingle{}, \& \textquotesingle{}/usr/local \textquotesingle{}, \& \textquotesingle{}. \textquotesingle{}, \& \textquotesingle{}sock.\+test \textquotesingle{}, \& \textquotesingle{}P\+R\+O\+B\+A\+B\+L\+Y\+\_\+\+N\+OT \textquotesingle{}\mbox{]} do i=1,size(names) write($\ast$,$\ast$)\textquotesingle{} is \textquotesingle{},trim(names(i)),\textquotesingle{} a socket? \textquotesingle{}, system\+\_\+issock(names(i)) enddo end program demo\+\_\+system\+\_\+issock 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_af6eb5074fe74552bc7a5e7d00f459087_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_aa77d9c9ae68750f515ba3d04d022c43c}\label{namespacem__system_aa77d9c9ae68750f515ba3d04d022c43c}} 
+\mbox{\Hypertarget{namespacem__system_a0e04b5499fc3367eda9758b6e396a103}\label{namespacem__system_a0e04b5499fc3367eda9758b6e396a103}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+link@{system\+\_\+link}}
 \index{system\+\_\+link@{system\+\_\+link}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+link()}{system\_link()}}
-{\footnotesize\ttfamily integer function, public m\+\_\+system\+::system\+\_\+link (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{oldname,  }\item[{character(len=$\ast$), intent(in)}]{newname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure integer function, public m\+\_\+system\+::system\+\_\+link (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{oldname,  }\item[{character(len=$\ast$), intent(in)}]{newname }\end{DoxyParamCaption})}
 
 
 
@@ -1723,7 +1775,7 @@ system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} link one file to another 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-\begin{DoxyVerb}integer function link(oldpath,newpath);
+\begin{DoxyVerb}elemental impure integer function link(oldpath,newpath);
 
  character(len=*),intent(in) :: oldpath
  character(len=*),intent(in) :: newpath
@@ -1770,14 +1822,13 @@ Creating a Link to a File
 
 program demo\+\_\+system\+\_\+link use M\+\_\+system, only \+: system\+\_\+link, system\+\_\+perror integer \+:\+: ierr ierr = system\+\_\+link(\textquotesingle{}myfile1\textquotesingle{},\textquotesingle{}myfile2\textquotesingle{}) if(ierr.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+link}\textquotesingle{}) endif end program demo\+\_\+system\+\_\+link 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_aa77d9c9ae68750f515ba3d04d022c43c_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a0e04b5499fc3367eda9758b6e396a103_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_a084d644c236d22af2cc75c6e48fd6e96}\label{namespacem__system_a084d644c236d22af2cc75c6e48fd6e96}} 
@@ -1795,7 +1846,7 @@ system\+\_\+mkdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call mkdir(3c) to create
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
 \begin{DoxyVerb}Predefined variables are typically used to set permission modes.
-You can bytewise-OR together these variables to to create the most common
+You can bytewise-OR together these variables to create the most common
 permissions mode:
 
  User:    R_USR  (read),  W_USR  (write),  X_USR(execute)
@@ -1836,10 +1887,9 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References my\+\_\+mkdir(), and str2arr().
+References my\+\_\+mkdir(), and str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1892,7 +1942,7 @@ Also, the last data modification and last file status change timestamps of the d
 
 Predefined variables are typically used to set permission modes.
 
-You can bytewise-\/\+OR together these variables to to create the most common permissions mode\+:
+You can bytewise-\/\+OR together these variables to create the most common permissions mode\+:
 
 User\+: R\+\_\+\+U\+SR (read), W\+\_\+\+U\+SR (write), X\+\_\+\+U\+S\+R(execute) Group\+: R\+\_\+\+G\+RP (read), W\+\_\+\+G\+RP (write), X\+\_\+\+G\+R\+P(execute) Others\+: R\+\_\+\+O\+TH (read), W\+\_\+\+O\+TH (write), X\+\_\+\+O\+T\+H(execute)
 
@@ -1914,7 +1964,7 @@ Upon successful completion, return 0. Otherwise, return -\/1 and set errno to in
 
 The following example shows how to create a F\+I\+FO file named /home/cnd/mod\+\_\+done, with read/write permissions for owner, and with read permissions for group and others.
 
-program demo\+\_\+system\+\_\+mkfifo use M\+\_\+system, only \+: system\+\_\+mkfifo, system\+\_\+perror use M\+\_\+system, only \+: R\+\_\+\+G\+RP,R\+\_\+\+O\+TH,R\+\_\+\+U\+SR,R\+W\+X\+\_\+G,R\+W\+X\+\_\+O use M\+\_\+system, only \+: R\+W\+X\+\_\+U,W\+\_\+\+G\+RP,W\+\_\+\+O\+TH,W\+\_\+\+U\+SR,X\+\_\+\+G\+RP,X\+\_\+\+O\+TH,X\+\_\+\+U\+SR use M\+\_\+system, only \+: D\+E\+F\+F\+I\+L\+E\+M\+O\+DE, A\+C\+C\+E\+S\+S\+P\+E\+R\+MS implicit none integer \+:\+: status status = system\+\_\+mkfifo(\char`\"{}/tmp/buffer\char`\"{}, I\+A\+N\+Y(\mbox{[}\+W\+\_\+\+U\+S\+R, R\+\_\+\+U\+S\+R, R\+\_\+\+G\+R\+P, R\+\_\+\+O\+T\+H\mbox{]})) if(status.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape mkfifo} error\+:\textquotesingle{}) endif end program demo\+\_\+system\+\_\+mkfifo
+program demo\+\_\+system\+\_\+mkfifo use M\+\_\+system, only \+: system\+\_\+mkfifo, system\+\_\+perror !use M\+\_\+system, only \+: R\+\_\+\+G\+RP,R\+\_\+\+O\+TH,R\+\_\+\+U\+SR,R\+W\+X\+\_\+G,R\+W\+X\+\_\+O !use M\+\_\+system, only \+: R\+W\+X\+\_\+U,W\+\_\+\+G\+RP,W\+\_\+\+O\+TH,W\+\_\+\+U\+SR,X\+\_\+\+G\+RP,X\+\_\+\+O\+TH,X\+\_\+\+U\+SR !use M\+\_\+system, only \+: D\+E\+F\+F\+I\+L\+E\+M\+O\+DE, A\+C\+C\+E\+S\+S\+P\+E\+R\+MS use M\+\_\+system, only \+: W\+\_\+\+U\+SR, R\+\_\+\+U\+SR, R\+\_\+\+G\+RP, R\+\_\+\+O\+TH implicit none integer \+:\+: status status = system\+\_\+mkfifo(\char`\"{}/tmp/buffer\char`\"{}, I\+A\+N\+Y(\mbox{[}\+W\+\_\+\+U\+S\+R, R\+\_\+\+U\+S\+R, R\+\_\+\+G\+R\+P, R\+\_\+\+O\+T\+H\mbox{]})) if(status.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape mkfifo} error\+:\textquotesingle{}) endif end program demo\+\_\+system\+\_\+mkfifo
 
 Now some other process (or this one) can read from /tmp/buffer while this program is running or after, consuming the data as it is read.
 
@@ -1924,10 +1974,9 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2003,14 +2052,20 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_ae8f39e1d4e420396319105e4e81f92b5}\label{namespacem__system_ae8f39e1d4e420396319105e4e81f92b5}} 
@@ -2046,7 +2101,7 @@ P\+E\+R\+MS returns the permission string in a format similar to that used by Un
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+perm use M\+\_\+system, only \+: system\+\_\+perm, system\+\_\+stat use,intrinsic \+:\+: iso\+\_\+fortran\+\_\+env, only \+: int64 implicit none character(len=4096) \+:\+: string integer(kind=int64) \+:\+: values(13) integer \+:\+: ierr character(len=\+:),allocatable \+:\+: perms values=0 call get\+\_\+command\+\_\+argument(1, string) ! get pathname from command line call system\+\_\+stat(string,values,ierr) ! get pathname information if(ierr.\+eq.\+0)then perms=system\+\_\+perm(values(3)) ! convert permit mode to a string ! print permits as a string, decimal value, and octal value write($\ast$,\textquotesingle{}(\char`\"{}for \char`\"{},a,\char`\"{} permits\mbox{[}\char`\"{},a,\char`\"{}\mbox{]}\char`\"{},1x,i0,1x,o0)\textquotesingle{}) \& trim(string),perms,values(3),values(3) endif end program demo\+\_\+system\+\_\+perm
+program demo\+\_\+system\+\_\+perm use M\+\_\+system, only \+: system\+\_\+perm, system\+\_\+stat use,intrinsic \+:\+: iso\+\_\+fortran\+\_\+env, only \+: int64 implicit none character(len=4096) \+:\+: string integer(kind=int64) \+:\+: values(13) integer \+:\+: ierr character(len=\+:),allocatable \+:\+: perms values=0 ! get pathname from command line call get\+\_\+command\+\_\+argument(1, string) ! get pathname information call system\+\_\+stat(string,values,ierr) if(ierr.\+eq.\+0)then ! convert permit mode to a string perms=system\+\_\+perm(values(3)) ! print permits as a string, decimal value, and octal value write($\ast$,\textquotesingle{}(\char`\"{}for \char`\"{},a,\char`\"{} permits\mbox{[}\char`\"{},a,\char`\"{}\mbox{]}\char`\"{},1x,i0,1x,o0)\textquotesingle{}) \& \& trim(string),perms,values(3),values(3) endif end program demo\+\_\+system\+\_\+perm
 
 Results\+:
 
@@ -2056,14 +2111,15 @@ for /tmp permits\mbox{[}drwxrwxrwx --S\mbox{]} 17407 41777
 
 \subsubsection*{A\+U\+T\+H\+OR}
 
-John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
+John S. Urban
+
+\subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
 References anyinteger\+\_\+to\+\_\+64bit(), and c2f\+\_\+string().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2100,10 +2156,9 @@ Expected results\+:
 
 {\itshape demo\+\_\+system\+\_\+perror}\+:/\+N\+O\+T/\+T\+H\+E\+R\+E/\+O\+R/\+A\+N\+Y\+W\+H\+E\+RE\+: No such file or directory That\textquotesingle{}s all Folks! 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2222,12 +2277,18 @@ Public Domain
 
 References arr2str().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_ae0e43010a82a6a25402568ccb326322d}\label{namespacem__system_ae0e43010a82a6a25402568ccb326322d}} 
@@ -2266,16 +2327,14 @@ Public Domain
 
 References arr2str().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_ae0e43010a82a6a25402568ccb326322d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2312,7 +2371,7 @@ O\+U\+T\+P\+UT The absolute pathname of the given input pathname. The pathname s
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+realpath use M\+\_\+system, only \+: system\+\_\+realpath, system\+\_\+perror implicit none ! resolve each pathname given on command line character(len=\+:),allocatable \+:\+: pathi,patho integer \+:\+: i integer \+:\+: filename\+\_\+length do i = 1, command\+\_\+argument\+\_\+count() ! get pathname from command line arguments call get\+\_\+command\+\_\+argument (i , length=filename\+\_\+length) allocate(character(len=filename\+\_\+length) \+:\+: pathi) call get\+\_\+command\+\_\+argument (i , value=pathi) ! ! resolve each pathname patho=system\+\_\+realpath(pathi) if(patho.\+ne.\+char(0))then write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) else call system\+\_\+perror(\textquotesingle{}{\itshape system\+\_\+realpath} error for pathname \textquotesingle{}//trim(pathi)//\textquotesingle{}\+:\textquotesingle{}) write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames give resolve the pathname \char`\"{}.\char`\"{} if(i.\+eq.\+1)then patho=system\+\_\+realpath(\textquotesingle{}.\textquotesingle{}) write($\ast$,$\ast$)\textquotesingle{}.=$>$\textquotesingle{},trim(patho) endif end program demo\+\_\+system\+\_\+realpath
+program demo\+\_\+system\+\_\+realpath use M\+\_\+system, only \+: system\+\_\+realpath, system\+\_\+perror implicit none ! resolve each pathname given on command line character(len=\+:),allocatable \+:\+: pathi,patho integer \+:\+: i integer \+:\+: filename\+\_\+length do i = 1, command\+\_\+argument\+\_\+count() ! get pathname from command line arguments call get\+\_\+command\+\_\+argument (i , length=filename\+\_\+length) allocate(character(len=filename\+\_\+length) \+:\+: pathi) call get\+\_\+command\+\_\+argument (i , value=pathi) ! ! resolve each pathname patho=system\+\_\+realpath(pathi) if(patho.\+ne.\+char(0))then write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) else call system\+\_\+perror(\textquotesingle{}{\itshape system\+\_\+realpath} error for pathname \textquotesingle{}//trim(pathi)//\textquotesingle{}\+:\textquotesingle{}) write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname \char`\"{}.\char`\"{} if(i.\+eq.\+1)then patho=system\+\_\+realpath(\textquotesingle{}.\textquotesingle{}) write($\ast$,$\ast$)\textquotesingle{}.=$>$\textquotesingle{},trim(patho) endif end program demo\+\_\+system\+\_\+realpath
 
 Example usage\+:
 
@@ -2320,21 +2379,20 @@ demo\+\_\+system\+\_\+realpath .=$>$/home/urbanjs/\+V600
 
 cd /usr/share/man demo\+\_\+system\+\_\+realpath . .. Not\+There .=$>$/usr/share/man ..=$>$/usr/share {\itshape system\+\_\+realpath} error for pathname Not\+There\+:\+: No such file or directory Not\+There=$>$Not\+There 
 
-References c2f\+\_\+string(), and str2arr().
+References c2f\+\_\+string(), and str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a70bbfa0a0be084b9717cbc04408041fc_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a730ae64294e3cd73bde8f0c63cdf9972}\label{namespacem__system_a730ae64294e3cd73bde8f0c63cdf9972}} 
+\mbox{\Hypertarget{namespacem__system_a7fa10b991ae066609b687423918cff52}\label{namespacem__system_a7fa10b991ae066609b687423918cff52}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+remove@{system\+\_\+remove}}
 \index{system\+\_\+remove@{system\+\_\+remove}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+remove()}{system\_remove()}}
-{\footnotesize\ttfamily integer(c\+\_\+int) function, public m\+\_\+system\+::system\+\_\+remove (\begin{DoxyParamCaption}\item[{character($\ast$), intent(in)}]{path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure integer(c\+\_\+int) function, public m\+\_\+system\+::system\+\_\+remove (\begin{DoxyParamCaption}\item[{character($\ast$), intent(in)}]{path }\end{DoxyParamCaption})}
 
 
 
@@ -2342,7 +2400,7 @@ Here is the call graph for this function\+:
 
 system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-function system\+\_\+remove(path) result(err)
+elemental impure function system\+\_\+remove(path) result(err)
 
 character($\ast$),intent(in) \+:\+: path integer(c\+\_\+int) \+:\+: err
 
@@ -2374,14 +2432,13 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a730ae64294e3cd73bde8f0c63cdf9972_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a7fa10b991ae066609b687423918cff52_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_adfbaf3d17790da9ba0c520683d5b8003}\label{namespacem__system_adfbaf3d17790da9ba0c520683d5b8003}} 
@@ -2465,10 +2522,9 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2511,7 +2567,14 @@ end program demo\+\_\+system\+\_\+rewinddir \subsubsection*{A\+U\+T\+H\+OR}
 
 John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
-Public Domain \mbox{\Hypertarget{namespacem__system_a21fd3e1ccd50cef6adc539ef3d7a9836}\label{namespacem__system_a21fd3e1ccd50cef6adc539ef3d7a9836}} 
+Public Domain Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a3ffe757195ade8052e8acabd196ee3ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a21fd3e1ccd50cef6adc539ef3d7a9836}\label{namespacem__system_a21fd3e1ccd50cef6adc539ef3d7a9836}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+rmdir@{system\+\_\+rmdir}}
 \index{system\+\_\+rmdir@{system\+\_\+rmdir}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+rmdir()}{system\_rmdir()}}
@@ -2558,10 +2621,9 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2680,11 +2742,24 @@ use M\+\_\+system, only \+: system\+\_\+stat, system\+\_\+getpwuid, system\+\_\+
 
 integer(kind=int64) \+:\+: buff(13) integer(kind=int32) \+:\+: status character(len=$\ast$),parameter \+:\+: fmt\+\_\+date=\textquotesingle{}year-\/month-\/day hour\+:minute\+:second\textquotesingle{}
 
-integer(kind=int64) \+:\+: \& Device\+\_\+\+ID, Inode\+\_\+number, File\+\_\+mode, Number\+\_\+of\+\_\+links, Owner\+\_\+uid, \& Owner\+\_\+gid, Directory\+\_\+device, File\+\_\+size, Last\+\_\+access, Last\+\_\+modification, \& Last\+\_\+status\+\_\+change, Preferred\+\_\+block\+\_\+size, Number\+\_\+of\+\_\+blocks\+\_\+allocated equivalence \& ( buff(1) , Device\+\_\+\+ID ) , \& ( buff(2) , Inode\+\_\+number ) , \& ( buff(3) , File\+\_\+mode ) , \& ( buff(4) , Number\+\_\+of\+\_\+links ) , \& ( buff(5) , Owner\+\_\+uid ) , \& ( buff(6) , Owner\+\_\+gid ) , \& ( buff(7) , Directory\+\_\+device ) , \& ( buff(8) , File\+\_\+size ) , \& ( buff(9) , Last\+\_\+access ) , \& ( buff(10) , Last\+\_\+modification ) , \& ( buff(11) , Last\+\_\+status\+\_\+change ) , \& ( buff(12) , Preferred\+\_\+block\+\_\+size ) , \& ( buff(13) , Number\+\_\+of\+\_\+blocks\+\_\+allocated )
+integer(kind=int64) \+:\+: \& Device\+\_\+\+ID, Inode\+\_\+number, File\+\_\+mode, Number\+\_\+of\+\_\+links, Owner\+\_\+uid, \& Owner\+\_\+gid, Directory\+\_\+device, File\+\_\+size, Last\+\_\+access, Last\+\_\+modification,\& Last\+\_\+status\+\_\+change, Preferred\+\_\+block\+\_\+size, Number\+\_\+of\+\_\+blocks\+\_\+allocated equivalence \& ( buff(1) , Device\+\_\+\+ID ) , \& ( buff(2) , Inode\+\_\+number ) , \& ( buff(3) , File\+\_\+mode ) , \& ( buff(4) , Number\+\_\+of\+\_\+links ) , \& ( buff(5) , Owner\+\_\+uid ) , \& ( buff(6) , Owner\+\_\+gid ) , \& ( buff(7) , Directory\+\_\+device ) , \& ( buff(8) , File\+\_\+size ) , \& ( buff(9) , Last\+\_\+access ) , \& ( buff(10) , Last\+\_\+modification ) , \& ( buff(11) , Last\+\_\+status\+\_\+change ) , \& ( buff(12) , Preferred\+\_\+block\+\_\+size ) , \& ( buff(13) , Number\+\_\+of\+\_\+blocks\+\_\+allocated )
 
 C\+A\+LL S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT(\char`\"{}/etc/hosts\char`\"{}, buff, status)
 
-if (status == 0) then write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Device I\+D(hex/decimal)\+:\textquotesingle{},      T30, Z0,\textquotesingle{}h/\textquotesingle{},\+I0,\textquotesingle{}d\textquotesingle{})\char`\"{}) buff(1),buff(1) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Inode number\+:\textquotesingle{},                T30, I0)\char`\"{}) buff(2) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+File mode (octal)\+:\textquotesingle{},           T30, O19)\char`\"{}) buff(3) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Number of links\+:\textquotesingle{},             T30, I0)\char`\"{}) buff(4) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Owner\textquotesingle{}\textquotesingle{}s uid/username\+:\textquotesingle{},       T30, I0,1x, A)\char`\"{}) buff(5), system\+\_\+getpwuid(buff(5)) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Owner\textquotesingle{}\textquotesingle{}s gid/group\+:\textquotesingle{},          T30, I0,1x, A)\char`\"{}) buff(6), system\+\_\+getgrgid(buff(6)) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Device where located\+:\textquotesingle{},        T30, I0)\char`\"{}) buff(7) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+File size(bytes)\+:\textquotesingle{},            T30, I0)\char`\"{}) buff(8) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last access time\+:\textquotesingle{},            T30, I0,1x, A)\char`\"{}) buff(9), fmtdate(u2d(int(buff(9))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last modification time\+:\textquotesingle{},      T30, I0,1x, A)\char`\"{}) buff(10),fmtdate(u2d(int(buff(10))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last status change time\+:\textquotesingle{},     T30, I0,1x, A)\char`\"{}) buff(11),fmtdate(u2d(int(buff(11))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Preferred block size(bytes)\+:\textquotesingle{}, T30, I0)\char`\"{}) buff(12) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+No. of blocks allocated\+:\textquotesingle{},     T30, I0)\char`\"{}) buff(13) endif
+if (status == 0) then write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Device I\+D(hex/decimal)\+:\textquotesingle{},      \&
+       \& T30, Z0,\textquotesingle{}h/\textquotesingle{},\+I0,\textquotesingle{}d\textquotesingle{})\char`\"{}) buff(1),buff(1) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Inode number\+:\textquotesingle{},                \&
+       \& T30, I0)\char`\"{}) buff(2) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+File mode (octal)\+:\textquotesingle{},           \&
+       \& T30, O19)\char`\"{}) buff(3) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Number of links\+:\textquotesingle{},             \&
+       \& T30, I0)\char`\"{}) buff(4) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Owner\textquotesingle{}\textquotesingle{}s uid/username\+:\textquotesingle{},       \&
+       \& T30, I0,1x, A)\char`\"{}) buff(5), system\+\_\+getpwuid(buff(5)) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Owner\textquotesingle{}\textquotesingle{}s gid/group\+:\textquotesingle{},          \&
+       \& T30, I0,1x, A)\char`\"{}) buff(6), system\+\_\+getgrgid(buff(6)) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Device where located\+:\textquotesingle{},        \&
+       \& T30, I0)\char`\"{}) buff(7) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+File size(bytes)\+:\textquotesingle{},            \&
+       \& T30, I0)\char`\"{}) buff(8) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last access time\+:\textquotesingle{},            \&
+       \& T30, I0,1x, A)\char`\"{}) buff(9), fmtdate(u2d(int(buff(9))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last modification time\+:\textquotesingle{},      \&
+       \& T30, I0,1x, A)\char`\"{}) buff(10),fmtdate(u2d(int(buff(10))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Last status change time\+:\textquotesingle{},     \&
+       \& T30, I0,1x, A)\char`\"{}) buff(11),fmtdate(u2d(int(buff(11))),fmt\+\_\+date) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+Preferred block size(bytes)\+:\textquotesingle{}, \&
+       \& T30, I0)\char`\"{}) buff(12) write ($\ast$, F\+MT=\char`\"{}(\textquotesingle{}\+No. of blocks allocated\+:\textquotesingle{},     \&
+       \& T30, I0)\char`\"{}) buff(13) endif
 
 end program demo\+\_\+system\+\_\+stat
 
@@ -2698,10 +2773,9 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2740,11 +2814,11 @@ end program demo\+\_\+system\+\_\+uname \subsubsection*{A\+U\+T\+H\+OR}
 
 John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
-Public Domain \mbox{\Hypertarget{namespacem__system_a14ce0b9177815bc357dbdf3778687bb7}\label{namespacem__system_a14ce0b9177815bc357dbdf3778687bb7}} 
+Public Domain \mbox{\Hypertarget{namespacem__system_a3561c9beafec28439f760d701d55a6b8}\label{namespacem__system_a3561c9beafec28439f760d701d55a6b8}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+unlink@{system\+\_\+unlink}}
 \index{system\+\_\+unlink@{system\+\_\+unlink}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+unlink()}{system\_unlink()}}
-{\footnotesize\ttfamily integer function, public m\+\_\+system\+::system\+\_\+unlink (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{fname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily elemental impure integer function, public m\+\_\+system\+::system\+\_\+unlink (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{fname }\end{DoxyParamCaption})}
 
 
 
@@ -2754,7 +2828,7 @@ system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} remove a directory entr
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-\begin{DoxyVerb}integer function unlink(path);
+\begin{DoxyVerb}elemental impure integer function unlink(path);
 
  character(len=*) :: path
 \end{DoxyVerb}
@@ -2790,14 +2864,13 @@ Removing a link to a file
 
 program demo\+\_\+system\+\_\+unlink use M\+\_\+system, only \+: system\+\_\+unlink, system\+\_\+perror integer \+:\+: ierr ierr = system\+\_\+unlink(\textquotesingle{}myfile1\textquotesingle{}) if(ierr.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+unlink}\textquotesingle{}) endif end program demo\+\_\+system\+\_\+unlink 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacem__system_a14ce0b9177815bc357dbdf3778687bb7_cgraph}
+\includegraphics[width=350pt]{namespacem__system_a3561c9beafec28439f760d701d55a6b8_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_a61b67b46b35490ec308773b65c3376a3}\label{namespacem__system_a61b67b46b35490ec308773b65c3376a3}} 
@@ -2841,18 +2914,16 @@ John S. Urban \subsubsection*{L\+I\+C\+E\+N\+SE}
 
 Public Domain 
 
-References str2arr().
+References str2\+\_\+carr().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a61b67b46b35490ec308773b65c3376a3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2863,7 +2934,7 @@ Here is the caller graph for this function\+:
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+utime@{system\+\_\+utime}}
 \index{system\+\_\+utime@{system\+\_\+utime}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+utime()}{system\_utime()}}
-{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+utime (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname,  }\item[{integer, dimension(2), intent(in)}]{times }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily logical function, public m\+\_\+system\+::system\+\_\+utime (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{pathname,  }\item[{integer, dimension(2), intent(in), optional}]{times }\end{DoxyParamCaption})}
 
 
 
@@ -2876,7 +2947,7 @@ system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set file access and modi
 \begin{DoxyVerb}    function utime(pathname,times)
 
      character(len=*),intent(in) :: pathname
-     integer,intent(in)          :: times(2)
+     integer,intent(in),optional :: times(2)
      logical                     :: utime
 \end{DoxyVerb}
 
@@ -2891,7 +2962,7 @@ To use system\+\_\+utime(3f) the effective user ID of the process must match the
 
 \subsubsection*{O\+P\+T\+I\+O\+NS}
 
-times The values will be interpreted as the access and modification times as Unix Epoch values. That is, they are times measured in seconds since the Unix Epoch.
+times If present, the values will be interpreted as the access and modification times as Unix Epoch values. That is, they are times measured in seconds since the Unix Epoch.
 
 pathname name of the file whose access and modification times are to be updated.
 
@@ -2946,28 +3017,26 @@ The utime() function may fail if\+: \begin{DoxyVerb} ELOOP  More than {SYMLOOP_M
    end program demo_system_utime \end{DoxyVerb}
  
 
-References str2arr().
+References str2\+\_\+carr(), and timestamp().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_a83a121ba0b525210b5217565569ef350_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a403bef1f7fdc42dd75a5b082a15237ff}\label{namespacem__system_a403bef1f7fdc42dd75a5b082a15237ff}} 
-\index{m\+\_\+system@{m\+\_\+system}!uniq@{uniq}}
-\index{uniq@{uniq}!m\+\_\+system@{m\+\_\+system}}
-\subsubsection{\texorpdfstring{uniq()}{uniq()}}
-{\footnotesize\ttfamily character(len=\+:) function, allocatable m\+\_\+system\+::uniq (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{integer, intent(in), optional}]{istart,  }\item[{logical, intent(in), optional}]{verbose,  }\item[{logical, intent(in), optional}]{create }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{namespacem__system_a635baf5850927faa97461afaca512235}\label{namespacem__system_a635baf5850927faa97461afaca512235}} 
+\index{m\+\_\+system@{m\+\_\+system}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{timestamp()}{timestamp()}}
+{\footnotesize\ttfamily integer(kind=8) function m\+\_\+system\+::timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=321pt]{namespacem__system_a403bef1f7fdc42dd75a5b082a15237ff_icgraph}
+\includegraphics[width=350pt]{namespacem__system_a635baf5850927faa97461afaca512235_icgraph}
 \end{center}
 \end{figure}
 

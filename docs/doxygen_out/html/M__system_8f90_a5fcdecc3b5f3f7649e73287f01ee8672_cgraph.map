@@ -1,0 +1,5 @@
+<map id="test_system_unsetenv" name="test_system_unsetenv">
+<area shape="rect" id="node2" href="$namespacem__system.html#ad813765403a5d9d6fb7a2edcb669fe4b" title="NAMEset_environment_variable(3f) &#45; [M_system:ENVIRONMENT] call setenv(3c) to set environment variable..." alt="" coords="225,5,433,47"/>
+<area shape="rect" id="node4" href="$namespacem__system.html#a61b67b46b35490ec308773b65c3376a3" title="NAMEsystem_unsetenv(3f) &#45; [M_system:ENVIRONMENT] delete an environment variable by calling unsetenv(3..." alt="" coords="223,71,436,98"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="484,42,639,69"/>
+</map>

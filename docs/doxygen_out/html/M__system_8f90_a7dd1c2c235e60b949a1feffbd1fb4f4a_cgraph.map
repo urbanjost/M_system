@@ -1,0 +1,5 @@
+<map id="test_system_mkfifo" name="test_system_mkfifo">
+<area shape="rect" id="node2" href="$namespacem__system.html#ab2d95258ee26b85a0283538880775475" title="NAMEsystem_mkfifo(3f) &#45; [M_system] make a FIFO special file relative to directory file descriptor (LI..." alt="" coords="204,5,399,32"/>
+<area shape="rect" id="node4" href="$namespacem__system.html#afae451a1fc5432274dc1f75a364051b4" title="NAMEperror(3f) &#45; [M_system] print error message for last C error on stderr (LICENSE:PD) SYNOPSIS..." alt="" coords="205,56,397,83"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="447,31,601,57"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="test_system_mkdir" name="test_system_mkdir">
+<area shape="rect" id="node2" href="$namespacem__system.html#a47746b670cb21bae0957c9bb2bccf209" title="NAMEsystem_chdir(3f) &#45; [M_system] call chdir(3c) from Fortran to change working directory (LICENSE:PD..." alt="" coords="203,5,388,32"/>
+<area shape="rect" id="node4" href="$namespacem__system.html#a7946ea976f399baff21caebcbe931f6d" title="NAMEsystem_isdir(3f) &#45; [M_system] checks if argument is a directory path (LICENSE:PD) ..." alt="" coords="205,56,386,83"/>
+<area shape="rect" id="node5" href="$namespacem__system.html#a084d644c236d22af2cc75c6e48fd6e96" title="NAMEsystem_mkdir(3f) &#45; [M_system] call mkdir(3c) to create a new directory (LICENSE:PD) SYNOPSIS..." alt="" coords="200,157,391,184"/>
+<area shape="rect" id="node7" href="$namespacem__system.html#a21fd3e1ccd50cef6adc539ef3d7a9836" title="NAMEsystem_rmdir(3f) &#45; [M_system] call rmdir(3c) to remove empty directories (LICENSE:PD) ..." alt="" coords="201,107,389,133"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="439,81,593,108"/>
+<area shape="rect" id="node6" href="$C-M__system_8c.html#a21b228b36ba6064c95e68c484f92eaf8" title="my_mkdir" alt="" coords="472,157,560,184"/>
+</map>

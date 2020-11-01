@@ -4,7 +4,7 @@
 <meta name="generator" content="vi(1)/vim(1)" />
 <meta name="description" content="@(#)M_system::BOOK_M_system: BOOK composed of pages for man(1) topic M_system"/>
 <meta name="author"      content="urbanjs" />
-<meta name="date"        content="2020-07-12" />
+<meta name="date"        content="2020-11-01" />
 <meta name="keywords"    content="Fortran, Fortran code, source code repository, Fortran library, Fortran archive, source code" />
 <!--
    Pick your favorite style sheet from among the eight offerings:
@@ -214,7 +214,7 @@ function append_index(target){
    if( COLUMNS == 1 ){
 	   document.write('<tr>\n');
    }
-   document.write('<td><a href="#DOCUMENT'+ FRAMECOUNT  + '">' + baseName(target) + '</a></td>\n');
+   document.write('<td><a href="#DOCUMENT'+ FRAMECOUNT  + '">' + baseName(baseName(target)) + '</a></td>\n');
 }
 /* ============================================================================================================================== */
 //alert('START');

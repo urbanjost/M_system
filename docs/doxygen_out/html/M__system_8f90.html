@@ -176,14 +176,16 @@ M_system(3fm) - [M_system::INTRO] Fortran interface to C system interface (LICEN
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a4687a363acbb7084a51bc77844789275"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a4687a363acbb7084a51bc77844789275">m_system::system_access</a> (pathname, amode)</td></tr>
-<tr class="memdesc:a4687a363acbb7084a51bc77844789275"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_access(3f) - [M_system] checks accessibility or existence of a pathname (LICENSE:PD)  <a href="namespacem__system.html#a4687a363acbb7084a51bc77844789275">More...</a><br /></td></tr>
-<tr class="separator:a4687a363acbb7084a51bc77844789275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1c906730e61629a8277e1daeda90f6"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6">m_system::system_access</a> (pathname, amode)</td></tr>
+<tr class="memdesc:a4c1c906730e61629a8277e1daeda90f6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_access(3f) - [M_system] checks accessibility or existence of a pathname (LICENSE:PD)  <a href="namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6">More...</a><br /></td></tr>
+<tr class="separator:a4c1c906730e61629a8277e1daeda90f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83a121ba0b525210b5217565569ef350"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a83a121ba0b525210b5217565569ef350">m_system::system_utime</a> (pathname, times)</td></tr>
 <tr class="memdesc:a83a121ba0b525210b5217565569ef350"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_utime(3f) - [M_system] set file access and modification times (LICENSE:PD)  <a href="namespacem__system.html#a83a121ba0b525210b5217565569ef350">More...</a><br /></td></tr>
 <tr class="separator:a83a121ba0b525210b5217565569ef350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a635baf5850927faa97461afaca512235"><td class="memItemLeft" align="right" valign="top">integer(kind=8) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a635baf5850927faa97461afaca512235">m_system::timestamp</a> ()</td></tr>
+<tr class="separator:a635baf5850927faa97461afaca512235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70bbfa0a0be084b9717cbc04408041fc"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc">m_system::system_realpath</a> (input)</td></tr>
 <tr class="memdesc:a70bbfa0a0be084b9717cbc04408041fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_realpath(3f) - [M_system] call realpath(3c) to resolve a pathname (LICENSE:PD) </p><h2>SYNOPSIS</h2>
@@ -193,46 +195,46 @@ system_realpath(3f) - [M_system] call realpath(3c) to resolve a pathname (LICENS
 <tr class="memdesc:af6eb5074fe74552bc7a5e7d00f459087"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_issock(3f) - [M_system] checks if argument is a socket (LICENSE:PD)  <a href="namespacem__system.html#af6eb5074fe74552bc7a5e7d00f459087">More...</a><br /></td></tr>
 <tr class="separator:af6eb5074fe74552bc7a5e7d00f459087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbcaa0c5075ca103815f441ee410e1a3"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#acbcaa0c5075ca103815f441ee410e1a3">m_system::system_isfifo</a> (pathname)</td></tr>
-<tr class="memdesc:acbcaa0c5075ca103815f441ee410e1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isfifo(3f) - [M_system] checks if argument is a fifo - named pipe (LICENSE:PD)  <a href="namespacem__system.html#acbcaa0c5075ca103815f441ee410e1a3">More...</a><br /></td></tr>
-<tr class="separator:acbcaa0c5075ca103815f441ee410e1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12a948fa4aacda084a538ae3a5ae3cc6"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a12a948fa4aacda084a538ae3a5ae3cc6">m_system::system_ischr</a> (pathname)</td></tr>
-<tr class="memdesc:a12a948fa4aacda084a538ae3a5ae3cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_ischr(3f) - [M_system] checks if argument is a character device (LICENSE:PD)  <a href="namespacem__system.html#a12a948fa4aacda084a538ae3a5ae3cc6">More...</a><br /></td></tr>
-<tr class="separator:a12a948fa4aacda084a538ae3a5ae3cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a127bdd84ccd4b52f3f29abbc56af029b"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a127bdd84ccd4b52f3f29abbc56af029b">m_system::system_isreg</a> (pathname)</td></tr>
-<tr class="memdesc:a127bdd84ccd4b52f3f29abbc56af029b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isreg(3f) - [M_system] checks if argument is a regular file (LICENSE:PD)  <a href="namespacem__system.html#a127bdd84ccd4b52f3f29abbc56af029b">More...</a><br /></td></tr>
-<tr class="separator:a127bdd84ccd4b52f3f29abbc56af029b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab05694cc3d76a3ecc87e4b4490c4c217"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ab05694cc3d76a3ecc87e4b4490c4c217">m_system::system_islnk</a> (pathname)</td></tr>
-<tr class="memdesc:ab05694cc3d76a3ecc87e4b4490c4c217"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_islnk(3f) - [M_system] checks if argument is a link (LICENSE:PD)  <a href="namespacem__system.html#ab05694cc3d76a3ecc87e4b4490c4c217">More...</a><br /></td></tr>
-<tr class="separator:ab05694cc3d76a3ecc87e4b4490c4c217"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a791fa587005ec07cbcd7b0045ee6f43f"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a791fa587005ec07cbcd7b0045ee6f43f">m_system::system_isblk</a> (pathname)</td></tr>
-<tr class="memdesc:a791fa587005ec07cbcd7b0045ee6f43f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isblk(3f) - [M_system] checks if argument is a block device (LICENSE:PD)  <a href="namespacem__system.html#a791fa587005ec07cbcd7b0045ee6f43f">More...</a><br /></td></tr>
-<tr class="separator:a791fa587005ec07cbcd7b0045ee6f43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3353c1cff032fcfe2985a69f10038ddd"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a3353c1cff032fcfe2985a69f10038ddd">m_system::system_chown</a> (dirname, owner, group)</td></tr>
-<tr class="memdesc:a3353c1cff032fcfe2985a69f10038ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_chown(3f) - [M_system] change file owner and group (LICENSE:PD)  <a href="namespacem__system.html#a3353c1cff032fcfe2985a69f10038ddd">More...</a><br /></td></tr>
-<tr class="separator:a3353c1cff032fcfe2985a69f10038ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad097988a031e64b4f21f856cf45c9c73"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ad097988a031e64b4f21f856cf45c9c73">m_system::system_isdir</a> (dirname)</td></tr>
-<tr class="memdesc:ad097988a031e64b4f21f856cf45c9c73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isdir(3f) - [M_system] checks if argument is a directory path (LICENSE:PD)  <a href="namespacem__system.html#ad097988a031e64b4f21f856cf45c9c73">More...</a><br /></td></tr>
-<tr class="separator:ad097988a031e64b4f21f856cf45c9c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bdb5f75405d87934c10756b539d082"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">m_system::system_isfifo</a> (pathname)</td></tr>
+<tr class="memdesc:aa2bdb5f75405d87934c10756b539d082"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_isfifo(3f) - [M_system] checks if argument is a fifo - named pipe (LICENSE:PD)  <a href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">More...</a><br /></td></tr>
+<tr class="separator:aa2bdb5f75405d87934c10756b539d082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f1d027d438aab86024660b0802768f"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">m_system::system_ischr</a> (pathname)</td></tr>
+<tr class="memdesc:a49f1d027d438aab86024660b0802768f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_ischr(3f) - [M_system] checks if argument is a character device (LICENSE:PD)  <a href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">More...</a><br /></td></tr>
+<tr class="separator:a49f1d027d438aab86024660b0802768f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea0d0430227af61b8083b4e7d6e597d"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">m_system::system_isreg</a> (pathname)</td></tr>
+<tr class="memdesc:a8ea0d0430227af61b8083b4e7d6e597d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_isreg(3f) - [M_system] checks if argument is a regular file (LICENSE:PD)  <a href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">More...</a><br /></td></tr>
+<tr class="separator:a8ea0d0430227af61b8083b4e7d6e597d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a268d0cd27be36527894fe2cae0f1b9f6"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">m_system::system_islnk</a> (pathname)</td></tr>
+<tr class="memdesc:a268d0cd27be36527894fe2cae0f1b9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_islnk(3f) - [M_system] checks if argument is a link (LICENSE:PD)  <a href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">More...</a><br /></td></tr>
+<tr class="separator:a268d0cd27be36527894fe2cae0f1b9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1294b8d8b4910261c0a0991bf668ab67"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">m_system::system_isblk</a> (pathname)</td></tr>
+<tr class="memdesc:a1294b8d8b4910261c0a0991bf668ab67"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_isblk(3f) - [M_system] checks if argument is a block device (LICENSE:PD)  <a href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">More...</a><br /></td></tr>
+<tr class="separator:a1294b8d8b4910261c0a0991bf668ab67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7946ea976f399baff21caebcbe931f6d"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">m_system::system_isdir</a> (dirname)</td></tr>
+<tr class="memdesc:a7946ea976f399baff21caebcbe931f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_isdir(3f) - [M_system] checks if argument is a directory path (LICENSE:PD)  <a href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">More...</a><br /></td></tr>
+<tr class="separator:a7946ea976f399baff21caebcbe931f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89e4d2fb219225c374570d4f9d58e9b"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ab89e4d2fb219225c374570d4f9d58e9b">m_system::system_chown</a> (dirname, owner, group)</td></tr>
+<tr class="memdesc:ab89e4d2fb219225c374570d4f9d58e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_chown(3f) - [M_system] change file owner and group (LICENSE:PD)  <a href="namespacem__system.html#ab89e4d2fb219225c374570d4f9d58e9b">More...</a><br /></td></tr>
+<tr class="separator:ab89e4d2fb219225c374570d4f9d58e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257d2b8987db850bc686507f19ccbe4a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a257d2b8987db850bc686507f19ccbe4a">m_system::system_cpu_time</a> (total, user, system)</td></tr>
 <tr class="memdesc:a257d2b8987db850bc686507f19ccbe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_cpu_time(3f) - [M_system] get processor time by calling times(3c) (LICENSE:PD)  <a href="namespacem__system.html#a257d2b8987db850bc686507f19ccbe4a">More...</a><br /></td></tr>
 <tr class="separator:a257d2b8987db850bc686507f19ccbe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa77d9c9ae68750f515ba3d04d022c43c"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aa77d9c9ae68750f515ba3d04d022c43c">m_system::system_link</a> (oldname, newname)</td></tr>
-<tr class="memdesc:aa77d9c9ae68750f515ba3d04d022c43c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_link(3f) - [M_system] link one file to another file relative to two directory file descriptors (LICENSE:PD)  <a href="namespacem__system.html#aa77d9c9ae68750f515ba3d04d022c43c">More...</a><br /></td></tr>
-<tr class="separator:aa77d9c9ae68750f515ba3d04d022c43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14ce0b9177815bc357dbdf3778687bb7"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a14ce0b9177815bc357dbdf3778687bb7">m_system::system_unlink</a> (fname)</td></tr>
-<tr class="memdesc:a14ce0b9177815bc357dbdf3778687bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_unlink(3f) - [M_system] remove a directory entry relative to directory file descriptor (LICENSE:PD)  <a href="namespacem__system.html#a14ce0b9177815bc357dbdf3778687bb7">More...</a><br /></td></tr>
-<tr class="separator:a14ce0b9177815bc357dbdf3778687bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e04b5499fc3367eda9758b6e396a103"><td class="memItemLeft" align="right" valign="top">elemental impure integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0e04b5499fc3367eda9758b6e396a103">m_system::system_link</a> (oldname, newname)</td></tr>
+<tr class="memdesc:a0e04b5499fc3367eda9758b6e396a103"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_link(3f) - [M_system] link one file to another file relative to two directory file descriptors (LICENSE:PD)  <a href="namespacem__system.html#a0e04b5499fc3367eda9758b6e396a103">More...</a><br /></td></tr>
+<tr class="separator:a0e04b5499fc3367eda9758b6e396a103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3561c9beafec28439f760d701d55a6b8"><td class="memItemLeft" align="right" valign="top">elemental impure integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8">m_system::system_unlink</a> (fname)</td></tr>
+<tr class="memdesc:a3561c9beafec28439f760d701d55a6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_unlink(3f) - [M_system] remove a directory entry relative to directory file descriptor (LICENSE:PD)  <a href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8">More...</a><br /></td></tr>
+<tr class="separator:a3561c9beafec28439f760d701d55a6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04fd02e6f5ce2f8ecdfb577e1490feba"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a04fd02e6f5ce2f8ecdfb577e1490feba">m_system::system_setumask</a> (umask_value)</td></tr>
 <tr class="memdesc:a04fd02e6f5ce2f8ecdfb577e1490feba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_setumask(3f) - [M_system] set the file mode creation umask (LICENSE:PD) </p><h2>SYNOPSIS</h2>
@@ -253,11 +255,11 @@ perror(3f) - [M_system] print error message for last C error on stderr (LICENSE:
 system_chdir(3f) - [M_system] call chdir(3c) from Fortran to change working directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a47746b670cb21bae0957c9bb2bccf209">More...</a><br /></td></tr>
 <tr class="separator:a47746b670cb21bae0957c9bb2bccf209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a730ae64294e3cd73bde8f0c63cdf9972"><td class="memItemLeft" align="right" valign="top">integer(c_int) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a730ae64294e3cd73bde8f0c63cdf9972">m_system::system_remove</a> (path)</td></tr>
-<tr class="memdesc:a730ae64294e3cd73bde8f0c63cdf9972"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+<tr class="memitem:a7fa10b991ae066609b687423918cff52"><td class="memItemLeft" align="right" valign="top">elemental impure integer(c_int) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a7fa10b991ae066609b687423918cff52">m_system::system_remove</a> (path)</td></tr>
+<tr class="memdesc:a7fa10b991ae066609b687423918cff52"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_remove(3f) - [M_system] call remove(3c) to remove file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
- <a href="namespacem__system.html#a730ae64294e3cd73bde8f0c63cdf9972">More...</a><br /></td></tr>
-<tr class="separator:a730ae64294e3cd73bde8f0c63cdf9972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ <a href="namespacem__system.html#a7fa10b991ae066609b687423918cff52">More...</a><br /></td></tr>
+<tr class="separator:a7fa10b991ae066609b687423918cff52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbaf3d17790da9ba0c520683d5b8003"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#adfbaf3d17790da9ba0c520683d5b8003">m_system::system_rename</a> (input, output)</td></tr>
 <tr class="memdesc:adfbaf3d17790da9ba0c520683d5b8003"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_rename(3f) - [M_system] call rename(3c) to rename a system file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
@@ -367,16 +369,20 @@ system_getpwuid(3f) - [M_system:QUERY] get login name associated with a UID (LIC
 <tr class="separator:a59cd13de95dc9a65b444f02614ea39ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb3d7d4cb39d59917910a3ae2532206d"><td class="memItemLeft" align="right" valign="top">pure character(len=size(array)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aeb3d7d4cb39d59917910a3ae2532206d">m_system::arr2str</a> (array)</td></tr>
 <tr class="separator:aeb3d7d4cb39d59917910a3ae2532206d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7e778ffc24aa7bc00b842a8e673aeaa"><td class="memItemLeft" align="right" valign="top">pure character(len=1, kind=c_char) function, dimension(len(string)+1)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#af7e778ffc24aa7bc00b842a8e673aeaa">m_system::str2arr</a> (string)</td></tr>
-<tr class="separator:af7e778ffc24aa7bc00b842a8e673aeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bb591b5b9fefec3960a28361aae07a"><td class="memItemLeft" align="right" valign="top">pure character(len=1, kind=c_char) function, dimension(len(string)+1)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a">m_system::str2_carr</a> (string)</td></tr>
+<tr class="separator:a58bb591b5b9fefec3960a28361aae07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7c5445619aa15cd2301fe17f7c3b73c"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aa7c5445619aa15cd2301fe17f7c3b73c">m_system::c2f_string</a> (c_string_pointer)</td></tr>
 <tr class="separator:aa7c5445619aa15cd2301fe17f7c3b73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">m_system::system_stat</a> (pathname, values, ierr)</td></tr>
 <tr class="memdesc:a5bb1ebcebe181e07fd24e908cacc9887"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 SYSTEM_STAT - [M_system] Get file status information (LICENSE:PD)  <a href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">More...</a><br /></td></tr>
 <tr class="separator:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a403bef1f7fdc42dd75a5b082a15237ff"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a403bef1f7fdc42dd75a5b082a15237ff">m_system::uniq</a> (name, istart, verbose, create)</td></tr>
-<tr class="separator:a403bef1f7fdc42dd75a5b082a15237ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="memItemLeft" align="right" valign="top">character(len=:) function, dimension(:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89">m_system::system_dir</a> (directory, pattern)</td></tr>
+<tr class="memdesc:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_dir(3f) - [M_io] return filenames in a directory matching specified wildcard string (LICENSE:PD)  <a href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89">More...</a><br /></td></tr>
+<tr class="separator:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fccb69d0a56044b05e85b8df9f90aea"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0fccb69d0a56044b05e85b8df9f90aea">m_system::matchw</a> (tame, wild)</td></tr>
+<tr class="separator:a0fccb69d0a56044b05e85b8df9f90aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a151da54be39dddcf270cceeff3243438"><td class="memItemLeft" align="right" valign="top">pure elemental integer(kind=int64) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a151da54be39dddcf270cceeff3243438">m_system::anyinteger_to_64bit</a> (intin)</td></tr>
 <tr class="memdesc:a151da54be39dddcf270cceeff3243438"><td class="mdescLeft">&#160;</td><td class="mdescRight">NAME.  <a href="namespacem__system.html#a151da54be39dddcf270cceeff3243438">More...</a><br /></td></tr>
 <tr class="separator:a151da54be39dddcf270cceeff3243438"><td class="memSeparator" colspan="2">&#160;</td></tr>

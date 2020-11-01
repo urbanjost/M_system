@@ -7,10 +7,10 @@
 !!   Public objects:
 !!
 !!    ! ENVIRONMENT
-!!    use m_system, only : set_environment_variable, system_unsetenv, &
+!!    use M_system, only : set_environment_variable, system_unsetenv, &
 !!    system_putenv, system_getenv
 !!
-!!    use m_system, only :  system_intenv, system_readenv, system_clearenv
+!!    use M_system, only :  system_intenv, system_readenv, system_clearenv
 !!    ! FILE SYSTEM
 !!    use M_system, only : system_getcwd, system_link,       &
 !!    system_mkfifo, system_remove, system_rename,           &
@@ -21,7 +21,8 @@
 !!    system_realpath,                                       &
 !!    system_access,                                         &
 !!    system_utime,                                          &
-!!    system_issock, system_perm                   ,         &
+!!    system_issock, system_perm,                            &
+!!    system_dir,                                            &
 !!    system_memcpy
 !!
 !!    !!use M_system, only : system_getc, system_putc
@@ -92,6 +93,7 @@
 !!        o  system_rmdir(3f):      call rmdir(3c) to remove empty directory
 !!        o  system_unlink(3f):     call unlink(3c) to remove a link to a file
 !!        o  system_utime(3f):      call utime(3c) to set file access and modification times
+!!        o  system_dir(3f):        read name of files in specified directory matching a wildcard string
 !!
 !!        o  fileglob(3f): Returns list of files using a file globbing pattern
 !!
@@ -139,7 +141,6 @@
 !!          o Posix90 (doc),
 !!          o flib.a platform/files and directories,
 !!          o fortranposix.
-!===================================================================================================================================
 module M_system
 use,intrinsic     :: iso_c_binding,   only : c_float, c_int, c_char
 use,intrinsic     :: iso_c_binding,   only : c_ptr, c_f_pointer, c_null_char, c_null_ptr
@@ -154,8 +155,8 @@ integer,parameter,public :: mode_t=int32
 public :: system_rand
 public :: system_srand
 
-!!public :: system_getc
-!!public :: system_putc
+!-!public :: system_getc
+!-!public :: system_putc
 
 public :: system_getpid                  ! return process ID
 public :: system_getppid                 ! return parent process ID
@@ -233,6 +234,8 @@ public :: system_realloc
 public :: system_malloc
 public :: system_free
 public :: system_memcpy
+
+public :: system_dir
 
 public :: R_GRP,R_OTH,R_USR,RWX_G,RWX_O,RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR,DEFFILEMODE,ACCESSPERMS
 public :: R_OK,W_OK,X_OK,F_OK  ! for system_access
@@ -347,7 +350,7 @@ end interface
 !    integer(4) function compar_iface(a, b)
 !      import c_int
 !      integer, intent(in) :: a, b
-!! Until implement TYPE(*)
+!-! Until implement TYPE(*)
 !      integer(kind=c_int) :: compar_iface
 !    end function compar_iface
 !  end interface
@@ -358,7 +361,7 @@ end interface
 !    subroutine system_qsort(base, nel, width, compar) bind(c, name="qsort")
 !      import C_SIZE_T, compar_iface
 !      integer :: base
-!! Until implement TYPE(*)
+!-! Until implement TYPE(*)
 !      integer(C_SIZE_T), value :: nel, width
 !      procedure(compar_iface) compar
 !    end subroutine system_qsort
@@ -426,8 +429,6 @@ end interface
 !!
 !!##SEE ALSO
 !!    drand48(3c), random(3c)
-!===================================================================================================================================
-!character(len=*),parameter :: ident_srand="@(#) M_system::system_srand(3f): call srand(3c)"
 ! void srand_system(int *seed)
 interface
    subroutine system_srand(seed) bind(c,name='srand')
@@ -547,8 +548,8 @@ end interface
 !!
 !!##SEE ALSO
 !!    getpid(), raise(), setsid(), sigaction(), sigqueue(),
-!===================================================================================================================================
-!character(len=*),parameter :: ident_kill="@(#) M_system::system_kill(3f): call kill(3c) to send a signal to a process"
+
+
 ! int kill(pid_t pid, int sig);
 interface
    function system_kill(c_pid,c_signal) bind(c,name="kill") result(c_ierr)
@@ -594,21 +595,19 @@ end interface
 !!
 !!    err=           2
 !!    *demo_system_errno*: No such file or directory
-!===================================================================================================================================
-!character(len=*),parameter :: ident_errno="@(#) M_system::system_errno(3f): return errno(3c)"
 
 interface
    integer(kind=c_int) function system_errno() bind (C,name="my_errno")
       import c_int
    end function system_errno
 end interface
-!!  if a macro on XLF
-!!  interface system_errno
-!!    function ierrno_() bind(c, name="ierrno_")
-!!      import c_int
-!!      integer(kind=c_int) :: ierrno_
-!!    end function system_errno
-!!  end interface
+!-!  if a macro on XLF
+!-!  interface system_errno
+!-!    function ierrno_() bind(c, name="ierrno_")
+!-!      import c_int
+!-!      integer(kind=c_int) :: ierrno_
+!-!    end function system_errno
+!-!  end interface
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -633,8 +632,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'EFFECTIVE UID=',system_geteuid()
 !!    end program demo_system_geteuid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_euid="@(#) M_system::system_geteuid(3f): call geteuid(3c)"
 interface
    integer(kind=c_int) function system_geteuid() bind (C,name="geteuid")
       import c_int
@@ -668,8 +665,6 @@ end interface
 !!   Results:
 !!
 !!    UID=      197609
-!===================================================================================================================================
-!character(len=*),parameter :: ident_uid="@(#) M_system::system_getuid(3f): call getuid(3c)"
 interface
    integer(kind=c_int) function system_getuid() bind (C,name="getuid")
       import c_int
@@ -709,8 +704,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'GID=',system_getegid()
 !!    end program demo_system_getegid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_egid="@(#) M_system::system_getegid(3f): call getegid(3c)"
 interface
    integer(kind=c_int) function system_getegid() bind (C,name="getegid")
       import c_int
@@ -749,8 +742,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'GID=',system_getgid()
 !!    end program demo_system_getgid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_gid="@(#) M_system::system_getgid(3f): call getgid(3c)"
 interface
    integer(kind=c_int) function system_getgid() bind (C,name="getgid")
       import c_int
@@ -768,15 +759,15 @@ end interface
 !!        integer(kind=c_int) function system_setsid(pid)
 !!        integer(kind=c_int) :: pid
 !!##DESCRIPTION
-!!        The  setsid()  function creates a new session, if the calling process is not a process group leader. Upon return the
-!!        calling process shall be the session leader of this new session, shall be the process  group  leader  of  a  new  process
-!!        group,  and  shall  have  no  controlling terminal. The process group ID of the calling process shall be set equal to the
-!!        process ID of the calling process. The calling process shall be the only process in the new process group  and  the  only
+!!        The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the
+!!        calling process shall be the session leader of this new session, shall be the process group leader of a new process
+!!        group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the
+!!        process ID of the calling process. The calling process shall be the only process in the new process group and the only
 !!        process in the new session.
 !!
 !!##RETURN VALUE
-!!        Upon  successful  completion,  setsid() shall return the value of the new process group ID of the calling process. Other‐
-!!        wise, it shall return −1 and set errno to indicate the error.
+!!        Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise,
+!!        it shall return �-1 and set errno to indicate the error.
 !!##ERRORS
 !!        The setsid() function shall fail if:
 !!
@@ -791,8 +782,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'SID=',system_setsid()
 !!    end program demo_system_setsid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_setsid="@(#) M_system::system_setsid(3f): call setsid(3c) to set session leader for given pid"
 interface
    integer(kind=c_int) function system_setsid() bind (C,name="setsid")
       import c_int
@@ -827,8 +816,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'SID=',system_getsid(0_c_int)
 !!    end program demo_system_getsid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_getsid="@(#) M_system::system_getsid(3f): call getsid(3c) to get session leader for given pid"
 interface
    integer(kind=c_int) function system_getsid(c_pid) bind (C,name="getsid")
       import c_int
@@ -861,8 +848,6 @@ end interface
 !!    implicit none
 !!       write(*,*)'PID=',system_getpid()
 !!    end program demo_system_getpid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_pid="@(#) M_system::system_getpid(3f): call getpid(3c)"
 
 interface
    pure integer(kind=c_int) function system_getpid() bind (C,name="getpid")
@@ -901,12 +886,8 @@ end interface
 !!    program demo_system_getppid
 !!    use M_system, only : system_getppid
 !!    implicit none
-!!
-!!    write(*,*)'PPID=',system_getppid()
-!!
+!!       write(*,*)'PPID=',system_getppid()
 !!    end program demo_system_getppid
-!===================================================================================================================================
-!character(len=*),parameter :: ident_ppid="@(#) M_system::system_getppid(3f): call getppid(3c)"
 interface
    integer(kind=c_int) function system_getppid() bind (C,name="getppid")
    import c_int
@@ -970,8 +951,6 @@ end interface
 !!    OLD VALUE=octal=0022 decimal=18
 !!    MASK=octal=0002 decimal=2
 !!    NEW VALUE=octal=0002 decimal=2
-!===================================================================================================================================
-!character(len=*),parameter :: ident_umask="@(#) M_system::system_umask(3f): call umask(3c)"
 interface
    integer(kind=c_int) function system_umask(umask_value) bind (C,name="umask")
    import c_int
@@ -1030,8 +1009,6 @@ end interface
 !!      1105177318
 !!       347750200
 !!      1729645355
-!===================================================================================================================================
-!character(len=*),parameter :: ident_rand="@(#) M_system::system_rand(3f): call rand(3c)"
 interface
    integer(kind=c_int) function system_rand() bind (C,name="rand")
       import c_int
@@ -1094,14 +1071,12 @@ end interface
 !!         :
 !!         :
 !!         :
-!===================================================================================================================================
 
 integer(kind=c_long),bind(c,name="longest_env_variable") :: longest_env_variable
 
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-!character(len=*),parameter :: ident_initenv="@(#) M_system::system_initenv(3f): initialize environment table for reading"
 interface
    subroutine system_initenv() bind (C,NAME='my_initenv')
    end subroutine system_initenv
@@ -1109,7 +1084,7 @@ end interface
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-!!type(c_ptr),bind(c,name="environ") :: c_environ
+!-!type(c_ptr),bind(c,name="environ") :: c_environ
 
 integer(kind=mode_t),bind(c,name="FS_IRGRP") ::R_GRP
 integer(kind=mode_t),bind(c,name="FS_IROTH") ::R_OTH
@@ -1153,7 +1128,7 @@ contains
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_access(pathname,amode)
+!!   elemental impure logical function system_access(pathname,amode)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    integer,intent(in)          :: amode
@@ -1183,7 +1158,7 @@ contains
 !!        Sample program:
 !!
 !!           program demo_system_access
-!!           Use M_system, only : system_access, F_OK, R_OK, W_OK, X_OK
+!!           use M_system, only : system_access, F_OK, R_OK, W_OK, X_OK
 !!           implicit none
 !!           integer                     :: i
 !!           character(len=80),parameter :: names(*)=[ &
@@ -1199,11 +1174,10 @@ contains
 !!              write(*,*)' is ',trim(names(i)),' executable?   ', system_access(names(i),X_OK)
 !!           enddo
 !!           end program demo_system_access
-!===================================================================================================================================
-function system_access(pathname,amode)
+elemental impure function system_access(pathname,amode)
 implicit none
 
-!character(len=*),parameter::ident_1="@(#)M_system::system_access(3f): checks accessibility or existence of a pathname"
+! ident_1="@(#)M_system::system_access(3f): checks accessibility or existence of a pathname"
 
 character(len=*),intent(in) :: pathname
 integer,intent(in)          :: amode
@@ -1218,7 +1192,7 @@ interface
   end function c_access
 end interface
 
-   if(c_access(str2arr(trim(pathname)),int(amode,kind=c_int)).eq.0)then
+   if(c_access(str2_carr(trim(pathname)),int(amode,kind=c_int)).eq.0)then
       system_access=.true.
    else
       system_access=.false.
@@ -1241,7 +1215,7 @@ end function system_access
 !!        function utime(pathname,times)
 !!
 !!         character(len=*),intent(in) :: pathname
-!!         integer,intent(in)          :: times(2)
+!!         integer,intent(in),optional :: times(2)
 !!         logical                     :: utime
 !!
 !!##DESCRIPTION
@@ -1256,7 +1230,7 @@ end function system_access
 !!        permission to the file or have appropriate privileges,
 !!
 !!##OPTIONS
-!!        times     The values will be interpreted as the access
+!!        times     If present, the values will be interpreted as the access
 !!                  and modification times as Unix Epoch values. That is,
 !!                  they are times measured in seconds since the Unix Epoch.
 !!
@@ -1329,17 +1303,17 @@ end function system_access
 !!             endif
 !!          enddo
 !!       end program demo_system_utime
-!===================================================================================================================================
 function system_utime(pathname,times)
 implicit none
 
-!character(len=*),parameter::ident_2="@(#)M_system::system_utime(3f): set access and modification times of a pathname"
+! ident_2="@(#)M_system::system_utime(3f): set access and modification times of a pathname"
 
 character(len=*),intent(in) :: pathname
-integer,intent(in)          :: times(2)
+integer,intent(in),optional :: times(2)
+integer                     :: times_local(2)
 logical                     :: system_utime
 
-!! int my_utime(const char *path, int times[2])
+!-! int my_utime(const char *path, int times[2])
 interface
   function c_utime(c_pathname,c_times) bind (C,name="my_utime") result (c_ierr)
   import c_char,c_int
@@ -1348,7 +1322,12 @@ interface
   integer(kind=c_int)                     :: c_ierr
   end function c_utime
 end interface
-   if(c_utime(str2arr(trim(pathname)),int(times,kind=c_int)).eq.0)then
+   if(present(times))then
+      times_local=times
+   else
+      times_local=timestamp()
+   endif
+   if(c_utime(str2_carr(trim(pathname)),int(times_local,kind=c_int)).eq.0)then
       system_utime=.true.
    else
       system_utime=.false.
@@ -1358,6 +1337,23 @@ end interface
    endif
 
 end function system_utime
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+function timestamp() result(unix)
+    use, intrinsic :: iso_c_binding, only: c_long
+    implicit none
+    integer(kind=8) :: unix
+    interface
+        ! time_t time(time_t *tloc)
+        function c_time(tloc) bind(c, name='time')
+            import :: c_long
+            integer(kind=c_long), intent(in), value :: tloc
+            integer(kind=c_long)                    :: c_time
+        end function c_time
+    end interface
+    unix = c_time(int(0, kind=8))
+end function timestamp
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -1379,8 +1375,9 @@ end function system_utime
 !!
 !!##RETURN VALUE
 !!        OUTPUT    The absolute pathname of the given input pathname.
-!!                  The pathname shall contain no components that are dot or dot-dot,
-!!                  or are symbolic links. It is equal to the NULL character if an error occurred.
+!!                  The pathname shall contain no components that are dot
+!!                  or dot-dot, or are symbolic links. It is equal to the
+!!                  NULL character if an error occurred.
 !!
 !!##EXAMPLE
 !!
@@ -1409,7 +1406,7 @@ end function system_utime
 !!          endif
 !!          deallocate(pathi)
 !!       enddo
-!!       ! if there were no pathnames give resolve the pathname "."
+!!       ! if there were no pathnames given resolve the pathname "."
 !!       if(i.eq.1)then
 !!          patho=system_realpath('.')
 !!          write(*,*)'.=>',trim(patho)
@@ -1427,11 +1424,9 @@ end function system_utime
 !!   ..=>/usr/share
 !!   *system_realpath* error for pathname NotThere:: No such file or directory
 !!   NotThere=>NotThere
-!===================================================================================================================================
 function system_realpath(input) result(string)
 
-!character(len=*),parameter::ident_3="&
-!&@(#)M_system::system_realpath(3f):call realpath(3c) to get pathname of current working directory"
+! ident_3="@(#)M_system::system_realpath(3f):call realpath(3c) to get pathname of current working directory"
 
 character(len=*),intent(in)    :: input
 type(c_ptr)                    :: c_output
@@ -1444,7 +1439,7 @@ interface
    end function
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   c_output=c_realpath(str2arr(trim(input)))
+   c_output=c_realpath(str2_carr(trim(input)))
    if(.not.c_associated(c_output))then
       string=char(0)
    else
@@ -1461,7 +1456,7 @@ end function system_realpath
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_issock(pathname)
+!!   elemental impure logical function system_issock(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_issock
@@ -1487,7 +1482,7 @@ end function system_realpath
 !!   check if filename is a socket
 !!
 !!    program demo_system_issock
-!!    Use M_system, only : system_issock
+!!    use M_system, only : system_issock
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
@@ -1501,11 +1496,10 @@ end function system_realpath
 !!       write(*,*)' is ',trim(names(i)),' a socket? ', system_issock(names(i))
 !!    enddo
 !!    end program demo_system_issock
-!===================================================================================================================================
 function system_issock(pathname)
 implicit none
 
-!character(len=*),parameter::ident_4="@(#)M_system::system_issock(3f): determine if pathname is a socket"
+! ident_4="@(#)M_system::system_issock(3f): determine if pathname is a socket"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_issock
@@ -1518,7 +1512,7 @@ interface
   end function c_issock
 end interface
 
-   if(c_issock(str2arr(trim(pathname))).eq.1)then
+   if(c_issock(str2_carr(trim(pathname))).eq.1)then
       system_issock=.true.
    else
       system_issock=.false.
@@ -1535,7 +1529,7 @@ end function system_issock
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_isfifo(pathname)
+!!   elemental impure logical function system_isfifo(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_isfifo
@@ -1561,7 +1555,7 @@ end function system_issock
 !!   check if filename is a FIFO file
 !!
 !!    program demo_system_isfifo
-!!    Use M_system, only : system_isfifo
+!!    use M_system, only : system_isfifo
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
@@ -1575,11 +1569,10 @@ end function system_issock
 !!       write(*,*)' is ',trim(names(i)),' a fifo(named pipe)? ', system_isfifo(names(i))
 !!    enddo
 !!    end program demo_system_isfifo
-!===================================================================================================================================
-function system_isfifo(pathname)
+elemental impure function system_isfifo(pathname)
 implicit none
 
-!character(len=*),parameter::ident_5="@(#)M_system::system_isfifo(3f): determine if pathname is a fifo(named pipe)"
+! ident_5="@(#)M_system::system_isfifo(3f): determine if pathname is a fifo(named pipe)"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isfifo
@@ -1592,7 +1585,7 @@ interface
   end function c_isfifo
 end interface
 
-   if(c_isfifo(str2arr(trim(pathname))).eq.1)then
+   if(c_isfifo(str2_carr(trim(pathname))).eq.1)then
       system_isfifo=.true.
    else
       system_isfifo=.false.
@@ -1609,7 +1602,7 @@ end function system_isfifo
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_ischr(pathname)
+!!   elemental impure logical function system_ischr(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_ischr
@@ -1635,7 +1628,7 @@ end function system_isfifo
 !!   check if filename is a character file
 !!
 !!    program demo_system_ischr
-!!    Use M_system, only : system_ischr
+!!    use M_system, only : system_ischr
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
@@ -1651,11 +1644,10 @@ end function system_isfifo
 !!    end program demo_system_ischr
 !!
 !!   Results:
-!===================================================================================================================================
-function system_ischr(pathname)
+elemental impure function system_ischr(pathname)
 implicit none
 
-!character(len=*),parameter::ident_6="@(#)M_system::system_ischr(3f): determine if pathname is a link"
+! ident_6="@(#)M_system::system_ischr(3f): determine if pathname is a link"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_ischr
@@ -1668,7 +1660,7 @@ interface
   end function c_ischr
 end interface
 
-   if(c_ischr(str2arr(trim(pathname))).eq.1)then
+   if(c_ischr(str2_carr(trim(pathname))).eq.1)then
       system_ischr=.true.
    else
       system_ischr=.false.
@@ -1685,7 +1677,7 @@ end function system_ischr
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_isreg(pathname)
+!!   elemental impure logical function system_isreg(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_isreg
@@ -1710,23 +1702,44 @@ end function system_ischr
 !!
 !!   check if filename is a regular file
 !!
-!!    program demo_system_isreg
-!!    Use M_system, only : system_isreg
+!!    program simple
+!!    use M_system, only : system_isreg
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
 !!    '/tmp            ', &
 !!    'test.txt        ', &
+!!    '~/.bashrc       ', &
+!!    '.bashrc         ', &
 !!    '.               ']
 !!    do i=1,size(names)
 !!       write(*,*)' is ',trim(names(i)),' a regular file? ', system_isreg(names(i))
 !!    enddo
+!!    end program simple
+!!
+!!   EXTENDED EXAMPLE
+!!   list readable non-hidden regular files and links in current directory
+!!
+!!    program demo_system_isreg
+!!    use M_system, only : isreg=>system_isreg, islnk=>system_islnk
+!!    use M_system, only : access=>system_access, R_OK
+!!    use M_system, only : system_dir
+!!    implicit none
+!!    character(len=1024),allocatable :: filenames(:) ! BUG: cannot use len=: in gfortran 8.3.1
+!!    logical,allocatable :: mymask(:)
+!!    integer                         :: i
+!!         ! list readable non-hidden regular files and links in current directory
+!!         filenames=system_dir(pattern='*')                ! make list of all files in current directory
+!!         mymask= isreg(filenames).or.islnk(filenames)   ! select regular files and links
+!!         where(mymask) mymask=filenames(:)(1:1).ne.'.'  ! skip hidden directories in those
+!!         where(mymask) mymask=access(filenames,R_OK)    ! select readable files in those
+!!         filenames=pack(filenames,mask=mymask)
+!!         write(*,'(a)')(trim(filenames(i)),i=1,size(filenames))
 !!    end program demo_system_isreg
-!===================================================================================================================================
-function system_isreg(pathname)
+elemental impure function system_isreg(pathname)
 implicit none
 
-!character(len=*),parameter::ident_7="@(#)M_system::system_isreg(3f): determine if pathname is a regular file"
+! ident_7="@(#)M_system::system_isreg(3f): determine if pathname is a regular file"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isreg
@@ -1739,7 +1752,7 @@ interface
   end function c_isreg
 end interface
 
-   if(c_isreg(str2arr(trim(pathname))).eq.1)then
+   if(c_isreg(str2_carr(trim(pathname))).eq.1)then
       system_isreg=.true.
    else
       system_isreg=.false.
@@ -1756,7 +1769,7 @@ end function system_isreg
 !!
 !!##SYNOPSIS
 !!
-!!    logical function system_islnk(pathname)
+!!    elemental impure logical function system_islnk(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_islnk
@@ -1765,11 +1778,13 @@ end function system_isreg
 !!        The islnk(3f) function checks if path is a path to a link.
 !!
 !!##OPTIONS
-!!        path   a character string representing a link pathname. Trailing spaces are ignored.
+!!    path          a character string representing a link
+!!                  pathname. Trailing spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_islnk() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    system_islnk  The system_islnk() function should always be
+!!                  successful and no return value is reserved to
+!!                  indicate an error.
 !!
 !!##ERRORS
 !!        No errors are defined.
@@ -1783,7 +1798,7 @@ end function system_isreg
 !!   Sample program:
 !!
 !!    program demo_system_islnk
-!!    Use M_system, only : system_islnk
+!!    use M_system, only : system_islnk
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
@@ -1799,11 +1814,10 @@ end function system_isreg
 !!    end program demo_system_islnk
 !!
 !!   Results:
-!===================================================================================================================================
-function system_islnk(pathname)
+elemental impure function system_islnk(pathname)
 implicit none
 
-!character(len=*),parameter::ident_8="@(#)M_system::system_islnk(3f): determine if pathname is a link"
+! ident_8="@(#)M_system::system_islnk(3f): determine if pathname is a link"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_islnk
@@ -1816,7 +1830,7 @@ interface
   end function c_islnk
 end interface
 
-   if(c_islnk(str2arr(trim(pathname))).eq.1)then
+   if(c_islnk(str2_carr(trim(pathname))).eq.1)then
       system_islnk=.true.
    else
       system_islnk=.false.
@@ -1833,7 +1847,7 @@ end function system_islnk
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_isblk(pathname)
+!!   elemental impure logical function system_isblk(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_isblk
@@ -1859,7 +1873,7 @@ end function system_islnk
 !!   check if filename is a block device
 !!
 !!    program demo_system_isblk
-!!    Use M_system, only : system_isblk
+!!    use M_system, only : system_isblk
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
@@ -1875,11 +1889,10 @@ end function system_islnk
 !!    end program demo_system_isblk
 !!
 !!   Results:
-!===================================================================================================================================
-function system_isblk(pathname)
+elemental impure function system_isblk(pathname)
 implicit none
 
-!character(len=*),parameter::ident_9="@(#)M_system::system_isblk(3f): determine if pathname is a block device"
+! ident_9="@(#)M_system::system_isblk(3f): determine if pathname is a block device"
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_isblk
@@ -1892,7 +1905,7 @@ interface
   end function c_isblk
 end interface
 
-   if(c_isblk(str2arr(trim(pathname))).eq.1)then
+   if(c_isblk(str2_carr(trim(pathname))).eq.1)then
       system_isblk=.true.
    else
       system_isblk=.false.
@@ -1904,105 +1917,12 @@ end function system_isblk
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_chown(3f) - [M_system] change file owner and group
-!!    (LICENSE:PD)
-!!
-!!##SYNOPSIS
-!!
-!!   logical function system_chown(path,owner,group)
-!!
-!!    character(len=*),intent(in) :: path
-!!    integer,intent(in)          :: owner
-!!    integer,intent(in)          :: group
-!!
-!!##DESCRIPTION
-!!        The chown(3f) function changes owner and group of a file
-!!
-!!        The path argument points to a pathname naming a file. The
-!!        user ID and group ID of the named file shall be set to the numeric
-!!        values contained in owner and group, respectively.
-!!
-!!        Only processes with an effective user ID equal to the user ID of
-!!        the file or with appropriate privileges may change the ownership
-!!        of a file.
-!!
-!!##OPTIONS
-!!        path   a character string representing a file pathname.
-!!               Trailing spaces are ignored.
-!!        owner  UID of owner that ownership is to be changed to
-!!        group  GID of group that ownership is to be changed to
-!!
-!!##RETURN VALUE
-!!        The system_chown() function should return zero (0) if successful.
-!!        Otherwise, these functions shall return    1 and set errno to
-!!        indicate the error. If    1 is returned, no changes are made in
-!!        the user ID and group ID of the file.
-!!
-!!##EXAMPLE
-!!
-!!
-!!   Sample program:
-!!
-!!    program demo_system_chown
-!!    Use M_system, only : system_chown
-!!    Use M_system, only : system_getuid
-!!    Use M_system, only : system_getgid
-!!    use M_system, only : system_perror
-!!    implicit none
-!!    integer                     :: i
-!!    character(len=80),parameter :: names(*)=[character(len=80) :: 'myfile1','/usr/local']
-!!    do i=1,size(names)
-!!       if(.not.  system_chown(&
-!!       & trim(names(i)),  &
-!!       & system_getuid(), &
-!!       & system_getgid()) &
-!!          )then
-!!          call system_perror('*demo_system_chown* '//trim(names(i)))
-!!       endif
-!!    enddo
-!!    end program demo_system_chown
-!===================================================================================================================================
-
-function system_chown(dirname,owner,group)
-implicit none
-
-!character(len=*),parameter::ident_10="&
-!&@(#)M_system::system_chown(3f): change owner and group of a file relative to directory file descriptor"
-
-character(len=*),intent(in) :: dirname
-integer,intent(in)          :: owner
-integer,intent(in)          :: group
-logical                     :: system_chown
-
-! int chown(const char *path, uid_t owner, gid_t group);
-interface
-  function c_chown(c_dirname,c_owner,c_group) bind (C,name="my_chown") result (c_ierr)
-  import c_char,c_int
-  character(kind=c_char,len=1),intent(in) :: c_dirname(*)
-  integer(kind=c_int),intent(in),value    :: c_owner
-  integer(kind=c_int),intent(in),value    :: c_group
-  integer(kind=c_int)                     :: c_ierr
-  end function c_chown
-end interface
-
-   if(c_chown(str2arr(trim(dirname)),int(owner,kind=c_int),int(group,kind=c_int)).eq.1)then
-      system_chown=.true.
-   else
-      system_chown=.false.
-   endif
-
-end function system_chown
-!===================================================================================================================================
-!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
-!===================================================================================================================================
-!>
-!!##NAME
 !!    system_isdir(3f) - [M_system] checks if argument is a directory path
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!   logical function system_isdir(pathname)
+!!   elemental impure logical function system_isdir(pathname)
 !!
 !!    character(len=*),intent(in) :: pathname
 !!    logical                     :: system_isdir
@@ -2025,22 +1945,38 @@ end function system_chown
 !!
 !!##EXAMPLE
 !!
-!!   check if filename is a directory
 !!
-!!      program demo_system_isdir
-!!      Use M_system, only : system_isdir
-!!      implicit none
-!!      integer                     :: i
-!!      character(len=80),parameter :: names(*)=[ &
-!!      '/tmp            ', &
-!!      '/tmp/NOTTHERE   ', &
-!!      '/usr/local      ', &
-!!      '.               ', &
-!!      'PROBABLY_NOT    ']
-!!      do i=1,size(names)
-!!         write(*,*)' is ',trim(names(i)),' a directory? ', system_isdir(names(i))
-!!      enddo
-!!      end program demo_system_isdir
+!!   Sample program
+!!
+!!    program demo_system_isdir
+!!    use M_system, only : system_isdir
+!!    use M_system, only : access=>system_access, R_OK
+!!    use M_system, only : system_dir
+!!    implicit none
+!!    character(len=1024),allocatable :: filenames(:) ! BUG: cannot use len=: in gfortran 8.3.1
+!!    integer                         :: i
+!!    character(len=80),parameter     :: names(*)=[ &
+!!    & '/tmp            ', &
+!!    & '/tmp/NOTTHERE   ', &
+!!    & '/usr/local      ', &
+!!    & '.               ', &
+!!    & 'PROBABLY_NOT    ']
+!!       !
+!!       do i=1,size(names)
+!!          write(*,*)' is ',trim(names(i)),' a directory? ', system_isdir(names(i))
+!!       enddo
+!!       !
+!!       ! EXTENDED EXAMPLE: list readable non-hidden directories in current directory
+!!       filenames=system_dir(pattern='*') ! list all files in current directory
+!!       ! select readable directories
+!!       filenames=pack(filenames,system_isdir(filenames).and.access(filenames,R_OK))
+!!       filenames=pack(filenames,filenames(:)(1:1) .ne.'.') ! skip hidden directories
+!!       do i=1,size(filenames)
+!!          write(*,*)' ',trim(filenames(i)),' is a directory'
+!!       enddo
+!!       !
+!!    end program demo_system_isdir
+!!
 !!
 !!   Results:
 !!
@@ -2049,11 +1985,13 @@ end function system_chown
 !!      is /usr/local a directory?  T
 !!      is . a directory?  T
 !!      is PROBABLY_NOT a directory?  F
-!===================================================================================================================================
-function system_isdir(dirname)
+!!
+!!      TEST is a directory
+!!      EXAMPLE is a directory
+elemental impure function system_isdir(dirname)
 implicit none
 
-!character(len=*),parameter::ident_11="@(#)M_system::system_isdir(3f): determine if DIRNAME is a directory name"
+! ident_10="@(#)M_system::system_isdir(3f): determine if DIRNAME is a directory name"
 
 character(len=*),intent(in) :: dirname
 logical                     :: system_isdir
@@ -2066,13 +2004,103 @@ interface
   end function c_isdir
 end interface
 
-   if(c_isdir(str2arr(trim(dirname))).eq.1)then
+   if(c_isdir(str2_carr(trim(dirname))).eq.1)then
       system_isdir=.true.
    else
       system_isdir=.false.
    endif
 
 end function system_isdir
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+!>
+!!##NAME
+!!    system_chown(3f) - [M_system] change file owner and group
+!!    (LICENSE:PD)
+!!
+!!##SYNOPSIS
+!!
+!!   elemental impure logical function system_chown(path,owner,group)
+!!
+!!    character(len=*),intent(in) :: path
+!!    integer,intent(in)          :: owner
+!!    integer,intent(in)          :: group
+!!
+!!##DESCRIPTION
+!!        The chown(3f) function changes owner and group of a file
+!!
+!!       The path argument points to a pathname naming a file. The
+!!       user ID and group ID of the named file shall be set to the numeric
+!!       values contained in owner and group, respectively.
+!!
+!!       Only processes with an effective user ID equal to the user ID of
+!!       the file or with appropriate privileges may change the ownership
+!!       of a file.
+!!
+!!##OPTIONS
+!!       path   a character string representing a file pathname.
+!!              Trailing spaces are ignored.
+!!       owner  UID of owner that ownership is to be changed to
+!!       group  GID of group that ownership is to be changed to
+!!
+!!##RETURN VALUE
+!!       The system_chown(3f) function should return zero 0 if successful.
+!!       Otherwise, these functions shall return 1 and set errno to
+!!       indicate the error. If 1 is returned, no changes are made in
+!!       the user ID and group ID of the file.
+!!
+!!##EXAMPLE
+!!
+!!
+!!   Sample program:
+!!
+!!    program demo_system_chown
+!!    use M_system, only : system_chown
+!!    use M_system, only : system_getuid
+!!    use M_system, only : system_getgid
+!!    use M_system, only : system_perror
+!!    implicit none
+!!    integer                     :: i
+!!    character(len=80),parameter :: names(*)=[character(len=80) :: 'myfile1','/usr/local']
+!!    do i=1,size(names)
+!!       if(.not.  system_chown(&
+!!       & trim(names(i)),  &
+!!       & system_getuid(), &
+!!       & system_getgid()) &
+!!          )then
+!!          call system_perror('*demo_system_chown* '//trim(names(i)))
+!!       endif
+!!    enddo
+!!    end program demo_system_chown
+elemental impure function system_chown(dirname,owner,group)
+implicit none
+
+! ident_11="@(#)M_system::system_chown(3f): change owner and group of a file relative to directory file descriptor"
+
+character(len=*),intent(in) :: dirname
+integer,intent(in)          :: owner
+integer,intent(in)          :: group
+logical                     :: system_chown
+
+! int chown(const char *path, uid_t owner, gid_t group);
+interface
+  function c_chown(c_dirname,c_owner,c_group) bind (C,name="my_chown") result (c_ierr)
+  import c_char,c_int
+  character(kind=c_char,len=1),intent(in) :: c_dirname(*)
+  integer(kind=c_int),intent(in),value    :: c_owner
+  integer(kind=c_int),intent(in),value    :: c_group
+  integer(kind=c_int)                     :: c_ierr
+  end function c_chown
+end interface
+
+   if(c_chown(str2_carr(trim(dirname)),int(owner,kind=c_int),int(group,kind=c_int)).eq.1)then
+      system_chown=.true.
+   else
+      system_chown=.false.
+   endif
+
+end function system_chown
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -2132,18 +2160,15 @@ end function system_isdir
 !!    end program demo_system_cpu_time
 !!
 !!   Typical Results:
-!===================================================================================================================================
-!! GET ERRORS ABOUT MISSING LONGEST_ENV_VARIABLE IN GFORTRAN 6.4.0 IF JUST USE INTERFACE INSTEAD OF MAKING SUBROUTINE
-!!character(len=*),parameter :: ident_cpu_time="@(#) M_system::system_cpu_time(3f): get processor time using times(3c)"
-!!interface
-!!   subroutine system_cpu_time(c_total,c_user,c_system) bind (C,NAME='my_cpu_time')
-!!      import c_float
-!!      real(kind=c_float) :: c_user,c_system,c_total
-!!   end subroutine system_cpu_time
-!!end interface
+!-! GET ERRORS ABOUT MISSING LONGEST_ENV_VARIABLE IN GFORTRAN 6.4.0 IF JUST USE INTERFACE INSTEAD OF MAKING SUBROUTINE
+!-!interface
+!-!   subroutine system_cpu_time(c_total,c_user,c_system) bind (C,NAME='my_cpu_time')
+!-!      import c_float
+!-!      real(kind=c_float) :: c_user,c_system,c_total
+!-!   end subroutine system_cpu_time
+!-!end interface
 subroutine system_cpu_time(total,user,system)
 
-!character(len=*),parameter :: ident_cpu_time="@(#) M_system::system_cpu_time(3f): get processor time using times(3c)"
 
 real,intent(out)   :: user,system,total
 real(kind=c_float) :: c_user,c_system,c_total
@@ -2170,7 +2195,7 @@ end subroutine system_cpu_time
 !!
 !!##SYNOPSIS
 !!
-!!    integer function link(oldpath,newpath);
+!!    elemental impure integer function link(oldpath,newpath);
 !!
 !!     character(len=*),intent(in) :: oldpath
 !!     character(len=*),intent(in) :: newpath
@@ -2238,10 +2263,9 @@ end subroutine system_cpu_time
 !!       call system_perror('*demo_system_link*')
 !!    endif
 !!    end program demo_system_link
-!===================================================================================================================================
-function system_link(oldname,newname) result(ierr)
+elemental impure function system_link(oldname,newname) result(ierr)
 
-!character(len=*),parameter::ident_12="@(#)M_system::system_link(3f): call link(3c) to create a file link"
+! ident_12="@(#)M_system::system_link(3f): call link(3c) to create a file link"
 
 character(len=*),intent(in) :: oldname
 character(len=*),intent(in) :: newname
@@ -2257,7 +2281,7 @@ interface
   end function c_link
 end interface
 
-   c_ierr=c_link(str2arr(trim(oldname)),str2arr(trim(newname)))
+   c_ierr=c_link(str2_carr(trim(oldname)),str2_carr(trim(newname)))
    ierr=c_ierr
 
 end function system_link
@@ -2271,7 +2295,7 @@ end function system_link
 !!
 !!##SYNOPSIS
 !!
-!!    integer function unlink(path);
+!!    elemental impure integer function unlink(path);
 !!
 !!     character(len=*) :: path
 !!
@@ -2325,10 +2349,9 @@ end function system_link
 !!       call system_perror('*demo_system_unlink*')
 !!    endif
 !!    end program demo_system_unlink
-!===================================================================================================================================
-function system_unlink(fname) result (ierr)
+elemental impure function system_unlink(fname) result (ierr)
 
-!character(len=*),parameter::ident_13="@(#)M_system::system_unlink(3f): call unlink(3c) to rm file link"
+! ident_13="@(#)M_system::system_unlink(3f): call unlink(3c) to rm file link"
 
 character(len=*),intent(in) :: fname
 integer                     :: ierr
@@ -2340,7 +2363,7 @@ interface
   integer(kind=c_int)          :: c_ierr
   end function c_unlink
 end interface
-   ierr=c_unlink(str2arr(trim(fname)))
+   ierr=c_unlink(str2_carr(trim(fname)))
 end function system_unlink
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -2407,7 +2430,6 @@ end function system_unlink
 !!     18 O'022' Z"12' B'000010010"
 !!     NEW
 !!     63 O'077' Z"3F' B'000111111"
-!===================================================================================================================================
 integer function system_setumask(umask_value) result (old_umask)
 integer,intent(in)  :: umask_value
 integer(kind=c_int) :: umask_c
@@ -2443,7 +2465,6 @@ end function system_setumask
 !!   Expected output
 !!
 !!     18 O'022' Z"12' B'000010010"
-!===================================================================================================================================
 integer function system_getumask() result (umask_value)
 ! The return value from umask() is just the previous value of the file
 ! creation mask, so that this system call can be used both to get and
@@ -2499,11 +2520,10 @@ end function system_getumask
 !!
 !!    *demo_system_perror*:/NOT/THERE/OR/ANYWHERE: No such file or directory
 !!    That's all Folks!
-!===================================================================================================================================
 subroutine system_perror(prefix)
 use, intrinsic :: iso_fortran_env, only : ERROR_UNIT, INPUT_UNIT, OUTPUT_UNIT     ! access computing environment
 
-!character(len=*),parameter::ident_14="@(#)M_system::system_perror(3f): call perror(3c) to display error message"
+! ident_14="@(#)M_system::system_perror(3f): call perror(3c) to display error message"
 
 character(len=*),intent(in) :: prefix
    integer                  :: ios
@@ -2518,7 +2538,7 @@ end interface
    flush(unit=ERROR_UNIT,iostat=ios)
    flush(unit=OUTPUT_UNIT,iostat=ios)
    flush(unit=INPUT_UNIT,iostat=ios)
-   call c_perror(str2arr((trim(prefix))))
+   call c_perror(str2_carr((trim(prefix))))
    call c_flush()
 
 end subroutine system_perror
@@ -2589,10 +2609,9 @@ end subroutine system_perror
 !!      /home/urbanjs/V600
 !!      /tmp
 !!      *CHDIR TEST* IERR=           0
-!===================================================================================================================================
 subroutine system_chdir(path, err)
 
-!character(len=*),parameter::ident_15="@(#)M_system::system_chdir(3f): call chdir(3c)"
+! ident_15="@(#)M_system::system_chdir(3f): call chdir(3c)"
 
 character(len=*)               :: path
 integer, optional, intent(out) :: err
@@ -2605,7 +2624,7 @@ interface
 end interface
    integer                     :: loc_err
 !-----------------------------------------------------------------------------------------------------------------------------------
-   loc_err=c_chdir(str2arr(trim(path)))
+   loc_err=c_chdir(str2_carr(trim(path)))
    if(present(err))then
       err=loc_err
    endif
@@ -2619,7 +2638,7 @@ end subroutine system_chdir
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   function system_remove(path) result(err)
+!!   elemental impure function system_remove(path) result(err)
 !!
 !!    character(*),intent(in) :: path
 !!    integer(c_int)          :: err
@@ -2679,10 +2698,9 @@ end subroutine system_chdir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
-function system_remove(path) result(err)
+elemental impure function system_remove(path) result(err)
 
-!character(len=*),parameter::ident_16="@(#)M_system::system_remove(3f): call remove(3c) to remove file"
+! ident_16="@(#)M_system::system_remove(3f): call remove(3c) to remove file"
 
 character(*),intent(in) :: path
 integer(c_int)          :: err
@@ -2695,7 +2713,7 @@ interface
    end function
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   err= c_remove(str2arr(trim(path)))
+   err= c_remove(str2_carr(trim(path)))
 end function system_remove
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -2786,10 +2804,9 @@ end function system_remove
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_rename(input,output) result(ierr)
 
-!character(len=*),parameter::ident_17="@(#)M_system::system_rename(3f): call rename(3c) to change filename"
+! ident_17="@(#)M_system::system_rename(3f): call rename(3c) to change filename"
 
 character(*),intent(in)    :: input,output
 integer                    :: ierr
@@ -2802,7 +2819,7 @@ interface
    end function
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   ierr= c_rename(str2arr(trim(input)),str2arr(trim(output)))
+   ierr= c_rename(str2_carr(trim(input)),str2_carr(trim(output)))
 end function system_rename
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -2862,9 +2879,9 @@ end function system_rename
 !!    program demo_system_chmod
 !!    use M_system, only : system_chmod
 !!    use M_system, only : system_stat
-!!    use M_system, only : R_GRP,R_OTH,R_USR,RWX_G,RWX_O
-!!    use M_system, only : RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR
-!!    use M_system, only : DEFFILEMODE, ACCESSPERMS
+!!    use M_system, only : R_GRP,R_OTH,R_USR, RWX_G, RWX_U, W_OTH, X_GRP
+!!    !use M_system, only : RWX_O, W_GRP,W_USR,X_OTH,X_USR
+!!    !use M_system, only : DEFFILEMODE, ACCESSPERMS
 !!    use,intrinsic     :: iso_fortran_env, only : int64
 !!    implicit none
 !!    integer         :: ierr
@@ -2908,12 +2925,10 @@ end function system_rename
 !!
 !!    end program demo_system_chmod
 !!
-!!
 !!##AUTHOR
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_chmod(filename,mode) result(ierr)
    character(len=*),intent(in)  :: filename
    integer,value,intent(in)     :: mode
@@ -2927,7 +2942,7 @@ function system_chmod(filename,mode) result(ierr)
       end function
    end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   ierr=c_chmod(str2arr(trim(filename)),int(mode,kind(0_c_int)))
+   ierr=c_chmod(str2_carr(trim(filename)),int(mode,kind(0_c_int)))
 end function system_chmod
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -2972,10 +2987,9 @@ end function system_chmod
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_getcwd(output,ierr)
 
-!character(len=*),parameter::ident_18="@(#)M_system::system_getcwd(3f):call getcwd(3c) to get pathname of current working directory"
+! ident_18="@(#)M_system::system_getcwd(3f):call getcwd(3c) to get pathname of current working directory"
 
 character(len=:),allocatable,intent(out) :: output
 integer,intent(out)                      :: ierr
@@ -3057,10 +3071,9 @@ end subroutine system_getcwd
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_rmdir(dirname) result(err)
 
-!character(len=*),parameter::ident_19="@(#)M_system::system_rmdir(3f): call rmdir(3c) to remove empty directory"
+! ident_19="@(#)M_system::system_rmdir(3f): call rmdir(3c) to remove empty directory"
 
 character(*),intent(in) :: dirname
 integer(c_int) :: err
@@ -3073,7 +3086,7 @@ interface
    end function
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   err= c_rmdir(str2arr(trim(dirname)))
+   err= c_rmdir(str2_carr(trim(dirname)))
    if(err.ne.0) err=system_errno()
 end function system_rmdir
 !===================================================================================================================================
@@ -3136,7 +3149,7 @@ end function system_rmdir
 !!
 !!    Predefined variables are typically used to set permission modes.
 !!
-!!    You can bytewise-OR together these variables to to create the most
+!!    You can bytewise-OR together these variables to create the most
 !!    common permissions mode:
 !!
 !!     User:    R_USR  (read),  W_USR  (write),  X_USR(execute)
@@ -3176,9 +3189,10 @@ end function system_rmdir
 !!
 !!    program demo_system_mkfifo
 !!    use M_system, only : system_mkfifo, system_perror
-!!    use M_system, only : R_GRP,R_OTH,R_USR,RWX_G,RWX_O
-!!    use M_system, only : RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR
-!!    use M_system, only : DEFFILEMODE, ACCESSPERMS
+!!    !use M_system, only : R_GRP,R_OTH,R_USR,RWX_G,RWX_O
+!!    !use M_system, only : RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR
+!!    !use M_system, only : DEFFILEMODE, ACCESSPERMS
+!!    use M_system, only : W_USR, R_USR, R_GRP, R_OTH
 !!    implicit none
 !!       integer :: status
 !!       status = system_mkfifo("/tmp/buffer", IANY([W_USR, R_USR, R_GRP, R_OTH]))
@@ -3194,10 +3208,9 @@ end function system_rmdir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_mkfifo(pathname,mode) result(err)
 
-!character(len=*),parameter::ident_20="@(#)M_system::system_mkfifo(3f): call mkfifo(3c) to create a new FIFO special file"
+! ident_20="@(#)M_system::system_mkfifo(3f): call mkfifo(3c) to create a new FIFO special file"
 
 character(len=*),intent(in)       :: pathname
 integer,intent(in)                :: mode
@@ -3214,7 +3227,7 @@ interface
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
    c_mode=mode
-   err= c_mkfifo(str2arr(trim(pathname)),c_mode)
+   err= c_mkfifo(str2_carr(trim(pathname)),c_mode)
 end function system_mkfifo
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -3228,7 +3241,7 @@ end function system_mkfifo
 !!##DESCRIPTION
 !!
 !!    Predefined variables are typically used to set permission modes.
-!!    You can bytewise-OR together these variables to to create the most common
+!!    You can bytewise-OR together these variables to create the most common
 !!    permissions mode:
 !!
 !!     User:    R_USR  (read),  W_USR  (write),  X_USR(execute)
@@ -3274,10 +3287,9 @@ end function system_mkfifo
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_mkdir(dirname,mode) result(ierr)
 
-!character(len=*),parameter::ident_21="@(#)M_system::system_mkdir(3f): call mkdir(3c) to create empty directory"
+! ident_21="@(#)M_system::system_mkdir(3f): call mkdir(3c) to create empty directory"
 
 character(len=*),intent(in)       :: dirname
 integer,intent(in)                :: mode
@@ -3304,9 +3316,9 @@ end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
    c_mode=mode
    if(index(dirname,'/').ne.0)then
-      call my_mkdir(str2arr(trim(dirname)),c_mode,err)
+      call my_mkdir(str2_carr(trim(dirname)),c_mode,err)
    else
-      err= c_mkdir(str2arr(trim(dirname)),c_mode)
+      err= c_mkdir(str2_carr(trim(dirname)),c_mode)
    endif
    ierr=err                                          ! c_int to default integer kind
 end function system_mkdir
@@ -3403,7 +3415,6 @@ end function system_mkdir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_opendir(dirname,dir,ierr)
 character(len=*), intent(in) :: dirname
 type(c_ptr)                  :: dir
@@ -3418,7 +3429,7 @@ interface
 end interface
 
    ierr=0
-   dir = c_opendir(str2arr(trim(dirname)))
+   dir = c_opendir(str2_carr(trim(dirname)))
    if(.not.c_associated(dir)) then
       write(*,'(a)')'*system_opendir* Error opening '//trim(dirname)
       ierr=-1
@@ -3505,7 +3516,6 @@ end subroutine system_opendir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_readdir(dir,filename,ierr)
 type(c_ptr),value                         :: dir
 character(len=:),intent(out),allocatable  :: filename
@@ -3583,7 +3593,6 @@ end subroutine system_readdir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_rewinddir(dir)
 type(c_ptr),value            :: dir
 
@@ -3650,7 +3659,6 @@ end subroutine system_rewinddir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_closedir(dir,ierr)
 use iso_c_binding
 type(c_ptr),value            :: dir
@@ -3749,10 +3757,9 @@ end subroutine system_closedir
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_putenv(string, err)
 
-!character(len=*),parameter::ident_22="@(#)M_system::system_putenv(3f): call putenv(3c)"
+! ident_22="@(#)M_system::system_putenv(3f): call putenv(3c)"
 
 interface
    integer(kind=c_int)  function c_putenv(c_string) bind(C,name="putenv")
@@ -3808,22 +3815,18 @@ end subroutine system_putenv
 !!    program demo_system_getenv
 !!    use M_system, only : system_getenv
 !!    implicit none
-!!    integer :: ierr
-!!
 !!       write(*,'("USER     : ",a)')system_getenv('USER')
 !!       write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME')
 !!       write(*,'("USERNAME : ",a)')system_getenv('USERNAME')
-!!
 !!    end program demo_system_getenv
 !!
 !!##AUTHOR
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_getenv(name) result(var)
 
-!character(len=*),parameter::ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable(3f)"
+! ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable(3f)"
 
 character(len=*),intent(in)  :: name
 integer                      :: howbig
@@ -3901,10 +3904,9 @@ end function system_getenv
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine set_environment_variable(NAME, VALUE, STATUS)
 
-!character(len=*),parameter::ident_24="@(#)M_system::set_environment_variable(3f): call setenv(3c) to set environment variable"
+! ident_24="@(#)M_system::set_environment_variable(3f): call setenv(3c) to set environment variable"
 
    character(len=*)               :: NAME
    character(len=*)               :: VALUE
@@ -3919,7 +3921,7 @@ interface
    end function
 end interface
 
-   loc_err =  c_setenv(str2arr(trim(NAME)),str2arr(VALUE))
+   loc_err =  c_setenv(str2_carr(trim(NAME)),str2_carr(VALUE))
    if (present(STATUS)) STATUS = loc_err
 end subroutine set_environment_variable
 !===================================================================================================================================
@@ -3939,7 +3941,7 @@ end subroutine set_environment_variable
 !!
 !!##DESCRIPTION
 !!    The clearenv() procedure clears the environment of all name-value
-!!    pairs.  Typically used in security-conscious applications or ones where
+!!    pairs. Typically used in security-conscious applications or ones where
 !!    configuration control requires ensuring specific variables are set.
 !!
 !!##RETURN VALUES
@@ -3971,11 +3973,10 @@ end subroutine set_environment_variable
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_clearenv(ierr)
 !  emulating because not available on some platforms
 
-!character(len=*),parameter::ident_25="@(#)M_system::system_clearenv(3f): emulate clearenv(3c) to clear environment"
+! ident_25="@(#)M_system::system_clearenv(3f): emulate clearenv(3c) to clear environment"
 
 integer,intent(out),optional    :: ierr
    character(len=:),allocatable :: string
@@ -4064,10 +4065,9 @@ end subroutine system_clearenv
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_unsetenv(name,ierr)
 
-!character(len=*),parameter::ident_26="@(#)M_system::system_unsetenv(3f): call unsetenv(3c) to remove variable from environment"
+! ident_26="@(#)M_system::system_unsetenv(3f): call unsetenv(3c) to remove variable from environment"
 
 character(len=*),intent(in)  :: name
 integer,intent(out),optional :: ierr
@@ -4081,7 +4081,7 @@ interface
    end function
 end interface
 
-   ierr_local =  c_unsetenv(str2arr(trim(NAME)))
+   ierr_local =  c_unsetenv(str2_carr(trim(NAME)))
 
    if(present(ierr))then
       ierr=ierr_local
@@ -4148,10 +4148,9 @@ end subroutine system_unsetenv
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_readenv() result(string)
 
-!character(len=*),parameter::ident_27="@(#)M_system::system_readenv(3f): read next entry from environment table"
+! ident_27="@(#)M_system::system_readenv(3f): read next entry from environment table"
 
 character(len=:),allocatable  :: string
 character(kind=c_char)        :: c_buff(longest_env_variable+1)
@@ -4217,13 +4216,12 @@ end function system_readenv
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine fileglob(glob, list) ! NON-PORTABLE AT THIS POINT. REQUIRES ls(1) command, assumes 1 line per file
 !  The length of the character strings in list() must be long enough for the filenames.
 !  The list can be zero names long, it is still allocated.
 implicit none
 
-!character(len=*),parameter::ident_28="@(#)M_system::fileglob(3f): Returns list of files using a file globbing pattern"
+! ident_28="@(#)M_system::fileglob(3f): Returns list of files using a file globbing pattern"
 
 !-----------------------------------------------------------------------------------------------------------------------------------
 character(len=*),intent(in)   :: glob                   ! Pattern for the filenames (like: *.txt)
@@ -4233,8 +4231,7 @@ character(len=*),pointer      :: list(:)                ! Allocated list of file
    character(len=255)            :: cmd                 ! string to build system command in
    integer                       :: iotmp               ! needed to open unique scratch file for holding file list
    integer                       :: i,ios,icount
-   tmpfile='/tmp/__filelist__'                          ! preliminary scratch file name
-   tmpfile=uniq(tmpfile,70)                             ! make sure unique scratch filename
+   write(tmpfile,'(*(g0))')'/tmp/__filelist_',timestamp(),'_',system_getpid() ! preliminary scratch file name
    cmd='ls -d '//trim(glob)//'>'//trim(tmpfile)//' '    ! build command string
    call execute_command_line(cmd )                      ! Execute the command specified by the string.
    open(newunit=iotmp,file=tmpfile,iostat=ios)          ! open unique scratch filename
@@ -4299,11 +4296,10 @@ end subroutine fileglob
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_uname(WHICH,NAMEOUT)
 implicit none
 
-!character(len=*),parameter::ident_29="@(#)M_system::system_uname(3f): call my_uname(3c) which calls uname(3c)"
+! ident_29="@(#)M_system::system_uname(3f): call my_uname(3c) which calls uname(3c)"
 
 character(KIND=C_CHAR),intent(in) :: WHICH
 character(len=*),intent(out)      :: NAMEOUT
@@ -4350,30 +4346,26 @@ end subroutine system_uname
 !!   Sample program:
 !!
 !!    program demo_system_gethostname
-!!
 !!    use M_system, only : system_gethostname
 !!    implicit none
 !!    character(len=:),allocatable :: name
 !!    integer                      :: ierr
-!!
 !!       call system_gethostname(name,ierr)
 !!       if(ierr.eq.0)then
 !!          write(*,'("hostname[",a,"]")')name
 !!       else
 !!          write(*,'(a)')'ERROR: could not get hostname'
 !!       endif
-!!
 !!    end program demo_system_gethostname
 !!
 !!##AUTHOR
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_gethostname(NAME,IERR)
 implicit none
 
-!character(len=*),parameter::ident_30="@(#)M_system::system_gethostname(3f): get name of current host by calling gethostname(3c)"
+! ident_30="@(#)M_system::system_gethostname(3f): get name of current host by calling gethostname(3c)"
 
 character(len=:),allocatable,intent(out) :: NAME
 integer,intent(out)                      :: IERR
@@ -4412,12 +4404,13 @@ end subroutine system_gethostname
 !!
 !!##DESCRIPTION
 !!
-!!    The system_getlogin() function returns a string containing the user
+!!    The system_getlogin(3f) function returns a string containing the user
 !!    name associated by the login activity with the controlling terminal
 !!    of the current process. Otherwise, it returns a null string and sets
 !!    errno to indicate the error.
 !!
 !!    Three names associated with the current process can be determined:
+!!
 !!       o system_getpwuid(system_getuid()) returns the name associated with the real user ID of the process.
 !!       o system_getpwuid(system_geteuid()) returns the name associated with the effective user ID of the process
 !!       o system_getlogin() returns the name associated with the current login activity
@@ -4445,7 +4438,6 @@ end subroutine system_gethostname
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 !--       The following example calls the getlogin() function to obtain the name of the user associated with the calling process,
 !--       and passes this information to the getpwnam() function to get the associated user database information.
 !--           ...
@@ -4517,13 +4509,16 @@ end function system_getlogin
 !!    integer             :: ierr
 !!    character(len=:),allocatable :: perms
 !!       values=0
-!!       call get_command_argument(1, string)  ! get pathname from command line
-!!       call system_stat(string,values,ierr)  ! get pathname information
+!!       ! get pathname from command line
+!!       call get_command_argument(1, string)
+!!       ! get pathname information
+!!       call system_stat(string,values,ierr)
 !!       if(ierr.eq.0)then
-!!          perms=system_perm(values(3))       ! convert permit mode to a string
+!!          ! convert permit mode to a string
+!!          perms=system_perm(values(3))
 !!          ! print permits as a string, decimal value, and octal value
 !!          write(*,'("for ",a," permits[",a,"]",1x,i0,1x,o0)') &
-!!                  trim(string),perms,values(3),values(3)
+!!           & trim(string),perms,values(3),values(3)
 !!       endif
 !!    end program demo_system_perm
 !!
@@ -4535,9 +4530,9 @@ end function system_getlogin
 !!
 !!##AUTHOR
 !!    John S. Urban
+!!
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_perm(mode) result (perms)
 class(*),intent(in)          :: mode
 character(len=:),allocatable :: perms
@@ -4609,7 +4604,6 @@ end function system_perm
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_getgrgid(gid) result (gname)
 class(*),intent(in)                        :: gid
 character(len=:),allocatable               :: gname
@@ -4682,7 +4676,6 @@ end function system_getgrgid
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 function system_getpwuid(uid) result (uname)
 class(*),intent(in)                        :: uid
 character(len=:),allocatable               :: uname
@@ -4713,7 +4706,7 @@ end function system_getpwuid
 !===================================================================================================================================
 pure function arr2str(array)  result (string)
 
-!character(len=*),parameter::ident_31="@(#)M_system::arr2str(3fp): function copies null-terminated char array to string"
+! ident_31="@(#)M_system::arr2str(3fp): function copies null-terminated char array to string"
 
 character(len=1),intent(in)  :: array(:)
 character(len=size(array))   :: string
@@ -4732,9 +4725,9 @@ end function arr2str
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-pure function str2arr(string) result (array)
+pure function str2_carr(string) result (array)
 
-!character(len=*),parameter::ident_32="@(#)M_system::str2arr(3fp): function copies string to null terminated char array"
+! ident_32="@(#)M_system::str2_carr(3fp): function copies string to null terminated char array"
 
 character(len=*),intent(in)     :: string
 character(len=1,kind=c_char)    :: array(len(string)+1)
@@ -4745,7 +4738,7 @@ character(len=1,kind=c_char)    :: array(len(string)+1)
    enddo
    array(i:i)=c_null_char
 
-end function str2arr
+end function str2_carr
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -4847,9 +4840,9 @@ end function C2F_string
 !!    character(len=*),parameter :: fmt_date='year-month-day hour:minute:second'
 !!
 !!    integer(kind=int64) :: &
-!!       Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &
-!!       Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &
-!!       Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
+!!     Device_ID, Inode_number,     File_mode, Number_of_links, Owner_uid,        &
+!!     Owner_gid, Directory_device, File_size, Last_access,     Last_modification,&
+!!     Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
 !!    equivalence                                    &
 !!       ( buff(1)  , Device_ID                  ) , &
 !!       ( buff(2)  , Inode_number               ) , &
@@ -4868,19 +4861,32 @@ end function C2F_string
 !!    CALL SYSTEM_STAT("/etc/hosts", buff, status)
 !!
 !!    if (status == 0) then
-!!       write (*, FMT="('Device ID(hex/decimal):',      T30, Z0,'h/',I0,'d')") buff(1),buff(1)
-!!       write (*, FMT="('Inode number:',                T30, I0)") buff(2)
-!!       write (*, FMT="('File mode (octal):',           T30, O19)") buff(3)
-!!       write (*, FMT="('Number of links:',             T30, I0)") buff(4)
-!!       write (*, FMT="('Owner''s uid/username:',       T30, I0,1x, A)") buff(5), system_getpwuid(buff(5))
-!!       write (*, FMT="('Owner''s gid/group:',          T30, I0,1x, A)") buff(6), system_getgrgid(buff(6))
-!!       write (*, FMT="('Device where located:',        T30, I0)") buff(7)
-!!       write (*, FMT="('File size(bytes):',            T30, I0)") buff(8)
-!!       write (*, FMT="('Last access time:',            T30, I0,1x, A)") buff(9), fmtdate(u2d(int(buff(9))),fmt_date)
-!!       write (*, FMT="('Last modification time:',      T30, I0,1x, A)") buff(10),fmtdate(u2d(int(buff(10))),fmt_date)
-!!       write (*, FMT="('Last status change time:',     T30, I0,1x, A)") buff(11),fmtdate(u2d(int(buff(11))),fmt_date)
-!!       write (*, FMT="('Preferred block size(bytes):', T30, I0)") buff(12)
-!!       write (*, FMT="('No. of blocks allocated:',     T30, I0)") buff(13)
+!!       write (*, FMT="('Device ID(hex/decimal):',      &
+!!       & T30, Z0,'h/',I0,'d')") buff(1),buff(1)
+!!       write (*, FMT="('Inode number:',                &
+!!       & T30, I0)") buff(2)
+!!       write (*, FMT="('File mode (octal):',           &
+!!       & T30, O19)") buff(3)
+!!       write (*, FMT="('Number of links:',             &
+!!       & T30, I0)") buff(4)
+!!       write (*, FMT="('Owner''s uid/username:',       &
+!!       & T30, I0,1x, A)") buff(5), system_getpwuid(buff(5))
+!!       write (*, FMT="('Owner''s gid/group:',          &
+!!       & T30, I0,1x, A)") buff(6), system_getgrgid(buff(6))
+!!       write (*, FMT="('Device where located:',        &
+!!       & T30, I0)") buff(7)
+!!       write (*, FMT="('File size(bytes):',            &
+!!       & T30, I0)") buff(8)
+!!       write (*, FMT="('Last access time:',            &
+!!       & T30, I0,1x, A)") buff(9), fmtdate(u2d(int(buff(9))),fmt_date)
+!!       write (*, FMT="('Last modification time:',      &
+!!       & T30, I0,1x, A)") buff(10),fmtdate(u2d(int(buff(10))),fmt_date)
+!!       write (*, FMT="('Last status change time:',     &
+!!       & T30, I0,1x, A)") buff(11),fmtdate(u2d(int(buff(11))),fmt_date)
+!!       write (*, FMT="('Preferred block size(bytes):', &
+!!       & T30, I0)") buff(12)
+!!       write (*, FMT="('No. of blocks allocated:',     &
+!!       & T30, I0)") buff(13)
 !!    endif
 !!
 !!    end program demo_system_stat
@@ -4905,11 +4911,10 @@ end function C2F_string
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-!===================================================================================================================================
 subroutine system_stat(pathname,values,ierr)
 implicit none
 
-!character(len=*),parameter::ident_33="@(#)M_system::system_stat(3f): call stat(3c) to get pathname information"
+! ident_33="@(#)M_system::system_stat(3f): call stat(3c) to get pathname information"
 
 character(len=*),intent(in)          :: pathname
 
@@ -4929,109 +4934,204 @@ interface
    end subroutine c_stat
 end interface
 !-----------------------------------------------------------------------------------------------------------------------------------
-   call c_stat(str2arr(trim(pathname)),cvalues,cierr,0_c_int)
+   call c_stat(str2_carr(trim(pathname)),cvalues,cierr,0_c_int)
    values=cvalues
    if(present(ierr))then
       ierr=cierr
    endif
 end subroutine system_stat
 !===================================================================================================================================
-!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()=
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-function uniq(name,istart,verbose,create)
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+!>
+!!##NAME
+!!    system_dir(3f) - [M_io] return filenames in a directory matching specified wildcard string
+!!    (LICENSE:PD)
+!!
+!!##SYNOPSIS
+!!
+!!   function system_dir(directory,pattern)
+!!
+!!    character(len=*),intent(in),optional  :: directory
+!!    character(len=*),intent(in),optional  :: pattern
+!!    character(len=:),allocatable          :: system_dir(:)
+!!
+!!##DESCRIPTION
+!!    returns an array of filenames in the specified directory matching
+!!    the wildcard string (which defaults to "*").
+!!
+!!##OPTIONS
+!!    DIRECTORY  name of directory to match filenames in. Defaults to ".".
+!!    PATTERN    wildcard string matching the rules of the matchw(3f) function. Basically
+!!                o "*" matches anything
+!!                o "?" matches any single character
+!!
+!!##RETURNS
+!!    system_dir   An array right-padded to the length of the longest
+!!               filename. Note that this means filenames actually containing
+!!               trailing spaces in their names may be incorrect.
+!!
+!!##EXAMPLE
+!!
+!!   Sample program:
+!!
+!!    program demo_system_dir
+!!    use M_system, only : system_dir
+!!    implicit none
+!!       write(*, '(a)')system_dir(pattern='*.f90')
+!!    end program demo_system_dir
+!!
+!!##AUTHOR
+!!    John S. Urban
+!!
+!!##LICENSE
+!!    Public Domain
+function system_dir(directory,pattern)
+!use M_system, only : system_opendir, system_readdir, system_rewinddir, system_closedir
+use iso_c_binding
 implicit none
-
-!$@(#) M_io::uniq(3f): append a number to the end of filename to make a unique name if name exists
-
-!-----------------------------------------------------------------------------------------------------------------------------------
-character(len=*),intent(in)  :: name
-character(len=:),allocatable :: uniq
-integer,intent(in),optional  :: istart
-logical,intent(in),optional  :: verbose
-logical,intent(in),optional  :: create
-!-----------------------------------------------------------------------------------------------------------------------------------
-logical                     :: around
-integer,save                :: icount=1           ! counter to generate suffix from
-character(len=4096),save    :: lastname=' '       ! name called with last time the routine was called
-integer                     :: ilen
-integer                     :: itimes
-integer                     :: iscr
-integer                     :: ios
-logical                     :: verbose_local
-logical                     :: create_local
-!-----------------------------------------------------------------------------------------------------------------------------------
-   uniq=trim(name)                                   ! the input name will be returned if it passes all the tests
-!-----------------------------------------------------------------------------------------------------------------------------------
-   if(lastname.ne.name)then                          ! if a different input name than last time called reset icount
-      lastname=name                                  ! a new name to keep for subsequent calls
-      icount=1                                       ! icount is used to make a suffix to add to make the file unique
-   endif
-!-----------------------------------------------------------------------------------------------------------------------------------
-   if(present(verbose))then
-      verbose_local=verbose
+character(len=*),intent(in),optional  :: directory
+character(len=*),intent(in),optional  :: pattern
+character(len=:),allocatable          :: system_dir(:)
+character(len=:),allocatable          :: wild
+type(c_ptr)                           :: dir
+character(len=:),allocatable          :: filename
+integer                               :: i, ierr, icount, longest
+   longest=0
+   icount=0
+   if(present(pattern))then
+      wild=pattern
    else
-      verbose_local=.false.
+      wild='*'
    endif
-!-----------------------------------------------------------------------------------------------------------------------------------
-   if(present(create))then
-      create_local=create
+   if(present(directory))then                        !--- open directory stream to read from
+      call system_opendir(directory, dir, ierr)
    else
-      create_local=.true.
+      call system_opendir('.', dir, ierr)
    endif
-!-----------------------------------------------------------------------------------------------------------------------------------
-   if(present(istart))then
-      icount=istart                                  ! icount is used to make a suffix to add to make the file unique
-   endif
-!-----------------------------------------------------------------------------------------------------------------------------------
-   ilen=len_trim(name)                               ! find last non-blank character in file name
-!-----------------------------------------------------------------------------------------------------------------------------------
-   if(ilen.ne.0)then                                 ! a blank input name so name will just be a suffix
-      if(name(ilen:ilen).ne.'.')then                 ! always append a number to a file ending in .
-         inquire(file=name(:ilen),exist=around)      ! check filename as-is
-         if(.not.around)then                         ! file name does not exist, can use it as-is
-            uniq=trim(name)
-            if(create_local)then
-               open(newunit=iscr,file=uniq,iostat=ios,status='new')
-               close(unit=iscr,iostat=ios)
+   if(ierr.eq.0)then
+      do i=1, 2                                      !--- read directory stream twice, first time to get size
+         do
+            call system_readdir(dir, filename, ierr)
+            if(filename.eq.' ')exit
+            if(wild.ne.'*')then
+              if(.not.matchw(filename, wild))cycle   ! Call a wildcard matching routine.
             endif
+            icount=icount+1
+            select case(i)
+            case(1)
+               longest=max(longest, len(filename))
+            case(2)
+               system_dir(icount)=filename
+            end select
+         enddo
+         if(i.eq.1)then
+            call system_rewinddir(dir)
+            allocate(character(len=longest) :: system_dir(icount))
+            icount=0
+         endif
+      enddo
+   endif
+   call system_closedir(dir, ierr)                   !--- close directory stream
+end function system_dir
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+! copied from M_strings.ff to make stand-alone github version
+function matchw(tame,wild)
+
+! ident_34="@(#)M_strings::matchw(3f): function compares text strings, one of which can have wildcards ('*' or '?')."
+
+logical                    :: matchw
+character(len=*)           :: tame       ! A string without wildcards
+character(len=*)           :: wild       ! A (potentially) corresponding string with wildcards
+character(len=len(tame)+1) :: tametext
+character(len=len(wild)+1) :: wildtext
+character(len=1),parameter :: NULL=char(0)
+integer                    :: wlen
+integer                    :: ti, wi
+integer                    :: i
+character(len=:),allocatable :: tbookmark, wbookmark
+! These two values are set when we observe a wildcard character. They
+! represent the locations, in the two strings, from which we start once we've observed it.
+   tametext=tame//NULL
+   wildtext=wild//NULL
+   tbookmark = NULL
+   wbookmark = NULL
+   wlen=len(wild)
+   wi=1
+   ti=1
+   do                                            ! Walk the text strings one character at a time.
+      if(wildtext(wi:wi) == '*')then             ! How do you match a unique text string?
+         do i=wi,wlen                            ! Easy: unique up on it!
+            if(wildtext(wi:wi).eq.'*')then
+               wi=wi+1
+            else
+               exit
+            endif
+         enddo
+         if(wildtext(wi:wi).eq.NULL) then        ! "x" matches "*"
+            matchw=.true.
             return
          endif
-      endif
-   endif
-!-----------------------------------------------------------------------------------------------------------------------------------
-   itimes=0                                           ! count number of times tried to get a uniq name
-   deallocate(uniq)
-   allocate(character(len=ilen+8) :: uniq)            ! make it useable with an internal WRITE(3f) with room for a numeric suffix
-   uniq(:)=name
-   INFINITE: do                                       ! top of loop trying for a unique name
-      if(itimes.ge.9999999)then                       ! if too many tries to be reasonable give up
-         write(*,*)'*uniq* unable to find a unique filename. Too many tries'
-         uniq=''
-         return
-      endif
-      if(icount.gt.9999999) icount=1                  ! reset ICOUNT when it hits arbitrary maximum value
-      if(icount.le.9999)then
-         write(uniq(ilen+1:),'(i4.4)')icount          ! create name by adding a numeric string to end
-      else
-         write(uniq(ilen+1:),'(i7.7)')icount          ! create name by adding a numeric string to end
-      endif
-      icount=icount+1                                 ! increment counter used to come up with suffix
-      inquire(file=uniq,exist=around)                 ! see if this filename already exists
-      if(.not.around)then                             ! found an unused name
-         if(verbose_local)then
-            write(*,*)trim('*uniq* name='//trim(uniq)) ! write out message reporting name used
+         if(wildtext(wi:wi) .ne. '?') then
+            ! Fast-forward to next possible match.
+            do while (tametext(ti:ti) .ne. wildtext(wi:wi))
+               ti=ti+1
+               if (tametext(ti:ti).eq.NULL)then
+                  matchw=.false.
+                  return                         ! "x" doesn't match "*y*"
+               endif
+            enddo
          endif
-         if(create_local)then
-            open(newunit=iscr,file=uniq,iostat=ios,status='new')
-            close(unit=iscr,iostat=ios)
+         wbookmark = wildtext(wi:)
+         tbookmark = tametext(ti:)
+      elseif(tametext(ti:ti) .ne. wildtext(wi:wi) .and. wildtext(wi:wi) .ne. '?') then
+         ! Got a non-match. If we've set our bookmarks, back up to one or both of them and retry.
+         if(wbookmark.ne.NULL) then
+            if(wildtext(wi:).ne. wbookmark) then
+               wildtext = wbookmark;
+               wlen=len_trim(wbookmark)
+               wi=1
+               ! Don't go this far back again.
+               if (tametext(ti:ti) .ne. wildtext(wi:wi)) then
+                  tbookmark=tbookmark(2:)
+                  tametext = tbookmark
+                  ti=1
+                  cycle                          ! "xy" matches "*y"
+               else
+                  wi=wi+1
+               endif
+            endif
+            if (tametext(ti:ti).ne.NULL) then
+               ti=ti+1
+               cycle                             ! "mississippi" matches "*sip*"
+            endif
          endif
-         uniq=trim(uniq)
-         return                                       ! return successfully
+         matchw=.false.
+         return                                  ! "xy" doesn't match "x"
       endif
-      itimes=itimes+1                                 ! haven't found a unique name, try again
-   enddo INFINITE
-!-----------------------------------------------------------------------------------------------------------------------------------
-end function uniq
+      ti=ti+1
+      wi=wi+1
+      if (tametext(ti:ti).eq.NULL) then          ! How do you match a tame text string?
+         if(wildtext(wi:wi).ne.NULL)then
+            do while (wildtext(wi:wi) == '*')    ! The tame way: unique up on it!
+               wi=wi+1                           ! "x" matches "x*"
+               if(wildtext(wi:wi).eq.NULL)exit
+            enddo
+         endif
+         if (wildtext(wi:wi).eq.NULL)then
+            matchw=.true.
+            return                               ! "x" matches "x"
+         endif
+         matchw=.false.
+         return                                  ! "x" doesn't match "xy"
+      endif
+   enddo
+end function matchw
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -5125,95 +5225,6 @@ class(*),intent(in)     :: intin
       !stop 'ERROR: *anyinteger_to_64* unknown integer type'
    end select
 end function anyinteger_to_64bit
-!-!!===================================================================================================================================
-!-!!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
-!-!!===================================================================================================================================
-!-!!>
-!-!!!##NAME
-!-!!!    system_stat_print(3f) - [M_system] print the principal info obtained for a pathname from system_stat(3f)
-!-!!!    (LICENSE:PD)
-!-!!!##SYNOPSIS
-!-!!!
-!-!!!   subroutine system_stat_print(filename)
-!-!!!
-!-!!!    character(len=*),intent(in)  :: filename
-!-!!!    integer,intent(in),optional :: lun
-!-!!!##DESCRIPTION
-!-!!!      Call the system_stat(3f) routine and print the results
-!-!!!##OPTIONS
-!-!!!    filename   pathname to print information for
-!-!!!    lun        unit number to write to. Optional
-!-!!!##EXAMPLE
-!-!!!
-!-!!!   Sample program
-!-!!!
-!-!!!    program demo_system_stat_print
-!-!!!    use M_system, only : system_stat_print
-!-!!!    implicit none
-!-!!!       call system_stat_print('/tmp')
-!-!!!       call system_stat_print('/etc/hosts')
-!-!!!    end program demo_system_stat_print
-!-!!!
-!-!!!   Sample Result
-!-!!!
-!-!!!     41777 drwxrwxrwx --S 1  JSU      None     0    2018-10-19T21:10:39 /tmp
-!-!!!    100750 -rwxr-x--- --- 1  SYSTEM   SYSTEM   824  2018-08-17T01:21:55 /etc/hosts
-!-!!!
-!-!!!##AUTHOR
-!-!!!    John S. Urban
-!-!!!##LICENSE
-!-!!!    Public Domain
-!-!subroutine system_stat_print(filename,lun)
-!-!!!use M_system, only      : system_getpwuid, system_getgrgid, system_perm, system_stat
-!-!use M_time, only          : fmtdate, u2d
-!-!use, intrinsic :: iso_fortran_env, only : OUTPUT_UNIT
-!-!implicit none
-!-!character(len=*),intent(in)  :: filename
-!-!integer,intent(in),optional  :: lun
-!-!integer                      :: lun_local
-!-!character(len=*),parameter   :: dfmt='year-month-dayThour:minute:second'
-!-!integer                      :: ierr
-!-!integer(kind=int64)              :: values(13)
-!-!integer(kind=int64) :: &
-!-!   Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &
-!-!   Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &
-!-!   Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
-!-!EQUIVALENCE                                      &
-!-!   ( VALUES(1)  , Device_ID                  ) , &
-!-!   ( VALUES(2)  , Inode_number               ) , &
-!-!   ( VALUES(3)  , File_mode                  ) , &
-!-!   ( VALUES(4)  , Number_of_links            ) , &
-!-!   ( VALUES(5)  , Owner_uid                  ) , &
-!-!   ( VALUES(6)  , Owner_gid                  ) , &
-!-!   ( VALUES(7)  , Directory_device           ) , &
-!-!   ( VALUES(8)  , File_size                  ) , &
-!-!   ( VALUES(9)  , Last_access                ) , &
-!-!   ( VALUES(10) , Last_modification          ) , &
-!-!   ( VALUES(11) , Last_status_change         ) , &
-!-!   ( VALUES(12) , Preferred_block_size       ) , &
-!-!   ( VALUES(13) , Number_of_blocks_allocated )
-!-!
-!-!   if(present(lun))then
-!-!      lun_local=lun
-!-!   else
-!-!      lun_local=OUTPUT_UNIT
-!-!   endif
-!-!
-!-!   !write(lun, FMT="('Inode number:',                T30, I0)",advance='no') values(2)
-!-!   !write(lun, FMT="(' No. of blocks allocated:',     I0)",advance='no') values(13)
-!-!
-!-!   call system_stat(filename,values,ierr)
-!-!   if(ierr.eq.0)then
-!-!      write(lun_local, FMT="(o6.0,t7,1x,a)",advance='no') File_mode,system_perm(File_mode)
-!-!      write(lun_local, FMT="(1x,I0,t4)",advance='no')  Number_of_links
-!-!      write(lun_local, FMT="(1x,A,t10)",advance='no')  system_getpwuid(Owner_uid)
-!-!      write(lun_local, FMT="(1x,A,t10)",advance='no')  system_getgrgid(Owner_gid)
-!-!      write(lun_local, FMT="(1x,bn,I0,t10)",advance='no') File_size
-!-!      write(lun_local, FMT="(1x,A)",advance='no')      fmtdate(u2d(int(max(Last_access,Last_modification,Last_status_change))),dfmt)
-!-!      write(lun_local, FMT="(1x,a)")filename
-!-!   endif
-!-!
-!-!end subroutine system_stat_print
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================

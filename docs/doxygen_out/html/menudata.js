@@ -37,15 +37,16 @@ var menudata={children:[
 {text:"m",url:"namespacemembers.html#index_m"},
 {text:"r",url:"namespacemembers.html#index_r"},
 {text:"s",url:"namespacemembers.html#index_s"},
-{text:"u",url:"namespacemembers.html#index_u"},
+{text:"t",url:"namespacemembers.html#index_t"},
 {text:"w",url:"namespacemembers.html#index_w"},
 {text:"x",url:"namespacemembers.html#index_x"}]},
 {text:"Functions/Subroutines",url:"namespacemembers_func.html",children:[
 {text:"a",url:"namespacemembers_func.html#index_a"},
 {text:"c",url:"namespacemembers_func.html#index_c"},
 {text:"f",url:"namespacemembers_func.html#index_f"},
+{text:"m",url:"namespacemembers_func.html#index_m"},
 {text:"s",url:"namespacemembers_func.html#index_s"},
-{text:"u",url:"namespacemembers_func.html#index_u"}]},
+{text:"t",url:"namespacemembers_func.html#index_t"}]},
 {text:"Variables",url:"namespacemembers_vars.html"}]}]},
 {text:"Data Types List",url:"annotated.html",children:[
 {text:"Data Types List",url:"annotated.html"},

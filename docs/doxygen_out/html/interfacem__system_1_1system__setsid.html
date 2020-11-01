@@ -90,7 +90,7 @@ Private Member Functions</h2></td></tr>
 <p>integer(kind=c_int) function system_setsid(pid) integer(kind=c_int) :: pid </p><h2>DESCRIPTION</h2>
 <p>The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.</p>
 <h2>RETURN VALUE</h2>
-<p>Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Other‐ wise, it shall return −1 and set errno to indicate the error. </p><h2>ERRORS</h2>
+<p>Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return �-1 and set errno to indicate the error. </p><h2>ERRORS</h2>
 <p>The setsid() function shall fail if:</p>
 <p>o The calling process is already a process group leader o the process group ID of a process other than the calling process matches the process ID of the calling process. </p><h2>EXAMPLE</h2>
 <p>Set SID from Fortran</p>

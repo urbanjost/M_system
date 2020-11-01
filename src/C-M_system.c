@@ -254,7 +254,6 @@ void system_unbuffer() {
 */
 void my_uname (char *which, char *string, int *stringlen) {
    struct utsname name;
-   int i;
    int j;
    if (uname (&name) == -1) {
       fprintf (stderr, "*my_uname* cannot get system name\n");
@@ -383,7 +382,6 @@ int my_file_exists(const char *fname) {
 #include <stdint.h>
 
 void my_stat(char *file,long int *values, int *ierr, int debug){
-long long size;                                                           /* st_size can be a 64-bit int.         */
 struct stat *buf = malloc(sizeof (struct stat));                          /* allocates memory for stat structure. */
 struct passwd *pwd;
 struct group *grp;

@@ -1,6 +1,6 @@
 <map id="m_system::system_clearenv" name="m_system::system_clearenv">
 <area shape="rect" id="node2" href="$namespacem__system.html#ae0e43010a82a6a25402568ccb326322d" title="NAMEsystem_readenv(3f) &#45; [M_system:ENVIRONMENT] step thru and read environment table (LICENSE:PD) SYN..." alt="" coords="266,5,473,32"/>
 <area shape="rect" id="node4" href="$namespacem__system.html#a61b67b46b35490ec308773b65c3376a3" title="NAMEsystem_unsetenv(3f) &#45; [M_system:ENVIRONMENT] delete an environment variable by calling unsetenv(3..." alt="" coords="263,56,476,83"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#aeb3d7d4cb39d59917910a3ae2532206d" title="m_system::arr2str" alt="" coords="524,5,665,32"/>
-<area shape="rect" id="node5" href="$namespacem__system.html#af7e778ffc24aa7bc00b842a8e673aeaa" title="m_system::str2arr" alt="" coords="524,56,665,83"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#aeb3d7d4cb39d59917910a3ae2532206d" title="m_system::arr2str" alt="" coords="531,5,672,32"/>
+<area shape="rect" id="node5" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="524,56,679,83"/>
 </map>

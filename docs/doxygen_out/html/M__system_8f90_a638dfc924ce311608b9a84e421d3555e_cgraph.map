@@ -1,0 +1,10 @@
+<map id="test_system_stat_print" name="test_system_stat_print">
+<area shape="rect" id="node2" href="$namespacem__system.html#aa26c234da8b559f549db4dbe446b8acc" title="NAMEsystem_stat_print(3f) &#45; [M_system] print the principal info obtained for a pathname from system_s..." alt="" coords="224,74,403,115"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887" title="NAMESYSTEM_STAT &#45; [M_system] Get file status information (LICENSE:PD) " alt="" coords="468,5,647,32"/>
+<area shape="rect" id="node5" href="$namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5" title="NAMEsystem_perm(3f) &#45; [M_system] get file type and permission as a string (LICENSE:PD) ..." alt="" coords="464,56,651,83"/>
+<area shape="rect" id="node7" href="$namespacem__system.html#a59cd13de95dc9a65b444f02614ea39ce" title="NAMEsystem_getpwuid(3f) &#45; [M_system:QUERY] get login name associated with a UID (LICENSE:PD) SYNOPSIS..." alt="" coords="451,107,664,133"/>
+<area shape="rect" id="node9" href="$namespacem__system.html#aec137429fbb8c848db4ecd914466d7e8" title="NAMEsystem_getgrgid(3f) &#45; [M_system:QUERY] get groupd name associated with a GID (LICENSE:PD) SYNOPSI..." alt="" coords="454,157,661,184"/>
+<area shape="rect" id="node4" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="716,5,871,32"/>
+<area shape="rect" id="node6" href="$namespacem__system.html#aa7c5445619aa15cd2301fe17f7c3b73c" title="m_system::c2f_string" alt="" coords="712,56,875,83"/>
+<area shape="rect" id="node8" href="$namespacem__system.html#aeb3d7d4cb39d59917910a3ae2532206d" title="m_system::arr2str" alt="" coords="723,132,864,159"/>
+</map>

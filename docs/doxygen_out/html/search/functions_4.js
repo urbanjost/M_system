@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['matchw',['matchw',['../namespacem__system.html#a0fccb69d0a56044b05e85b8df9f90aea',1,'m_system']]],
   ['my_5faccess',['my_access',['../C-M__system_8c.html#addd32f6d9fc61aa873507167956ac235',1,'C-M_system.c']]],
   ['my_5fchown',['my_chown',['../C-M__system_8c.html#acfa12de4342c03519fc35d7892db94b2',1,'C-M_system.c']]],
   ['my_5fcpu_5ftime',['my_cpu_time',['../C-M__system_8c.html#aae18c27a21f7c4aed7328460a7edb34c',1,'C-M_system.c']]],

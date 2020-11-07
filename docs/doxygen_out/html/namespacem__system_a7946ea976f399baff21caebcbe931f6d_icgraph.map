@@ -1,6 +1,0 @@
-<map id="m_system::system_isdir" name="m_system::system_isdir">
-<area shape="rect" id="node2" href="$M__system_8f90.html#ac75f33e86c0d319e0002a07ea11f8e64" title="test_system_isdir" alt="" coords="239,5,377,32"/>
-<area shape="rect" id="node4" href="$M__system_8f90.html#a63ca91c3e164cf62b551f26776fa93a9" title="test_system_mkdir" alt="" coords="235,56,381,83"/>
-<area shape="rect" id="node5" href="$M__system_8f90.html#a7a753fc1430517d40fbf9c5b4fc1bb94" title="test_system_rmdir" alt="" coords="236,107,380,133"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a5a5aafb22195486e45cccaedbc3929a7" title="m_system::test_suite\l_m_system" alt="" coords="429,49,592,90"/>
-</map>

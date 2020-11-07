@@ -1,5 +1,0 @@
-<map id="test_system_unlink" name="test_system_unlink">
-<area shape="rect" id="node2" href="$namespacem__system.html#afae451a1fc5432274dc1f75a364051b4" title="NAMEperror(3f) &#45; [M_system] print error message for last C error on stderr (LICENSE:PD) SYNOPSIS..." alt="" coords="203,5,395,32"/>
-<area shape="rect" id="node4" href="$namespacem__system.html#a3561c9beafec28439f760d701d55a6b8" title="NAMEsystem_unlink(3f) &#45; [M_system] remove a directory entry relative to directory file descriptor (LI..." alt="" coords="203,56,396,83"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="444,31,599,57"/>
-</map>

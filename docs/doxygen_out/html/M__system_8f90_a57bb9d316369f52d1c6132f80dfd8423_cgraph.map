@@ -1,6 +1,0 @@
-<map id="test_system_remove" name="test_system_remove">
-<area shape="rect" id="node2" href="$namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6" title="NAMEsystem_access(3f) &#45; [M_system] checks accessibility or existence of a pathname (LICENSE:PD) ..." alt="" coords="215,5,412,32"/>
-<area shape="rect" id="node4" href="$namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d" title="NAMEsystem_isreg(3f) &#45; [M_system] checks if argument is a regular file (LICENSE:PD) ..." alt="" coords="221,56,406,83"/>
-<area shape="rect" id="node5" href="$namespacem__system.html#a7fa10b991ae066609b687423918cff52" title="NAMEsystem_remove(3f) &#45; [M_system] call remove(3c) to remove file (LICENSE:PD) SYNOPSIS" alt="" coords="212,107,415,133"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="463,56,617,83"/>
-</map>

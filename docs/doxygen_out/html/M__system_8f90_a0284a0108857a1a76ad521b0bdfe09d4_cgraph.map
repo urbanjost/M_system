@@ -1,4 +1,0 @@
-<map id="test_system_setumask" name="test_system_setumask">
-<area shape="rect" id="node2" href="$namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd" title="NAMEsystem_getumask(3f) &#45; [M_system] get current umask (LICENSE:PD) SYNOPSIS" alt="" coords="227,5,445,32"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a04fd02e6f5ce2f8ecdfb577e1490feba" title="NAMEsystem_setumask(3f) &#45; [M_system] set the file mode creation umask (LICENSE:PD) SYNOPSIS..." alt="" coords="227,56,445,83"/>
-</map>

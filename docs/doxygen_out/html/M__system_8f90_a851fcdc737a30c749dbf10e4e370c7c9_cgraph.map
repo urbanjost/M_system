@@ -1,5 +1,0 @@
-<map id="test_system_chmod" name="test_system_chmod">
-<area shape="rect" id="node2" href="$namespacem__system.html#ace9ce0c8a9c8341a76b8903cd2390ce3" title="NAMEsystem_chmod(3f) &#45; [M_system] call chmod(3c) to change permission mode of a file relative to dire..." alt="" coords="207,5,404,32"/>
-<area shape="rect" id="node4" href="$namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887" title="NAMESYSTEM_STAT &#45; [M_system] Get file status information (LICENSE:PD) " alt="" coords="216,56,395,83"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="452,31,607,57"/>
-</map>

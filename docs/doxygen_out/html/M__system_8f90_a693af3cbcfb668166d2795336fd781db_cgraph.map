@@ -1,6 +1,0 @@
-<map id="test_system_realpath" name="test_system_realpath">
-<area shape="rect" id="node2" href="$namespacem__system.html#afae451a1fc5432274dc1f75a364051b4" title="NAMEperror(3f) &#45; [M_system] print error message for last C error on stderr (LICENSE:PD) SYNOPSIS..." alt="" coords="223,5,415,32"/>
-<area shape="rect" id="node4" href="$namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc" title="NAMEsystem_realpath(3f) &#45; [M_system] call realpath(3c) to resolve a pathname (LICENSE:PD) SYNOPSIS..." alt="" coords="216,56,423,83"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title="m_system::str2_carr" alt="" coords="475,5,629,32"/>
-<area shape="rect" id="node5" href="$namespacem__system.html#aa7c5445619aa15cd2301fe17f7c3b73c" title="m_system::c2f_string" alt="" coords="471,56,633,83"/>
-</map>

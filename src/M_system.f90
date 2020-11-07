@@ -1340,10 +1340,10 @@ end function system_utime
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-function timestamp() result(unix)
+function timestamp() result(epoch)
     use, intrinsic :: iso_c_binding, only: c_long
     implicit none
-    integer(kind=8) :: unix
+    integer(kind=8) :: epoch
     interface
         ! time_t time(time_t *tloc)
         function c_time(tloc) bind(c, name='time')
@@ -1352,7 +1352,7 @@ function timestamp() result(unix)
             integer(kind=c_long)                    :: c_time
         end function c_time
     end interface
-    unix = c_time(int(0, kind=8))
+    epoch = c_time(int(0, kind=8))
 end function timestamp
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!

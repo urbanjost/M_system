@@ -3,60 +3,61 @@
 
 NULL=
 PROGFILES = \
-   ../test/demos/system_putenv/system_putenv.f90 \
-   ../test/demos/system_rand/system_rand.f90 \
-   ../test/demos/system_readdir/system_readdir.f90 \
-   ../test/demos/system_readenv/system_readenv.f90 \
-   ../test/demos/system_realpath/system_realpath.f90 \
-   ../test/demos/system_remove/system_remove.f90 \
-   ../test/demos/system_rename/system_rename.f90 \
-   ../test/demos/system_rewinddir/system_rewinddir.f90 \
-   ../test/demos/system_rmdir/system_rmdir.f90 \
-   ../test/demos/system_setsid/system_setsid.f90 \
-   ../test/demos/system_setumask/system_setumask.f90 \
-   ../test/demos/system_srand/system_srand.f90 \
-   ../test/demos/system_stat/system_stat.f90 \
-   ../test/demos/system_uname/system_uname.f90 \
-   ../test/demos/system_unlink/system_unlink.f90 \
-   ../test/demos/system_unsetenv/system_unsetenv.f90 \
-   ../test/demos/system_access/system_access.f90 \
-   ../test/demos/system_chdir/system_chdir.f90 \
-   ../test/demos/system_chmod/system_chmod.f90 \
-   ../test/demos/system_chown/system_chown.f90 \
-   ../test/demos/system_clearenv/system_clearenv.f90 \
-   ../test/demos/system_closedir/system_closedir.f90 \
-   ../test/demos/system_cpu_time/system_cpu_time.f90 \
-   ../test/demos/system_errno/system_errno.f90 \
-   ../test/demos/system_getcwd/system_getcwd.f90 \
-   ../test/demos/system_getegid/system_getegid.f90 \
-   ../test/demos/system_getenv/system_getenv.f90 \
-   ../test/demos/system_geteuid/system_geteuid.f90 \
-   ../test/demos/system_getgid/system_getgid.f90 \
-   ../test/demos/system_getgrgid/system_getgrgid.f90 \
-   ../test/demos/system_gethostname/system_gethostname.f90 \
-   ../test/demos/system_getlogin/system_getlogin.f90 \
-   ../test/demos/system_getpid/system_getpid.f90 \
-   ../test/demos/system_getppid/system_getppid.f90 \
-   ../test/demos/system_getpwuid/system_getpwuid.f90 \
-   ../test/demos/system_getsid/system_getsid.f90 \
-   ../test/demos/system_getuid/system_getuid.f90 \
-   ../test/demos/system_getumask/system_getumask.f90 \
-   ../test/demos/system_initenv/system_initenv.f90 \
-   ../test/demos/system_isblk/system_isblk.f90 \
-   ../test/demos/system_ischr/system_ischr.f90 \
-   ../test/demos/system_isdir/system_isdir.f90 \
-   ../test/demos/system_isfifo/system_isfifo.f90 \
-   ../test/demos/system_islnk/system_islnk.f90 \
-   ../test/demos/system_isreg/system_isreg.f90 \
-   ../test/demos/system_issock/system_issock.f90 \
-   ../test/demos/system_kill/system_kill.f90 \
-   ../test/demos/system_link/system_link.f90 \
-   ../test/demos/system_mkdir/system_mkdir.f90 \
-   ../test/demos/system_mkfifo/system_mkfifo.f90 \
-   ../test/demos/system_opendir/system_opendir.f90 \
-   ../test/demos/system_perm/system_perm.f90 \
-   ../test/demos/system_perror/system_perror.f90 \
-   ../test/demos/system_utime/system_utime.f90 \
+   ../demo/system_putenv.f90 \
+   ../demo/system_rand.f90 \
+   ../demo/system_readdir.f90 \
+   ../demo/system_readenv.f90 \
+   ../demo/system_realpath.f90 \
+   ../demo/system_remove.f90 \
+   ../demo/system_rename.f90 \
+   ../demo/system_rewinddir.f90 \
+   ../demo/system_rmdir.f90 \
+   ../demo/system_setsid.f90 \
+   ../demo/system_setumask.f90 \
+   ../demo/system_srand.f90 \
+   ../demo/system_stat.f90 \
+   ../demo/system_stat_print.f90 \
+   ../demo/system_uname.f90 \
+   ../demo/system_unlink.f90 \
+   ../demo/system_unsetenv.f90 \
+   ../demo/system_access.f90 \
+   ../demo/system_chdir.f90 \
+   ../demo/system_chmod.f90 \
+   ../demo/system_chown.f90 \
+   ../demo/system_clearenv.f90 \
+   ../demo/system_closedir.f90 \
+   ../demo/system_cpu_time.f90 \
+   ../demo/system_errno.f90 \
+   ../demo/system_getcwd.f90 \
+   ../demo/system_getegid.f90 \
+   ../demo/system_getenv.f90 \
+   ../demo/system_geteuid.f90 \
+   ../demo/system_getgid.f90 \
+   ../demo/system_getgrgid.f90 \
+   ../demo/system_gethostname.f90 \
+   ../demo/system_getlogin.f90 \
+   ../demo/system_getpid.f90 \
+   ../demo/system_getppid.f90 \
+   ../demo/system_getpwuid.f90 \
+   ../demo/system_getsid.f90 \
+   ../demo/system_getuid.f90 \
+   ../demo/system_getumask.f90 \
+   ../demo/system_initenv.f90 \
+   ../demo/system_isblk.f90 \
+   ../demo/system_ischr.f90 \
+   ../demo/system_isdir.f90 \
+   ../demo/system_isfifo.f90 \
+   ../demo/system_islnk.f90 \
+   ../demo/system_isreg.f90 \
+   ../demo/system_issock.f90 \
+   ../demo/system_kill.f90 \
+   ../demo/system_link.f90 \
+   ../demo/system_mkdir.f90 \
+   ../demo/system_mkfifo.f90 \
+   ../demo/system_opendir.f90 \
+   ../demo/system_perm.f90 \
+   ../demo/system_perror.f90 \
+   ../demo/system_utime.f90 \
 $(NULL)
 #   ../test/test_suite_M_system.f90 \
 
@@ -91,7 +92,7 @@ $(PROG): $(OBJS)
 clean:
 	-rm -f $(PROG) $(CPROG) $(OBJS) *.mod
 	-rm -f _test* fort.10
-	[ -d _scratch ] && rmdir _scratch
+	[ -d _scratch ] && rmdir _scratch || true
 
 .SUFFIXES: $(SUFFIXES) .f90 .F90 
 

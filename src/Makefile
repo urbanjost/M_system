@@ -3,61 +3,61 @@
 
 NULL=
 PROGFILES = \
-   ../demo/system_putenv.f90 \
-   ../demo/system_rand.f90 \
-   ../demo/system_readdir.f90 \
-   ../demo/system_readenv.f90 \
-   ../demo/system_realpath.f90 \
-   ../demo/system_remove.f90 \
-   ../demo/system_rename.f90 \
-   ../demo/system_rewinddir.f90 \
-   ../demo/system_rmdir.f90 \
-   ../demo/system_setsid.f90 \
-   ../demo/system_setumask.f90 \
-   ../demo/system_srand.f90 \
-   ../demo/system_stat.f90 \
-   ../demo/system_stat_print.f90 \
-   ../demo/system_uname.f90 \
-   ../demo/system_unlink.f90 \
-   ../demo/system_unsetenv.f90 \
-   ../demo/system_access.f90 \
-   ../demo/system_chdir.f90 \
-   ../demo/system_chmod.f90 \
-   ../demo/system_chown.f90 \
-   ../demo/system_clearenv.f90 \
-   ../demo/system_closedir.f90 \
-   ../demo/system_cpu_time.f90 \
-   ../demo/system_errno.f90 \
-   ../demo/system_getcwd.f90 \
-   ../demo/system_getegid.f90 \
-   ../demo/system_getenv.f90 \
-   ../demo/system_geteuid.f90 \
-   ../demo/system_getgid.f90 \
-   ../demo/system_getgrgid.f90 \
-   ../demo/system_gethostname.f90 \
-   ../demo/system_getlogin.f90 \
-   ../demo/system_getpid.f90 \
-   ../demo/system_getppid.f90 \
-   ../demo/system_getpwuid.f90 \
-   ../demo/system_getsid.f90 \
-   ../demo/system_getuid.f90 \
-   ../demo/system_getumask.f90 \
-   ../demo/system_initenv.f90 \
-   ../demo/system_isblk.f90 \
-   ../demo/system_ischr.f90 \
-   ../demo/system_isdir.f90 \
-   ../demo/system_isfifo.f90 \
-   ../demo/system_islnk.f90 \
-   ../demo/system_isreg.f90 \
-   ../demo/system_issock.f90 \
-   ../demo/system_kill.f90 \
-   ../demo/system_link.f90 \
-   ../demo/system_mkdir.f90 \
-   ../demo/system_mkfifo.f90 \
-   ../demo/system_opendir.f90 \
-   ../demo/system_perm.f90 \
-   ../demo/system_perror.f90 \
-   ../demo/system_utime.f90 \
+   ../example/system_putenv.f90 \
+   ../example/system_rand.f90 \
+   ../example/system_readdir.f90 \
+   ../example/system_readenv.f90 \
+   ../example/system_realpath.f90 \
+   ../example/system_remove.f90 \
+   ../example/system_rename.f90 \
+   ../example/system_rewinddir.f90 \
+   ../example/system_rmdir.f90 \
+   ../example/system_setsid.f90 \
+   ../example/system_setumask.f90 \
+   ../example/system_srand.f90 \
+   ../example/system_stat.f90 \
+   ../example/system_stat_print.f90 \
+   ../example/system_uname.f90 \
+   ../example/system_unlink.f90 \
+   ../example/system_unsetenv.f90 \
+   ../example/system_access.f90 \
+   ../example/system_chdir.f90 \
+   ../example/system_chmod.f90 \
+   ../example/system_chown.f90 \
+   ../example/system_clearenv.f90 \
+   ../example/system_closedir.f90 \
+   ../example/system_cpu_time.f90 \
+   ../example/system_errno.f90 \
+   ../example/system_getcwd.f90 \
+   ../example/system_getegid.f90 \
+   ../example/system_getenv.f90 \
+   ../example/system_geteuid.f90 \
+   ../example/system_getgid.f90 \
+   ../example/system_getgrgid.f90 \
+   ../example/system_gethostname.f90 \
+   ../example/system_getlogin.f90 \
+   ../example/system_getpid.f90 \
+   ../example/system_getppid.f90 \
+   ../example/system_getpwuid.f90 \
+   ../example/system_getsid.f90 \
+   ../example/system_getuid.f90 \
+   ../example/system_getumask.f90 \
+   ../example/system_initenv.f90 \
+   ../example/system_isblk.f90 \
+   ../example/system_ischr.f90 \
+   ../example/system_isdir.f90 \
+   ../example/system_isfifo.f90 \
+   ../example/system_islnk.f90 \
+   ../example/system_isreg.f90 \
+   ../example/system_issock.f90 \
+   ../example/system_kill.f90 \
+   ../example/system_link.f90 \
+   ../example/system_mkdir.f90 \
+   ../example/system_mkfifo.f90 \
+   ../example/system_opendir.f90 \
+   ../example/system_perm.f90 \
+   ../example/system_perror.f90 \
+   ../example/system_utime.f90 \
 $(NULL)
 #   ../test/test_suite_M_system.f90 \
 
@@ -78,9 +78,31 @@ CC := cc
 CFLAGS := -O
 FC := gfortran
 FFLAGS := -O
-F90 := gfortran
-F90FLAGS := -O
 LDFLAGS := 
+# 
+# You can either ignore it, or disable the "may be used uninitialized"
+# warnings with -Wno-maybe-uninitialized or compile with optimizations
+# (-O1 and more).
+gfortran: F90=gfortran
+gfortran: F90FLAGS := -g -O -Wall -std=f2018 -Wextra -Wno-maybe-uninitialized -Wno-uninitialized
+gfortran: all
+	@echo built with $(F90)
+
+nvfortran: F90=nvfortran
+nvfortran: F90FLAGS := -Minform=inform -Mbackslash -traceback
+nvfortran: all
+	@echo built with $(F90)
+
+ifort: F90=ifort
+ifort: F90FLAGS := -warn all -traceback
+ifort: all
+	@echo built with $(F90)
+
+nagfor: F90=nagfor
+nagfor: F90FLAGS := -C all
+nagfor: all
+	@echo built with $(F90)
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 all: $(PROG) $(CPROG)
 	@echo "That's all folks!"

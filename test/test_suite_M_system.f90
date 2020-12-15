@@ -17,8 +17,7 @@ use M_verify,   only : unit_check_level
 use M_system
 use M_process, only : process_readall
 use M_time,    only : fmtdate, u2d
-integer :: ios, ierr
-character(len=256) :: message
+integer :: ierr
 !! setup
    ierr=system_rmdir('fort.10')
    ierr=system_rmdir('_test1')

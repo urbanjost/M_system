@@ -305,10 +305,10 @@ system_closedir(3f) - [M_system] close a directory stream by calling closedir(3c
 <tr class="memdesc:af0c9df8e59cac9cd617cd1e20448ea7d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 system_putenv(3f) - [M_system:ENVIRONMENT] set environment variable from Fortran by calling putenv(3c) (LICENSE:PD)  <a href="#af0c9df8e59cac9cd617cd1e20448ea7d">More...</a><br /></td></tr>
 <tr class="separator:af0c9df8e59cac9cd617cd1e20448ea7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15f307db605f8b332d4213814c0fb1a9"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a15f307db605f8b332d4213814c0fb1a9">system_getenv</a> (name)</td></tr>
-<tr class="memdesc:a15f307db605f8b332d4213814c0fb1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_environment_variable(3f) (LICENSE:PD)  <a href="#a15f307db605f8b332d4213814c0fb1a9">More...</a><br /></td></tr>
-<tr class="separator:a15f307db605f8b332d4213814c0fb1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f91f973a4288ebda0e75ea0869a43af"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0f91f973a4288ebda0e75ea0869a43af">system_getenv</a> (name, default)</td></tr>
+<tr class="memdesc:a0f91f973a4288ebda0e75ea0869a43af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_environment_variable(3f) (LICENSE:PD)  <a href="#a0f91f973a4288ebda0e75ea0869a43af">More...</a><br /></td></tr>
+<tr class="separator:a0f91f973a4288ebda0e75ea0869a43af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad813765403a5d9d6fb7a2edcb669fe4b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ad813765403a5d9d6fb7a2edcb669fe4b">set_environment_variable</a> (NAME, VALUE, STATUS)</td></tr>
 <tr class="memdesc:ad813765403a5d9d6fb7a2edcb669fe4b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
 set_environment_variable(3f) - [M_system:ENVIRONMENT] call setenv(3c) to set environment variable (LICENSE:PD)  <a href="#ad813765403a5d9d6fb7a2edcb669fe4b">More...</a><br /></td></tr>
@@ -1365,8 +1365,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a15f307db605f8b332d4213814c0fb1a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15f307db605f8b332d4213814c0fb1a9">&#9670;&nbsp;</a></span>system_getenv()</h2>
+<a id="a0f91f973a4288ebda0e75ea0869a43af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f91f973a4288ebda0e75ea0869a43af">&#9670;&nbsp;</a></span>system_getenv()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1375,8 +1375,18 @@ Here is the call graph for this function:</div>
           <td class="memname">character(len=:) function, allocatable, public m_system::system_getenv </td>
           <td>(</td>
           <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>default</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1384,14 +1394,15 @@ Here is the call graph for this function:</div>
 <p><h2>NAME</h2>
 system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_environment_variable(3f) (LICENSE:PD) </p>
 <h2>SYNOPSIS</h2>
-<pre class="fragment">function system_getenv(name)
+<pre class="fragment">function system_getenv(name,default)
 
- character(len=:),allocatable   :: system_getenv
- character(len=*),intent(in)    :: name
+ character(len=:),allocatable         :: system_getenv
+ character(len=*),intent(in)          :: name
+ character(len=*),intent(in),optional :: default
 </pre><h2>DESCRIPTION</h2>
-<p>The <a class="el" href="namespacem__system.html#a15f307db605f8b332d4213814c0fb1a9" title="NAMEsystem_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_e...">system_getenv()</a> function gets the value of an environment variable.</p>
+<p>The <a class="el" href="namespacem__system.html#a0f91f973a4288ebda0e75ea0869a43af" title="NAMEsystem_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_e...">system_getenv()</a> function gets the value of an environment variable.</p>
 <h2>OPTIONS</h2>
-<p>name Return the value of the specified environment variable or blank if the variable is not defined.</p>
+<p>name Return the value of the specified environment variable or blank if the variable is not defined. default If the value returned would be blank this value will be used instead.</p>
 <h2>EXAMPLE</h2>
 <p>Sample setting an environment variable from Fortran:</p>
 <p>program demo_system_getenv use M_system, only : system_getenv implicit none write(*,'("USER     : ",a)')system_getenv('USER') write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME') write(*,'("USERNAME : ",a)')system_getenv('USERNAME') end program demo_system_getenv</p>
@@ -2602,7 +2613,7 @@ system_realpath(3f) - [M_system] call realpath(3c) to resolve a pathname (LICENS
 <p>OUTPUT The absolute pathname of the given input pathname. The pathname shall contain no components that are dot or dot-dot, or are symbolic links. It is equal to the NULL character if an error occurred.</p>
 <h2>EXAMPLE</h2>
 <p>Sample program:</p>
-<p>program demo_system_realpath use M_system, only : system_realpath, system_perror implicit none ! resolve each pathname given on command line character(len=:),allocatable :: pathi,patho integer :: i integer :: filename_length do i = 1, command_argument_count() ! get pathname from command line arguments call get_command_argument (i , length=filename_length) allocate(character(len=filename_length) :: pathi) call get_command_argument (i , value=pathi) ! ! resolve each pathname patho=system_realpath(pathi) if(patho.ne.char(0))then write(*,*)trim(pathi),'=&gt;',trim(patho) else call system_perror('<em>system_realpath</em> error for pathname '//trim(pathi)//':') write(*,*)trim(pathi),'=&gt;',trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname "." if(i.eq.1)then patho=system_realpath('.') write(*,*)'.=&gt;',trim(patho) endif end program demo_system_realpath</p>
+<p>program demo_system_realpath use M_system, only : system_realpath, system_perror implicit none ! resolve each pathname given on command line character(len=:),allocatable :: pathi,patho integer :: i integer :: filename_length do i = 1, command_argument_count() ! get pathname from command line arguments call get_command_argument (i , length=filename_length) if(allocated(pathi))deallocate(pathi) allocate(character(len=filename_length) :: pathi) call get_command_argument (i , value=pathi) ! ! resolve each pathname patho=system_realpath(pathi) if(patho.ne.char(0))then write(*,*)trim(pathi),'=&gt;',trim(patho) else call system_perror('<em>system_realpath</em> error for pathname '//trim(pathi)//':') write(*,*)trim(pathi),'=&gt;',trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname "." if(i.eq.1)then patho=system_realpath('.') write(*,*)'.=&gt;',trim(patho) endif end program demo_system_realpath</p>
 <p>Example usage:</p>
 <p>demo_system_realpath .=&gt;/home/urbanjs/V600</p>
 <p>cd /usr/share/man demo_system_realpath . .. NotThere .=&gt;/usr/share/man ..=&gt;/usr/share <em>system_realpath</em> error for pathname NotThere:: No such file or directory NotThere=&gt;NotThere </p>

@@ -7,7 +7,7 @@
           integer                     :: i
           character(len=80),parameter :: names(*)=[character(len=80) :: 'myfile1','/usr/local']
           do i=1,size(names)
-             if(.not.  system_chown(&
+             if(.not. system_chown(&
              & trim(names(i)),  &
              & system_getuid(), &
              & system_getgid()) &

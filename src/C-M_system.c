@@ -443,7 +443,7 @@ int i;
        s    If the set-user-ID or set-group-ID bit and the corresponding executable bit are both set.
        S    If the set-user-ID or set-group-ID bit is set but the corresponding executable bit is not set.
        t    If the restricted deletion flag or sticky bit, and the other-executable bit, are both set. The restricted deletion
-        flag is another name for the sticky bit.  *Note Mode Structure::.
+        flag is another name for the sticky bit. *Note Mode Structure::.
        T    If the restricted deletion flag or sticky bit is set but the other-executable bit is not set.
        x    If the executable bit is set and none of the above apply.
        -    Otherwise.

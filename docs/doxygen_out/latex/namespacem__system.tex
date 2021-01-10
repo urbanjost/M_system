@@ -211,7 +211,7 @@ subroutine, public \mbox{\hyperlink{namespacem__system_af0c9df8e59cac9cd617cd1e2
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+putenv(3f) -\/ \mbox{[}M\+\_\+system\+:E\+N\+V\+I\+R\+O\+N\+M\+E\+NT\mbox{]} set environment variable from Fortran by calling putenv(3c) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
-character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_a15f307db605f8b332d4213814c0fb1a9}{system\+\_\+getenv}} (name)
+character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_a0f91f973a4288ebda0e75ea0869a43af}{system\+\_\+getenv}} (name, default)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
 system\+\_\+getenv(3f) -\/ \mbox{[}M\+\_\+system\+:E\+N\+V\+I\+R\+O\+N\+M\+E\+NT\mbox{]} get environment variable from Fortran by calling get\+\_\+environment\+\_\+variable(3f) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
@@ -1090,11 +1090,11 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{namespacem__system_a15f307db605f8b332d4213814c0fb1a9}\label{namespacem__system_a15f307db605f8b332d4213814c0fb1a9}} 
+\mbox{\Hypertarget{namespacem__system_a0f91f973a4288ebda0e75ea0869a43af}\label{namespacem__system_a0f91f973a4288ebda0e75ea0869a43af}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+getenv@{system\+\_\+getenv}}
 \index{system\+\_\+getenv@{system\+\_\+getenv}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+getenv()}{system\_getenv()}}
-{\footnotesize\ttfamily character(len=\+:) function, allocatable, public m\+\_\+system\+::system\+\_\+getenv (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily character(len=\+:) function, allocatable, public m\+\_\+system\+::system\+\_\+getenv (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{character(len=$\ast$), intent(in), optional}]{default }\end{DoxyParamCaption})}
 
 
 
@@ -1104,20 +1104,21 @@ system\+\_\+getenv(3f) -\/ \mbox{[}M\+\_\+system\+:E\+N\+V\+I\+R\+O\+N\+M\+E\+NT
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
-\begin{DoxyVerb}function system_getenv(name)
+\begin{DoxyVerb}function system_getenv(name,default)
 
- character(len=:),allocatable   :: system_getenv
- character(len=*),intent(in)    :: name
+ character(len=:),allocatable         :: system_getenv
+ character(len=*),intent(in)          :: name
+ character(len=*),intent(in),optional :: default
 \end{DoxyVerb}
 
 
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
-The \mbox{\hyperlink{namespacem__system_a15f307db605f8b332d4213814c0fb1a9}{system\+\_\+getenv()}} function gets the value of an environment variable.
+The \mbox{\hyperlink{namespacem__system_a0f91f973a4288ebda0e75ea0869a43af}{system\+\_\+getenv()}} function gets the value of an environment variable.
 
 \subsubsection*{O\+P\+T\+I\+O\+NS}
 
-name Return the value of the specified environment variable or blank if the variable is not defined.
+name Return the value of the specified environment variable or blank if the variable is not defined. default If the value returned would be blank this value will be used instead.
 
 \subsubsection*{E\+X\+A\+M\+P\+LE}
 
@@ -2371,7 +2372,7 @@ O\+U\+T\+P\+UT The absolute pathname of the given input pathname. The pathname s
 
 Sample program\+:
 
-program demo\+\_\+system\+\_\+realpath use M\+\_\+system, only \+: system\+\_\+realpath, system\+\_\+perror implicit none ! resolve each pathname given on command line character(len=\+:),allocatable \+:\+: pathi,patho integer \+:\+: i integer \+:\+: filename\+\_\+length do i = 1, command\+\_\+argument\+\_\+count() ! get pathname from command line arguments call get\+\_\+command\+\_\+argument (i , length=filename\+\_\+length) allocate(character(len=filename\+\_\+length) \+:\+: pathi) call get\+\_\+command\+\_\+argument (i , value=pathi) ! ! resolve each pathname patho=system\+\_\+realpath(pathi) if(patho.\+ne.\+char(0))then write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) else call system\+\_\+perror(\textquotesingle{}{\itshape system\+\_\+realpath} error for pathname \textquotesingle{}//trim(pathi)//\textquotesingle{}\+:\textquotesingle{}) write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname \char`\"{}.\char`\"{} if(i.\+eq.\+1)then patho=system\+\_\+realpath(\textquotesingle{}.\textquotesingle{}) write($\ast$,$\ast$)\textquotesingle{}.=$>$\textquotesingle{},trim(patho) endif end program demo\+\_\+system\+\_\+realpath
+program demo\+\_\+system\+\_\+realpath use M\+\_\+system, only \+: system\+\_\+realpath, system\+\_\+perror implicit none ! resolve each pathname given on command line character(len=\+:),allocatable \+:\+: pathi,patho integer \+:\+: i integer \+:\+: filename\+\_\+length do i = 1, command\+\_\+argument\+\_\+count() ! get pathname from command line arguments call get\+\_\+command\+\_\+argument (i , length=filename\+\_\+length) if(allocated(pathi))deallocate(pathi) allocate(character(len=filename\+\_\+length) \+:\+: pathi) call get\+\_\+command\+\_\+argument (i , value=pathi) ! ! resolve each pathname patho=system\+\_\+realpath(pathi) if(patho.\+ne.\+char(0))then write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) else call system\+\_\+perror(\textquotesingle{}{\itshape system\+\_\+realpath} error for pathname \textquotesingle{}//trim(pathi)//\textquotesingle{}\+:\textquotesingle{}) write($\ast$,$\ast$)trim(pathi),\textquotesingle{}=$>$\textquotesingle{},trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname \char`\"{}.\char`\"{} if(i.\+eq.\+1)then patho=system\+\_\+realpath(\textquotesingle{}.\textquotesingle{}) write($\ast$,$\ast$)\textquotesingle{}.=$>$\textquotesingle{},trim(patho) endif end program demo\+\_\+system\+\_\+realpath
 
 Example usage\+:
 

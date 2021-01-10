@@ -1393,6 +1393,7 @@ end function timestamp
 !!       do i = 1, command_argument_count()
 !!          ! get pathname from command line arguments
 !!          call get_command_argument (i , length=filename_length)
+!!          if(allocated(pathi))deallocate(pathi)
 !!          allocate(character(len=filename_length) :: pathi)
 !!          call get_command_argument (i , value=pathi)
 !!          !
@@ -2064,7 +2065,7 @@ end function system_isdir
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[character(len=80) :: 'myfile1','/usr/local']
 !!    do i=1,size(names)
-!!       if(.not.  system_chown(&
+!!       if(.not. system_chown(&
 !!       & trim(names(i)),  &
 !!       & system_getuid(), &
 !!       & system_getgid()) &
@@ -3791,22 +3792,26 @@ end subroutine system_putenv
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_environment_variable(3f)
+!!    system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable
+!!    from Fortran by calling get_environment_variable(3f)
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!    function system_getenv(name)
+!!    function system_getenv(name,default)
 !!
-!!     character(len=:),allocatable   :: system_getenv
-!!     character(len=*),intent(in)    :: name
+!!     character(len=:),allocatable         :: system_getenv
+!!     character(len=*),intent(in)          :: name
+!!     character(len=*),intent(in),optional :: default
 !!
 !!##DESCRIPTION
 !!    The system_getenv() function gets the value of an environment variable.
 !!
 !!##OPTIONS
-!!    name    Return the value of the specified environment variable or
-!!            blank if the variable is not defined.
+!!    name     Return the value of the specified environment variable or
+!!             blank if the variable is not defined.
+!!    default  If the value returned would be blank this value will be used
+!!             instead.
 !!
 !!##EXAMPLE
 !!
@@ -3824,22 +3829,37 @@ end subroutine system_putenv
 !!    John S. Urban
 !!##LICENSE
 !!    Public Domain
-function system_getenv(name) result(var)
+function system_getenv(name,default) result(value)
 
-! ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable(3f)"
+! ident_23="@(#)M_system::system_getenv(3f): call get_environment_variable as a function with a default value(3f)"
 
-character(len=*),intent(in)  :: name
-integer                      :: howbig
-character(len=:),allocatable :: var
+character(len=*),intent(in)          :: name
+character(len=*),intent(in),optional :: default
+integer                              :: howbig
+integer                              :: stat
+character(len=:),allocatable         :: value
 
-   call get_environment_variable(name, length=howbig)  ! get length required to hold value
-   if(howbig.ne.0)then
-      allocate(character(len=howbig) :: var)           ! make string to hold value of sufficient size
-      var(:)=' '
-      call get_environment_variable(name, var)         ! get value
+   if(NAME.ne.'')then
+      call get_environment_variable(name, length=howbig, status=stat, trim_name=.true.)  ! get length required to hold value
+      if(howbig.ne.0)then
+         select case (stat)
+         case (1)     ! print *, NAME, " is not defined in the environment. Strange..."
+            value=''
+         case (2)     ! print *, "This processor doesn't support environment variables. Boooh!"
+            value=''
+         case default ! make string to hold value of sufficient size and get value
+            if(allocated(value))deallocate(value)
+            allocate(character(len=max(howbig,1)) :: VALUE)
+            call get_environment_variable(name,value,status=stat,trim_name=.true.)
+            if(stat.ne.0)VALUE=''
+         end select
+      else
+         value=''
+      endif
    else
-      var=''
+      value=''
    endif
+   if(value.eq.''.and.present(default))value=default
 
 end function system_getenv
 !===================================================================================================================================
@@ -4759,6 +4779,7 @@ integer                                       :: length
    call c_f_pointer(c_string_pointer,char_array_pointer,[max_len])
 
    if (.not.associated(char_array_pointer)) then
+     if(allocated(f_string))deallocate(f_string)
      allocate(character(len=4)::f_string)
      f_string=c_null_char
      return
@@ -4773,6 +4794,7 @@ integer                                       :: length
      aux_string(i:i)=char_array_pointer(i)
    enddo
 
+   if(allocated(f_string))deallocate(f_string)
    allocate(character(len=length)::f_string)
    f_string=aux_string(1:length)
 end function C2F_string
@@ -5030,6 +5052,7 @@ integer                               :: i, ierr, icount, longest
          enddo
          if(i.eq.1)then
             call system_rewinddir(dir)
+            if(allocated(system_dir))deallocate(system_dir)
             allocate(character(len=longest) :: system_dir(icount))
             icount=0
          endif

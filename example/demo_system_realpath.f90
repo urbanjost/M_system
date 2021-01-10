@@ -8,6 +8,7 @@
              do i = 1, command_argument_count()
                 ! get pathname from command line arguments
                 call get_command_argument (i , length=filename_length)
+                if(allocated(pathi))deallocate(pathi)
                 allocate(character(len=filename_length) :: pathi)
                 call get_command_argument (i , value=pathi)
                 !

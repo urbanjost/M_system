@@ -84,3 +84,5 @@ test automatically)_.
 
  + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
    if Javascript is not available.
+## SEE ALSO
+ + [stdlib discussion on POSIX interfaces](https://github.com/fortran-lang/stdlib/issues/22#issuecomment-733021530)

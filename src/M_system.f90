@@ -1125,7 +1125,11 @@ abstract interface                       !  mold for signal handler to be instal
    integer :: signum
    end subroutine handler
 end interface
-procedure(handler), pointer :: handler_ptr => null()    ! this pointer shall point to the signal handler
+type handler_pointer
+    procedure(handler), pointer, nopass :: sub
+end type handler_pointer
+integer, parameter :: no_of_signals=64   !  obtained with command: kill -l
+type(handler_pointer), dimension(no_of_signals) :: handler_ptr_array
 !===================================================================================================================================
 contains
 !===================================================================================================================================
@@ -1146,6 +1150,7 @@ contains
 !!         integer :: signum
 !!         end subroutine handler
 !!       end interface
+!!       optional :: handler
 !!
 !!##DESCRIPTION
 !!
@@ -1154,6 +1159,10 @@ contains
 !!       routine HANDLER maybe installed to handle different signals. HANDLER
 !!       takes only one integer argument which is assigned the signal number that
 !!       is caught. See sample program below for illustration.
+!!
+!!       Calling system_signal(NUMBER) installs a do-nothing handler. This is not
+!!       equivalent to ignoring the signal NUMBER though, because the signal can 
+!!       still interrupt any sleep or idle-wait.
 !!
 !!       Note that the signals SIGKILL and SIGSTOP cannot be handled this way.
 !!
@@ -1166,27 +1175,39 @@ contains
 !!    program demo_system_signal
 !!    use M_system, only : system_signal
 !!    implicit none
-!!    call system_signal(2,handler)
-!!    call system_signal(3,handler)
-!!    write(*,*)'Press Ctrl+C to send SIGINT.'
-!!    do
+!!    logical :: loop=.true.
+!!    integer, parameter :: SIGINT=2,SIGQUIT=3
+!!    call system_signal(SIGINT,exitloop)
+!!    call system_signal(SIGQUIT,quit)
+!!    write(*,*)'Starting infinite loop. Press Ctrl+C to exit.'
+!!    do while(loop)
 !!    enddo
+!!    write(*,*)'Reporting from outside the infinite loop.'
+!!    write(*,*)'Starting another loop. Do Ctrl+\ anytime to quit.'
+!!    loop=.true.
+!!    call system_signal(2)
+!!    write(*,*)'Just installed do-nothing handler for SIGINT. Try Ctrl+C to test.'
+!!    do while(loop)
+!!    enddo
+!!    write(*,*)'You should never see this line when running this demo.'
 !!
 !!    contains
 !!
-!!    subroutine handler(signum)
+!!    subroutine exitloop(signum)
 !!      integer :: signum
-!!      if(signum==2)then
-!!          write(*,*)'Caught SIGINT. Try Ctrl+\ now.'
-!!      else
-!!          write(*,*)'Caught SIGQUIT.' ; STOP
-!!      endif
-!!    end subroutine handler
+!!      write(*,*)'Caught SIGINT. Exiting infinite loop.'
+!!      loop=.false.
+!!    end subroutine exitloop
+!!
+!!    subroutine quit(signum)
+!!      integer :: signum
+!!      STOP 'Caught SIGQUIT. Stopping demo.'
+!!    end subroutine quit
 !!    end program demo_system_signal
 
 subroutine system_signal(signum,handler_routine)
 integer, intent(in) :: signum
-procedure(handler):: handler_routine
+procedure(handler), optional :: handler_routine
 type(c_funptr) :: ret,c_handler
 
 interface
@@ -1198,14 +1219,18 @@ interface
    end function c_signal
 end interface
 
-handler_ptr => handler_routine
+if(present(handler_routine))then
+    handler_ptr_array(signum)%sub => handler_routine
+else
+    handler_ptr_array(signum)%sub => null(handler_ptr_array(signum)%sub)
+endif
 c_handler=c_funloc(f_handler)
 ret=c_signal(signum,c_handler)
 end subroutine system_signal
 
 subroutine f_handler(signum) bind(c)
 integer(c_int), intent(in), value :: signum
-call handler_ptr(signum)
+    if(associated(handler_ptr_array(signum)%sub))call handler_ptr_array(signum)%sub(signum)
 end subroutine f_handler
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!

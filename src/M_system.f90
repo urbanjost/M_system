@@ -165,7 +165,7 @@ public :: system_getgid, system_getegid  ! return group ID
 public :: system_setsid
 public :: system_getsid
 public :: system_kill                    ! (pid, signal) kill process (defaults: pid=0, signal=SIGTERM)
-public :: system_signal                  ! (signal,handler) install signal handler subroutine
+public :: system_signal                  ! (signal,[handler]) install signal handler subroutine
 
 public :: system_errno
 public :: system_perror
@@ -1120,7 +1120,7 @@ integer(kind=c_int),parameter           :: X_OK=1
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-abstract interface                       !  mold for signal handler to be installed by system_handler
+abstract interface                       !  mold for signal handler to be installed by system_signal
    subroutine handler(signum)
    integer :: signum
    end subroutine handler

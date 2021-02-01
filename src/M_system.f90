@@ -1142,7 +1142,6 @@ contains
 !!
 !!##SYNOPSIS
 !!
-!!
 !!     subroutine system_signal(sig,handler)
 !!
 !!        integer,intent(in) :: sig
@@ -1154,7 +1153,6 @@ contains
 !!        optional :: handler
 !!
 !!##DESCRIPTION
-!!
 !!    Calling system_signal(NUMBER, HANDLER) causes user-defined
 !!    subroutine HANDLER to be executed when the signal NUMBER is
 !!    caught. The same subroutine HANDLER maybe installed to handle
@@ -1172,7 +1170,6 @@ contains
 !!    [Compare signal(2) and the GNU extension signal in gfortran.]
 !!
 !!##EXAMPLE
-!!
 !!
 !!    Sample program:
 !!
@@ -1208,6 +1205,12 @@ contains
 !!       STOP 'Caught SIGQUIT. Stopping demo.'
 !!     end subroutine quit
 !!     end program demo_system_signal
+!!
+!!##AUTHOR
+!!    Somajit Dey
+!!
+!!##LICENSE
+!!    Public Domain
 subroutine system_signal(signum,handler_routine)
 integer, intent(in) :: signum
 procedure(handler), optional :: handler_routine

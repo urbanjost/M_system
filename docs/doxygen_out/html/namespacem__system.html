@@ -3000,22 +3000,11 @@ system_signal(3f) - [M_system:SIGNALS] install a signal handler (LICENSE:PD) </p
     end interface
     optional :: handler
 </pre><h2>DESCRIPTION</h2>
-<pre class="fragment">Calling system_signal(NUMBER, HANDLER) causes user-defined
-subroutine HANDLER to be executed when the signal NUMBER is
-caught. The same subroutine HANDLER maybe installed to handle
-different signals. HANDLER takes only one integer argument which
-is assigned the signal number that is caught. See sample program
-below for illustration.
-
-Calling system_signal(NUMBER) installs a do-nothing handler. This
-is not equivalent to ignoring the signal NUMBER though, because
-the signal can still interrupt any sleep or idle-wait.
-
-Note that the signals SIGKILL and SIGSTOP cannot be handled
-this way.
-
-[Compare signal(2) and the GNU extension signal in gfortran.]
-</pre><h2>EXAMPLE</h2>
+<p>Calling system_signal(NUMBER, HANDLER) causes user-defined subroutine HANDLER to be executed when the signal NUMBER is caught. The same subroutine HANDLER maybe installed to handle different signals. HANDLER takes only one integer argument which is assigned the signal number that is caught. See sample program below for illustration.</p>
+<p>Calling system_signal(NUMBER) installs a do-nothing handler. This is not equivalent to ignoring the signal NUMBER though, because the signal can still interrupt any sleep or idle-wait.</p>
+<p>Note that the signals SIGKILL and SIGSTOP cannot be handled this way.</p>
+<p>[Compare signal(2) and the GNU extension signal in gfortran.]</p>
+<h2>EXAMPLE</h2>
 <pre class="fragment">Sample program:
 
  program demo_system_signal
@@ -3049,7 +3038,12 @@ this way.
    integer :: signum
    STOP 'Caught SIGQUIT. Stopping demo.'
  end subroutine quit
- end program demo_system_signal </pre> 
+ end program demo_system_signal
+</pre><h2>AUTHOR</h2>
+<p>Somajit Dey</p>
+<h2>LICENSE</h2>
+<p>Public Domain </p>
+
 <p class="reference">References <a class="el" href="namespacem__system.html#a078c9adfb12b36e88534248e99ed9fcc">f_handler()</a>, and <a class="el" href="namespacem__system.html#a2da68c4639de85352f306b0e39debf77">handler_ptr_array</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>

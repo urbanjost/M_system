@@ -436,8 +436,7 @@ Results
 
 16129.\+000000000000 127 \textbackslash{} 16129 1073676289.\+0000000 32767 \textbackslash{} 1073676289 4.\+6116860141324206E+018 2147483647 \textbackslash{} 4611686014132420609 8.\+5070591730234616E+037 9223372036854775807 \textbackslash{} 85070591730234615847396907784232501249 2.\+8948022309329049E+076 170141183460469231731687303715884105727 \textbackslash{} 28948022309329048855892746252171976962977213799489202546401021394546514198529
 
-A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:
-\nopagebreak
+A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -450,8 +449,7 @@ A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller 
 \subsubsection{\texorpdfstring{arr2str()}{arr2str()}}
 {\footnotesize\ttfamily pure character(len=size(array)) function m\+\_\+system\+::arr2str (\begin{DoxyParamCaption}\item[{character(len=1), dimension(\+:), intent(in)}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -464,8 +462,7 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{c2f\+\_\+string()}{c2f\_string()}}
 {\footnotesize\ttfamily character(len=\+:) function, allocatable m\+\_\+system\+::c2f\+\_\+string (\begin{DoxyParamCaption}\item[{type(c\+\_\+ptr), intent(in)}]{c\+\_\+string\+\_\+pointer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -482,8 +479,7 @@ Here is the caller graph for this function\+:
 
 References handler\+\_\+ptr\+\_\+array.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -609,8 +605,7 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{str2\+\_\+carr()}{str2\_carr()}}
 {\footnotesize\ttfamily pure character(len=1,kind=c\+\_\+char) function, dimension(len(string)+1) m\+\_\+system\+::str2\+\_\+carr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1076,8 +1071,7 @@ Public Domain
 
 References matchw(), system\+\_\+closedir(), system\+\_\+opendir(), system\+\_\+readdir(), and system\+\_\+rewinddir().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -2744,23 +2738,13 @@ system\+\_\+signal(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} ins
 
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
-\begin{DoxyVerb}Calling system_signal(NUMBER, HANDLER) causes user-defined
-subroutine HANDLER to be executed when the signal NUMBER is
-caught. The same subroutine HANDLER maybe installed to handle
-different signals. HANDLER takes only one integer argument which
-is assigned the signal number that is caught. See sample program
-below for illustration.
+Calling system\+\_\+signal(\+N\+U\+M\+B\+E\+R, H\+A\+N\+D\+L\+E\+R) causes user-\/defined subroutine H\+A\+N\+D\+L\+ER to be executed when the signal N\+U\+M\+B\+ER is caught. The same subroutine H\+A\+N\+D\+L\+ER maybe installed to handle different signals. H\+A\+N\+D\+L\+ER takes only one integer argument which is assigned the signal number that is caught. See sample program below for illustration.
 
-Calling system_signal(NUMBER) installs a do-nothing handler. This
-is not equivalent to ignoring the signal NUMBER though, because
-the signal can still interrupt any sleep or idle-wait.
+Calling system\+\_\+signal(\+N\+U\+M\+B\+E\+R) installs a do-\/nothing handler. This is not equivalent to ignoring the signal N\+U\+M\+B\+ER though, because the signal can still interrupt any sleep or idle-\/wait.
 
-Note that the signals SIGKILL and SIGSTOP cannot be handled
-this way.
+Note that the signals S\+I\+G\+K\+I\+LL and S\+I\+G\+S\+T\+OP cannot be handled this way.
 
-[Compare signal(2) and the GNU extension signal in gfortran.]
-\end{DoxyVerb}
-
+\mbox{[}Compare signal(2) and the G\+NU extension signal in gfortran.\mbox{]}
 
 \subsubsection*{E\+X\+A\+M\+P\+LE}
 
@@ -2797,8 +2781,17 @@ this way.
    integer :: signum
    STOP 'Caught SIGQUIT. Stopping demo.'
  end subroutine quit
- end program demo_system_signal \end{DoxyVerb}
- 
+ end program demo_system_signal
+\end{DoxyVerb}
+
+
+\subsubsection*{A\+U\+T\+H\+OR}
+
+Somajit Dey
+
+\subsubsection*{L\+I\+C\+E\+N\+SE}
+
+Public Domain 
 
 References f\+\_\+handler(), and handler\+\_\+ptr\+\_\+array.
 
@@ -3163,8 +3156,7 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{timestamp()}{timestamp()}}
 {\footnotesize\ttfamily integer(kind=8) function m\+\_\+system\+::timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

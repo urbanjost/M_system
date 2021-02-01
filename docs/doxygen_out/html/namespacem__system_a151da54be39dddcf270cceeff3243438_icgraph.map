@@ -1,5 +1,5 @@
 <map id="m_system::anyinteger_to_64bit" name="m_system::anyinteger_to_64bit">
-<area shape="rect" id="node2" href="$namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5" title="NAMEsystem_perm(3f) &#45; [M_system] get file type and permission as a string (LICENSE:PD) ..." alt="" coords="235,5,421,32"/>
+<area shape="rect" id="node2" href="$namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5" title="NAMEsystem_perm(3f) &#45; [M_system:QUERY_FILE] get file type and permission as a string (LICENSE:PD) ..." alt="" coords="235,5,421,32"/>
 <area shape="rect" id="node3" href="$namespacem__system.html#aec137429fbb8c848db4ecd914466d7e8" title="NAMEsystem_getgrgid(3f) &#45; [M_system:QUERY] get groupd name associated with a GID (LICENSE:PD) SYNOPSI..." alt="" coords="225,56,431,83"/>
 <area shape="rect" id="node4" href="$namespacem__system.html#a59cd13de95dc9a65b444f02614ea39ce" title="NAMEsystem_getpwuid(3f) &#45; [M_system:QUERY] get login name associated with a UID (LICENSE:PD) SYNOPSIS..." alt="" coords="221,107,435,133"/>
 <area shape="rect" id="node5" href="$namespacem__system.html#a70f78645a1f130734005e190d469529d" title="NAMEsystem_getlogin(3f) &#45; [M_system:QUERY] get login name (LICENSE:PD) " alt="" coords="483,107,689,133"/>

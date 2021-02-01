@@ -100,15 +100,15 @@ Data Types</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__srand.html">m_system::system_srand</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_srand(3f) - [M_system] set seed for pseudo-random number generator system_rand(3f) (LICENSE:PD)  <a href="interfacem__system_1_1system__srand.html#details">More...</a><br /></td></tr>
+system_srand(3f) - [M_system:PSEUDORANDOM] set seed for pseudo-random number generator system_rand(3f) (LICENSE:PD)  <a href="interfacem__system_1_1system__srand.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__kill.html">m_system::system_kill</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_kill(3f) - [M_system] send a signal to a process or a group of processes (LICENSE:PD)  <a href="interfacem__system_1_1system__kill.html#details">More...</a><br /></td></tr>
+system_kill(3f) - [M_system:SIGNALS] send a signal to a process or a group of processes (LICENSE:PD)  <a href="interfacem__system_1_1system__kill.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__errno.html">m_system::system_errno</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_errno(3f) - [M_system] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_errno(3f) - [M_system:ERROR_PROCESSING] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="interfacem__system_1_1system__errno.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__geteuid.html">m_system::system_geteuid</a></td></tr>
@@ -158,12 +158,16 @@ system_umask(3fp) - [M_system] set and get the file mode creation mask (LICENSE:
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__rand.html">m_system::system_rand</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_rand(3f) - [M_system] call pseudo-random number generator rand(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_rand(3f) - [M_system:PSEUDORANDOM] call pseudo-random number generator rand(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="interfacem__system_1_1system__rand.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1c__flush.html">m_system::c_flush</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1system__initenv.html">m_system::system_initenv</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacem__system_1_1handler.html">m_system::handler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structm__system_1_1handler__pointer.html">m_system::handler_pointer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -176,52 +180,58 @@ M_system(3fm) - [M_system::INTRO] Fortran interface to C system interface (LICEN
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:a4a70cade424b9763dedd8cb8c0059e8c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a4a70cade424b9763dedd8cb8c0059e8c">m_system::system_signal</a> (signum, handler_routine)</td></tr>
+<tr class="memdesc:a4a70cade424b9763dedd8cb8c0059e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
+system_signal(3f) - [M_system:SIGNALS] install a signal handler (LICENSE:PD)  <a href="namespacem__system.html#a4a70cade424b9763dedd8cb8c0059e8c">More...</a><br /></td></tr>
+<tr class="separator:a4a70cade424b9763dedd8cb8c0059e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078c9adfb12b36e88534248e99ed9fcc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a078c9adfb12b36e88534248e99ed9fcc">m_system::f_handler</a> (signum)</td></tr>
+<tr class="separator:a078c9adfb12b36e88534248e99ed9fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c1c906730e61629a8277e1daeda90f6"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6">m_system::system_access</a> (pathname, amode)</td></tr>
 <tr class="memdesc:a4c1c906730e61629a8277e1daeda90f6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_access(3f) - [M_system] checks accessibility or existence of a pathname (LICENSE:PD)  <a href="namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6">More...</a><br /></td></tr>
+system_access(3f) - [M_system:QUERY_FILE] checks accessibility or existence of a pathname (LICENSE:PD)  <a href="namespacem__system.html#a4c1c906730e61629a8277e1daeda90f6">More...</a><br /></td></tr>
 <tr class="separator:a4c1c906730e61629a8277e1daeda90f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83a121ba0b525210b5217565569ef350"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a83a121ba0b525210b5217565569ef350">m_system::system_utime</a> (pathname, times)</td></tr>
 <tr class="memdesc:a83a121ba0b525210b5217565569ef350"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_utime(3f) - [M_system] set file access and modification times (LICENSE:PD)  <a href="namespacem__system.html#a83a121ba0b525210b5217565569ef350">More...</a><br /></td></tr>
+system_utime(3f) - [M_system:FILE_SYSTEM] set file access and modification times (LICENSE:PD)  <a href="namespacem__system.html#a83a121ba0b525210b5217565569ef350">More...</a><br /></td></tr>
 <tr class="separator:a83a121ba0b525210b5217565569ef350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a635baf5850927faa97461afaca512235"><td class="memItemLeft" align="right" valign="top">integer(kind=8) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a635baf5850927faa97461afaca512235">m_system::timestamp</a> ()</td></tr>
 <tr class="separator:a635baf5850927faa97461afaca512235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70bbfa0a0be084b9717cbc04408041fc"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc">m_system::system_realpath</a> (input)</td></tr>
 <tr class="memdesc:a70bbfa0a0be084b9717cbc04408041fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_realpath(3f) - [M_system] call realpath(3c) to resolve a pathname (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_realpath(3f) - [M_system:FILE_SYSTEM] call realpath(3c) to resolve a pathname (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc">More...</a><br /></td></tr>
 <tr class="separator:a70bbfa0a0be084b9717cbc04408041fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6eb5074fe74552bc7a5e7d00f459087"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#af6eb5074fe74552bc7a5e7d00f459087">m_system::system_issock</a> (pathname)</td></tr>
 <tr class="memdesc:af6eb5074fe74552bc7a5e7d00f459087"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_issock(3f) - [M_system] checks if argument is a socket (LICENSE:PD)  <a href="namespacem__system.html#af6eb5074fe74552bc7a5e7d00f459087">More...</a><br /></td></tr>
+system_issock(3f) - [M_system:QUERY_FILE] checks if argument is a socket (LICENSE:PD)  <a href="namespacem__system.html#af6eb5074fe74552bc7a5e7d00f459087">More...</a><br /></td></tr>
 <tr class="separator:af6eb5074fe74552bc7a5e7d00f459087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2bdb5f75405d87934c10756b539d082"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">m_system::system_isfifo</a> (pathname)</td></tr>
 <tr class="memdesc:aa2bdb5f75405d87934c10756b539d082"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isfifo(3f) - [M_system] checks if argument is a fifo - named pipe (LICENSE:PD)  <a href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">More...</a><br /></td></tr>
+system_isfifo(3f) - [M_system:QUERY_FILE] checks if argument is a fifo - named pipe (LICENSE:PD)  <a href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">More...</a><br /></td></tr>
 <tr class="separator:aa2bdb5f75405d87934c10756b539d082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f1d027d438aab86024660b0802768f"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">m_system::system_ischr</a> (pathname)</td></tr>
 <tr class="memdesc:a49f1d027d438aab86024660b0802768f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_ischr(3f) - [M_system] checks if argument is a character device (LICENSE:PD)  <a href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">More...</a><br /></td></tr>
+system_ischr(3f) - [M_system:QUERY_FILE] checks if argument is a character device (LICENSE:PD)  <a href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">More...</a><br /></td></tr>
 <tr class="separator:a49f1d027d438aab86024660b0802768f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ea0d0430227af61b8083b4e7d6e597d"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">m_system::system_isreg</a> (pathname)</td></tr>
 <tr class="memdesc:a8ea0d0430227af61b8083b4e7d6e597d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isreg(3f) - [M_system] checks if argument is a regular file (LICENSE:PD)  <a href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">More...</a><br /></td></tr>
+system_isreg(3f) - [M_system:QUERY_FILE] checks if argument is a regular file (LICENSE:PD)  <a href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">More...</a><br /></td></tr>
 <tr class="separator:a8ea0d0430227af61b8083b4e7d6e597d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a268d0cd27be36527894fe2cae0f1b9f6"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">m_system::system_islnk</a> (pathname)</td></tr>
 <tr class="memdesc:a268d0cd27be36527894fe2cae0f1b9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_islnk(3f) - [M_system] checks if argument is a link (LICENSE:PD)  <a href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">More...</a><br /></td></tr>
+system_islnk(3f) - [M_system:QUERY_FILE] checks if argument is a link (LICENSE:PD)  <a href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">More...</a><br /></td></tr>
 <tr class="separator:a268d0cd27be36527894fe2cae0f1b9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1294b8d8b4910261c0a0991bf668ab67"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">m_system::system_isblk</a> (pathname)</td></tr>
 <tr class="memdesc:a1294b8d8b4910261c0a0991bf668ab67"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isblk(3f) - [M_system] checks if argument is a block device (LICENSE:PD)  <a href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">More...</a><br /></td></tr>
+system_isblk(3f) - [M_system:QUERY_FILE] checks if argument is a block device (LICENSE:PD)  <a href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">More...</a><br /></td></tr>
 <tr class="separator:a1294b8d8b4910261c0a0991bf668ab67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7946ea976f399baff21caebcbe931f6d"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">m_system::system_isdir</a> (dirname)</td></tr>
 <tr class="memdesc:a7946ea976f399baff21caebcbe931f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_isdir(3f) - [M_system] checks if argument is a directory path (LICENSE:PD)  <a href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">More...</a><br /></td></tr>
+system_isdir(3f) - [M_system:QUERY_FILE] checks if argument is a directory path (LICENSE:PD)  <a href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">More...</a><br /></td></tr>
 <tr class="separator:a7946ea976f399baff21caebcbe931f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab89e4d2fb219225c374570d4f9d58e9b"><td class="memItemLeft" align="right" valign="top">elemental impure logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ab89e4d2fb219225c374570d4f9d58e9b">m_system::system_chown</a> (dirname, owner, group)</td></tr>
 <tr class="memdesc:ab89e4d2fb219225c374570d4f9d58e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_chown(3f) - [M_system] change file owner and group (LICENSE:PD)  <a href="namespacem__system.html#ab89e4d2fb219225c374570d4f9d58e9b">More...</a><br /></td></tr>
+system_chown(3f) - [M_system:FILE_SYSTEM] change file owner and group (LICENSE:PD)  <a href="namespacem__system.html#ab89e4d2fb219225c374570d4f9d58e9b">More...</a><br /></td></tr>
 <tr class="separator:ab89e4d2fb219225c374570d4f9d58e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257d2b8987db850bc686507f19ccbe4a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a257d2b8987db850bc686507f19ccbe4a">m_system::system_cpu_time</a> (total, user, system)</td></tr>
 <tr class="memdesc:a257d2b8987db850bc686507f19ccbe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
@@ -229,84 +239,84 @@ system_cpu_time(3f) - [M_system] get processor time by calling times(3c) (LICENS
 <tr class="separator:a257d2b8987db850bc686507f19ccbe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e04b5499fc3367eda9758b6e396a103"><td class="memItemLeft" align="right" valign="top">elemental impure integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0e04b5499fc3367eda9758b6e396a103">m_system::system_link</a> (oldname, newname)</td></tr>
 <tr class="memdesc:a0e04b5499fc3367eda9758b6e396a103"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_link(3f) - [M_system] link one file to another file relative to two directory file descriptors (LICENSE:PD)  <a href="namespacem__system.html#a0e04b5499fc3367eda9758b6e396a103">More...</a><br /></td></tr>
+system_link(3f) - [M_system:FILE_SYSTEM] link one file to another file relative to two directory file descriptors (LICENSE:PD)  <a href="namespacem__system.html#a0e04b5499fc3367eda9758b6e396a103">More...</a><br /></td></tr>
 <tr class="separator:a0e04b5499fc3367eda9758b6e396a103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3561c9beafec28439f760d701d55a6b8"><td class="memItemLeft" align="right" valign="top">elemental impure integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8">m_system::system_unlink</a> (fname)</td></tr>
 <tr class="memdesc:a3561c9beafec28439f760d701d55a6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_unlink(3f) - [M_system] remove a directory entry relative to directory file descriptor (LICENSE:PD)  <a href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8">More...</a><br /></td></tr>
+system_unlink(3f) - [M_system:FILE_SYSTEM] remove a directory entry relative to directory file descriptor (LICENSE:PD)  <a href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8">More...</a><br /></td></tr>
 <tr class="separator:a3561c9beafec28439f760d701d55a6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04fd02e6f5ce2f8ecdfb577e1490feba"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a04fd02e6f5ce2f8ecdfb577e1490feba">m_system::system_setumask</a> (umask_value)</td></tr>
 <tr class="memdesc:a04fd02e6f5ce2f8ecdfb577e1490feba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_setumask(3f) - [M_system] set the file mode creation umask (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_setumask(3f) - [M_system:FILE_SYSTEM] set the file mode creation umask (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a04fd02e6f5ce2f8ecdfb577e1490feba">More...</a><br /></td></tr>
 <tr class="separator:a04fd02e6f5ce2f8ecdfb577e1490feba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ca951be39d2ea738d627cf42c00ddd"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">m_system::system_getumask</a> ()</td></tr>
 <tr class="memdesc:aa9ca951be39d2ea738d627cf42c00ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_getumask(3f) - [M_system] get current umask (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_getumask(3f) - [M_system:QUERY_FILE] get current umask (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">More...</a><br /></td></tr>
 <tr class="separator:aa9ca951be39d2ea738d627cf42c00ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afae451a1fc5432274dc1f75a364051b4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#afae451a1fc5432274dc1f75a364051b4">m_system::system_perror</a> (prefix)</td></tr>
 <tr class="memdesc:afae451a1fc5432274dc1f75a364051b4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-perror(3f) - [M_system] print error message for last C error on stderr (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+perror(3f) - [M_system:ERROR_PROCESSING] print error message for last C error on stderr (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#afae451a1fc5432274dc1f75a364051b4">More...</a><br /></td></tr>
 <tr class="separator:afae451a1fc5432274dc1f75a364051b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47746b670cb21bae0957c9bb2bccf209"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a47746b670cb21bae0957c9bb2bccf209">m_system::system_chdir</a> (path, err)</td></tr>
 <tr class="memdesc:a47746b670cb21bae0957c9bb2bccf209"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_chdir(3f) - [M_system] call chdir(3c) from Fortran to change working directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_chdir(3f) - [M_system_FILE_SYSTEM] call chdir(3c) from Fortran to change working directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a47746b670cb21bae0957c9bb2bccf209">More...</a><br /></td></tr>
 <tr class="separator:a47746b670cb21bae0957c9bb2bccf209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fa10b991ae066609b687423918cff52"><td class="memItemLeft" align="right" valign="top">elemental impure integer(c_int) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a7fa10b991ae066609b687423918cff52">m_system::system_remove</a> (path)</td></tr>
 <tr class="memdesc:a7fa10b991ae066609b687423918cff52"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_remove(3f) - [M_system] call remove(3c) to remove file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_remove(3f) - [M_system_FILE_SYSTEM] call remove(3c) to remove file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a7fa10b991ae066609b687423918cff52">More...</a><br /></td></tr>
 <tr class="separator:a7fa10b991ae066609b687423918cff52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbaf3d17790da9ba0c520683d5b8003"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#adfbaf3d17790da9ba0c520683d5b8003">m_system::system_rename</a> (input, output)</td></tr>
 <tr class="memdesc:adfbaf3d17790da9ba0c520683d5b8003"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_rename(3f) - [M_system] call rename(3c) to rename a system file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_rename(3f) - [M_system_FILE_SYSTEM] call rename(3c) to rename a system file (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#adfbaf3d17790da9ba0c520683d5b8003">More...</a><br /></td></tr>
 <tr class="separator:adfbaf3d17790da9ba0c520683d5b8003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace9ce0c8a9c8341a76b8903cd2390ce3"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ace9ce0c8a9c8341a76b8903cd2390ce3">m_system::system_chmod</a> (filename, mode)</td></tr>
 <tr class="memdesc:ace9ce0c8a9c8341a76b8903cd2390ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_chmod(3f) - [M_system] call chmod(3c) to change permission mode of a file relative to directory file descriptor (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_chmod(3f) - [M_system_FILE_SYSTEM] call chmod(3c) to change permission mode of a file relative to directory file descriptor (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#ace9ce0c8a9c8341a76b8903cd2390ce3">More...</a><br /></td></tr>
 <tr class="separator:ace9ce0c8a9c8341a76b8903cd2390ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a32db818a9ffb0a4ea724e95356c560"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a5a32db818a9ffb0a4ea724e95356c560">m_system::system_getcwd</a> (output, ierr)</td></tr>
 <tr class="memdesc:a5a32db818a9ffb0a4ea724e95356c560"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_getcwd(3f) - [M_system] call getcwd(3c) to get the pathname of the current working directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_getcwd(3f) - [M_system:QUERY_FILE] call getcwd(3c) to get the pathname of the current working directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a5a32db818a9ffb0a4ea724e95356c560">More...</a><br /></td></tr>
 <tr class="separator:a5a32db818a9ffb0a4ea724e95356c560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fd3e1ccd50cef6adc539ef3d7a9836"><td class="memItemLeft" align="right" valign="top">integer(c_int) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a21fd3e1ccd50cef6adc539ef3d7a9836">m_system::system_rmdir</a> (dirname)</td></tr>
 <tr class="memdesc:a21fd3e1ccd50cef6adc539ef3d7a9836"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_rmdir(3f) - [M_system] call rmdir(3c) to remove empty directories (LICENSE:PD)  <a href="namespacem__system.html#a21fd3e1ccd50cef6adc539ef3d7a9836">More...</a><br /></td></tr>
+system_rmdir(3f) - [M_system:FILE_SYSTEM] call rmdir(3c) to remove empty directories (LICENSE:PD)  <a href="namespacem__system.html#a21fd3e1ccd50cef6adc539ef3d7a9836">More...</a><br /></td></tr>
 <tr class="separator:a21fd3e1ccd50cef6adc539ef3d7a9836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d95258ee26b85a0283538880775475"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ab2d95258ee26b85a0283538880775475">m_system::system_mkfifo</a> (pathname, mode)</td></tr>
 <tr class="memdesc:ab2d95258ee26b85a0283538880775475"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_mkfifo(3f) - [M_system] make a FIFO special file relative to directory file descriptor (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_mkfifo(3f) - [M_system:FILE_SYSTEM] make a FIFO special file relative to directory file descriptor (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#ab2d95258ee26b85a0283538880775475">More...</a><br /></td></tr>
 <tr class="separator:ab2d95258ee26b85a0283538880775475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084d644c236d22af2cc75c6e48fd6e96"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a084d644c236d22af2cc75c6e48fd6e96">m_system::system_mkdir</a> (dirname, mode)</td></tr>
 <tr class="memdesc:a084d644c236d22af2cc75c6e48fd6e96"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_mkdir(3f) - [M_system] call mkdir(3c) to create a new directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_mkdir(3f) - [M_system:FILE_SYSTEM] call mkdir(3c) to create a new directory (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a084d644c236d22af2cc75c6e48fd6e96">More...</a><br /></td></tr>
 <tr class="separator:a084d644c236d22af2cc75c6e48fd6e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a622cc67c03e8cdea1d4c2430bb36081b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a622cc67c03e8cdea1d4c2430bb36081b">m_system::system_opendir</a> (dirname, dir, ierr)</td></tr>
 <tr class="memdesc:a622cc67c03e8cdea1d4c2430bb36081b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_opendir(3f) - [M_system] open directory stream by calling opendir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_opendir(3f) - [M_system:QUERY_FILE] open directory stream by calling opendir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a622cc67c03e8cdea1d4c2430bb36081b">More...</a><br /></td></tr>
 <tr class="separator:a622cc67c03e8cdea1d4c2430bb36081b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a983df5b2d7cb5842d69c4a31829403e0"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0">m_system::system_readdir</a> (dir, filename, ierr)</td></tr>
 <tr class="memdesc:a983df5b2d7cb5842d69c4a31829403e0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_readdir(3f) - [M_system] read a directory using readdir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_readdir(3f) - [M_system:QUERY_FILE] read a directory using readdir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0">More...</a><br /></td></tr>
 <tr class="separator:a983df5b2d7cb5842d69c4a31829403e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ffe757195ade8052e8acabd196ee3ca"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a3ffe757195ade8052e8acabd196ee3ca">m_system::system_rewinddir</a> (dir)</td></tr>
 <tr class="memdesc:a3ffe757195ade8052e8acabd196ee3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_rewinddir(3f) - [M_system] call rewinddir(3c) to rewind directory stream (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_rewinddir(3f) - [M_system:QUERY_FILE] call rewinddir(3c) to rewind directory stream (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#a3ffe757195ade8052e8acabd196ee3ca">More...</a><br /></td></tr>
 <tr class="separator:a3ffe757195ade8052e8acabd196ee3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd442b52c64fc50482bc08b0ac8a50d1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#acd442b52c64fc50482bc08b0ac8a50d1">m_system::system_closedir</a> (dir, ierr)</td></tr>
 <tr class="memdesc:acd442b52c64fc50482bc08b0ac8a50d1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_closedir(3f) - [M_system] close a directory stream by calling closedir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_closedir(3f) - [M_system:QUERY_FILE] close a directory stream by calling closedir(3c) (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  <a href="namespacem__system.html#acd442b52c64fc50482bc08b0ac8a50d1">More...</a><br /></td></tr>
 <tr class="separator:acd442b52c64fc50482bc08b0ac8a50d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c9df8e59cac9cd617cd1e20448ea7d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#af0c9df8e59cac9cd617cd1e20448ea7d">m_system::system_putenv</a> (string, err)</td></tr>
@@ -337,7 +347,7 @@ system_readenv(3f) - [M_system:ENVIRONMENT] step thru and read environment table
 <tr class="separator:ae0e43010a82a6a25402568ccb326322d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79656f76ad75168302e0d770052e901e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a79656f76ad75168302e0d770052e901e">m_system::fileglob</a> (glob, list)</td></tr>
 <tr class="memdesc:a79656f76ad75168302e0d770052e901e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-fileglob(3f) - [M_system] Read output of an ls(1) command from Fortran (LICENSE:PD)  <a href="namespacem__system.html#a79656f76ad75168302e0d770052e901e">More...</a><br /></td></tr>
+fileglob(3f) - [M_system:QUERY_FILE] Read output of an ls(1) command from Fortran (LICENSE:PD)  <a href="namespacem__system.html#a79656f76ad75168302e0d770052e901e">More...</a><br /></td></tr>
 <tr class="separator:a79656f76ad75168302e0d770052e901e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04e5d49509c44bcb2ccabfd80ec8cdfb"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a04e5d49509c44bcb2ccabfd80ec8cdfb">m_system::system_uname</a> (WHICH, NAMEOUT)</td></tr>
 <tr class="memdesc:a04e5d49509c44bcb2ccabfd80ec8cdfb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
@@ -355,7 +365,7 @@ system_getlogin(3f) - [M_system:QUERY] get login name (LICENSE:PD)  <a href="nam
 <tr class="separator:a70f78645a1f130734005e190d469529d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f39e1d4e420396319105e4e81f92b5"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5">m_system::system_perm</a> (mode)</td></tr>
 <tr class="memdesc:ae8f39e1d4e420396319105e4e81f92b5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-system_perm(3f) - [M_system] get file type and permission as a string (LICENSE:PD)  <a href="namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5">More...</a><br /></td></tr>
+system_perm(3f) - [M_system:QUERY_FILE] get file type and permission as a string (LICENSE:PD)  <a href="namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5">More...</a><br /></td></tr>
 <tr class="separator:ae8f39e1d4e420396319105e4e81f92b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec137429fbb8c848db4ecd914466d7e8"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aec137429fbb8c848db4ecd914466d7e8">m_system::system_getgrgid</a> (gid)</td></tr>
 <tr class="memdesc:aec137429fbb8c848db4ecd914466d7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
@@ -375,7 +385,7 @@ system_getpwuid(3f) - [M_system:QUERY] get login name associated with a UID (LIC
 <tr class="separator:aa7c5445619aa15cd2301fe17f7c3b73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">m_system::system_stat</a> (pathname, values, ierr)</td></tr>
 <tr class="memdesc:a5bb1ebcebe181e07fd24e908cacc9887"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
-SYSTEM_STAT - [M_system] Get file status information (LICENSE:PD)  <a href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">More...</a><br /></td></tr>
+SYSTEM_STAT - [M_system:QUERY_FILE] Get file status information (LICENSE:PD)  <a href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">More...</a><br /></td></tr>
 <tr class="separator:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="memItemLeft" align="right" valign="top">character(len=:) function, dimension(:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89">m_system::system_dir</a> (directory, pattern)</td></tr>
 <tr class="memdesc:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="mdescLeft">&#160;</td><td class="mdescRight"><h2>NAME</h2>
@@ -436,6 +446,10 @@ system_initenv(3f) - [M_system:ENVIRONMENT] initialize environment table pointer
 <tr class="separator:a8f34e61e94106b90ca48b9ef1165474c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eca0d5b431ad6fbde6f40407550e7aa"><td class="memItemLeft" align="right" valign="top">integer(kind=c_int), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0eca0d5b431ad6fbde6f40407550e7aa">m_system::x_ok</a> =1</td></tr>
 <tr class="separator:a0eca0d5b431ad6fbde6f40407550e7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a9ba51ff75a0a6176f31e0562d0a058"><td class="memItemLeft" align="right" valign="top">integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a4a9ba51ff75a0a6176f31e0562d0a058">m_system::no_of_signals</a> =64</td></tr>
+<tr class="separator:a4a9ba51ff75a0a6176f31e0562d0a058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da68c4639de85352f306b0e39debf77"><td class="memItemLeft" align="right" valign="top">type(handler_pointer), dimension(no_of_signals)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a2da68c4639de85352f306b0e39debf77">m_system::handler_ptr_array</a></td></tr>
+<tr class="separator:a2da68c4639de85352f306b0e39debf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

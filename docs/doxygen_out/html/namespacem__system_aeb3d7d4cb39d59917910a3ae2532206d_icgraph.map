@@ -1,6 +1,6 @@
 <map id="m_system::arr2str" name="m_system::arr2str">
-<area shape="rect" id="node2" href="$namespacem__system.html#a5a32db818a9ffb0a4ea724e95356c560" title="NAMEsystem_getcwd(3f) &#45; [M_system] call getcwd(3c) to get the pathname of the current working directo..." alt="" coords="214,5,414,32"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0" title="NAMEsystem_readdir(3f) &#45; [M_system] read a directory using readdir(3c) (LICENSE:PD) SYNOPSIS..." alt="" coords="215,56,413,83"/>
+<area shape="rect" id="node2" href="$namespacem__system.html#a5a32db818a9ffb0a4ea724e95356c560" title="NAMEsystem_getcwd(3f) &#45; [M_system:QUERY_FILE] call getcwd(3c) to get the pathname of the current work..." alt="" coords="214,5,414,32"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0" title="NAMEsystem_readdir(3f) &#45; [M_system:QUERY_FILE] read a directory using readdir(3c) (LICENSE:PD) SYNOPS..." alt="" coords="215,56,413,83"/>
 <area shape="rect" id="node5" href="$namespacem__system.html#ae0e43010a82a6a25402568ccb326322d" title="NAMEsystem_readenv(3f) &#45; [M_system:ENVIRONMENT] step thru and read environment table (LICENSE:PD) SYN..." alt="" coords="211,107,417,133"/>
 <area shape="rect" id="node7" href="$namespacem__system.html#a96fab225737afb77ff1cbba9866f0d05" title="NAMEsystem_gethostname(3f) &#45; [M_system:QUERY] get name of current host (LICENSE:PD) SYNOPSIS..." alt="" coords="195,157,433,184"/>
 <area shape="rect" id="node8" href="$namespacem__system.html#aec137429fbb8c848db4ecd914466d7e8" title="NAMEsystem_getgrgid(3f) &#45; [M_system:QUERY] get groupd name associated with a GID (LICENSE:PD) SYNOPSI..." alt="" coords="211,208,417,235"/>

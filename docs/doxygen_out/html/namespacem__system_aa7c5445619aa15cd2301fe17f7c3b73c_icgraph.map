@@ -1,5 +1,5 @@
 <map id="m_system::c2f_string" name="m_system::c2f_string">
-<area shape="rect" id="node2" href="$namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc" title="NAMEsystem_realpath(3f) &#45; [M_system] call realpath(3c) to resolve a pathname (LICENSE:PD) SYNOPSIS..." alt="" coords="216,5,423,32"/>
+<area shape="rect" id="node2" href="$namespacem__system.html#a70bbfa0a0be084b9717cbc04408041fc" title="NAMEsystem_realpath(3f) &#45; [M_system:FILE_SYSTEM] call realpath(3c) to resolve a pathname (LICENSE:PD)..." alt="" coords="216,5,423,32"/>
 <area shape="rect" id="node3" href="$namespacem__system.html#a70f78645a1f130734005e190d469529d" title="NAMEsystem_getlogin(3f) &#45; [M_system:QUERY] get login name (LICENSE:PD) " alt="" coords="216,56,423,83"/>
-<area shape="rect" id="node4" href="$namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5" title="NAMEsystem_perm(3f) &#45; [M_system] get file type and permission as a string (LICENSE:PD) ..." alt="" coords="226,107,413,133"/>
+<area shape="rect" id="node4" href="$namespacem__system.html#ae8f39e1d4e420396319105e4e81f92b5" title="NAMEsystem_perm(3f) &#45; [M_system:QUERY_FILE] get file type and permission as a string (LICENSE:PD) ..." alt="" coords="226,107,413,133"/>
 </map>

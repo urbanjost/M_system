@@ -16,6 +16,10 @@ type \mbox{\hyperlink{structm__system_1_1dirent__cygwin}{dirent\+\_\+cygwin}}
 \item 
 type \mbox{\hyperlink{structm__system_1_1dirent__systema}{dirent\+\_\+systema}}
 \item 
+interface \mbox{\hyperlink{interfacem__system_1_1handler}{handler}}
+\item 
+type \mbox{\hyperlink{structm__system_1_1handler__pointer}{handler\+\_\+pointer}}
+\item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__alarm}{system\+\_\+alarm}}
 \item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__calloc}{system\+\_\+calloc}}
@@ -25,7 +29,7 @@ interface \mbox{\hyperlink{interfacem__system_1_1system__clock}{system\+\_\+cloc
 interface \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__free}{system\+\_\+free}}
 \item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}}
@@ -61,7 +65,7 @@ interface \mbox{\hyperlink{interfacem__system_1_1system__initenv}{system\+\_\+in
 interface \mbox{\hyperlink{interfacem__system_1_1system__kill}{system\+\_\+kill}}
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+kill(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} send a signal to a process or a group of processes (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+kill(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} send a signal to a process or a group of processes (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__malloc}{system\+\_\+malloc}}
 \item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__memcpy}{system\+\_\+memcpy}}
@@ -69,7 +73,7 @@ interface \mbox{\hyperlink{interfacem__system_1_1system__memcpy}{system\+\_\+mem
 interface \mbox{\hyperlink{interfacem__system_1_1system__rand}{system\+\_\+rand}}
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+rand(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call pseudo-\/random number generator rand(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+rand(3f) -\/ \mbox{[}M\+\_\+system\+:P\+S\+E\+U\+D\+O\+R\+A\+N\+D\+OM\mbox{]} call pseudo-\/random number generator rand(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__realloc}{system\+\_\+realloc}}
 \item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}}
@@ -79,7 +83,7 @@ system\+\_\+setsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} create se
 interface \mbox{\hyperlink{interfacem__system_1_1system__srand}{system\+\_\+srand}}
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+srand(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set seed for pseudo-\/random number generator system\+\_\+rand(3f) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+srand(3f) -\/ \mbox{[}M\+\_\+system\+:P\+S\+E\+U\+D\+O\+R\+A\+N\+D\+OM\mbox{]} set seed for pseudo-\/random number generator system\+\_\+rand(3f) (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__time}{system\+\_\+time}}
 \item 
 interface \mbox{\hyperlink{interfacem__system_1_1system__umask}{system\+\_\+umask}}
@@ -89,52 +93,58 @@ system\+\_\+umask(3fp) -\/ \mbox{[}M\+\_\+system\mbox{]} set and get the file mo
 \subsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
+subroutine, public \mbox{\hyperlink{namespacem__system_a4a70cade424b9763dedd8cb8c0059e8c}{system\+\_\+signal}} (signum, handler\+\_\+routine)
+\begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
+
+system\+\_\+signal(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} install a signal handler (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacem__system_a078c9adfb12b36e88534248e99ed9fcc}{f\+\_\+handler}} (signum)
+\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a4c1c906730e61629a8277e1daeda90f6}{system\+\_\+access}} (pathname, amode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 logical function, public \mbox{\hyperlink{namespacem__system_a83a121ba0b525210b5217565569ef350}{system\+\_\+utime}} (pathname, times)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 integer(kind=8) function \mbox{\hyperlink{namespacem__system_a635baf5850927faa97461afaca512235}{timestamp}} ()
 \item 
 character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_a70bbfa0a0be084b9717cbc04408041fc}{system\+\_\+realpath}} (input)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+realpath(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call realpath(3c) to resolve a pathname (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+realpath(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call realpath(3c) to resolve a pathname (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 logical function, public \mbox{\hyperlink{namespacem__system_af6eb5074fe74552bc7a5e7d00f459087}{system\+\_\+issock}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_aa2bdb5f75405d87934c10756b539d082}{system\+\_\+isfifo}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a49f1d027d438aab86024660b0802768f}{system\+\_\+ischr}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a8ea0d0430227af61b8083b4e7d6e597d}{system\+\_\+isreg}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a268d0cd27be36527894fe2cae0f1b9f6}{system\+\_\+islnk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a1294b8d8b4910261c0a0991bf668ab67}{system\+\_\+isblk}} (pathname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_a7946ea976f399baff21caebcbe931f6d}{system\+\_\+isdir}} (dirname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure logical function, public \mbox{\hyperlink{namespacem__system_ab89e4d2fb219225c374570d4f9d58e9b}{system\+\_\+chown}} (dirname, owner, group)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a257d2b8987db850bc686507f19ccbe4a}{system\+\_\+cpu\+\_\+time}} (total, user, system)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -142,71 +152,71 @@ system\+\_\+cpu\+\_\+time(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get processor ti
 elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a0e04b5499fc3367eda9758b6e396a103}{system\+\_\+link}} (oldname, newname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 elemental impure integer function, public \mbox{\hyperlink{namespacem__system_a3561c9beafec28439f760d701d55a6b8}{system\+\_\+unlink}} (fname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_a04fd02e6f5ce2f8ecdfb577e1490feba}{system\+\_\+setumask}} (umask\+\_\+value)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+setumask(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set the file mode creation umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+setumask(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} set the file mode creation umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_aa9ca951be39d2ea738d627cf42c00ddd}{system\+\_\+getumask}} ()
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+getumask(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get current umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+getumask(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} get current umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_afae451a1fc5432274dc1f75a364051b4}{system\+\_\+perror}} (prefix)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-perror(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} print error message for last C error on stderr (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+perror(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} print error message for last C error on stderr (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a47746b670cb21bae0957c9bb2bccf209}{system\+\_\+chdir}} (path, err)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 elemental impure integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a7fa10b991ae066609b687423918cff52}{system\+\_\+remove}} (path)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_adfbaf3d17790da9ba0c520683d5b8003}{system\+\_\+rename}} (input, output)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+rename(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rename(3c) to rename a system file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+rename(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call rename(3c) to rename a system file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_ace9ce0c8a9c8341a76b8903cd2390ce3}{system\+\_\+chmod}} (filename, mode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+chmod(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chmod(3c) to change permission mode of a file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+chmod(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call chmod(3c) to change permission mode of a file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a5a32db818a9ffb0a4ea724e95356c560}{system\+\_\+getcwd}} (output, ierr)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+getcwd(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call getcwd(3c) to get the pathname of the current working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+getcwd(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} call getcwd(3c) to get the pathname of the current working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 integer(c\+\_\+int) function, public \mbox{\hyperlink{namespacem__system_a21fd3e1ccd50cef6adc539ef3d7a9836}{system\+\_\+rmdir}} (dirname)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+rmdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rmdir(3c) to remove empty directories (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+rmdir(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call rmdir(3c) to remove empty directories (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_ab2d95258ee26b85a0283538880775475}{system\+\_\+mkfifo}} (pathname, mode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+mkfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} make a F\+I\+FO special file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+mkfifo(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} make a F\+I\+FO special file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 integer function, public \mbox{\hyperlink{namespacem__system_a084d644c236d22af2cc75c6e48fd6e96}{system\+\_\+mkdir}} (dirname, mode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+mkdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call mkdir(3c) to create a new directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+mkdir(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call mkdir(3c) to create a new directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b}{system\+\_\+opendir}} (dirname, dir, ierr)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+opendir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} open directory stream by calling opendir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+opendir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} open directory stream by calling opendir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a983df5b2d7cb5842d69c4a31829403e0}{system\+\_\+readdir}} (dir, filename, ierr)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+readdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} read a directory using readdir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+readdir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} read a directory using readdir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a3ffe757195ade8052e8acabd196ee3ca}{system\+\_\+rewinddir}} (dir)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+rewinddir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rewinddir(3c) to rewind directory stream (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+rewinddir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} call rewinddir(3c) to rewind directory stream (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1}{system\+\_\+closedir}} (dir, ierr)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+closedir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} close a directory stream by calling closedir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
+system\+\_\+closedir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} close a directory stream by calling closedir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}\end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_af0c9df8e59cac9cd617cd1e20448ea7d}{system\+\_\+putenv}} (string, err)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -234,7 +244,7 @@ system\+\_\+readenv(3f) -\/ \mbox{[}M\+\_\+system\+:E\+N\+V\+I\+R\+O\+N\+M\+E\+N
 subroutine, public \mbox{\hyperlink{namespacem__system_a79656f76ad75168302e0d770052e901e}{fileglob}} (glob, list)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-fileglob(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} Read output of an ls(1) command from Fortran (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+fileglob(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} Read output of an ls(1) command from Fortran (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a04e5d49509c44bcb2ccabfd80ec8cdfb}{system\+\_\+uname}} (W\+H\+I\+CH, N\+A\+M\+E\+O\+UT)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -250,7 +260,7 @@ system\+\_\+getlogin(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get log
 character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_ae8f39e1d4e420396319105e4e81f92b5}{system\+\_\+perm}} (mode)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-system\+\_\+perm(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get file type and permission as a string (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+system\+\_\+perm(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} get file type and permission as a string (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 character(len=\+:) function, allocatable, public \mbox{\hyperlink{namespacem__system_aec137429fbb8c848db4ecd914466d7e8}{system\+\_\+getgrgid}} (gid)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -268,7 +278,7 @@ character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_aa7
 subroutine, public \mbox{\hyperlink{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}{system\+\_\+stat}} (pathname, values, ierr)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
-S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
+S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) \end{DoxyCompactList}\item 
 character(len=\+:) function, dimension(\+:), allocatable, public \mbox{\hyperlink{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}{system\+\_\+dir}} (directory, pattern)
 \begin{DoxyCompactList}\small\item\em \subsubsection*{N\+A\+ME}
 
@@ -325,6 +335,10 @@ integer(kind=c\+\_\+int), parameter, public \mbox{\hyperlink{namespacem__system_
 integer(kind=c\+\_\+int), parameter, public \mbox{\hyperlink{namespacem__system_a8f34e61e94106b90ca48b9ef1165474c}{w\+\_\+ok}} =2
 \item 
 integer(kind=c\+\_\+int), parameter, public \mbox{\hyperlink{namespacem__system_a0eca0d5b431ad6fbde6f40407550e7aa}{x\+\_\+ok}} =1
+\item 
+integer, parameter \mbox{\hyperlink{namespacem__system_a4a9ba51ff75a0a6176f31e0562d0a058}{no\+\_\+of\+\_\+signals}} =64
+\item 
+type(\mbox{\hyperlink{structm__system_1_1handler__pointer}{handler\+\_\+pointer}}), dimension(\mbox{\hyperlink{namespacem__system_a4a9ba51ff75a0a6176f31e0562d0a058}{no\+\_\+of\+\_\+signals}}) \mbox{\hyperlink{namespacem__system_a2da68c4639de85352f306b0e39debf77}{handler\+\_\+ptr\+\_\+array}}
 \end{DoxyCompactItemize}
 
 
@@ -339,7 +353,7 @@ Public objects\+:
 
 use M\+\_\+system, only \+: system\+\_\+intenv, system\+\_\+readenv, system\+\_\+clearenv ! F\+I\+LE S\+Y\+S\+T\+EM use M\+\_\+system, only \+: system\+\_\+getcwd, system\+\_\+link, \& system\+\_\+mkfifo, system\+\_\+remove, system\+\_\+rename, \& \mbox{\hyperlink{interfacem__system_1_1system__umask}{system\+\_\+umask}}, system\+\_\+unlink, fileglob, \& system\+\_\+rmdir, system\+\_\+chdir, system\+\_\+mkdir, \& system\+\_\+stat, system\+\_\+isdir, system\+\_\+islnk, system\+\_\+isreg, \& system\+\_\+isblk, system\+\_\+ischr, system\+\_\+isfifo, \& system\+\_\+realpath, \& system\+\_\+access, \& system\+\_\+utime, \& system\+\_\+issock, system\+\_\+perm, \& system\+\_\+dir, \& \mbox{\hyperlink{interfacem__system_1_1system__memcpy}{system\+\_\+memcpy}}
 
-!!use M\+\_\+system, only \+: system\+\_\+getc, system\+\_\+putc ! E\+R\+R\+OR P\+R\+O\+C\+E\+S\+S\+I\+NG use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+perror ! I\+N\+FO use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}}, \mbox{\hyperlink{interfacem__system_1_1system__geteuid}{system\+\_\+geteuid}}, \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}}, \& system\+\_\+gethostname, \mbox{\hyperlink{interfacem__system_1_1system__getpid}{system\+\_\+getpid}}, \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}}, \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}}, \& \mbox{\hyperlink{interfacem__system_1_1system__getsid}{system\+\_\+getsid}}, \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}}, system\+\_\+uname ! S\+I\+G\+N\+A\+LS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__kill}{system\+\_\+kill}} ! R\+A\+N\+D\+OM N\+U\+M\+B\+E\+RS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__rand}{system\+\_\+rand}}, \mbox{\hyperlink{interfacem__system_1_1system__srand}{system\+\_\+srand}} ! P\+R\+O\+C\+E\+SS I\+N\+F\+O\+R\+M\+A\+T\+I\+ON use M\+\_\+system, only \+: system\+\_\+cpu\+\_\+time
+!!use M\+\_\+system, only \+: system\+\_\+getc, system\+\_\+putc ! E\+R\+R\+OR P\+R\+O\+C\+E\+S\+S\+I\+NG use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+perror ! I\+N\+FO use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}}, \mbox{\hyperlink{interfacem__system_1_1system__geteuid}{system\+\_\+geteuid}}, \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}}, \& system\+\_\+gethostname, \mbox{\hyperlink{interfacem__system_1_1system__getpid}{system\+\_\+getpid}}, \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}}, \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}}, \& \mbox{\hyperlink{interfacem__system_1_1system__getsid}{system\+\_\+getsid}}, \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}}, system\+\_\+uname ! S\+I\+G\+N\+A\+LS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__kill}{system\+\_\+kill}},system\+\_\+signal ! R\+A\+N\+D\+OM N\+U\+M\+B\+E\+RS use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__rand}{system\+\_\+rand}}, \mbox{\hyperlink{interfacem__system_1_1system__srand}{system\+\_\+srand}} ! P\+R\+O\+C\+E\+SS I\+N\+F\+O\+R\+M\+A\+T\+I\+ON use M\+\_\+system, only \+: system\+\_\+cpu\+\_\+time
 
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
@@ -422,7 +436,8 @@ Results
 
 16129.\+000000000000 127 \textbackslash{} 16129 1073676289.\+0000000 32767 \textbackslash{} 1073676289 4.\+6116860141324206E+018 2147483647 \textbackslash{} 4611686014132420609 8.\+5070591730234616E+037 9223372036854775807 \textbackslash{} 85070591730234615847396907784232501249 2.\+8948022309329049E+076 170141183460469231731687303715884105727 \textbackslash{} 28948022309329048855892746252171976962977213799489202546401021394546514198529
 
-A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:\nopagebreak
+A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -435,7 +450,8 @@ A\+U\+T\+H\+OR John S. Urban L\+I\+C\+E\+N\+SE Public Domain Here is the caller 
 \subsubsection{\texorpdfstring{arr2str()}{arr2str()}}
 {\footnotesize\ttfamily pure character(len=size(array)) function m\+\_\+system\+::arr2str (\begin{DoxyParamCaption}\item[{character(len=1), dimension(\+:), intent(in)}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -448,11 +464,30 @@ Here is the caller graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{c2f\+\_\+string()}{c2f\_string()}}
 {\footnotesize\ttfamily character(len=\+:) function, allocatable m\+\_\+system\+::c2f\+\_\+string (\begin{DoxyParamCaption}\item[{type(c\+\_\+ptr), intent(in)}]{c\+\_\+string\+\_\+pointer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacem__system_aa7c5445619aa15cd2301fe17f7c3b73c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a078c9adfb12b36e88534248e99ed9fcc}\label{namespacem__system_a078c9adfb12b36e88534248e99ed9fcc}} 
+\index{m\+\_\+system@{m\+\_\+system}!f\+\_\+handler@{f\+\_\+handler}}
+\index{f\+\_\+handler@{f\+\_\+handler}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{f\+\_\+handler()}{f\_handler()}}
+{\footnotesize\ttfamily subroutine m\+\_\+system\+::f\+\_\+handler (\begin{DoxyParamCaption}\item[{integer(c\+\_\+int), intent(in), value}]{signum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+References handler\+\_\+ptr\+\_\+array.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a078c9adfb12b36e88534248e99ed9fcc_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{namespacem__system_a79656f76ad75168302e0d770052e901e}\label{namespacem__system_a79656f76ad75168302e0d770052e901e}} 
@@ -465,7 +500,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-fileglob(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} Read output of an ls(1) command from Fortran (L\+I\+C\+E\+N\+SE\+:PD) 
+fileglob(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} Read output of an ls(1) command from Fortran (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -574,7 +609,8 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{str2\+\_\+carr()}{str2\_carr()}}
 {\footnotesize\ttfamily pure character(len=1,kind=c\+\_\+char) function, dimension(len(string)+1) m\+\_\+system\+::str2\+\_\+carr (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -591,7 +627,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+access(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks accessibility or existence of a pathname (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -637,7 +673,7 @@ check if filename is accessible \begin{DoxyVerb} Sample program:
     do i=1,size(names)
        write(*,*)' does ',trim(names(i)),' exist?    ', system_access(names(i),F_OK)
        write(*,*)' is ',trim(names(i)),' readable?     ', system_access(names(i),R_OK)
-       write(*,*)' is ',trim(names(i)),' writeable?    ', system_access(names(i),W_OK)
+       write(*,*)' is ',trim(names(i)),' writable?     ', system_access(names(i),W_OK)
        write(*,*)' is ',trim(names(i)),' executable?   ', system_access(names(i),X_OK)
     enddo
     end program demo_system_access \end{DoxyVerb}
@@ -662,7 +698,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+chdir(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call chdir(3c) from Fortran to change working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+chdir(path, err)
 
@@ -748,7 +784,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+chmod(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call chmod(3c) to change permission mode of a file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+chmod(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call chmod(3c) to change permission mode of a file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 function system\+\_\+chmod(filename,mode) result(ierr)
 
@@ -819,7 +855,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+chown(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} change file owner and group (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -921,7 +957,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+closedir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} close a directory stream by calling closedir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+closedir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} close a directory stream by calling closedir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+closedir(dir,ierr)
 
@@ -1040,7 +1076,8 @@ Public Domain
 
 References matchw(), system\+\_\+closedir(), system\+\_\+opendir(), system\+\_\+readdir(), and system\+\_\+rewinddir().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1057,7 +1094,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+getcwd(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call getcwd(3c) to get the pathname of the current working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+getcwd(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} call getcwd(3c) to get the pathname of the current working directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+getcwd(output,ierr)
 
@@ -1360,7 +1397,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+getumask(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get current umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+getumask(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} get current umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 integer function \mbox{\hyperlink{namespacem__system_aa9ca951be39d2ea738d627cf42c00ddd}{system\+\_\+getumask()}} result (umask\+\_\+value) \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
@@ -1382,7 +1419,7 @@ Expected output
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+isblk(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a block device (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1437,7 +1474,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+ischr(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a character device (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1492,7 +1529,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+isdir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a directory path (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1551,7 +1588,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+isfifo(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a fifo -\/ named pipe (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1604,7 +1641,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+islnk(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a link (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1662,7 +1699,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+isreg(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a regular file (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1719,7 +1756,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+issock(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} checks if argument is a socket (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1772,7 +1809,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+link(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} link one file to another file relative to two directory file descriptors (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -1842,7 +1879,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+mkdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call mkdir(3c) to create a new directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+mkdir(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call mkdir(3c) to create a new directory (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
 
@@ -1907,7 +1944,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+mkfifo(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} make a F\+I\+FO special file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+mkfifo(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} make a F\+I\+FO special file relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 function system\+\_\+mkfifo(pathname,mode) result(ierr)
 
@@ -1994,7 +2031,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+opendir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} open directory stream by calling opendir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+opendir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} open directory stream by calling opendir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+opendir(dirname,dir,ierr)
 
@@ -2079,7 +2116,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+perm(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} get file type and permission as a string (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+perm(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} get file type and permission as a string (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -2137,7 +2174,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-perror(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} print error message for last C error on stderr (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+perror(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} print error message for last C error on stderr (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+perror(prefix)
 
@@ -2219,7 +2256,7 @@ Public Domain \mbox{\Hypertarget{namespacem__system_a983df5b2d7cb5842d69c4a31829
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+readdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} read a directory using readdir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+readdir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} read a directory using readdir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+readdir(dir,filename,ierr)
 
@@ -2352,7 +2389,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+realpath(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call realpath(3c) to resolve a pathname (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+realpath(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call realpath(3c) to resolve a pathname (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 function system\+\_\+realpath(input) result(output)
 
@@ -2399,7 +2436,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+remove(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call remove(3c) to remove file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 elemental impure function system\+\_\+remove(path) result(err)
 
@@ -2452,7 +2489,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+rename(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rename(3c) to rename a system file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+rename(3f) -\/ \mbox{[}M\+\_\+system\+\_\+\+F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call rename(3c) to rename a system file (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 function system\+\_\+rename(input,output) result(ierr)
 
@@ -2542,7 +2579,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+rewinddir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rewinddir(3c) to rewind directory stream (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+rewinddir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} call rewinddir(3c) to rewind directory stream (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 subroutine system\+\_\+rewinddir(dir)
 
@@ -2585,7 +2622,7 @@ Public Domain Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+rmdir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} call rmdir(3c) to remove empty directories (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+rmdir(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} call rmdir(3c) to remove empty directories (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -2641,7 +2678,7 @@ Here is the call graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+setumask(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set the file mode creation umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+system\+\_\+setumask(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} set the file mode creation umask (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
 integer function system\+\_\+setumask(new\+\_\+umask) result (old\+\_\+umask)
 
@@ -2679,7 +2716,100 @@ program demo\+\_\+setumask use M\+\_\+system, only \+: system\+\_\+getumask, sys
 
 Expected output
 
-18 O\textquotesingle{}022\textquotesingle{} Z\char`\"{}12\textquotesingle{} B\textquotesingle{}000010010\char`\"{} N\+EW 63 O\textquotesingle{}077\textquotesingle{} Z\char`\"{}3\+F\textquotesingle{} B\textquotesingle{}000111111\char`\"{} \mbox{\Hypertarget{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}\label{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}} 
+18 O\textquotesingle{}022\textquotesingle{} Z\char`\"{}12\textquotesingle{} B\textquotesingle{}000010010\char`\"{} N\+EW 63 O\textquotesingle{}077\textquotesingle{} Z\char`\"{}3\+F\textquotesingle{} B\textquotesingle{}000111111\char`\"{} \mbox{\Hypertarget{namespacem__system_a4a70cade424b9763dedd8cb8c0059e8c}\label{namespacem__system_a4a70cade424b9763dedd8cb8c0059e8c}} 
+\index{m\+\_\+system@{m\+\_\+system}!system\+\_\+signal@{system\+\_\+signal}}
+\index{system\+\_\+signal@{system\+\_\+signal}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{system\+\_\+signal()}{system\_signal()}}
+{\footnotesize\ttfamily subroutine, public m\+\_\+system\+::system\+\_\+signal (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{signum,  }\item[{procedure(\mbox{\hyperlink{interfacem__system_1_1handler}{handler}}), optional}]{handler\+\_\+routine }\end{DoxyParamCaption})}
+
+
+
+\subsubsection*{N\+A\+ME}
+
+system\+\_\+signal(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} install a signal handler (L\+I\+C\+E\+N\+SE\+:PD) 
+
+\subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
+
+\begin{DoxyVerb} subroutine system_signal(sig,handler)
+
+    integer,intent(in) :: sig
+    interface
+      subroutine handler(signum)
+      integer :: signum
+      end subroutine handler
+    end interface
+    optional :: handler
+\end{DoxyVerb}
+
+
+\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
+
+\begin{DoxyVerb}Calling system_signal(NUMBER, HANDLER) causes user-defined
+subroutine HANDLER to be executed when the signal NUMBER is
+caught. The same subroutine HANDLER maybe installed to handle
+different signals. HANDLER takes only one integer argument which
+is assigned the signal number that is caught. See sample program
+below for illustration.
+
+Calling system_signal(NUMBER) installs a do-nothing handler. This
+is not equivalent to ignoring the signal NUMBER though, because
+the signal can still interrupt any sleep or idle-wait.
+
+Note that the signals SIGKILL and SIGSTOP cannot be handled
+this way.
+
+[Compare signal(2) and the GNU extension signal in gfortran.]
+\end{DoxyVerb}
+
+
+\subsubsection*{E\+X\+A\+M\+P\+LE}
+
+\begin{DoxyVerb}Sample program:
+
+ program demo_system_signal
+ use M_system, only : system_signal
+ implicit none
+ logical :: loop=.true.
+ integer, parameter :: SIGINT=2,SIGQUIT=3
+ call system_signal(SIGINT,exitloop)
+ call system_signal(SIGQUIT,quit)
+ write(*,*)'Starting infinite loop. Press Ctrl+C to exit.'
+ do while(loop)
+ enddo
+ write(*,*)'Reporting from outside the infinite loop.'
+ write(*,*)'Starting another loop. Do Ctrl+\ anytime to quit.'
+ loop=.true.
+ call system_signal(2)
+ write(*,*)'Just installed do-nothing handler for SIGINT. Try Ctrl+C to test.'
+ do while(loop)
+ enddo
+ write(*,*)'You should never see this line when running this demo.'
+
+ contains
+
+ subroutine exitloop(signum)
+   integer :: signum
+   write(*,*)'Caught SIGINT. Exiting infinite loop.'
+   loop=.false.
+ end subroutine exitloop
+
+ subroutine quit(signum)
+   integer :: signum
+   STOP 'Caught SIGQUIT. Stopping demo.'
+ end subroutine quit
+ end program demo_system_signal \end{DoxyVerb}
+ 
+
+References f\+\_\+handler(), and handler\+\_\+ptr\+\_\+array.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacem__system_a4a70cade424b9763dedd8cb8c0059e8c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}\label{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}} 
 \index{m\+\_\+system@{m\+\_\+system}!system\+\_\+stat@{system\+\_\+stat}}
 \index{system\+\_\+stat@{system\+\_\+stat}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{system\+\_\+stat()}{system\_stat()}}
@@ -2689,7 +2819,7 @@ Expected output
 
 \subsubsection*{N\+A\+ME}
 
-S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) 
+S\+Y\+S\+T\+E\+M\+\_\+\+S\+T\+AT -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} Get file status information (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+T\+AX}
 
@@ -2825,7 +2955,7 @@ Public Domain \mbox{\Hypertarget{namespacem__system_a3561c9beafec28439f760d701d5
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+unlink(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} remove a directory entry relative to directory file descriptor (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -2941,7 +3071,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \subsubsection*{N\+A\+ME}
 
-system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) 
+system\+\_\+utime(3f) -\/ \mbox{[}M\+\_\+system\+:F\+I\+L\+E\+\_\+\+S\+Y\+S\+T\+EM\mbox{]} set file access and modification times (L\+I\+C\+E\+N\+SE\+:PD) 
 
 \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
 
@@ -3033,7 +3163,8 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{timestamp()}{timestamp()}}
 {\footnotesize\ttfamily integer(kind=8) function m\+\_\+system\+::timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -3085,6 +3216,12 @@ U\+S\+E\+R\+D\+O\+M\+A\+I\+N\+\_\+\+R\+O\+A\+M\+I\+N\+G\+P\+R\+O\+F\+I\+LE=buzz 
 \subsubsection{\texorpdfstring{f\+\_\+ok}{f\_ok}}
 {\footnotesize\ttfamily integer(kind=c\+\_\+int), parameter, public m\+\_\+system\+::f\+\_\+ok =0}
 
+\mbox{\Hypertarget{namespacem__system_a2da68c4639de85352f306b0e39debf77}\label{namespacem__system_a2da68c4639de85352f306b0e39debf77}} 
+\index{m\+\_\+system@{m\+\_\+system}!handler\+\_\+ptr\+\_\+array@{handler\+\_\+ptr\+\_\+array}}
+\index{handler\+\_\+ptr\+\_\+array@{handler\+\_\+ptr\+\_\+array}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{handler\+\_\+ptr\+\_\+array}{handler\_ptr\_array}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structm__system_1_1handler__pointer}{handler\+\_\+pointer}}), dimension(\mbox{\hyperlink{namespacem__system_a4a9ba51ff75a0a6176f31e0562d0a058}{no\+\_\+of\+\_\+signals}}) m\+\_\+system\+::handler\+\_\+ptr\+\_\+array\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{namespacem__system_a6501a3671053239dae9b69b95c0a5f55}\label{namespacem__system_a6501a3671053239dae9b69b95c0a5f55}} 
 \index{m\+\_\+system@{m\+\_\+system}!host\+\_\+name\+\_\+max@{host\+\_\+name\+\_\+max}}
 \index{host\+\_\+name\+\_\+max@{host\+\_\+name\+\_\+max}!m\+\_\+system@{m\+\_\+system}}
@@ -3102,6 +3239,12 @@ U\+S\+E\+R\+D\+O\+M\+A\+I\+N\+\_\+\+R\+O\+A\+M\+I\+N\+G\+P\+R\+O\+F\+I\+LE=buzz 
 \index{mode\+\_\+t@{mode\+\_\+t}!m\+\_\+system@{m\+\_\+system}}
 \subsubsection{\texorpdfstring{mode\+\_\+t}{mode\_t}}
 {\footnotesize\ttfamily integer, parameter, public m\+\_\+system\+::mode\+\_\+t =int32}
+
+\mbox{\Hypertarget{namespacem__system_a4a9ba51ff75a0a6176f31e0562d0a058}\label{namespacem__system_a4a9ba51ff75a0a6176f31e0562d0a058}} 
+\index{m\+\_\+system@{m\+\_\+system}!no\+\_\+of\+\_\+signals@{no\+\_\+of\+\_\+signals}}
+\index{no\+\_\+of\+\_\+signals@{no\+\_\+of\+\_\+signals}!m\+\_\+system@{m\+\_\+system}}
+\subsubsection{\texorpdfstring{no\+\_\+of\+\_\+signals}{no\_of\_signals}}
+{\footnotesize\ttfamily integer, parameter m\+\_\+system\+::no\+\_\+of\+\_\+signals =64\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{namespacem__system_a9f6b88434cd895d01081eead0ec994e9}\label{namespacem__system_a9f6b88434cd895d01081eead0ec994e9}} 
 \index{m\+\_\+system@{m\+\_\+system}!r\+\_\+grp@{r\+\_\+grp}}

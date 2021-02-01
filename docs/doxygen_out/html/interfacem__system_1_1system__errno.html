@@ -75,7 +75,7 @@ $(function() {
 <div class="contents">
 
 <p><h2>NAME</h2>
-system_errno(3f) - [M_system] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+system_errno(3f) - [M_system:ERROR_PROCESSING] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
  
  <a href="interfacem__system_1_1system__errno.html#details">More...</a></p>
 <table class="memberdecls">
@@ -86,13 +86,13 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h2>NAME</h2>
-<p>system_errno(3f) - [M_system] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
+<p>system_errno(3f) - [M_system:ERROR_PROCESSING] C error return value (LICENSE:PD) </p><h2>SYNOPSIS</h2>
 <p>integer(kind=c_int) function <a class="el" href="interfacem__system_1_1system__errno.html#a6450910dca7e89b71a84745d95a52d79">system_errno()</a></p>
 <h2>DESCRIPTION</h2>
 <p>Many C routines return an error code which can be queried by errno. The M_system(3fm) is primarily composed of Fortran routines that call C routines. In the cases where an error code is returned vi system_errno(3f) these routines will indicate it.</p>
 <h2>EXAMPLE</h2>
 <p>Sample program:</p>
-<p>program demo_system_errno use M_system, only : <a class="el" href="interfacem__system_1_1system__errno.html" title="NAMEsystem_errno(3f) - [M_system] C error return value (LICENSE:PD) SYNOPSIS">system_errno</a>, system_unlink, system_perror implicit none integer :: stat stat=system_unlink('not there/OR/anywhere') if(stat.ne.0)then write(*,*)'err=',<a class="el" href="interfacem__system_1_1system__errno.html#a6450910dca7e89b71a84745d95a52d79">system_errno()</a> call system_perror('<em>demo_system_errno</em>') endif end program demo_system_errno</p>
+<p>program demo_system_errno use M_system, only : <a class="el" href="interfacem__system_1_1system__errno.html" title="NAMEsystem_errno(3f) - [M_system:ERROR_PROCESSING] C error return value (LICENSE:PD) SYNOPSIS...">system_errno</a>, system_unlink, system_perror implicit none integer :: stat stat=system_unlink('not there/OR/anywhere') if(stat.ne.0)then write(*,*)'err=',<a class="el" href="interfacem__system_1_1system__errno.html#a6450910dca7e89b71a84745d95a52d79">system_errno()</a> call system_perror('<em>demo_system_errno</em>') endif end program demo_system_errno</p>
 <p>Typical Results:</p>
 <p>err= 2 <em>demo_system_errno</em>: No such file or directory </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

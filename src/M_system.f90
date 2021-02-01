@@ -372,7 +372,7 @@ end interface
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_srand(3f) - [M_system] set seed for pseudo-random number generator system_rand(3f)
+!!    system_srand(3f) - [M_system:PSEUDORANDOM] set seed for pseudo-random number generator system_rand(3f)
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -442,7 +442,7 @@ end interface
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_kill(3f) - [M_system] send a signal to a process or a group of processes
+!!    system_kill(3f) - [M_system:SIGNALS] send a signal to a process or a group of processes
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -565,7 +565,7 @@ end interface
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_errno(3f) - [M_system] C error return value
+!!    system_errno(3f) - [M_system:ERROR_PROCESSING] C error return value
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -963,7 +963,7 @@ end interface
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_rand(3f) - [M_system] call pseudo-random number generator rand(3c)
+!!    system_rand(3f) - [M_system:PSEUDORANDOM] call pseudo-random number generator rand(3c)
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -1137,74 +1137,77 @@ contains
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_signal(3f) - [M_system] install a signal handler
-!!    (LICENSE:PD)
+!!     system_signal(3f) - [M_system:SIGNALS] install a signal handler
+!!     (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!    subroutine system_signal(sig,handler)
 !!
-!!       integer,intent(in) :: sig
-!!       interface
-!!         subroutine handler(signum)
-!!         integer :: signum
-!!         end subroutine handler
-!!       end interface
-!!       optional :: handler
+!!     subroutine system_signal(sig,handler)
+!!
+!!        integer,intent(in) :: sig
+!!        interface
+!!          subroutine handler(signum)
+!!          integer :: signum
+!!          end subroutine handler
+!!        end interface
+!!        optional :: handler
 !!
 !!##DESCRIPTION
 !!
-!!       Calling system_signal(NUMBER, HANDLER) causes user-defined subroutine 
-!!       HANDLER to be executed when the signal NUMBER is caught. The same sub-
-!!       routine HANDLER maybe installed to handle different signals. HANDLER
-!!       takes only one integer argument which is assigned the signal number that
-!!       is caught. See sample program below for illustration.
+!!    Calling system_signal(NUMBER, HANDLER) causes user-defined
+!!    subroutine HANDLER to be executed when the signal NUMBER is
+!!    caught. The same subroutine HANDLER maybe installed to handle
+!!    different signals. HANDLER takes only one integer argument which
+!!    is assigned the signal number that is caught. See sample program
+!!    below for illustration.
 !!
-!!       Calling system_signal(NUMBER) installs a do-nothing handler. This is not
-!!       equivalent to ignoring the signal NUMBER though, because the signal can 
-!!       still interrupt any sleep or idle-wait.
+!!    Calling system_signal(NUMBER) installs a do-nothing handler. This
+!!    is not equivalent to ignoring the signal NUMBER though, because
+!!    the signal can still interrupt any sleep or idle-wait.
 !!
-!!       Note that the signals SIGKILL and SIGSTOP cannot be handled this way.
+!!    Note that the signals SIGKILL and SIGSTOP cannot be handled
+!!    this way.
 !!
-!!       [Compare signal(2) and the GNU extension signal in gfortran.]
-
+!!    [Compare signal(2) and the GNU extension signal in gfortran.]
+!!
 !!##EXAMPLE
 !!
-!!   Sample program:
 !!
-!!    program demo_system_signal
-!!    use M_system, only : system_signal
-!!    implicit none
-!!    logical :: loop=.true.
-!!    integer, parameter :: SIGINT=2,SIGQUIT=3
-!!    call system_signal(SIGINT,exitloop)
-!!    call system_signal(SIGQUIT,quit)
-!!    write(*,*)'Starting infinite loop. Press Ctrl+C to exit.'
-!!    do while(loop)
-!!    enddo
-!!    write(*,*)'Reporting from outside the infinite loop.'
-!!    write(*,*)'Starting another loop. Do Ctrl+\ anytime to quit.'
-!!    loop=.true.
-!!    call system_signal(2)
-!!    write(*,*)'Just installed do-nothing handler for SIGINT. Try Ctrl+C to test.'
-!!    do while(loop)
-!!    enddo
-!!    write(*,*)'You should never see this line when running this demo.'
+!!    Sample program:
 !!
-!!    contains
+!!     program demo_system_signal
+!!     use M_system, only : system_signal
+!!     implicit none
+!!     logical :: loop=.true.
+!!     integer, parameter :: SIGINT=2,SIGQUIT=3
+!!     call system_signal(SIGINT,exitloop)
+!!     call system_signal(SIGQUIT,quit)
+!!     write(*,*)'Starting infinite loop. Press Ctrl+C to exit.'
+!!     do while(loop)
+!!     enddo
+!!     write(*,*)'Reporting from outside the infinite loop.'
+!!     write(*,*)'Starting another loop. Do Ctrl+\ anytime to quit.'
+!!     loop=.true.
+!!     call system_signal(2)
+!!     write(*,*)'Just installed do-nothing handler for SIGINT. Try Ctrl+C to test.'
+!!     do while(loop)
+!!     enddo
+!!     write(*,*)'You should never see this line when running this demo.'
 !!
-!!    subroutine exitloop(signum)
-!!      integer :: signum
-!!      write(*,*)'Caught SIGINT. Exiting infinite loop.'
-!!      loop=.false.
-!!    end subroutine exitloop
+!!     contains
 !!
-!!    subroutine quit(signum)
-!!      integer :: signum
-!!      STOP 'Caught SIGQUIT. Stopping demo.'
-!!    end subroutine quit
-!!    end program demo_system_signal
-
+!!     subroutine exitloop(signum)
+!!       integer :: signum
+!!       write(*,*)'Caught SIGINT. Exiting infinite loop.'
+!!       loop=.false.
+!!     end subroutine exitloop
+!!
+!!     subroutine quit(signum)
+!!       integer :: signum
+!!       STOP 'Caught SIGQUIT. Stopping demo.'
+!!     end subroutine quit
+!!     end program demo_system_signal
 subroutine system_signal(signum,handler_routine)
 integer, intent(in) :: signum
 procedure(handler), optional :: handler_routine
@@ -1212,7 +1215,7 @@ type(c_funptr) :: ret,c_handler
 
 interface
    function c_signal(signal, sighandler) bind(c,name='signal')
-   import :: c_int,c_funptr 
+   import :: c_int,c_funptr
    integer(c_int), value, intent(in) :: signal
    type(c_funptr), value, intent(in) :: sighandler
    type(c_funptr) :: c_signal
@@ -1237,7 +1240,7 @@ end subroutine f_handler
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_access(3f) - [M_system] checks accessibility or existence of a pathname
+!!    system_access(3f) - [M_system:QUERY_FILE] checks accessibility or existence of a pathname
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1284,7 +1287,7 @@ end subroutine f_handler
 !!           do i=1,size(names)
 !!              write(*,*)' does ',trim(names(i)),' exist?    ', system_access(names(i),F_OK)
 !!              write(*,*)' is ',trim(names(i)),' readable?     ', system_access(names(i),R_OK)
-!!              write(*,*)' is ',trim(names(i)),' writeable?    ', system_access(names(i),W_OK)
+!!              write(*,*)' is ',trim(names(i)),' writable?     ', system_access(names(i),W_OK)
 !!              write(*,*)' is ',trim(names(i)),' executable?   ', system_access(names(i),X_OK)
 !!           enddo
 !!           end program demo_system_access
@@ -1321,7 +1324,7 @@ end function system_access
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_utime(3f) - [M_system] set file access and modification times
+!!        system_utime(3f) - [M_system:FILE_SYSTEM] set file access and modification times
 !!        (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1473,7 +1476,7 @@ end function timestamp
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_realpath(3f) - [M_system] call realpath(3c) to resolve a pathname
+!!       system_realpath(3f) - [M_system:FILE_SYSTEM] call realpath(3c) to resolve a pathname
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -1566,7 +1569,7 @@ end function system_realpath
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_issock(3f) - [M_system] checks if argument is a socket
+!!    system_issock(3f) - [M_system:QUERY_FILE] checks if argument is a socket
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1639,7 +1642,7 @@ end function system_issock
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_isfifo(3f) - [M_system] checks if argument is a fifo - named pipe
+!!    system_isfifo(3f) - [M_system:QUERY_FILE] checks if argument is a fifo - named pipe
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1712,7 +1715,7 @@ end function system_isfifo
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_ischr(3f) - [M_system] checks if argument is a character device
+!!    system_ischr(3f) - [M_system:QUERY_FILE] checks if argument is a character device
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1787,7 +1790,7 @@ end function system_ischr
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_isreg(3f) - [M_system] checks if argument is a regular file
+!!    system_isreg(3f) - [M_system:QUERY_FILE] checks if argument is a regular file
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1879,7 +1882,7 @@ end function system_isreg
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_islnk(3f) - [M_system] checks if argument is a link
+!!    system_islnk(3f) - [M_system:QUERY_FILE] checks if argument is a link
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -1957,7 +1960,7 @@ end function system_islnk
 !===================================================================================================================================
 !>
 !!##NAME
-!! system_isblk(3f) - [M_system] checks if argument is a block device
+!! system_isblk(3f) - [M_system:QUERY_FILE] checks if argument is a block device
 !! (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -2032,7 +2035,7 @@ end function system_isblk
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_isdir(3f) - [M_system] checks if argument is a directory path
+!!    system_isdir(3f) - [M_system:QUERY_FILE] checks if argument is a directory path
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -2131,7 +2134,7 @@ end function system_isdir
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_chown(3f) - [M_system] change file owner and group
+!!    system_chown(3f) - [M_system:FILE_SYSTEM] change file owner and group
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -2305,7 +2308,8 @@ end subroutine system_cpu_time
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_link(3f) - [M_system] link one file to another file relative to two directory file descriptors
+!!        system_link(3f) - [M_system:FILE_SYSTEM] link one file to another
+!!                          file relative to two directory file descriptors
 !!        (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -2316,54 +2320,73 @@ end subroutine system_cpu_time
 !!     character(len=*),intent(in) :: newpath
 !!
 !!##DESCRIPTION
-!!        The link() function shall create a new link (directory entry) for the existing file, path1.
+!!        The link() function shall create a new link (directory entry)
+!!        for the existing file, path1.
 !!
-!!        The path1 argument points to a pathname naming an existing file. The path2 argument points to a pathname naming the new
-!!        directory entry to be created. The link() function shall atomically create a new link for the existing file and the link
+!!        The path1 argument points to a pathname naming an existing
+!!        file. The path2 argument points to a pathname naming the
+!!        new directory entry to be created. The link() function shall
+!!        atomically create a new link for the existing file and the link
 !!        count of the file shall be incremented by one.
 !!
-!!        If path1 names a directory, link() shall fail unless the process has appropriate privileges and the implementation
-!!        supports
-!!        using link() on directories.
+!!        If path1 names a directory, link() shall fail unless the process
+!!        has appropriate privileges and the implementation supports using
+!!        link() on directories.
 !!
-!!        If path1 names a symbolic link, it is implementation-defined whether link() follows the symbolic link, or creates a new
-!!        link to the symbolic link itself.
+!!        If path1 names a symbolic link, it is implementation-defined
+!!        whether link() follows the symbolic link, or creates a new link
+!!        to the symbolic link itself.
 !!
-!!        Upon successful completion, link() shall mark for update the last file status change timestamp of the file. Also, the
-!!        last data modification and last file status change timestamps of the directory that contains the new entry shall be
-!!        marked for update.
+!!        Upon successful completion, link() shall mark for update the
+!!        last file status change timestamp of the file. Also, the last
+!!        data modification and last file status change timestamps of the
+!!        directory that contains the new entry shall be marked for update.
 !!
-!!        If link() fails, no link shall be created and the link count of the file shall remain unchanged.
+!!        If link() fails, no link shall be created and the link count of
+!!        the file shall remain unchanged.
 !!
-!!        The implementation may require that the calling process has permission to access the existing file.
+!!        The implementation may require that the calling process has
+!!        permission to access the existing file.
 !!
-!!        The linkat() function shall be equivalent to the link() function except that symbolic links shall be handled as specified
-!!        by the value of flag (see below) and except in the case where either path1 or path2 or both are relative paths. In this
-!!        case a relative path path1 is interpreted relative to the directory associated with the file descriptor fd1 instead of
-!!        the current working directory and similarly for path2 and the file descriptor fd2. If the file descriptor was opened
-!!        without O_SEARCH, the function shall check whether directory searches are permitted using the current permissions of the
-!!        directory underlying the file descriptor. If the file descriptor was opened with O_SEARCH, the function shall not perform
-!!        the check.
+!!        The linkat() function shall be equivalent to the link() function
+!!        except that symbolic links shall be handled as specified by the
+!!        value of flag (see below) and except in the case where either path1
+!!        or path2 or both are relative paths. In this case a relative path
+!!        path1 is interpreted relative to the directory associated with
+!!        the file descriptor fd1 instead of the current working directory
+!!        and similarly for path2 and the file descriptor fd2. If the
+!!        file descriptor was opened without O_SEARCH, the function shall
+!!        check whether directory searches are permitted using the current
+!!        permissions of the directory underlying the file descriptor. If
+!!        the file descriptor was opened with O_SEARCH, the function shall
+!!        not perform the check.
 !!
-!!        Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in <fcntl.h>:
+!!        Values for flag are constructed by a bitwise-inclusive OR of
+!!        flags from the following list, defined in <fcntl.h>:
 !!
 !!        AT_SYMLINK_FOLLOW
-!!              If path1 names a symbolic link, a new link for the target of the symbolic link is created.
+!!              If path1 names a symbolic link, a new link for the target
+!!              of the symbolic link is created.
 !!
-!!        If linkat() is passed the special value AT_FDCWD in the fd1 or fd2 parameter, the current working directory shall be used
-!!        for the respective path argument. If both fd1 and fd2 have value AT_FDCWD, the behavior shall be identical to a call to
-!!        link(), except that symbolic links shall be handled as specified by the value of flag.
+!!        If linkat() is passed the special value AT_FDCWD in the fd1 or
+!!        fd2 parameter, the current working directory shall be used for the
+!!        respective path argument. If both fd1 and fd2 have value AT_FDCWD,
+!!        the behavior shall be identical to a call to link(), except that
+!!        symbolic links shall be handled as specified by the value of flag.
 !!
 !!        Some implementations do allow links between file systems.
 !!
-!!        If path1 refers to a symbolic link, application developers should use linkat() with appropriate flags to select whether
-!!        or not the symbolic link should be resolved.
+!!        If path1 refers to a symbolic link, application developers should
+!!        use linkat() with appropriate flags to select whether or not the
+!!        symbolic link should be resolved.
 !!
-!!        If the AT_SYMLINK_FOLLOW flag is clear in the flag argument and the path1 argument names a symbolic link, a new link is
-!!        created for the symbolic link path1 and not its target.
+!!        If the AT_SYMLINK_FOLLOW flag is clear in the flag argument and
+!!        the path1 argument names a symbolic link, a new link is created
+!!        for the symbolic link path1 and not its target.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion, these functions shall return 0. Otherwise, these functions shall return -1 and set errno to
+!!        Upon successful completion, these functions shall return
+!!        0. Otherwise, these functions shall return -1 and set errno to
 !!        indicate the error.
 !!
 !!##EXAMPLES
@@ -2405,7 +2428,8 @@ end function system_link
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_unlink(3f) - [M_system] remove a directory entry relative to directory file descriptor
+!!        system_unlink(3f) - [M_system:FILE_SYSTEM] remove a directory
+!!        entry relative to directory file descriptor
 !!        (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -2485,7 +2509,7 @@ end function system_unlink
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_setumask(3f) - [M_system] set the file mode creation umask
+!!    system_setumask(3f) - [M_system:FILE_SYSTEM] set the file mode creation umask
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2558,7 +2582,7 @@ end function system_setumask
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_getumask(3f) - [M_system] get current umask
+!!    system_getumask(3f) - [M_system:QUERY_FILE] get current umask
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2599,7 +2623,7 @@ end function system_getumask
 !===================================================================================================================================
 !>
 !!##NAME
-!!      perror(3f) - [M_system] print error message for last C error on stderr
+!!      perror(3f) - [M_system:ERROR_PROCESSING] print error message for last C error on stderr
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2662,7 +2686,7 @@ end subroutine system_perror
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_chdir(3f) - [M_system] call chdir(3c) from Fortran to change working directory
+!!    system_chdir(3f) - [M_system_FILE_SYSTEM] call chdir(3c) from Fortran to change working directory
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2749,7 +2773,7 @@ end subroutine system_chdir
 !===================================================================================================================================
 !>
 !!##NAME
-!!      system_remove(3f) - [M_system] call remove(3c) to remove file
+!!      system_remove(3f) - [M_system_FILE_SYSTEM] call remove(3c) to remove file
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2835,7 +2859,7 @@ end function system_remove
 !===================================================================================================================================
 !>
 !!##NAME
-!!      system_rename(3f) - [M_system] call rename(3c) to rename a system file
+!!      system_rename(3f) - [M_system_FILE_SYSTEM] call rename(3c) to rename a system file
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -2941,7 +2965,8 @@ end function system_rename
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_chmod(3f) - [M_system] call chmod(3c) to change permission mode of a file relative to directory file descriptor
+!!       system_chmod(3f) - [M_system_FILE_SYSTEM] call chmod(3c) to change
+!!       permission mode of a file relative to directory file descriptor
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3064,7 +3089,7 @@ end function system_chmod
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_getcwd(3f) - [M_system] call getcwd(3c) to get the pathname of the current working directory
+!!       system_getcwd(3f) - [M_system:QUERY_FILE] call getcwd(3c) to get the pathname of the current working directory
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3135,7 +3160,7 @@ end subroutine system_getcwd
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_rmdir(3f) - [M_system] call rmdir(3c) to remove empty directories
+!!       system_rmdir(3f) - [M_system:FILE_SYSTEM] call rmdir(3c) to remove empty directories
 !!       (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -3209,7 +3234,7 @@ end function system_rmdir
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_mkfifo(3f)  - [M_system] make a FIFO special file relative to directory file descriptor
+!!        system_mkfifo(3f)  - [M_system:FILE_SYSTEM] make a FIFO special file relative to directory file descriptor
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3349,7 +3374,7 @@ end function system_mkfifo
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_mkdir(3f) - [M_system] call mkdir(3c) to create a new directory
+!!        system_mkdir(3f) - [M_system:FILE_SYSTEM] call mkdir(3c) to create a new directory
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3445,7 +3470,7 @@ end function system_mkdir
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_opendir(3f) - [M_system] open directory stream by calling opendir(3c)
+!!    system_opendir(3f) - [M_system:QUERY_FILE] open directory stream by calling opendir(3c)
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3556,7 +3581,7 @@ end subroutine system_opendir
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_readdir(3f) - [M_system] read a directory using readdir(3c)
+!!    system_readdir(3f) - [M_system:QUERY_FILE] read a directory using readdir(3c)
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3660,7 +3685,7 @@ end subroutine system_readdir
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_rewinddir(3f) - [M_system] call rewinddir(3c) to rewind directory stream
+!!       system_rewinddir(3f) - [M_system:QUERY_FILE] call rewinddir(3c) to rewind directory stream
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -3726,7 +3751,7 @@ end subroutine system_rewinddir
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_closedir(3f) - [M_system] close a directory stream by calling closedir(3c)
+!!        system_closedir(3f) - [M_system:QUERY_FILE] close a directory stream by calling closedir(3c)
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
@@ -4307,7 +4332,7 @@ end function system_readenv
 !===================================================================================================================================
 !>
 !!##NAME
-!!   fileglob(3f) - [M_system] Read output of an ls(1) command from Fortran
+!!   fileglob(3f) - [M_system:QUERY_FILE] Read output of an ls(1) command from Fortran
 !!   (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -4611,7 +4636,7 @@ end function system_getlogin
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_perm(3f) - [M_system] get file type and permission as a string
+!!    system_perm(3f) - [M_system:QUERY_FILE] get file type and permission as a string
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
@@ -4917,7 +4942,7 @@ end function C2F_string
 !===================================================================================================================================
 !>
 !!##NAME
-!!    SYSTEM_STAT - [M_system] Get file status information
+!!    SYSTEM_STAT - [M_system:QUERY_FILE] Get file status information
 !!    (LICENSE:PD)
 !!
 !!##SYNTAX

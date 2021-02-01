@@ -33,7 +33,7 @@
 !!    system_gethostname, system_getpid, system_getppid, system_setsid, &
 !!    system_getsid, system_getuid, system_uname
 !!    ! SIGNALS
-!!    use M_system, only : system_kill
+!!    use M_system, only : system_kill,system_signal
 !!    ! RANDOM NUMBERS
 !!    use M_system, only : system_rand, system_srand
 !!    ! PROCESS INFORMATION
@@ -165,6 +165,7 @@ public :: system_getgid, system_getegid  ! return group ID
 public :: system_setsid
 public :: system_getsid
 public :: system_kill                    ! (pid, signal) kill process (defaults: pid=0, signal=SIGTERM)
+public :: system_signal                  ! (signal,[handler]) install signal handler subroutine
 
 public :: system_errno
 public :: system_perror
@@ -1117,7 +1118,120 @@ integer(kind=c_int),parameter           :: R_OK=4
 integer(kind=c_int),parameter           :: W_OK=2
 integer(kind=c_int),parameter           :: X_OK=1
 !===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+abstract interface                       !  mold for signal handler to be installed by system_signal
+   subroutine handler(signum)
+   integer :: signum
+   end subroutine handler
+end interface
+type handler_pointer
+    procedure(handler), pointer, nopass :: sub
+end type handler_pointer
+integer, parameter :: no_of_signals=64   !  obtained with command: kill -l
+type(handler_pointer), dimension(no_of_signals) :: handler_ptr_array
+!===================================================================================================================================
 contains
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+!>
+!!##NAME
+!!    system_signal(3f) - [M_system] install a signal handler
+!!    (LICENSE:PD)
+!!
+!!##SYNOPSIS
+!!
+!!    subroutine system_signal(sig,handler)
+!!
+!!       integer,intent(in) :: sig
+!!       interface
+!!         subroutine handler(signum)
+!!         integer :: signum
+!!         end subroutine handler
+!!       end interface
+!!       optional :: handler
+!!
+!!##DESCRIPTION
+!!
+!!       Calling system_signal(NUMBER, HANDLER) causes user-defined subroutine 
+!!       HANDLER to be executed when the signal NUMBER is caught. The same sub-
+!!       routine HANDLER maybe installed to handle different signals. HANDLER
+!!       takes only one integer argument which is assigned the signal number that
+!!       is caught. See sample program below for illustration.
+!!
+!!       Calling system_signal(NUMBER) installs a do-nothing handler. This is not
+!!       equivalent to ignoring the signal NUMBER though, because the signal can 
+!!       still interrupt any sleep or idle-wait.
+!!
+!!       Note that the signals SIGKILL and SIGSTOP cannot be handled this way.
+!!
+!!       [Compare signal(2) and the GNU extension signal in gfortran.]
+
+!!##EXAMPLE
+!!
+!!   Sample program:
+!!
+!!    program demo_system_signal
+!!    use M_system, only : system_signal
+!!    implicit none
+!!    logical :: loop=.true.
+!!    integer, parameter :: SIGINT=2,SIGQUIT=3
+!!    call system_signal(SIGINT,exitloop)
+!!    call system_signal(SIGQUIT,quit)
+!!    write(*,*)'Starting infinite loop. Press Ctrl+C to exit.'
+!!    do while(loop)
+!!    enddo
+!!    write(*,*)'Reporting from outside the infinite loop.'
+!!    write(*,*)'Starting another loop. Do Ctrl+\ anytime to quit.'
+!!    loop=.true.
+!!    call system_signal(2)
+!!    write(*,*)'Just installed do-nothing handler for SIGINT. Try Ctrl+C to test.'
+!!    do while(loop)
+!!    enddo
+!!    write(*,*)'You should never see this line when running this demo.'
+!!
+!!    contains
+!!
+!!    subroutine exitloop(signum)
+!!      integer :: signum
+!!      write(*,*)'Caught SIGINT. Exiting infinite loop.'
+!!      loop=.false.
+!!    end subroutine exitloop
+!!
+!!    subroutine quit(signum)
+!!      integer :: signum
+!!      STOP 'Caught SIGQUIT. Stopping demo.'
+!!    end subroutine quit
+!!    end program demo_system_signal
+
+subroutine system_signal(signum,handler_routine)
+integer, intent(in) :: signum
+procedure(handler), optional :: handler_routine
+type(c_funptr) :: ret,c_handler
+
+interface
+   function c_signal(signal, sighandler) bind(c,name='signal')
+   import :: c_int,c_funptr 
+   integer(c_int), value, intent(in) :: signal
+   type(c_funptr), value, intent(in) :: sighandler
+   type(c_funptr) :: c_signal
+   end function c_signal
+end interface
+
+if(present(handler_routine))then
+    handler_ptr_array(signum)%sub => handler_routine
+else
+    handler_ptr_array(signum)%sub => null(handler_ptr_array(signum)%sub)
+endif
+c_handler=c_funloc(f_handler)
+ret=c_signal(signum,c_handler)
+end subroutine system_signal
+
+subroutine f_handler(signum) bind(c)
+integer(c_int), intent(in), value :: signum
+    if(associated(handler_ptr_array(signum)%sub))call handler_ptr_array(signum)%sub(signum)
+end subroutine f_handler
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================

@@ -1228,7 +1228,8 @@ end interface
 if(present(handler_routine))then
     handler_ptr_array(signum)%sub => handler_routine
 else
-    handler_ptr_array(signum)%sub => null(handler_ptr_array(signum)%sub)
+    !!handler_ptr_array(signum)%sub => null(handler_ptr_array(signum)%sub)
+    handler_ptr_array(signum)%sub => null()
 endif
 c_handler=c_funloc(f_handler)
 ret=c_signal(signum,c_handler)

@@ -6,6 +6,9 @@ author = "John S. Urban"
 maintainer = "urbanjost@comcast.net"
 copyright = "2020 John S. Urban"
 description = "(mostly)POSIX system routine interface"
+categories = ["POSIX", "system"]
+keywords = ["fortran", "system interface"]
+homepage = "https://github.com/urbanjost/M_system.git"
 
 [build]
 auto-executables = false

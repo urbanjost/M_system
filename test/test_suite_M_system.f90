@@ -1065,8 +1065,8 @@ integer                      :: i
 integer                      :: j
 integer                      :: ierr
    call unit_check_start('system_rewinddir',msg='')
-   call system_opendir('.',dir,ierr)                   !>>> open directory stream to read from
-   do i=1,2                                            !>>> read directory stream twice
+   call system_opendir('.',dir,ierr)                   ! open directory stream to read from
+   do i=1,2                                            ! read directory stream twice
       j=0
       do
          call system_readdir(dir,filename,ierr)
@@ -1074,9 +1074,9 @@ integer                      :: ierr
          j=j+1
       enddo
       sum(i)=j
-      call system_rewinddir(dir)                       !>>> rewind directory stream
+      call system_rewinddir(dir)                       ! rewind directory stream
    enddo
-   call system_closedir(dir,ierr)                      !>>> close directory stream
+   call system_closedir(dir,ierr)                      ! close directory stream
    call unit_check('system_rewinddir', sum(1).eq.sum(2), 'number of files','PASS 1:',sum(1),'PASS 2:',sum(2))
    call unit_check_done('system_rewinddir',msg='')
 end subroutine test_system_rewinddir

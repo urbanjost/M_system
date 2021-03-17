@@ -79,6 +79,7 @@ CFLAGS := -O
 FC := gfortran
 FFLAGS := -O
 LDFLAGS := -Wl,--allow-multiple-definition
+LDFLAGS := 
 # 
 # You can either ignore it, or disable the "may be used uninitialized"
 # warnings with -Wno-maybe-uninitialized or compile with optimizations

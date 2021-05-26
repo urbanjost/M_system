@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['only',['only',['../new_8txt.html#a71e978da25ecbfe53bd64adc84698ae2',1,'new.txt']]]
+  ['pointer_336',['pointer',['../new_8txt.html#a383abebb795558d146c68d571fb67ee9',1,'new.txt']]]
 ];

@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['c_2dm_5fsystem_2ec',['C-M_system.c',['../C-M__system_8c.html',1,'']]],
-  ['c2f_5fstring',['c2f_string',['../namespacem__system.html#aa7c5445619aa15cd2301fe17f7c3b73c',1,'m_system']]],
-  ['c_5fflush',['c_flush',['../interfacem__system_1_1c__flush.html',1,'m_system::c_flush'],['../interfacem__system_1_1c__flush.html#a617b08895c68af8e223aa02cf3a1e30f',1,'m_system::c_flush::c_flush()']]]
+  ['d_5fino_6',['d_ino',['../structm__system_1_1dirent__systema.html#af056795fe78ea5cd27c6763f6136a2ac',1,'m_system::dirent_systema::d_ino()'],['../structm__system_1_1dirent__cygwin.html#aaba36e38344bc1aa3da128a142fecd13',1,'m_system::dirent_cygwin::d_ino()']]],
+  ['d_5finternal1_7',['d_internal1',['../structm__system_1_1dirent__cygwin.html#a87c389181b48af24ef039be0d3ef110d',1,'m_system::dirent_cygwin']]],
+  ['d_5fname_8',['d_name',['../structm__system_1_1dirent__systema.html#a295bfaa44b4193abef0be4980394a0a3',1,'m_system::dirent_systema::d_name()'],['../structm__system_1_1dirent__cygwin.html#ae793965c099bb7d8ef2d753e1fb1108a',1,'m_system::dirent_cygwin::d_name()']]],
+  ['d_5foff_9',['d_off',['../structm__system_1_1dirent__systema.html#a4f317f4bd63c3aeca25f5f6df681a7d3',1,'m_system::dirent_systema']]],
+  ['d_5freclen_10',['d_reclen',['../structm__system_1_1dirent__systema.html#a74c3e2cb9fd26444b7c7837d4ce69baf',1,'m_system::dirent_systema']]],
+  ['d_5ftype_11',['d_type',['../structm__system_1_1dirent__cygwin.html#a416199c581f2d978d4ff238ae11de028',1,'m_system::dirent_cygwin']]],
+  ['d_5funused1_12',['d_unused1',['../structm__system_1_1dirent__cygwin.html#ae193da2503dd1c4368b288bfb2677369',1,'m_system::dirent_cygwin']]],
+  ['d_5fversion_13',['d_version',['../structm__system_1_1dirent__cygwin.html#a406355db287a68f3939379a9e2337484',1,'m_system::dirent_cygwin']]],
+  ['deffilemode_14',['deffilemode',['../namespacem__system.html#aa717905c14f48e05ae4c576ff4ab14c6',1,'m_system']]],
+  ['dirent_5fcygwin_15',['dirent_cygwin',['../structm__system_1_1dirent__cygwin.html',1,'m_system']]],
+  ['dirent_5fsystema_16',['dirent_systema',['../structm__system_1_1dirent__systema.html',1,'m_system']]]
 ];

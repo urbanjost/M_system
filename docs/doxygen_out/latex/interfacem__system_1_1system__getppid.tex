@@ -1,52 +1,32 @@
-\hypertarget{interfacem__system_1_1system__getppid}{}\section{m\+\_\+system\+:\+:system\+\_\+getppid Interface Reference}
-\label{interfacem__system_1_1system__getppid}\index{m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}}
-
-
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
-
-
-\subsection*{Private Member Functions}
+\hypertarget{interfacem__system_1_1system__getppid}{}\doxysection{m\+\_\+system\+::system\+\_\+getppid Interface Reference}
+\label{interfacem__system_1_1system__getppid}\index{m\_system::system\_getppid@{m\_system::system\_getppid}}
+\doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid}} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
-
-integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
-
-The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function returns the parent process ID of the calling process.
-
-\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
-
-The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function should always be successful and no return value is reserved to indicate an error.
-
-\subsubsection*{E\+R\+R\+O\+RS}
-
-No errors are defined.
-
-\subsubsection*{S\+EE A\+L\+SO}
-
-exec, fork(), getpgid(), getpgrp(), getpid(), kill(), setpgid(), setsid()
-
-\subsubsection*{E\+X\+A\+M\+P\+LE}
-
+\doxysubsection{Detailed Description}
+\hypertarget{interfacem__system_1_1system__getppid_autotoc_md65}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getppid_autotoc_md65}
+system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getppid_autotoc_md66}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getppid_autotoc_md66}
+\begin{DoxyVerb}integer(kind=c_int) function system_getppid()
+\end{DoxyVerb}
+ \hypertarget{interfacem__system_1_1system__getppid_autotoc_md67}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getppid_autotoc_md67}
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function returns the parent process ID of the calling process.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md68}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getppid_autotoc_md68}
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md69}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getppid_autotoc_md69}
+No errors are defined.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md70}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getppid_autotoc_md70}
+exec, fork(), getpgid(), getpgrp(), getpid(), kill(), setpgid(), setsid()\hypertarget{interfacem__system_1_1system__getppid_autotoc_md71}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getppid_autotoc_md71}
 Get parent process P\+ID (P\+P\+ID) from Fortran
 
 program demo\+\_\+system\+\_\+getppid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}} implicit none write($\ast$,$\ast$)\textquotesingle{}P\+P\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} end program demo\+\_\+system\+\_\+getppid 
 
-\subsection{Constructor \& Destructor Documentation}
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}\label{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}} 
-\index{m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}!system\+\_\+getppid@{system\+\_\+getppid}}
-\index{system\+\_\+getppid@{system\+\_\+getppid}!m\+\_\+system\+::system\+\_\+getppid@{m\+\_\+system\+::system\+\_\+getppid}}
-\subsubsection{\texorpdfstring{system\+\_\+getppid()}{system\_getppid()}}
-{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getppid\+::system\+\_\+getppid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\index{m\_system::system\_getppid@{m\_system::system\_getppid}!system\_getppid@{system\_getppid}}
+\index{system\_getppid@{system\_getppid}!m\_system::system\_getppid@{m\_system::system\_getppid}}
+\doxysubsubsection{\texorpdfstring{system\_getppid()}{system\_getppid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getppid\+::system\+\_\+getppid\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

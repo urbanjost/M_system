@@ -1,4 +1,5 @@
 <map id="m_system::timestamp" name="m_system::timestamp">
-<area shape="rect" id="node2" href="$namespacem__system.html#a83a121ba0b525210b5217565569ef350" title="NAMEsystem_utime(3f) &#45; [M_system:FILE_SYSTEM] set file access and modification times (LICENSE:PD) ..." alt="" coords="223,5,413,32"/>
-<area shape="rect" id="node3" href="$namespacem__system.html#a79656f76ad75168302e0d770052e901e" title="NAMEfileglob(3f) &#45; [M_system:QUERY_FILE] Read output of an ls(1) command from Fortran (LICENSE:PD) ..." alt="" coords="245,56,391,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="244,31,413,57"/>
+<area shape="rect" id="node2" href="$namespacem__system.html#a79656f76ad75168302e0d770052e901e" title=" " alt="" coords="27,5,174,32"/>
+<area shape="rect" id="node3" href="$namespacem__system.html#a83a121ba0b525210b5217565569ef350" title=" " alt="" coords="5,56,196,83"/>
 </map>

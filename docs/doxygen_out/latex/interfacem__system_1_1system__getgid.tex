@@ -1,52 +1,32 @@
-\hypertarget{interfacem__system_1_1system__getgid}{}\section{m\+\_\+system\+:\+:system\+\_\+getgid Interface Reference}
-\label{interfacem__system_1_1system__getgid}\index{m\+\_\+system\+::system\+\_\+getgid@{m\+\_\+system\+::system\+\_\+getgid}}
-
-
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getgid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the real group ID (G\+ID) of current process from Fortran by calling getgid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
-
-
-\subsection*{Private Member Functions}
+\hypertarget{interfacem__system_1_1system__getgid}{}\doxysection{m\+\_\+system\+::system\+\_\+getgid Interface Reference}
+\label{interfacem__system_1_1system__getgid}\index{m\_system::system\_getgid@{m\_system::system\_getgid}}
+\doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getgid_aa1f2ceda993e2f36bf0cdc9cf28ea1d3}{system\+\_\+getgid}} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getgid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the real group ID (G\+ID) of current process from Fortran by calling getgid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
-
-integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getgid_aa1f2ceda993e2f36bf0cdc9cf28ea1d3}{system\+\_\+getgid()}} \subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
-
-The getgid() function returns the real group ID of the calling process.
-
-\subsubsection*{R\+E\+T\+U\+RN V\+A\+L\+UE}
-
-The getgid() should always be successful and no return value is reserved to indicate an error.
-
-\subsubsection*{E\+R\+R\+O\+RS}
-
-No errors are defined.
-
-\subsubsection*{S\+EE A\+L\+SO}
-
-getegid(), system\+\_\+geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()
-
-\subsubsection*{E\+X\+A\+M\+P\+LE}
-
+\doxysubsection{Detailed Description}
+\hypertarget{interfacem__system_1_1system__getgid_autotoc_md42}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getgid_autotoc_md42}
+system\+\_\+getgid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the real group ID (G\+ID) of current process from Fortran by calling getgid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getgid_autotoc_md43}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getgid_autotoc_md43}
+\begin{DoxyVerb}integer(kind=c_int) function system_getgid()
+\end{DoxyVerb}
+ \hypertarget{interfacem__system_1_1system__getgid_autotoc_md44}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getgid_autotoc_md44}
+The getgid() function returns the real group ID of the calling process.\hypertarget{interfacem__system_1_1system__getgid_autotoc_md45}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getgid_autotoc_md45}
+The getgid() should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getgid_autotoc_md46}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getgid_autotoc_md46}
+No errors are defined.\hypertarget{interfacem__system_1_1system__getgid_autotoc_md47}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getgid_autotoc_md47}
+getegid(), system\+\_\+geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()\hypertarget{interfacem__system_1_1system__getgid_autotoc_md48}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getgid_autotoc_md48}
 Get group ID from Fortran
 
 program demo\+\_\+system\+\_\+getgid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getgid}{system\+\_\+getgid}} implicit none write($\ast$,$\ast$)\textquotesingle{}G\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getgid_aa1f2ceda993e2f36bf0cdc9cf28ea1d3}{system\+\_\+getgid()}} end program demo\+\_\+system\+\_\+getgid 
 
-\subsection{Constructor \& Destructor Documentation}
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{interfacem__system_1_1system__getgid_aa1f2ceda993e2f36bf0cdc9cf28ea1d3}\label{interfacem__system_1_1system__getgid_aa1f2ceda993e2f36bf0cdc9cf28ea1d3}} 
-\index{m\+\_\+system\+::system\+\_\+getgid@{m\+\_\+system\+::system\+\_\+getgid}!system\+\_\+getgid@{system\+\_\+getgid}}
-\index{system\+\_\+getgid@{system\+\_\+getgid}!m\+\_\+system\+::system\+\_\+getgid@{m\+\_\+system\+::system\+\_\+getgid}}
-\subsubsection{\texorpdfstring{system\+\_\+getgid()}{system\_getgid()}}
-{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getgid\+::system\+\_\+getgid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\index{m\_system::system\_getgid@{m\_system::system\_getgid}!system\_getgid@{system\_getgid}}
+\index{system\_getgid@{system\_getgid}!m\_system::system\_getgid@{m\_system::system\_getgid}}
+\doxysubsubsection{\texorpdfstring{system\_getgid()}{system\_getgid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getgid\+::system\+\_\+getgid\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

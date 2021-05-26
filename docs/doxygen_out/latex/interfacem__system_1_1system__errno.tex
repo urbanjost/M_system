@@ -1,46 +1,33 @@
-\hypertarget{interfacem__system_1_1system__errno}{}\section{m\+\_\+system\+:\+:system\+\_\+errno Interface Reference}
-\label{interfacem__system_1_1system__errno}\index{m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}}
-
-
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
-
-
-\subsection*{Private Member Functions}
+\hypertarget{interfacem__system_1_1system__errno}{}\doxysection{m\+\_\+system\+::system\+\_\+errno Interface Reference}
+\label{interfacem__system_1_1system__errno}\index{m\_system::system\_errno@{m\_system::system\_errno}}
+\doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno}} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
-
-integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno()}}
-
-\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
-
-Many C routines return an error code which can be queried by errno. The M\+\_\+system(3fm) is primarily composed of Fortran routines that call C routines. In the cases where an error code is returned vi system\+\_\+errno(3f) these routines will indicate it.
-
-\subsubsection*{E\+X\+A\+M\+P\+LE}
-
+\doxysubsection{Detailed Description}
+\hypertarget{interfacem__system_1_1system__errno_autotoc_md23}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__errno_autotoc_md23}
+system\+\_\+errno(3f) -\/ \mbox{[}M\+\_\+system\+:E\+R\+R\+O\+R\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG\mbox{]} C error return value (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__errno_autotoc_md24}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__errno_autotoc_md24}
+\begin{DoxyVerb}integer(kind=c_int) function system_errno()
+\end{DoxyVerb}
+\hypertarget{interfacem__system_1_1system__errno_autotoc_md25}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__errno_autotoc_md25}
+Many C routines return an error code which can be queried by errno. The M\+\_\+system(3fm) is primarily composed of Fortran routines that call C routines. In the cases where an error code is returned vi system\+\_\+errno(3f) these routines will indicate it.\hypertarget{interfacem__system_1_1system__errno_autotoc_md26}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__errno_autotoc_md26}
 Sample program\+:
 
-program demo\+\_\+system\+\_\+errno use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+unlink, system\+\_\+perror implicit none integer \+:\+: stat stat=system\+\_\+unlink(\textquotesingle{}not there/\+O\+R/anywhere\textquotesingle{}) if(stat.\+ne.\+0)then write($\ast$,$\ast$)\textquotesingle{}err=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno()}} call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+errno}\textquotesingle{}) endif end program demo\+\_\+system\+\_\+errno
+program demo\+\_\+system\+\_\+errno use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__errno}{system\+\_\+errno}}, system\+\_\+unlink, system\+\_\+perror implicit none integer \+:: stat stat=system\+\_\+unlink(\textquotesingle{}not there/\+O\+R/anywhere\textquotesingle{}) if(stat.\+ne.\+0)then write($\ast$,$\ast$)\textquotesingle{}err=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}{system\+\_\+errno()}} call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+errno}\textquotesingle{}) endif end program demo\+\_\+system\+\_\+errno
 
 Typical Results\+:
 
 err= 2 {\itshape demo\+\_\+system\+\_\+errno}\+: No such file or directory 
 
-\subsection{Constructor \& Destructor Documentation}
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}\label{interfacem__system_1_1system__errno_a6450910dca7e89b71a84745d95a52d79}} 
-\index{m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}!system\+\_\+errno@{system\+\_\+errno}}
-\index{system\+\_\+errno@{system\+\_\+errno}!m\+\_\+system\+::system\+\_\+errno@{m\+\_\+system\+::system\+\_\+errno}}
-\subsubsection{\texorpdfstring{system\+\_\+errno()}{system\_errno()}}
-{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+errno\+::system\+\_\+errno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\index{m\_system::system\_errno@{m\_system::system\_errno}!system\_errno@{system\_errno}}
+\index{system\_errno@{system\_errno}!m\_system::system\_errno@{m\_system::system\_errno}}
+\doxysubsubsection{\texorpdfstring{system\_errno()}{system\_errno()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+errno\+::system\+\_\+errno\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

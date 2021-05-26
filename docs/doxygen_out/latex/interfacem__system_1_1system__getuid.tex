@@ -1,30 +1,19 @@
-\hypertarget{interfacem__system_1_1system__getuid}{}\section{m\+\_\+system\+:\+:system\+\_\+getuid Interface Reference}
-\label{interfacem__system_1_1system__getuid}\index{m\+\_\+system\+::system\+\_\+getuid@{m\+\_\+system\+::system\+\_\+getuid}}
-
-
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getuid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get real U\+ID of current process from Fortran by calling getuid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS} 
-
-
-\subsection*{Private Member Functions}
+\hypertarget{interfacem__system_1_1system__getuid}{}\doxysection{m\+\_\+system\+::system\+\_\+getuid Interface Reference}
+\label{interfacem__system_1_1system__getuid}\index{m\_system::system\_getuid@{m\_system::system\_getuid}}
+\doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getuid_adb2147a5c9768d09bd7741b07f02af05}{system\+\_\+getuid}} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-\subsubsection*{N\+A\+ME}
-
-system\+\_\+getuid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get real U\+ID of current process from Fortran by calling getuid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \subsubsection*{S\+Y\+N\+O\+P\+S\+IS}
-
-integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system__getuid_adb2147a5c9768d09bd7741b07f02af05}{system\+\_\+getuid()}}
-
-\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}
-
-The system\+\_\+getuid(3f) function shall return the real user ID of the calling process. The getuid() function shall always be successful and no return value is reserved to indicate the error. \subsubsection*{E\+X\+A\+M\+P\+LE}
-
+\doxysubsection{Detailed Description}
+\hypertarget{interfacem__system_1_1system__getuid_autotoc_md31}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getuid_autotoc_md31}
+system\+\_\+getuid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get real U\+ID of current process from Fortran by calling getuid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getuid_autotoc_md32}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getuid_autotoc_md32}
+\begin{DoxyVerb}integer(kind=c_int) function system_getuid()
+\end{DoxyVerb}
+\hypertarget{interfacem__system_1_1system__getuid_autotoc_md33}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getuid_autotoc_md33}
+The system\+\_\+getuid(3f) function shall return the real user ID of the calling process. The getuid() function shall always be successful and no return value is reserved to indicate the error. \hypertarget{interfacem__system_1_1system__getuid_autotoc_md34}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getuid_autotoc_md34}
 Get group ID from Fortran\+:
 
 program demo\+\_\+system\+\_\+getuid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getuid}{system\+\_\+getuid}} implicit none write($\ast$,$\ast$)\textquotesingle{}U\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getuid_adb2147a5c9768d09bd7741b07f02af05}{system\+\_\+getuid()}} end program demo\+\_\+system\+\_\+getuid
@@ -33,12 +22,12 @@ Results\+:
 
 U\+ID= 197609 
 
-\subsection{Constructor \& Destructor Documentation}
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{interfacem__system_1_1system__getuid_adb2147a5c9768d09bd7741b07f02af05}\label{interfacem__system_1_1system__getuid_adb2147a5c9768d09bd7741b07f02af05}} 
-\index{m\+\_\+system\+::system\+\_\+getuid@{m\+\_\+system\+::system\+\_\+getuid}!system\+\_\+getuid@{system\+\_\+getuid}}
-\index{system\+\_\+getuid@{system\+\_\+getuid}!m\+\_\+system\+::system\+\_\+getuid@{m\+\_\+system\+::system\+\_\+getuid}}
-\subsubsection{\texorpdfstring{system\+\_\+getuid()}{system\_getuid()}}
-{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getuid\+::system\+\_\+getuid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\index{m\_system::system\_getuid@{m\_system::system\_getuid}!system\_getuid@{system\_getuid}}
+\index{system\_getuid@{system\_getuid}!m\_system::system\_getuid@{m\_system::system\_getuid}}
+\doxysubsubsection{\texorpdfstring{system\_getuid()}{system\_getuid()}}
+{\footnotesize\ttfamily integer(kind=c\+\_\+int) function m\+\_\+system\+::system\+\_\+getuid\+::system\+\_\+getuid\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

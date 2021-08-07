@@ -3562,7 +3562,8 @@ end function system_mkdir
 subroutine system_opendir(dirname,dir,ierr)
 character(len=*), intent(in) :: dirname
 type(c_ptr)                  :: dir
-integer,intent(out)          :: ierr
+integer,intent(out),optional :: ierr
+integer                      :: ierr_local
 
 interface
    function c_opendir(c_dirname) bind(c,name="opendir") result(c_dir)
@@ -3572,11 +3573,17 @@ interface
    end function c_opendir
 end interface
 
-   ierr=0
    dir = c_opendir(str2_carr(trim(dirname)))
    if(.not.c_associated(dir)) then
+      ierr_local=-1
+   else
+      ierr_local=0
+   endif
+   if(present(ierr))then
+      ierr=ierr_local
+   else
       write(*,'(a)')'*system_opendir* Error opening '//trim(dirname)
-      ierr=-1
+      !x!stop 2
    endif
 
 end subroutine system_opendir
@@ -5113,7 +5120,7 @@ end subroutine system_stat
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_dir(3f) - [M_io] return filenames in a directory matching specified wildcard string
+!!    system_dir(3f) - [M_system] return filenames in a directory matching specified wildcard string
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS

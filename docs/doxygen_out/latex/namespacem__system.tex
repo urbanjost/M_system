@@ -744,7 +744,7 @@ Typical Results\+: \mbox{\Hypertarget{namespacem__system_a744f46033ef5e7ae95ec6c
 {\footnotesize\ttfamily character(len=\+:) function, dimension(\+:), allocatable, public m\+\_\+system\+::system\+\_\+dir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in), optional}]{directory,  }\item[{character(len=$\ast$), intent(in), optional}]{pattern }\end{DoxyParamCaption})}
 
 \hypertarget{namespacem__system_autotoc_md389}{}\doxysubsubsection{N\+A\+ME}\label{namespacem__system_autotoc_md389}
-system\+\_\+dir(3f) -\/ \mbox{[}M\+\_\+io\mbox{]} return filenames in a directory matching specified wildcard string (L\+I\+C\+E\+N\+SE\+:PD)\hypertarget{namespacem__system_autotoc_md390}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{namespacem__system_autotoc_md390}
+system\+\_\+dir(3f) -\/ \mbox{[}M\+\_\+system\mbox{]} return filenames in a directory matching specified wildcard string (L\+I\+C\+E\+N\+SE\+:PD)\hypertarget{namespacem__system_autotoc_md390}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{namespacem__system_autotoc_md390}
 function system\+\_\+dir(directory,pattern)
 
 character(len=$\ast$),intent(in),optional \+:: directory character(len=$\ast$),intent(in),optional \+:: pattern character(len=\+:),allocatable \+:: system\+\_\+dir(\+:)\hypertarget{namespacem__system_autotoc_md391}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{namespacem__system_autotoc_md391}
@@ -1391,7 +1391,7 @@ Here is the call graph for this function\+:\nopagebreak
 \index{m\_system@{m\_system}!system\_opendir@{system\_opendir}}
 \index{system\_opendir@{system\_opendir}!m\_system@{m\_system}}
 \doxysubsubsection{\texorpdfstring{system\_opendir()}{system\_opendir()}}
-{\footnotesize\ttfamily subroutine, public m\+\_\+system\+::system\+\_\+opendir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname,  }\item[{type(c\+\_\+ptr)}]{dir,  }\item[{integer, intent(out)}]{ierr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily subroutine, public m\+\_\+system\+::system\+\_\+opendir (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{dirname,  }\item[{type(c\+\_\+ptr)}]{dir,  }\item[{integer, intent(out), optional}]{ierr }\end{DoxyParamCaption})}
 
 \hypertarget{namespacem__system_autotoc_md256}{}\doxysubsubsection{N\+A\+ME}\label{namespacem__system_autotoc_md256}
 system\+\_\+opendir(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+R\+Y\+\_\+\+F\+I\+LE\mbox{]} open directory stream by calling opendir(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{namespacem__system_autotoc_md257}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{namespacem__system_autotoc_md257}

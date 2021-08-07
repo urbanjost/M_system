@@ -9,6 +9,7 @@ append("system_chown.3m_system.html");
 append("system_clearenv.3m_system.html");
 append("system_closedir.3m_system.html");
 append("system_cpu_time.3m_system.html");
+append("system_dir.3m_system.html");
 append("system_errno.3m_system.html");
 append("system_getcwd.3m_system.html");
 append("system_getegid.3m_system.html");

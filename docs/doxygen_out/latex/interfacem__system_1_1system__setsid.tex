@@ -8,17 +8,17 @@ integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system_
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{interfacem__system_1_1system__setsid_autotoc_md49}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__setsid_autotoc_md49}
-system\+\_\+setsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} create session and set the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__setsid_autotoc_md50}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__setsid_autotoc_md50}
+\hypertarget{interfacem__system_1_1system__setsid_autotoc_md50}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__setsid_autotoc_md50}
+system\+\_\+setsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} create session and set the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__setsid_autotoc_md51}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__setsid_autotoc_md51}
 \begin{DoxyVerb}    integer(kind=c_int) function system_setsid(pid)
     integer(kind=c_int) :: pid
 \end{DoxyVerb}
- \hypertarget{interfacem__system_1_1system__setsid_autotoc_md51}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__setsid_autotoc_md51}
-The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.\hypertarget{interfacem__system_1_1system__setsid_autotoc_md52}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__setsid_autotoc_md52}
-Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return â-\/1 and set errno to indicate the error. \hypertarget{interfacem__system_1_1system__setsid_autotoc_md53}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__setsid_autotoc_md53}
+ \hypertarget{interfacem__system_1_1system__setsid_autotoc_md52}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__setsid_autotoc_md52}
+The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.\hypertarget{interfacem__system_1_1system__setsid_autotoc_md53}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__setsid_autotoc_md53}
+Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return â-\/1 and set errno to indicate the error. \hypertarget{interfacem__system_1_1system__setsid_autotoc_md54}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__setsid_autotoc_md54}
 The setsid() function shall fail if\+:
 
-o The calling process is already a process group leader o the process group ID of a process other than the calling process matches the process ID of the calling process. \hypertarget{interfacem__system_1_1system__setsid_autotoc_md54}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__setsid_autotoc_md54}
+o The calling process is already a process group leader o the process group ID of a process other than the calling process matches the process ID of the calling process. \hypertarget{interfacem__system_1_1system__setsid_autotoc_md55}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__setsid_autotoc_md55}
 Set S\+ID from Fortran
 
 program demo\+\_\+system\+\_\+setsid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__setsid}{system\+\_\+setsid}} implicit none write($\ast$,$\ast$)\textquotesingle{}S\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__setsid_a3368836e902ccbf8e0418c56f18e2df3}{system\+\_\+setsid()}} end program demo\+\_\+system\+\_\+setsid 

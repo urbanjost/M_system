@@ -8,15 +8,15 @@ integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system_
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{interfacem__system_1_1system__getppid_autotoc_md65}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getppid_autotoc_md65}
-system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getppid_autotoc_md66}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getppid_autotoc_md66}
+\hypertarget{interfacem__system_1_1system__getppid_autotoc_md66}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getppid_autotoc_md66}
+system\+\_\+getppid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get parent process ID (P\+P\+ID) of current process from Fortran by calling getppid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getppid_autotoc_md67}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getppid_autotoc_md67}
 \begin{DoxyVerb}integer(kind=c_int) function system_getppid()
 \end{DoxyVerb}
- \hypertarget{interfacem__system_1_1system__getppid_autotoc_md67}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getppid_autotoc_md67}
-The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function returns the parent process ID of the calling process.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md68}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getppid_autotoc_md68}
-The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md69}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getppid_autotoc_md69}
-No errors are defined.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md70}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getppid_autotoc_md70}
-exec, fork(), getpgid(), getpgrp(), getpid(), kill(), setpgid(), setsid()\hypertarget{interfacem__system_1_1system__getppid_autotoc_md71}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getppid_autotoc_md71}
+ \hypertarget{interfacem__system_1_1system__getppid_autotoc_md68}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getppid_autotoc_md68}
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function returns the parent process ID of the calling process.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md69}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getppid_autotoc_md69}
+The \mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} function should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md70}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getppid_autotoc_md70}
+No errors are defined.\hypertarget{interfacem__system_1_1system__getppid_autotoc_md71}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getppid_autotoc_md71}
+exec, fork(), getpgid(), getpgrp(), getpid(), kill(), setpgid(), setsid()\hypertarget{interfacem__system_1_1system__getppid_autotoc_md72}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getppid_autotoc_md72}
 Get parent process P\+ID (P\+P\+ID) from Fortran
 
 program demo\+\_\+system\+\_\+getppid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getppid}{system\+\_\+getppid}} implicit none write($\ast$,$\ast$)\textquotesingle{}P\+P\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getppid_af6e12ecb746ff59fbe323d9364db41b0}{system\+\_\+getppid()}} end program demo\+\_\+system\+\_\+getppid 

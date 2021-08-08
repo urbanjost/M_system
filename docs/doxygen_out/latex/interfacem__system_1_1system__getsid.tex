@@ -8,14 +8,14 @@ integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system_
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{interfacem__system_1_1system__getsid_autotoc_md55}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getsid_autotoc_md55}
-system\+\_\+getsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getsid_autotoc_md56}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getsid_autotoc_md56}
+\hypertarget{interfacem__system_1_1system__getsid_autotoc_md56}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getsid_autotoc_md56}
+system\+\_\+getsid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the process group ID of a session leader (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getsid_autotoc_md57}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getsid_autotoc_md57}
 \begin{DoxyVerb}    integer(kind=c_int) function system_getsid(pid)
     integer(kind=c_int) :: pid
 \end{DoxyVerb}
- \hypertarget{interfacem__system_1_1system__getsid_autotoc_md57}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getsid_autotoc_md57}
-The \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} function obtains the process group ID of the process that is the session leader of the process specified by pid. If pid is 0, it specifies the calling process. \hypertarget{interfacem__system_1_1system__getsid_autotoc_md58}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getsid_autotoc_md58}
-Upon successful completion, \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} shall return the process group ID of the session leader of the specified process. Otherwise, it shall return -\/1 and set errno to indicate the error. \hypertarget{interfacem__system_1_1system__getsid_autotoc_md59}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getsid_autotoc_md59}
+ \hypertarget{interfacem__system_1_1system__getsid_autotoc_md58}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getsid_autotoc_md58}
+The \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} function obtains the process group ID of the process that is the session leader of the process specified by pid. If pid is 0, it specifies the calling process. \hypertarget{interfacem__system_1_1system__getsid_autotoc_md59}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getsid_autotoc_md59}
+Upon successful completion, \mbox{\hyperlink{interfacem__system_1_1system__getsid_a0a665987d35f0b81a2358df6c0173122}{system\+\_\+getsid()}} shall return the process group ID of the session leader of the specified process. Otherwise, it shall return -\/1 and set errno to indicate the error. \hypertarget{interfacem__system_1_1system__getsid_autotoc_md60}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getsid_autotoc_md60}
 Get S\+ID from Fortran
 
 program demo\+\_\+system\+\_\+getsid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getsid}{system\+\_\+getsid}} use I\+S\+O\+\_\+\+C\+\_\+\+B\+I\+N\+D\+I\+NG, only \+: c\+\_\+int implicit none write($\ast$,$\ast$)\textquotesingle{}S\+ID=\textquotesingle{},system\+\_\+getsid(0\+\_\+c\+\_\+int) end program demo\+\_\+system\+\_\+getsid 

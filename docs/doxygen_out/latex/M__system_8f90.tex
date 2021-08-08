@@ -163,12 +163,16 @@ character(len=\+:) function, allocatable \mbox{\hyperlink{namespacem__system_aa7
 \item 
 subroutine, public \mbox{\hyperlink{namespacem__system_a5bb1ebcebe181e07fd24e908cacc9887}{m\+\_\+system\+::system\+\_\+stat}} (pathname, values, ierr)
 \item 
-character(len=\+:) function, dimension(\+:), allocatable, public \mbox{\hyperlink{namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89}{m\+\_\+system\+::system\+\_\+dir}} (directory, pattern)
+character(len=\+:) function, dimension(\+:), allocatable, public \mbox{\hyperlink{namespacem__system_a90110ae015fec06564f4c9a83f1be74c}{m\+\_\+system\+::system\+\_\+dir}} (directory, pattern, ignorecase)
 \item 
-logical function \mbox{\hyperlink{namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea}{m\+\_\+system\+::matchw}} (tame, wild)
+logical function \mbox{\hyperlink{namespacem__system_ae4cc391aa0347cabed89c070d5d563f8}{m\+\_\+system\+::matchw}} (tame, wild, ignorecase)
+\item 
+elemental pure character(len(str)) function \mbox{\hyperlink{namespacem__system_aff12e7dc531765028fe7b2408a9f177d}{m\+\_\+system\+::lower}} (str)
 \item 
 pure elemental integer(kind=int64) function \mbox{\hyperlink{namespacem__system_a151da54be39dddcf270cceeff3243438}{m\+\_\+system\+::anyinteger\+\_\+to\+\_\+64bit}} (intin)
-\begin{DoxyCompactList}\small\item\em N\+A\+ME. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em N\+A\+ME. \end{DoxyCompactList}\item 
+integer function, public \mbox{\hyperlink{namespacem__system_acc8b6fbd846969e3df7479e798ae854a}{m\+\_\+system\+::system\+\_\+system}} (command)
+\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 

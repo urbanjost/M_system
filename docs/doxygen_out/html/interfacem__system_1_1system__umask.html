@@ -80,13 +80,13 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a10fa518062761065afc422f100ed0a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md72"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md73"></a>
 NAME</h2>
 <p>system_umask(3fp) - [M_system] set and get the file mode creation mask (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md73"></a>
+<h2><a class="anchor" id="autotoc_md74"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer(kind=c_int) function system_umask(umask_value)
-</pre><h2><a class="anchor" id="autotoc_md74"></a>
+</pre><h2><a class="anchor" id="autotoc_md75"></a>
 DESCRIPTION</h2>
 <p>The <a class="el" href="interfacem__system_1_1system__umask.html#a10fa518062761065afc422f100ed0a76">system_umask()</a> function shall set the file mode creation mask of the process to cmask and return the previous value of the mask. Only the file permission bits of cmask (see &lt;sys/stat.h&gt;) are used; the meaning of the other bits is implementation-defined.</p>
 <p>The file mode creation mask of the process is used to turn off permission bits in the mode argument supplied during calls to the following functions:</p>
@@ -97,10 +97,10 @@ DESCRIPTION</h2>
 <li>sem_open()</li>
 </ul>
 <p>Bit positions that are set in cmask are cleared in the mode of the created file.</p>
-<h2><a class="anchor" id="autotoc_md75"></a>
+<h2><a class="anchor" id="autotoc_md76"></a>
 RETURN VALUE</h2>
 <p>The file permission bits in the value returned by umask() shall be the previous value of the file mode creation mask. The state of any other bits in that value is unspecified, except that a subsequent call to umask() with the returned value as cmask shall leave the state of the mask the same as its state before the first call, including any unspecified use of those bits.</p>
-<h2><a class="anchor" id="autotoc_md76"></a>
+<h2><a class="anchor" id="autotoc_md77"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_umask use M_system, only : system_getumask, system_setumask implicit none integer value integer mask mask=O'002' value=system_setumask(mask) write(*,'(a,"octal=",O4.4," decimal=",i0)')'OLD VALUE=',value,value value=<a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">system_getumask()</a> write(*,'(a,"octal=",O4.4," decimal=",i0)')'MASK=',mask,mask write(*,'(a,"octal=",O4.4," decimal=",i0)')'NEW VALUE=',value,value end program demo_system_umask</p>

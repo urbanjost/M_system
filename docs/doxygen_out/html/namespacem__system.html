@@ -228,13 +228,17 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:aa7c5445619aa15cd2301fe17f7c3b73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a5bb1ebcebe181e07fd24e908cacc9887">system_stat</a> (pathname, values, ierr)</td></tr>
 <tr class="separator:a5bb1ebcebe181e07fd24e908cacc9887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="memItemLeft" align="right" valign="top">character(len=:) function, dimension(:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89">system_dir</a> (directory, pattern)</td></tr>
-<tr class="separator:a744f46033ef5e7ae95ec6cbff3ae3f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fccb69d0a56044b05e85b8df9f90aea"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a0fccb69d0a56044b05e85b8df9f90aea">matchw</a> (tame, wild)</td></tr>
-<tr class="separator:a0fccb69d0a56044b05e85b8df9f90aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90110ae015fec06564f4c9a83f1be74c"><td class="memItemLeft" align="right" valign="top">character(len=:) function, dimension(:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c">system_dir</a> (directory, pattern, ignorecase)</td></tr>
+<tr class="separator:a90110ae015fec06564f4c9a83f1be74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4cc391aa0347cabed89c070d5d563f8"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#ae4cc391aa0347cabed89c070d5d563f8">matchw</a> (tame, wild, ignorecase)</td></tr>
+<tr class="separator:ae4cc391aa0347cabed89c070d5d563f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff12e7dc531765028fe7b2408a9f177d"><td class="memItemLeft" align="right" valign="top">elemental pure character(len(str)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#aff12e7dc531765028fe7b2408a9f177d">lower</a> (str)</td></tr>
+<tr class="separator:aff12e7dc531765028fe7b2408a9f177d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a151da54be39dddcf270cceeff3243438"><td class="memItemLeft" align="right" valign="top">pure elemental integer(kind=int64) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#a151da54be39dddcf270cceeff3243438">anyinteger_to_64bit</a> (intin)</td></tr>
 <tr class="memdesc:a151da54be39dddcf270cceeff3243438"><td class="mdescLeft">&#160;</td><td class="mdescRight">NAME.  <a href="namespacem__system.html#a151da54be39dddcf270cceeff3243438">More...</a><br /></td></tr>
 <tr class="separator:a151da54be39dddcf270cceeff3243438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8b6fbd846969e3df7479e798ae854a"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__system.html#acc8b6fbd846969e3df7479e798ae854a">system_system</a> (command)</td></tr>
+<tr class="separator:acc8b6fbd846969e3df7479e798ae854a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -293,7 +297,7 @@ NAME</h2>
 SYNOPSIS</h2>
 <p>Public objects:</p>
 <p>! ENVIRONMENT use M_system, only : set_environment_variable, system_unsetenv, &amp; system_putenv, system_getenv</p>
-<p>use M_system, only : system_intenv, system_readenv, system_clearenv ! FILE SYSTEM use M_system, only : system_getcwd, system_link, &amp; system_mkfifo, system_remove, system_rename, &amp; <a class="el" href="interfacem__system_1_1system__umask.html">system_umask</a>, system_unlink, fileglob, &amp; system_rmdir, system_chdir, system_mkdir, &amp; system_stat, system_isdir, system_islnk, system_isreg, &amp; system_isblk, system_ischr, system_isfifo, &amp; system_realpath, &amp; system_access, &amp; system_utime, &amp; system_issock, system_perm, &amp; system_dir, &amp; <a class="el" href="interfacem__system_1_1system__memcpy.html">system_memcpy</a></p>
+<p>use M_system, only : system_intenv, system_readenv, system_clearenv ! FILE SYSTEM use M_system, only : system_getcwd, system_link, &amp; system_mkfifo, system_remove, system_rename, &amp; <a class="el" href="interfacem__system_1_1system__umask.html">system_umask</a>, system_unlink, fileglob, &amp; system_rmdir, system_chdir, system_mkdir, &amp; system_stat, system_isdir, system_islnk, system_isreg, &amp; system_isblk, system_ischr, system_isfifo, &amp; system_realpath, &amp; system_access, &amp; system_utime, &amp; system_system, &amp; system_issock, system_perm, &amp; system_dir, &amp; <a class="el" href="interfacem__system_1_1system__memcpy.html">system_memcpy</a></p>
 <p>!*!use M_system, only : system_getc, system_putc ! ERROR PROCESSING use M_system, only : <a class="el" href="interfacem__system_1_1system__errno.html">system_errno</a>, system_perror ! INFO use M_system, only : <a class="el" href="interfacem__system_1_1system__getegid.html">system_getegid</a>, <a class="el" href="interfacem__system_1_1system__geteuid.html">system_geteuid</a>, <a class="el" href="interfacem__system_1_1system__getgid.html">system_getgid</a>, &amp; system_gethostname, <a class="el" href="interfacem__system_1_1system__getpid.html">system_getpid</a>, <a class="el" href="interfacem__system_1_1system__getppid.html">system_getppid</a>, <a class="el" href="interfacem__system_1_1system__setsid.html">system_setsid</a>, &amp; <a class="el" href="interfacem__system_1_1system__getsid.html">system_getsid</a>, <a class="el" href="interfacem__system_1_1system__getuid.html">system_getuid</a>, system_uname ! SIGNALS use M_system, only : <a class="el" href="interfacem__system_1_1system__kill.html">system_kill</a>,system_signal ! RANDOM NUMBERS use M_system, only : <a class="el" href="interfacem__system_1_1system__rand.html">system_rand</a>, <a class="el" href="interfacem__system_1_1system__srand.html">system_srand</a> ! PROCESS INFORMATION use M_system, only : system_cpu_time</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 DESCRIPTION</h2>
@@ -324,11 +328,14 @@ C ERROR INFORMATION</h2>
 <p>o system_errno(3f): return errno(3c) o system_perror(3f): call perror(3c) to display last C error message </p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 QUERIES</h2>
-<p>o system_geteuid(3f): call geteuid(3c) o system_getuid(3f): call getuid(3c) o system_getegid(3f): call getegid(3c) o system_getgid(3f): call getgid(3c) o system_getpid(3f): call getpid(3c) o system_getppid(3f): call getppid(3c) o system_gethostname(3f): get name of current host o system_uname(3f): call my_uname(3c) which calls uname(3c) o system_getlogin(3f): get login name o system_getpwuid(3f): get login name associated with given UID o system_getgrgid(3f): get group name associated with given GID o system_cpu_time(3f) : get processor time in seconds using times(3c)</p>
+<p>o system_geteuid(3f): call geteuid(3c) o system_getuid(3f): call getuid(3c) o system_getegid(3f): call getegid(3c) o system_getgid(3f): call getgid(3c) o system_getpid(3f): call getpid(3c) o system_getppid(3f): call getppid(3c) o system_gethostname(3f): get name of current host o system_uname(3f): call my_uname(3c) which calls uname(3c) o system_getlogin(3f): get login name o system_getpwuid(3f): get login name associated with given UID o system_getgrgid(3f): get group name associated with given GID o system_cpu_time(3f) : get processor time in seconds using times(3c) </p>
 <h2><a class="anchor" id="autotoc_md9"></a>
+SYSTEM COMMANDS</h2>
+<p>o system_system(3f): call execute_command_line(3c) outputting messages</p>
+<h2><a class="anchor" id="autotoc_md10"></a>
 FUTURE DIRECTIONS</h2>
 <p>A good idea of what system routines are commonly required is to refer to the POSIX binding standards. (Note: IEEE 1003.9-1992 was withdrawn 6 February 2003.) The IEEE standard covering Fortran 77 POSIX bindings is available online, though currently (unfortunately) only from locations with appropriate subscriptions to the IEEE server (e.g., many university networks). For those who do have such access, the link is: POSIX Fortran 77 Language Interfaces (IEEE Std 1003.9-1992) (pdf)</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 SEE ALSO</h2>
 <p>Some vendors provide their own way to access POSIX functions and make those available as modules; for instance ...</p>
 <p>o the IFPORT module of Intel o or the f90_* modules of NAG. o There are also other compiler-independent efforts to make the POSIX procedures accessible from Fortran...</p>
@@ -422,7 +429,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0" title=" " alt="" coords="283,208,481,235"/>
 <area shape="rect" href="namespacem__system.html#ae0e43010a82a6a25402568ccb326322d" title=" " alt="" coords="279,259,485,285"/>
 <area shape="rect" href="namespacem__system.html#a70f78645a1f130734005e190d469529d" title=" " alt="" coords="7,157,213,184"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="25,208,195,235"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="25,208,195,235"/>
 <area shape="rect" href="namespacem__system.html#a9c34787b170ab8d41000d7c3acb60736" title=" " alt="" coords="5,259,215,285"/>
 </map>
 </div>
@@ -528,29 +535,29 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md332"></a>
+<h2><a class="anchor" id="autotoc_md333"></a>
 NAME</h2>
 <p>fileglob(3f) - [M_system:QUERY_FILE] Read output of an ls(1) command from Fortran (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md333"></a>
+<h2><a class="anchor" id="autotoc_md334"></a>
 SYNOPSIS</h2>
 <p>subroutine fileglob(glob,list)</p>
 <p>character(len=*),intent(in) :: glob character(len=*),pointer :: list(:)</p>
-<h2><a class="anchor" id="autotoc_md334"></a>
+<h2><a class="anchor" id="autotoc_md335"></a>
 DESCRIPTION</h2>
 <p>Non-portable procedure uses the shell and the ls(1) command to expand a filename and returns a pointer to a list of expanded filenames.</p>
-<h2><a class="anchor" id="autotoc_md335"></a>
+<h2><a class="anchor" id="autotoc_md336"></a>
 OPTIONS</h2>
 <p>glob Pattern for the filenames (like: *.txt) list Allocated list of filenames (returned), the caller must deallocate it.</p>
-<h2><a class="anchor" id="autotoc_md336"></a>
+<h2><a class="anchor" id="autotoc_md337"></a>
 EXAMPLE</h2>
 <p>Read output of an ls(1) command from Fortran</p>
 <p>program demo_fileglob ! simple unit test call tryit('*.*') call tryit('/tmp/__notthere.txt') contains</p>
 <p>subroutine tryit(string) use M_system, only : fileglob character(len=255),pointer :: list(:) character(len=*) :: string call fileglob(string, list) write(*,*)'Files:',size(list) write(*,'(a)')(trim(list(i)),i=1,size(list)) deallocate(list) end subroutine tryit</p>
 <p>end program demo_fileglob ! simple unit test</p>
-<h2><a class="anchor" id="autotoc_md337"></a>
+<h2><a class="anchor" id="autotoc_md338"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md338"></a>
+<h2><a class="anchor" id="autotoc_md339"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -567,8 +574,44 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a0fccb69d0a56044b05e85b8df9f90aea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fccb69d0a56044b05e85b8df9f90aea">&#9670;&nbsp;</a></span>matchw()</h2>
+<a id="aff12e7dc531765028fe7b2408a9f177d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff12e7dc531765028fe7b2408a9f177d">&#9670;&nbsp;</a></span>lower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">elemental pure character(len(str)) function m_system::lower </td>
+          <td>(</td>
+          <td class="paramtype">character(*), intent(in)&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__system_aff12e7dc531765028fe7b2408a9f177d_icgraph.png" border="0" usemap="#namespacem__system_aff12e7dc531765028fe7b2408a9f177d_icgraph" alt=""/></div>
+<map name="namespacem__system_aff12e7dc531765028fe7b2408a9f177d_icgraph" id="namespacem__system_aff12e7dc531765028fe7b2408a9f177d_icgraph">
+<area shape="rect" title=" " alt="" coords="423,5,557,32"/>
+<area shape="rect" href="namespacem__system.html#ae4cc391aa0347cabed89c070d5d563f8" title=" " alt="" coords="224,5,375,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae4cc391aa0347cabed89c070d5d563f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4cc391aa0347cabed89c070d5d563f8">&#9670;&nbsp;</a></span>matchw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,7 +626,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">character(len=*)&#160;</td>
-          <td class="paramname"><em>wild</em>&#160;</td>
+          <td class="paramname"><em>wild</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ignorecase</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -592,13 +641,24 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespacem__system.html#aff12e7dc531765028fe7b2408a9f177d">lower()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_cgraph.png" border="0" usemap="#namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_cgraph" alt=""/></div>
+<map name="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_cgraph" id="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,32"/>
+<area shape="rect" href="namespacem__system.html#aff12e7dc531765028fe7b2408a9f177d" title=" " alt="" coords="204,5,339,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea_icgraph.png" border="0" usemap="#namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea_icgraph" alt=""/></div>
-<map name="namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea_icgraph" id="namespacem__system_a0fccb69d0a56044b05e85b8df9f90aea_icgraph">
+<div class="center"><img src="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_icgraph.png" border="0" usemap="#namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_icgraph" alt=""/></div>
+<map name="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_icgraph" id="namespacem__system_ae4cc391aa0347cabed89c070d5d563f8_icgraph">
 <area shape="rect" title=" " alt="" coords="224,5,375,32"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="5,5,176,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
 </map>
 </div>
 
@@ -635,29 +695,29 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md304"></a>
+<h2><a class="anchor" id="autotoc_md305"></a>
 NAME</h2>
 <p>set_environment_variable(3f) - [M_system:ENVIRONMENT] call setenv(3c) to set environment variable (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md305"></a>
+<h2><a class="anchor" id="autotoc_md306"></a>
 SYNOPSIS</h2>
 <p>subroutine set_environment_variable(NAME, VALUE, STATUS)</p>
 <p>character(len=*) :: NAME character(len=*) :: VALUE integer, optional, intent(out) :: STATUS</p>
-<h2><a class="anchor" id="autotoc_md306"></a>
+<h2><a class="anchor" id="autotoc_md307"></a>
 DESCRIPTION</h2>
 <p>The <a class="el" href="namespacem__system.html#ad813765403a5d9d6fb7a2edcb669fe4b">set_environment_variable()</a> procedure adds or changes the value of environment variables.</p>
-<h2><a class="anchor" id="autotoc_md307"></a>
+<h2><a class="anchor" id="autotoc_md308"></a>
 OPTIONS</h2>
 <p>NAME If name does not already exist in the environment, then string is added to the environment. If name does exist, then the value of name in the environment is changed to value. VALUE Value to assign to environment variable NAME STATUS returns zero on success, or nonzero if an error occurs. A non-zero error usually indicates sufficient memory does not exist to store the variable.</p>
-<h2><a class="anchor" id="autotoc_md308"></a>
+<h2><a class="anchor" id="autotoc_md309"></a>
 EXAMPLE</h2>
 <p>Sample setting an environment variable from Fortran:</p>
 <p>program demo_set_environment_variable use M_system, only : set_environment_variable use iso_c_binding implicit none integer :: ierr !*! write(*,'(a)')'no environment variables containing "GRU":' call execute_command_line('env|grep GRU') !*! call set_environment_variable('GRU','this is the value',ierr) write(*,'(a,i0)')'now "GRU" should be defined, status=',ierr call execute_command_line('env|grep GRU') !*! call set_environment_variable('GRU2','this is the second value',ierr) write(*,'(a,i0)')'now "GRU" and "GRU2" should be defined, status =',ierr !*! call execute_command_line('env|grep GRU') end program demo_set_environment_variable</p>
 <p>Results:</p>
 <p>no environment variables containing "GRU": now "GRU" should be defined, status=0 GRU=this is the value now "GRU" and "GRU2" should be defined, status =0 GRU2=this is the second value GRU=this is the value </p>
-<h2><a class="anchor" id="autotoc_md309"></a>
+<h2><a class="anchor" id="autotoc_md310"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md310"></a>
+<h2><a class="anchor" id="autotoc_md311"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -728,7 +788,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacem__system.html#a3561c9beafec28439f760d701d55a6b8" title=" " alt="" coords="273,1135,466,1162"/>
 <area shape="rect" href="namespacem__system.html#a61b67b46b35490ec308773b65c3376a3" title=" " alt="" coords="263,1186,476,1213"/>
 <area shape="rect" href="namespacem__system.html#a83a121ba0b525210b5217565569ef350" title=" " alt="" coords="274,1237,465,1263"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="25,781,195,807"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="25,781,195,807"/>
 <area shape="rect" href="namespacem__system.html#a9c34787b170ab8d41000d7c3acb60736" title=" " alt="" coords="5,1186,215,1213"/>
 </map>
 </div>
@@ -760,14 +820,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md91"></a>
+<h2><a class="anchor" id="autotoc_md92"></a>
 NAME</h2>
 <p>system_access(3f) - [M_system:QUERY_FILE] checks accessibility or existence of a pathname (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md92"></a>
+<h2><a class="anchor" id="autotoc_md93"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_access(pathname,amode)</p>
 <p>character(len=*),intent(in) :: pathname integer,intent(in) :: amode</p>
-<h2><a class="anchor" id="autotoc_md93"></a>
+<h2><a class="anchor" id="autotoc_md94"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_access(3f) function checks pathname existence and access
 permissions. The function checks the pathname for accessibility
@@ -777,13 +837,13 @@ of the effective group ID.
 
 The value of amode is either the bitwise-inclusive OR of the access
 permissions to be checked (R_OK, W_OK, X_OK) or the existence test (F_OK).
-</pre><h2><a class="anchor" id="autotoc_md94"></a>
+</pre><h2><a class="anchor" id="autotoc_md95"></a>
 OPTIONS</h2>
 <p>pathname a character string representing a directory pathname. Trailing spaces are ignored. amode bitwise-inclusive OR of the values R_OK, W_OK, X_OK, or F_OK.</p>
-<h2><a class="anchor" id="autotoc_md95"></a>
+<h2><a class="anchor" id="autotoc_md96"></a>
 RETURN VALUE</h2>
 <p>If not true an error occurred or the requested access is not granted</p>
-<h2><a class="anchor" id="autotoc_md96"></a>
+<h2><a class="anchor" id="autotoc_md97"></a>
 EXAMPLE</h2>
 <p>check if filename is accessible </p><pre class="fragment"> Sample program:
 
@@ -843,22 +903,22 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md202"></a>
+<h2><a class="anchor" id="autotoc_md203"></a>
 NAME</h2>
 <p>system_chdir(3f) - [M_system_FILE_SYSTEM] call chdir(3c) from Fortran to change working directory (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md203"></a>
+<h2><a class="anchor" id="autotoc_md204"></a>
 SYNOPSIS</h2>
 <pre class="fragment">subroutine system_chdir(path, err)
 
  character(len=*)               :: path
  integer, optional, intent(out) :: err
-</pre><h2><a class="anchor" id="autotoc_md204"></a>
+</pre><h2><a class="anchor" id="autotoc_md205"></a>
 DESCRIPTION</h2>
 <pre class="fragment">system_chdir(3f) changes the current working directory of the calling
 process to the directory specified in path. The current working
 directory is the starting point for interpreting relative pathnames
 (those not starting with '/').
-</pre><h2><a class="anchor" id="autotoc_md205"></a>
+</pre><h2><a class="anchor" id="autotoc_md206"></a>
 RETURN VALUE</h2>
 <pre class="fragment">On success, zero is returned. On error, -1 is returned, and errno is
 set appropriately.
@@ -877,10 +937,10 @@ ENAMETOOLONG  path is too long.
 ENOENT        The file does not exist.
 ENOMEM        Insufficient kernel memory was available.
 ENOTDIR       A component of path is not a directory.
-</pre><h2><a class="anchor" id="autotoc_md206"></a>
+</pre><h2><a class="anchor" id="autotoc_md207"></a>
 SEE ALSO</h2>
 <pre class="fragment">chroot(2), getcwd(3), path_resolution(7)
-</pre><h2><a class="anchor" id="autotoc_md207"></a>
+</pre><h2><a class="anchor" id="autotoc_md208"></a>
 EXAMPLE</h2>
 <pre class="fragment">Change working directory from Fortran
 
@@ -895,7 +955,7 @@ EXAMPLE</h2>
   write(*,*)'*CHDIR TEST* IERR=',ierr
 
   end program demo_system_chdir
-</pre><h2><a class="anchor" id="autotoc_md208"></a>
+</pre><h2><a class="anchor" id="autotoc_md209"></a>
 RESULTS:</h2>
 <p>Sample run output:</p>
 <p>/home/urbanjs/V600 /tmp <em>CHDIR TEST</em> IERR= 0 </p>
@@ -938,17 +998,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md223"></a>
+<h2><a class="anchor" id="autotoc_md224"></a>
 NAME</h2>
 <p>system_chmod(3f) - [M_system_FILE_SYSTEM] call chmod(3c) to change permission mode of a file relative to directory file descriptor (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md224"></a>
+<h2><a class="anchor" id="autotoc_md225"></a>
 SYNOPSIS</h2>
 <pre class="fragment">function system_chmod(filename,mode) result(ierr)
 
    character(len=*),intent(in)  :: filename
    integer,value,intent(in)     :: mode
    integer                      :: ierr
-</pre><h2><a class="anchor" id="autotoc_md225"></a>
+</pre><h2><a class="anchor" id="autotoc_md226"></a>
 DESCRIPTION</h2>
 <p>The system_chmod(3f) function shall change UID, _ISGID, S_ISVTX, and the file permission bits of the file named by the pathname pointed to by the path argument to the corresponding bits in the mode argument. The application shall ensure that the effective user ID of the process matches the owner of the file or the process has appropriate privileges in order to do this.</p>
 <p>S_ISUID, S_ISGID, S_ISVTX, and the file permission bits are described in &lt;sys/stat.h&gt;.</p>
@@ -957,10 +1017,10 @@ DESCRIPTION</h2>
 <p>Upon successful completion, <a class="el" href="namespacem__system.html#ace9ce0c8a9c8341a76b8903cd2390ce3">system_chmod()</a> marks for update the last file status change timestamp of the file.</p>
 <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
 <p>AT_SYMLINK_NOFOLLOW If path names a symbolic link, then the mode of the symbolic link is changed.</p>
-<h2><a class="anchor" id="autotoc_md226"></a>
+<h2><a class="anchor" id="autotoc_md227"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, system_chmod(3f) returns 0. Otherwise, it returns -1 and sets errno to indicate the error. If -1 is returned, no change to the file mode occurs.</p>
-<h2><a class="anchor" id="autotoc_md227"></a>
+<h2><a class="anchor" id="autotoc_md228"></a>
 EXAMPLES</h2>
 <p>Sample program:</p>
 <p>program demo_system_chmod use M_system, only : system_chmod use M_system, only : system_stat use M_system, only : R_GRP,R_OTH,R_USR, RWX_G, RWX_U, W_OTH, X_GRP !use M_system, only : RWX_O, W_GRP,W_USR,X_OTH,X_USR !use M_system, only : DEFFILEMODE, ACCESSPERMS use,intrinsic :: iso_fortran_env, only : int64 implicit none integer :: ierr integer :: status integer(kind=int64) :: buffer(13) !Setting Read Permissions for User, Group, and Others ! The following example sets read permissions for the owner, group, and others. open(file='_test1',unit=10) write(10,*)'TEST FILE 1' close(unit=10) ierr=system_chmod('_test1', IANY([R_USR,R_GRP,R_OTH]))</p>
@@ -971,10 +1031,10 @@ EXAMPLES</h2>
 <p>! In order to ensure that the S_ISUID and S_ISGID bits are set, an application requiring this should use stat() after a ! successful chmod() to verify this.</p>
 <p>! Any files currently open could possibly become invalid if the mode ! of the file is changed to a value which would deny access to ! that process.</p>
 <p>end program demo_system_chmod</p>
-<h2><a class="anchor" id="autotoc_md228"></a>
+<h2><a class="anchor" id="autotoc_md229"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md229"></a>
+<h2><a class="anchor" id="autotoc_md230"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1022,25 +1082,25 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md166"></a>
+<h2><a class="anchor" id="autotoc_md167"></a>
 NAME</h2>
 <p>system_chown(3f) - [M_system:FILE_SYSTEM] change file owner and group (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md167"></a>
+<h2><a class="anchor" id="autotoc_md168"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_chown(path,owner,group)</p>
 <p>character(len=*),intent(in) :: path integer,intent(in) :: owner integer,intent(in) :: group</p>
-<h2><a class="anchor" id="autotoc_md168"></a>
+<h2><a class="anchor" id="autotoc_md169"></a>
 DESCRIPTION</h2>
 <p>The chown(3f) function changes owner and group of a file</p>
 <p>The path argument points to a pathname naming a file. The user ID and group ID of the named file shall be set to the numeric values contained in owner and group, respectively.</p>
 <p>Only processes with an effective user ID equal to the user ID of the file or with appropriate privileges may change the ownership of a file.</p>
-<h2><a class="anchor" id="autotoc_md169"></a>
+<h2><a class="anchor" id="autotoc_md170"></a>
 OPTIONS</h2>
 <p>path a character string representing a file pathname. Trailing spaces are ignored. owner UID of owner that ownership is to be changed to group GID of group that ownership is to be changed to</p>
-<h2><a class="anchor" id="autotoc_md170"></a>
+<h2><a class="anchor" id="autotoc_md171"></a>
 RETURN VALUE</h2>
 <p>The system_chown(3f) function should return zero 0 if successful. Otherwise, these functions shall return 1 and set errno to indicate the error. If 1 is returned, no changes are made in the user ID and group ID of the file.</p>
-<h2><a class="anchor" id="autotoc_md171"></a>
+<h2><a class="anchor" id="autotoc_md172"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_chown use M_system, only : system_chown use M_system, only : <a class="el" href="interfacem__system_1_1system__getuid.html">system_getuid</a> use M_system, only : <a class="el" href="interfacem__system_1_1system__getgid.html">system_getgid</a> use M_system, only : system_perror implicit none integer :: i character(len=80),parameter :: names(*)=[character(len=80) :: 'myfile1','/usr/local'] do i=1,size(names) if(.not. system_chown(&amp; &amp; trim(names(i)), &amp; &amp; system_getuid(), &amp; &amp; system_getgid()) &amp; )then call system_perror('<em>demo_system_chown</em> '//trim(names(i))) endif enddo end program demo_system_chown </p>
@@ -1073,30 +1133,30 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md311"></a>
+<h2><a class="anchor" id="autotoc_md312"></a>
 NAME</h2>
 <p>system_clearenv(3f) - [M_system:ENVIRONMENT] clear environment by calling clearenv(3c) (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md312"></a>
+<h2><a class="anchor" id="autotoc_md313"></a>
 SYNOPSIS</h2>
 <pre class="fragment">subroutine system_clearenv(ierr)
 
  integer,intent(out),optional :: ierr
-</pre><h2><a class="anchor" id="autotoc_md313"></a>
+</pre><h2><a class="anchor" id="autotoc_md314"></a>
 DESCRIPTION</h2>
 <p>The clearenv() procedure clears the environment of all name-value pairs. Typically used in security-conscious applications or ones where configuration control requires ensuring specific variables are set.</p>
-<h2><a class="anchor" id="autotoc_md314"></a>
+<h2><a class="anchor" id="autotoc_md315"></a>
 RETURN VALUES</h2>
 <p>ierr returns zero on success, and a nonzero value on failure. Optional. If not present and an error occurs the program stops.</p>
-<h2><a class="anchor" id="autotoc_md315"></a>
+<h2><a class="anchor" id="autotoc_md316"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_clearenv use M_system, only : system_clearenv implicit none ! environment before clearing call execute_command_line('env|wc') ! environment after clearing (not necessarily blank!) call <a class="el" href="namespacem__system.html#a9c34787b170ab8d41000d7c3acb60736">system_clearenv()</a> call execute_command_line('env') end program demo_system_clearenv</p>
 <p>Typical output:</p>
 <p>89 153 7427 PWD=/home/urbanjs/V600 SHLVL=1</p>
-<h2><a class="anchor" id="autotoc_md316"></a>
+<h2><a class="anchor" id="autotoc_md317"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md317"></a>
+<h2><a class="anchor" id="autotoc_md318"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1141,33 +1201,33 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md282"></a>
+<h2><a class="anchor" id="autotoc_md283"></a>
 NAME</h2>
 <p>system_closedir(3f) - [M_system:QUERY_FILE] close a directory stream by calling closedir(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md283"></a>
+<h2><a class="anchor" id="autotoc_md284"></a>
 SYNOPSIS</h2>
 <pre class="fragment">    subroutine system_closedir(dir,ierr)
 
      type(c_ptr)         :: dir
      integer,intent(out) :: ierr
-</pre> <h2><a class="anchor" id="autotoc_md284"></a>
+</pre> <h2><a class="anchor" id="autotoc_md285"></a>
 DESCRIPTION</h2>
 <p>The SYSTEM_CLOSEDIR(3f) function closes the directory stream referred to by the argument DIR. Upon return, the value of DIR may no longer point to an accessible object. </p>
-<h2><a class="anchor" id="autotoc_md285"></a>
+<h2><a class="anchor" id="autotoc_md286"></a>
 OPTIONS</h2>
 <p>dir directory stream pointer opened by SYSTEM_OPENDIR(3f). ierr Upon successful completion, SYSTEM_CLOSEDIR(3f) returns 0; otherwise, an error has occurred. </p>
-<h2><a class="anchor" id="autotoc_md286"></a>
+<h2><a class="anchor" id="autotoc_md287"></a>
 ERRORS</h2>
 <p>system_closedir(3f) may fail if:</p>
 <p>EBADF The dirp argument does not refer to an open directory stream. EINTR The closedir() function was interrupted by a signal. </p>
-<h2><a class="anchor" id="autotoc_md287"></a>
+<h2><a class="anchor" id="autotoc_md288"></a>
 EXAMPLE</h2>
 <p>Sample program</p>
 <p>program demo_system_closedir use M_system, only : system_opendir,system_readdir use M_system, only : system_closedir, system_rewinddir use iso_c_binding, only : c_ptr implicit none type(c_ptr) :: dir character(len=:),allocatable :: filename integer :: ierr !&mdash; open directory stream to read from call system_opendir('.',dir,ierr) !&mdash; read directory stream do call system_readdir(dir,filename,ierr) if(filename.eq.' ')exit write(*,*)filename enddo call system_rewinddir(dir) !&mdash; close directory stream call system_closedir(dir,ierr) end program demo_system_closedir </p>
-<h2><a class="anchor" id="autotoc_md288"></a>
+<h2><a class="anchor" id="autotoc_md289"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md289"></a>
+<h2><a class="anchor" id="autotoc_md290"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 <div class="dynheader">
@@ -1176,7 +1236,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1_icgraph.png" border="0" usemap="#namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1_icgraph" alt=""/></div>
 <map name="namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1_icgraph" id="namespacem__system_acd442b52c64fc50482bc08b0ac8a50d1_icgraph">
 <area shape="rect" title=" " alt="" coords="224,5,428,32"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="5,5,176,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
 </map>
 </div>
 
@@ -1213,25 +1273,25 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md172"></a>
+<h2><a class="anchor" id="autotoc_md173"></a>
 NAME</h2>
 <p>system_cpu_time(3f) - [M_system] get processor time by calling times(3c) (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md173"></a>
+<h2><a class="anchor" id="autotoc_md174"></a>
 SYNOPSIS</h2>
 <pre class="fragment">    subroutine system_cpu_time(c_user, c_system, c_total)
 
      real,intent(out) :: c_total
      real,intent(out) :: c_user
      real,intent(out) :: c_system
-</pre><h2><a class="anchor" id="autotoc_md174"></a>
+</pre><h2><a class="anchor" id="autotoc_md175"></a>
 DESCRIPTION</h2>
-<h2><a class="anchor" id="autotoc_md175"></a>
+<h2><a class="anchor" id="autotoc_md176"></a>
 OUTPUT</h2>
 <p>c_total total processor time ( c_user + c_system ) c_user processor user time c_system processor system time</p>
-<h2><a class="anchor" id="autotoc_md176"></a>
+<h2><a class="anchor" id="autotoc_md177"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md177"></a>
+<h2><a class="anchor" id="autotoc_md178"></a>
 EXAMPLES</h2>
 <p>Sample program:</p>
 <p>program demo_system_cpu_time</p>
@@ -1243,8 +1303,8 @@ EXAMPLES</h2>
 
 </div>
 </div>
-<a id="a744f46033ef5e7ae95ec6cbff3ae3f89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a744f46033ef5e7ae95ec6cbff3ae3f89">&#9670;&nbsp;</a></span>system_dir()</h2>
+<a id="a90110ae015fec06564f4c9a83f1be74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90110ae015fec06564f4c9a83f1be74c">&#9670;&nbsp;</a></span>system_dir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1259,7 +1319,13 @@ EXAMPLES</h2>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>pattern</em>&#160;</td>
+          <td class="paramname"><em>pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ignorecase</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1268,45 +1334,46 @@ EXAMPLES</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md389"></a>
-NAME</h2>
-<p>system_dir(3f) - [M_system] return filenames in a directory matching specified wildcard string (LICENSE:PD)</p>
 <h2><a class="anchor" id="autotoc_md390"></a>
-SYNOPSIS</h2>
-<p>function system_dir(directory,pattern)</p>
-<p>character(len=*),intent(in),optional :: directory character(len=*),intent(in),optional :: pattern character(len=:),allocatable :: system_dir(:)</p>
+NAME</h2>
+<p>system_dir(3f) - [M_io] return filenames in a directory matching specified wildcard string (LICENSE:PD)</p>
 <h2><a class="anchor" id="autotoc_md391"></a>
+SYNOPSIS</h2>
+<p>function system_dir(directory,pattern,ignorecase)</p>
+<p>character(len=*),intent(in),optional :: directory character(len=*),intent(in),optional :: pattern logical,intent(in),optional :: ignorecase character(len=:),allocatable :: system_dir(:)</p>
+<h2><a class="anchor" id="autotoc_md392"></a>
 DESCRIPTION</h2>
 <p>returns an array of filenames in the specified directory matching the wildcard string (which defaults to "*").</p>
-<h2><a class="anchor" id="autotoc_md392"></a>
-OPTIONS</h2>
-<p>DIRECTORY name of directory to match filenames in. Defaults to ".". PATTERN wildcard string matching the rules of the matchw(3f) function. Basically o "*" matches anything o "?" matches any single character</p>
 <h2><a class="anchor" id="autotoc_md393"></a>
+OPTIONS</h2>
+<p>DIRECTORY name of directory to match filenames in. Defaults to ".". PATTERN wildcard string matching the rules of the matchw(3f) function. Basically o "*" matches anything o "?" matches any single character IGNORECASE Boolean value indicating whether to ignore case or not when performing matching</p>
+<h2><a class="anchor" id="autotoc_md394"></a>
 RETURNS</h2>
 <p>system_dir An array right-padded to the length of the longest filename. Note that this means filenames actually containing trailing spaces in their names may be incorrect.</p>
-<h2><a class="anchor" id="autotoc_md394"></a>
+<h2><a class="anchor" id="autotoc_md395"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_dir use M_system, only : system_dir implicit none write(*, '(a)')system_dir(pattern='*.f90') end program demo_system_dir</p>
-<h2><a class="anchor" id="autotoc_md395"></a>
+<h2><a class="anchor" id="autotoc_md396"></a>
 AUTHOR</h2>
 <p>John S. Urban</p>
-<h2><a class="anchor" id="autotoc_md396"></a>
+<h2><a class="anchor" id="autotoc_md397"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
-<p class="reference">References <a class="el" href="namespacem__system.html#a0fccb69d0a56044b05e85b8df9f90aea">matchw()</a>, <a class="el" href="namespacem__system.html#acd442b52c64fc50482bc08b0ac8a50d1">system_closedir()</a>, <a class="el" href="namespacem__system.html#a622cc67c03e8cdea1d4c2430bb36081b">system_opendir()</a>, <a class="el" href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0">system_readdir()</a>, and <a class="el" href="namespacem__system.html#a3ffe757195ade8052e8acabd196ee3ca">system_rewinddir()</a>.</p>
+<p class="reference">References <a class="el" href="namespacem__system.html#ae4cc391aa0347cabed89c070d5d563f8">matchw()</a>, <a class="el" href="namespacem__system.html#acd442b52c64fc50482bc08b0ac8a50d1">system_closedir()</a>, <a class="el" href="namespacem__system.html#a622cc67c03e8cdea1d4c2430bb36081b">system_opendir()</a>, <a class="el" href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0">system_readdir()</a>, and <a class="el" href="namespacem__system.html#a3ffe757195ade8052e8acabd196ee3ca">system_rewinddir()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89_cgraph.png" border="0" usemap="#namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89_cgraph" alt=""/></div>
-<map name="namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89_cgraph" id="namespacem__system_a744f46033ef5e7ae95ec6cbff3ae3f89_cgraph">
+<div class="center"><img src="namespacem__system_a90110ae015fec06564f4c9a83f1be74c_cgraph.png" border="0" usemap="#namespacem__system_a90110ae015fec06564f4c9a83f1be74c_cgraph" alt=""/></div>
+<map name="namespacem__system_a90110ae015fec06564f4c9a83f1be74c_cgraph" id="namespacem__system_a90110ae015fec06564f4c9a83f1be74c_cgraph">
 <area shape="rect" title=" " alt="" coords="5,107,176,133"/>
-<area shape="rect" href="namespacem__system.html#a0fccb69d0a56044b05e85b8df9f90aea" title=" " alt="" coords="256,5,407,32"/>
+<area shape="rect" href="namespacem__system.html#ae4cc391aa0347cabed89c070d5d563f8" title=" " alt="" coords="256,5,407,32"/>
 <area shape="rect" href="namespacem__system.html#acd442b52c64fc50482bc08b0ac8a50d1" title=" " alt="" coords="229,56,433,83"/>
 <area shape="rect" href="namespacem__system.html#a622cc67c03e8cdea1d4c2430bb36081b" title=" " alt="" coords="230,107,433,133"/>
 <area shape="rect" href="namespacem__system.html#a983df5b2d7cb5842d69c4a31829403e0" title=" " alt="" coords="232,157,431,184"/>
 <area shape="rect" href="namespacem__system.html#a3ffe757195ade8052e8acabd196ee3ca" title=" " alt="" coords="224,208,439,235"/>
+<area shape="rect" href="namespacem__system.html#aff12e7dc531765028fe7b2408a9f177d" title=" " alt="" coords="497,5,631,32"/>
 <area shape="rect" href="namespacem__system.html#a58bb591b5b9fefec3960a28361aae07a" title=" " alt="" coords="487,107,641,133"/>
 <area shape="rect" href="namespacem__system.html#aeb3d7d4cb39d59917910a3ae2532206d" title=" " alt="" coords="493,157,635,184"/>
 </map>
@@ -1339,29 +1406,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md230"></a>
+<h2><a class="anchor" id="autotoc_md231"></a>
 NAME</h2>
 <p>system_getcwd(3f) - [M_system:QUERY_FILE] call getcwd(3c) to get the pathname of the current working directory (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md231"></a>
+<h2><a class="anchor" id="autotoc_md232"></a>
 SYNOPSIS</h2>
 <pre class="fragment">   subroutine system_getcwd(output,ierr)
 
     character(len=:),allocatable,intent(out) :: output
     integer,intent(out)                      :: ierr
-</pre> <h2><a class="anchor" id="autotoc_md232"></a>
+</pre> <h2><a class="anchor" id="autotoc_md233"></a>
 DESCRIPTION</h2>
 <p>system_getcwd(3f) calls the C routine getcwd(3c) to obtain the absolute pathname of the current working directory.</p>
-<h2><a class="anchor" id="autotoc_md233"></a>
+<h2><a class="anchor" id="autotoc_md234"></a>
 RETURN VALUE</h2>
 <p>OUTPUT The absolute pathname of the current working directory The pathname shall contain no components that are dot or dot-dot, or are symbolic links. IERR is not zero if an error occurs.</p>
-<h2><a class="anchor" id="autotoc_md234"></a>
+<h2><a class="anchor" id="autotoc_md235"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_getcwd use M_system, only : system_getcwd implicit none character(len=:),allocatable :: dirname integer :: ierr call system_getcwd(dirname,ierr) if(ierr.eq.0)then write(*,*)'CURRENT DIRECTORY ',trim(dirname) else write(*,*)'ERROR OBTAINING CURRENT DIRECTORY NAME' endif end program demo_system_getcwd</p>
-<h2><a class="anchor" id="autotoc_md235"></a>
+<h2><a class="anchor" id="autotoc_md236"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md236"></a>
+<h2><a class="anchor" id="autotoc_md237"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1403,30 +1470,30 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md297"></a>
+<h2><a class="anchor" id="autotoc_md298"></a>
 NAME</h2>
 <p>system_getenv(3f) - [M_system:ENVIRONMENT] get environment variable from Fortran by calling get_environment_variable(3f) (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md298"></a>
+<h2><a class="anchor" id="autotoc_md299"></a>
 SYNOPSIS</h2>
 <pre class="fragment">function system_getenv(name,default)
 
  character(len=:),allocatable         :: system_getenv
  character(len=*),intent(in)          :: name
  character(len=*),intent(in),optional :: default
-</pre><h2><a class="anchor" id="autotoc_md299"></a>
+</pre><h2><a class="anchor" id="autotoc_md300"></a>
 DESCRIPTION</h2>
 <p>The <a class="el" href="namespacem__system.html#a0f91f973a4288ebda0e75ea0869a43af">system_getenv()</a> function gets the value of an environment variable.</p>
-<h2><a class="anchor" id="autotoc_md300"></a>
+<h2><a class="anchor" id="autotoc_md301"></a>
 OPTIONS</h2>
 <p>name Return the value of the specified environment variable or blank if the variable is not defined. default If the value returned would be blank this value will be used instead.</p>
-<h2><a class="anchor" id="autotoc_md301"></a>
+<h2><a class="anchor" id="autotoc_md302"></a>
 EXAMPLE</h2>
 <p>Sample setting an environment variable from Fortran:</p>
 <p>program demo_system_getenv use M_system, only : system_getenv implicit none write(*,'("USER     : ",a)')system_getenv('USER') write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME') write(*,'("USERNAME : ",a)')system_getenv('USERNAME') end program demo_system_getenv</p>
-<h2><a class="anchor" id="autotoc_md302"></a>
+<h2><a class="anchor" id="autotoc_md303"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md303"></a>
+<h2><a class="anchor" id="autotoc_md304"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1447,34 +1514,34 @@ LICENSE</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md366"></a>
+<h2><a class="anchor" id="autotoc_md367"></a>
 NAME</h2>
 <p>system_getgrgid(3f) - [M_system:QUERY] get groupd name associated with a GID (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md367"></a>
+<h2><a class="anchor" id="autotoc_md368"></a>
 SYNOPSIS</h2>
 <p>function system_getgrgid(gid) result (gname)</p>
 <p>class(*),intent(in) :: gid ! any INTEGER type character(len=:),allocatable :: gname</p>
-<h2><a class="anchor" id="autotoc_md368"></a>
+<h2><a class="anchor" id="autotoc_md369"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_getlogin() function returns a string containing the group
 name associated with the given GID. If no match is found
 it returns a null string and sets errno to indicate the error.
-</pre><h2><a class="anchor" id="autotoc_md369"></a>
+</pre><h2><a class="anchor" id="autotoc_md370"></a>
 OPTION</h2>
 <p>gid GID to try to look up associated group for. Can be of any INTEGER type.</p>
-<h2><a class="anchor" id="autotoc_md370"></a>
+<h2><a class="anchor" id="autotoc_md371"></a>
 RETURN VALUE</h2>
 <p>gname returns the group name. Blank if an error occurs</p>
-<h2><a class="anchor" id="autotoc_md371"></a>
+<h2><a class="anchor" id="autotoc_md372"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_getgrgid use M_system, only : system_getgrgid use M_system, only : <a class="el" href="interfacem__system_1_1system__getgid.html">system_getgid</a> implicit none character(len=:),allocatable :: name name=system_getgrgid( system_getgid() ) write(*,'("group[",a,"] for ",i0)')name,system_getgid() end program demo_system_getgrgid</p>
 <p>Results:</p>
 <p>group[default] for 197121</p>
-<h2><a class="anchor" id="autotoc_md372"></a>
+<h2><a class="anchor" id="autotoc_md373"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md373"></a>
+<h2><a class="anchor" id="autotoc_md374"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1517,29 +1584,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md345"></a>
+<h2><a class="anchor" id="autotoc_md346"></a>
 NAME</h2>
 <p>system_gethostname(3f) - [M_system:QUERY] get name of current host (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md346"></a>
+<h2><a class="anchor" id="autotoc_md347"></a>
 SYNOPSIS</h2>
 <pre class="fragment">   subroutine system_gethostname(string,ierr)
 
     character(len=:),allocatable,intent(out) :: NAME
     integer,intent(out)                      :: IERR
-</pre> <h2><a class="anchor" id="autotoc_md347"></a>
+</pre> <h2><a class="anchor" id="autotoc_md348"></a>
 DESCRIPTION</h2>
 <p>The system_gethostname(3f) procedure returns the standard host name for the current machine.</p>
-<h2><a class="anchor" id="autotoc_md348"></a>
+<h2><a class="anchor" id="autotoc_md349"></a>
 OPTIONS</h2>
 <p>string returns the hostname. Must be an allocatable CHARACTER variable. ierr Upon successful completion, 0 shall be returned; otherwise, -1 shall be returned. </p>
-<h2><a class="anchor" id="autotoc_md349"></a>
+<h2><a class="anchor" id="autotoc_md350"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_gethostname use M_system, only : system_gethostname implicit none character(len=:),allocatable :: name integer :: ierr call system_gethostname(name,ierr) if(ierr.eq.0)then write(*,'("hostname[",a,"]")')name else write(*,'(a)')'ERROR: could not get hostname' endif end program demo_system_gethostname</p>
-<h2><a class="anchor" id="autotoc_md350"></a>
+<h2><a class="anchor" id="autotoc_md351"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md351"></a>
+<h2><a class="anchor" id="autotoc_md352"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1567,14 +1634,14 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md352"></a>
+<h2><a class="anchor" id="autotoc_md353"></a>
 NAME</h2>
 <p>system_getlogin(3f) - [M_system:QUERY] get login name (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md353"></a>
+<h2><a class="anchor" id="autotoc_md354"></a>
 SYNOPSIS</h2>
 <p>function <a class="el" href="namespacem__system.html#a70f78645a1f130734005e190d469529d">system_getlogin()</a> result (fname)</p>
 <p>character(len=:),allocatable :: FNAME</p>
-<h2><a class="anchor" id="autotoc_md354"></a>
+<h2><a class="anchor" id="autotoc_md355"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_getlogin(3f) function returns a string containing the user
 name associated by the login activity with the controlling terminal
@@ -1586,19 +1653,19 @@ Three names associated with the current process can be determined:
    o system_getpwuid(system_getuid()) returns the name associated with the real user ID of the process.
    o system_getpwuid(system_geteuid()) returns the name associated with the effective user ID of the process
    o system_getlogin() returns the name associated with the current login activity
-</pre><h2><a class="anchor" id="autotoc_md355"></a>
+</pre><h2><a class="anchor" id="autotoc_md356"></a>
 RETURN VALUE</h2>
 <p>fname returns the login name.</p>
-<h2><a class="anchor" id="autotoc_md356"></a>
+<h2><a class="anchor" id="autotoc_md357"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_getlogin use M_system, only : system_getlogin implicit none character(len=:),allocatable :: name name=<a class="el" href="namespacem__system.html#a70f78645a1f130734005e190d469529d">system_getlogin()</a> write(*,'("login[",a,"]")')name end program demo_system_getlogin</p>
 <p>Results:</p>
 <p>login[JSU]</p>
-<h2><a class="anchor" id="autotoc_md357"></a>
+<h2><a class="anchor" id="autotoc_md358"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md358"></a>
+<h2><a class="anchor" id="autotoc_md359"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1633,32 +1700,32 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md374"></a>
+<h2><a class="anchor" id="autotoc_md375"></a>
 NAME</h2>
 <p>system_getpwuid(3f) - [M_system:QUERY] get login name associated with a UID (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md375"></a>
+<h2><a class="anchor" id="autotoc_md376"></a>
 SYNOPSIS</h2>
 <p>function system_getpwuid(uid) result (uname)</p>
 <p>class(*),intent(in) :: uid ! any INTEGER type character(len=:),allocatable :: uname</p>
-<h2><a class="anchor" id="autotoc_md376"></a>
+<h2><a class="anchor" id="autotoc_md377"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_getpwuid() function returns a string containing the user
 name associated with the given UID. If no match is found it returns
 a null string and sets errno to indicate the error.
-</pre><h2><a class="anchor" id="autotoc_md377"></a>
+</pre><h2><a class="anchor" id="autotoc_md378"></a>
 OPTION</h2>
 <p>uid UID to try to look up associated username for. Can be of any INTEGER type.</p>
-<h2><a class="anchor" id="autotoc_md378"></a>
+<h2><a class="anchor" id="autotoc_md379"></a>
 RETURN VALUE</h2>
 <p>uname returns the login name.</p>
-<h2><a class="anchor" id="autotoc_md379"></a>
+<h2><a class="anchor" id="autotoc_md380"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_getpwuid use M_system, only : system_getpwuid use M_system, only : <a class="el" href="interfacem__system_1_1system__getuid.html">system_getuid</a> use,intrinsic :: iso_fortran_env, only : int64 implicit none character(len=:),allocatable :: name integer(kind=int64) :: uid uid=system_getuid() name=system_getpwuid(uid) write(*,'("login[",a,"] has UID ",i0)')name,uid end program demo_system_getpwuid</p>
-<h2><a class="anchor" id="autotoc_md380"></a>
+<h2><a class="anchor" id="autotoc_md381"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md381"></a>
+<h2><a class="anchor" id="autotoc_md382"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -1696,16 +1763,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md194"></a>
+<h2><a class="anchor" id="autotoc_md195"></a>
 NAME</h2>
 <p>system_getumask(3f) - [M_system:QUERY_FILE] get current umask (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md195"></a>
+<h2><a class="anchor" id="autotoc_md196"></a>
 SYNOPSIS</h2>
 <p>integer function <a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">system_getumask()</a> result (umask_value) </p>
-<h2><a class="anchor" id="autotoc_md196"></a>
+<h2><a class="anchor" id="autotoc_md197"></a>
 DESCRIPTION</h2>
 <p>The return value from getumask(3f) is the value of the file creation mask, obtained by using umask(3c). </p>
-<h2><a class="anchor" id="autotoc_md197"></a>
+<h2><a class="anchor" id="autotoc_md198"></a>
 EXAMPLE</h2>
 <p>Sample program</p>
 <p>program demo_getumask use M_system, only : system_getumask, system_setumask integer :: i write(*,101)(<a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">system_getumask()</a>,i=1,4) 101 format(1x,i0,1x,"O'",o4.4,"'",1x,'Z"',z0,"'",1x,"B'",b12.12,"'") end program demo_getumask</p>
@@ -1729,29 +1796,29 @@ EXAMPLE</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md150"></a>
+<h2><a class="anchor" id="autotoc_md151"></a>
 NAME</h2>
 <p>system_isblk(3f) - [M_system:QUERY_FILE] checks if argument is a block device (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md151"></a>
+<h2><a class="anchor" id="autotoc_md152"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_isblk(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_isblk</p>
-<h2><a class="anchor" id="autotoc_md152"></a>
+<h2><a class="anchor" id="autotoc_md153"></a>
 DESCRIPTION</h2>
 <p>The isblk(3f) function checks if path is a path to a block device.</p>
-<h2><a class="anchor" id="autotoc_md153"></a>
+<h2><a class="anchor" id="autotoc_md154"></a>
 OPTIONS</h2>
 <p>path a character string representing a block device pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md154"></a>
+<h2><a class="anchor" id="autotoc_md155"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#a1294b8d8b4910261c0a0991bf668ab67">system_isblk()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md155"></a>
+<h2><a class="anchor" id="autotoc_md156"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md156"></a>
+<h2><a class="anchor" id="autotoc_md157"></a>
 SEE ALSO</h2>
 <p>system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md157"></a>
+<h2><a class="anchor" id="autotoc_md158"></a>
 EXAMPLE</h2>
 <p>check if filename is a block device</p>
 <p>program demo_system_isblk use M_system, only : system_isblk implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; '/tmp/NOTTHERE ', &amp; '/usr/local ', &amp; '. ', &amp; 'block_device.tst', &amp; 'PROBABLY_NOT '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a block device? ', system_isblk(names(i)) enddo end program demo_system_isblk</p>
@@ -1785,29 +1852,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md126"></a>
+<h2><a class="anchor" id="autotoc_md127"></a>
 NAME</h2>
 <p>system_ischr(3f) - [M_system:QUERY_FILE] checks if argument is a character device (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md127"></a>
+<h2><a class="anchor" id="autotoc_md128"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_ischr(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_ischr</p>
-<h2><a class="anchor" id="autotoc_md128"></a>
+<h2><a class="anchor" id="autotoc_md129"></a>
 DESCRIPTION</h2>
 <p>The ischr(3f) function checks if path is a path to a character device.</p>
-<h2><a class="anchor" id="autotoc_md129"></a>
+<h2><a class="anchor" id="autotoc_md130"></a>
 OPTIONS</h2>
 <p>path a character string representing a character device pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md130"></a>
+<h2><a class="anchor" id="autotoc_md131"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#a49f1d027d438aab86024660b0802768f">system_ischr()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md131"></a>
+<h2><a class="anchor" id="autotoc_md132"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md132"></a>
+<h2><a class="anchor" id="autotoc_md133"></a>
 SEE ALSO</h2>
 <p>system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md133"></a>
+<h2><a class="anchor" id="autotoc_md134"></a>
 EXAMPLE</h2>
 <p>check if filename is a character file</p>
 <p>program demo_system_ischr use M_system, only : system_ischr implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; '/tmp/NOTTHERE ', &amp; '/usr/local ', &amp; '. ', &amp; 'char_dev.test ', &amp; 'PROBABLY_NOT '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a character device? ', system_ischr(names(i)) enddo end program demo_system_ischr</p>
@@ -1841,29 +1908,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md158"></a>
+<h2><a class="anchor" id="autotoc_md159"></a>
 NAME</h2>
 <p>system_isdir(3f) - [M_system:QUERY_FILE] checks if argument is a directory path (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md159"></a>
+<h2><a class="anchor" id="autotoc_md160"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_isdir(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_isdir</p>
-<h2><a class="anchor" id="autotoc_md160"></a>
+<h2><a class="anchor" id="autotoc_md161"></a>
 DESCRIPTION</h2>
 <p>The system_isdir(3f) function checks if path is a directory.</p>
-<h2><a class="anchor" id="autotoc_md161"></a>
+<h2><a class="anchor" id="autotoc_md162"></a>
 OPTIONS</h2>
 <p>path a character string representing a directory pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md162"></a>
+<h2><a class="anchor" id="autotoc_md163"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#a7946ea976f399baff21caebcbe931f6d">system_isdir()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md163"></a>
+<h2><a class="anchor" id="autotoc_md164"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md164"></a>
+<h2><a class="anchor" id="autotoc_md165"></a>
 SEE ALSO</h2>
 <p>system_islnk(3f), system_stat(3f), isreg(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md165"></a>
+<h2><a class="anchor" id="autotoc_md166"></a>
 EXAMPLE</h2>
 <p>Sample program</p>
 <p>program demo_system_isdir use M_system, only : system_isdir use M_system, only : access=&gt;system_access, R_OK use M_system, only : system_dir implicit none character(len=1024),allocatable :: filenames(:) ! BUG: cannot use len=: in gfortran 8.3.1 integer :: i character(len=80),parameter :: names(*)=[ &amp; &amp; '/tmp ', &amp; &amp; '/tmp/NOTTHERE ', &amp; &amp; '/usr/local ', &amp; &amp; '. ', &amp; &amp; 'PROBABLY_NOT '] ! do i=1,size(names) write(*,*)' is ',trim(names(i)),' a directory? ', system_isdir(names(i)) enddo ! ! EXTENDED EXAMPLE: list readable non-hidden directories in current directory filenames=system_dir(pattern='*') ! list all files in current directory ! select readable directories filenames=pack(filenames,system_isdir(filenames).and.access(filenames,R_OK)) filenames=pack(filenames,filenames(:)(1:1) .ne.'.') ! skip hidden directories do i=1,size(filenames) write(*,*)' ',trim(filenames(i)),' is a directory' enddo ! end program demo_system_isdir</p>
@@ -1899,29 +1966,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md118"></a>
+<h2><a class="anchor" id="autotoc_md119"></a>
 NAME</h2>
 <p>system_isfifo(3f) - [M_system:QUERY_FILE] checks if argument is a fifo - named pipe (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md119"></a>
+<h2><a class="anchor" id="autotoc_md120"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_isfifo(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_isfifo</p>
-<h2><a class="anchor" id="autotoc_md120"></a>
+<h2><a class="anchor" id="autotoc_md121"></a>
 DESCRIPTION</h2>
 <p>The isfifo(3f) function checks if path is a path to a fifo - named pipe.</p>
-<h2><a class="anchor" id="autotoc_md121"></a>
+<h2><a class="anchor" id="autotoc_md122"></a>
 OPTIONS</h2>
 <p>path a character string representing a fifo - named pipe pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md122"></a>
+<h2><a class="anchor" id="autotoc_md123"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#aa2bdb5f75405d87934c10756b539d082">system_isfifo()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md123"></a>
+<h2><a class="anchor" id="autotoc_md124"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md124"></a>
+<h2><a class="anchor" id="autotoc_md125"></a>
 SEE ALSO</h2>
 <p>system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md125"></a>
+<h2><a class="anchor" id="autotoc_md126"></a>
 EXAMPLE</h2>
 <p>check if filename is a FIFO file</p>
 <p>program demo_system_isfifo use M_system, only : system_isfifo implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; '/tmp/NOTTHERE ', &amp; '/usr/local ', &amp; '. ', &amp; 'fifo.test ', &amp; 'PROBABLY_NOT '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a fifo(named pipe)? ', system_isfifo(names(i)) enddo end program demo_system_isfifo </p>
@@ -1954,31 +2021,31 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md142"></a>
+<h2><a class="anchor" id="autotoc_md143"></a>
 NAME</h2>
 <p>system_islnk(3f) - [M_system:QUERY_FILE] checks if argument is a link (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md143"></a>
+<h2><a class="anchor" id="autotoc_md144"></a>
 SYNOPSIS</h2>
 <pre class="fragment">elemental impure logical function system_islnk(pathname)
 
 character(len=*),intent(in) :: pathname
 logical                     :: system_islnk
-</pre><h2><a class="anchor" id="autotoc_md144"></a>
+</pre><h2><a class="anchor" id="autotoc_md145"></a>
 DESCRIPTION</h2>
 <p>The islnk(3f) function checks if path is a path to a link.</p>
-<h2><a class="anchor" id="autotoc_md145"></a>
+<h2><a class="anchor" id="autotoc_md146"></a>
 OPTIONS</h2>
 <p>path a character string representing a link pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md146"></a>
+<h2><a class="anchor" id="autotoc_md147"></a>
 RETURN VALUE</h2>
 <p>system_islnk The <a class="el" href="namespacem__system.html#a268d0cd27be36527894fe2cae0f1b9f6">system_islnk()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md147"></a>
+<h2><a class="anchor" id="autotoc_md148"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md148"></a>
+<h2><a class="anchor" id="autotoc_md149"></a>
 SEE ALSO</h2>
 <p>system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md149"></a>
+<h2><a class="anchor" id="autotoc_md150"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_islnk use M_system, only : system_islnk implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; '/tmp/NOTTHERE ', &amp; '/usr/local ', &amp; '. ', &amp; 'link.test ', &amp; 'PROBABLY_NOT '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a link? ', system_islnk(names(i)) enddo end program demo_system_islnk</p>
@@ -2012,29 +2079,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md134"></a>
+<h2><a class="anchor" id="autotoc_md135"></a>
 NAME</h2>
 <p>system_isreg(3f) - [M_system:QUERY_FILE] checks if argument is a regular file (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md135"></a>
+<h2><a class="anchor" id="autotoc_md136"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_isreg(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_isreg</p>
-<h2><a class="anchor" id="autotoc_md136"></a>
+<h2><a class="anchor" id="autotoc_md137"></a>
 DESCRIPTION</h2>
 <p>The isreg(3f) function checks if path is a regular file</p>
-<h2><a class="anchor" id="autotoc_md137"></a>
+<h2><a class="anchor" id="autotoc_md138"></a>
 OPTIONS</h2>
 <p>path a character string representing a pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md138"></a>
+<h2><a class="anchor" id="autotoc_md139"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#a8ea0d0430227af61b8083b4e7d6e597d">system_isreg()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md139"></a>
+<h2><a class="anchor" id="autotoc_md140"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md140"></a>
+<h2><a class="anchor" id="autotoc_md141"></a>
 SEE ALSO</h2>
 <p>system_islnk(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md141"></a>
+<h2><a class="anchor" id="autotoc_md142"></a>
 EXAMPLE</h2>
 <p>check if filename is a regular file</p>
 <p>program simple use M_system, only : system_isreg implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; 'test.txt ', &amp; '~/.bashrc ', &amp; '.bashrc ', &amp; '. '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a regular file? ', system_isreg(names(i)) enddo end program simple</p>
@@ -2069,29 +2136,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md110"></a>
+<h2><a class="anchor" id="autotoc_md111"></a>
 NAME</h2>
 <p>system_issock(3f) - [M_system:QUERY_FILE] checks if argument is a socket (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md111"></a>
+<h2><a class="anchor" id="autotoc_md112"></a>
 SYNOPSIS</h2>
 <p>elemental impure logical function system_issock(pathname)</p>
 <p>character(len=*),intent(in) :: pathname logical :: system_issock</p>
-<h2><a class="anchor" id="autotoc_md112"></a>
+<h2><a class="anchor" id="autotoc_md113"></a>
 DESCRIPTION</h2>
 <p>The issock(3f) function checks if path is a path to a socket</p>
-<h2><a class="anchor" id="autotoc_md113"></a>
+<h2><a class="anchor" id="autotoc_md114"></a>
 OPTIONS</h2>
 <p>path a character string representing a socket pathname. Trailing spaces are ignored.</p>
-<h2><a class="anchor" id="autotoc_md114"></a>
+<h2><a class="anchor" id="autotoc_md115"></a>
 RETURN VALUE</h2>
 <p>The <a class="el" href="namespacem__system.html#af6eb5074fe74552bc7a5e7d00f459087">system_issock()</a> function should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md115"></a>
+<h2><a class="anchor" id="autotoc_md116"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md116"></a>
+<h2><a class="anchor" id="autotoc_md117"></a>
 SEE ALSO</h2>
 <p>system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)</p>
-<h2><a class="anchor" id="autotoc_md117"></a>
+<h2><a class="anchor" id="autotoc_md118"></a>
 EXAMPLE</h2>
 <p>check if filename is a socket</p>
 <p>program demo_system_issock use M_system, only : system_issock implicit none integer :: i character(len=80),parameter :: names(*)=[ &amp; '/tmp ', &amp; '/tmp/NOTTHERE ', &amp; '/usr/local ', &amp; '. ', &amp; 'sock.test ', &amp; 'PROBABLY_NOT '] do i=1,size(names) write(*,*)' is ',trim(names(i)),' a socket? ', system_issock(names(i)) enddo end program demo_system_issock </p>
@@ -2134,16 +2201,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md178"></a>
+<h2><a class="anchor" id="autotoc_md179"></a>
 NAME</h2>
 <p>system_link(3f) - [M_system:FILE_SYSTEM] link one file to another file relative to two directory file descriptors (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md179"></a>
+<h2><a class="anchor" id="autotoc_md180"></a>
 SYNOPSIS</h2>
 <pre class="fragment">elemental impure integer function link(oldpath,newpath);
 
  character(len=*),intent(in) :: oldpath
  character(len=*),intent(in) :: newpath
-</pre><h2><a class="anchor" id="autotoc_md180"></a>
+</pre><h2><a class="anchor" id="autotoc_md181"></a>
 DESCRIPTION</h2>
 <p>The link() function shall create a new link (directory entry) for the existing file, path1.</p>
 <p>The path1 argument points to a pathname naming an existing file. The path2 argument points to a pathname naming the new directory entry to be created. The link() function shall atomically create a new link for the existing file and the link count of the file shall be incremented by one.</p>
@@ -2159,10 +2226,10 @@ DESCRIPTION</h2>
 <p>Some implementations do allow links between file systems.</p>
 <p>If path1 refers to a symbolic link, application developers should use linkat() with appropriate flags to select whether or not the symbolic link should be resolved.</p>
 <p>If the AT_SYMLINK_FOLLOW flag is clear in the flag argument and the path1 argument names a symbolic link, a new link is created for the symbolic link path1 and not its target.</p>
-<h2><a class="anchor" id="autotoc_md181"></a>
+<h2><a class="anchor" id="autotoc_md182"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, these functions shall return 0. Otherwise, these functions shall return -1 and set errno to indicate the error.</p>
-<h2><a class="anchor" id="autotoc_md182"></a>
+<h2><a class="anchor" id="autotoc_md183"></a>
 EXAMPLES</h2>
 <p>Creating a Link to a File</p>
 <p>program demo_system_link use M_system, only : system_link, system_perror integer :: ierr ierr = system_link('myfile1','myfile2') if(ierr.ne.0)then call system_perror('<em>demo_system_link</em>') endif end program demo_system_link </p>
@@ -2205,12 +2272,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md250"></a>
+<h2><a class="anchor" id="autotoc_md251"></a>
 NAME</h2>
 <p>system_mkdir(3f) - [M_system:FILE_SYSTEM] call mkdir(3c) to create a new directory (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md251"></a>
-SYNOPSIS</h2>
 <h2><a class="anchor" id="autotoc_md252"></a>
+SYNOPSIS</h2>
+<h2><a class="anchor" id="autotoc_md253"></a>
 DESCRIPTION</h2>
 <pre class="fragment">Predefined variables are typically used to set permission modes.
 You can bytewise-OR together these variables to create the most common
@@ -2239,14 +2306,14 @@ use any of the following calls equivalently:
   ierr= mkdir("mydir",IANY([R_USR,W_USR,X_USR,R_GRP,W_GRP,X_GRP,R_OTH,W_OTH,X_OTH]));
   ierr= mkdir("mydir",IANY([RWX_U,RWX_G,RWX_O]));
   ierr= mkdir("mydir",ACCESSPERMS);
-</pre><h2><a class="anchor" id="autotoc_md253"></a>
+</pre><h2><a class="anchor" id="autotoc_md254"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_mkdir use M_system, only : system_perror use M_system, only : system_mkdir use M_system, only : R_GRP,R_OTH,R_USR,RWX_G,RWX_O use M_system, only : RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR use M_system, only : DEFFILEMODE, ACCESSPERMS implicit none integer :: ierr ierr=system_mkdir('_scratch',IANY([R_USR,W_USR,X_USR])) end program demo_system_mkdir</p>
-<h2><a class="anchor" id="autotoc_md254"></a>
+<h2><a class="anchor" id="autotoc_md255"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md255"></a>
+<h2><a class="anchor" id="autotoc_md256"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2289,14 +2356,14 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md243"></a>
+<h2><a class="anchor" id="autotoc_md244"></a>
 NAME</h2>
 <p>system_mkfifo(3f) - [M_system:FILE_SYSTEM] make a FIFO special file relative to directory file descriptor (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md244"></a>
+<h2><a class="anchor" id="autotoc_md245"></a>
 SYNOPSIS</h2>
 <p>function system_mkfifo(pathname,mode) result(ierr)</p>
 <p>character(len=*),intent(in) :: pathname integer,intent(in) :: mode integer :: ierr</p>
-<h2><a class="anchor" id="autotoc_md245"></a>
+<h2><a class="anchor" id="autotoc_md246"></a>
 DESCRIPTION</h2>
 <p>A regular pipe can only connect two related processes. It is created by a process and will vanish when the last process closes it.</p>
 <p>A named pipe, also called a FIFO for its behavior, can be used to connect two unrelated processes and exists independently of the processes; meaning it can exist even if no one is using it. A FIFO is created using the mkfifo() library function.</p>
@@ -2320,18 +2387,18 @@ DESCRIPTION</h2>
 <p>ierr= mkfifo("myfile", IANY([R_USR, W_USR, X_USR])); ierr= mkfifo("myfile", RWX_U);</p>
 <p>In order to give anyone any rights (mode 0777 = rwxrwxrwx), you can use any of the following calls equivalently:</p>
 <p>ierr= mkfifo("myfile",IANY([R_USR,W_USR,X_USR,R_GRP,W_GRP,X_GRP,R_OTH,W_OTH,X_OTH])); ierr= mkfifo("myfile",IANY([RWX_U,RWX_G,RWX_O])); ierr= mkfifo("myfile",ACCESSPERMS); </p>
-<h2><a class="anchor" id="autotoc_md246"></a>
+<h2><a class="anchor" id="autotoc_md247"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, return 0. Otherwise, return -1 and set errno to indicate the error. If -1 is returned, no FIFO is created.</p>
-<h2><a class="anchor" id="autotoc_md247"></a>
+<h2><a class="anchor" id="autotoc_md248"></a>
 EXAMPLES</h2>
 <p>The following example shows how to create a FIFO file named /home/cnd/mod_done, with read/write permissions for owner, and with read permissions for group and others.</p>
 <p>program demo_system_mkfifo use M_system, only : system_mkfifo, system_perror !use M_system, only : R_GRP,R_OTH,R_USR,RWX_G,RWX_O !use M_system, only : RWX_U,W_GRP,W_OTH,W_USR,X_GRP,X_OTH,X_USR !use M_system, only : DEFFILEMODE, ACCESSPERMS use M_system, only : W_USR, R_USR, R_GRP, R_OTH implicit none integer :: status status = system_mkfifo("/tmp/buffer", IANY([W_USR, R_USR, R_GRP, R_OTH])) if(status.ne.0)then call system_perror('<em>mkfifo</em> error:') endif end program demo_system_mkfifo</p>
 <p>Now some other process (or this one) can read from /tmp/buffer while this program is running or after, consuming the data as it is read.</p>
-<h2><a class="anchor" id="autotoc_md248"></a>
+<h2><a class="anchor" id="autotoc_md249"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md249"></a>
+<h2><a class="anchor" id="autotoc_md250"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2379,20 +2446,20 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md256"></a>
+<h2><a class="anchor" id="autotoc_md257"></a>
 NAME</h2>
 <p>system_opendir(3f) - [M_system:QUERY_FILE] open directory stream by calling opendir(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md257"></a>
+<h2><a class="anchor" id="autotoc_md258"></a>
 SYNOPSIS</h2>
 <p>subroutine system_opendir(dirname,dir,ierr)</p>
 <p>character(len=*), intent(in) :: dirname type(c_ptr) :: dir integer,intent(out) :: ierr</p>
-<h2><a class="anchor" id="autotoc_md258"></a>
+<h2><a class="anchor" id="autotoc_md259"></a>
 DESCRIPTION</h2>
 <p>The system_opendir(3f) procedure opens a directory stream corresponding to the directory named by the dirname argument. The directory stream is positioned at the first entry.</p>
-<h2><a class="anchor" id="autotoc_md259"></a>
+<h2><a class="anchor" id="autotoc_md260"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, a pointer to a C dir type is returned. Otherwise, these functions shall return a null pointer and set IERR to indicate the error.</p>
-<h2><a class="anchor" id="autotoc_md260"></a>
+<h2><a class="anchor" id="autotoc_md261"></a>
 ERRORS</h2>
 <pre class="fragment">    An error corresponds to a condition described in opendir(3c):
 
@@ -2418,23 +2485,23 @@ ERRORS</h2>
                   result with a length that exceeds {PATH_MAX}.
 
     ENFILE        Too many files are currently open in the system.
-</pre><h2><a class="anchor" id="autotoc_md261"></a>
+</pre><h2><a class="anchor" id="autotoc_md262"></a>
 APPLICATION USAGE</h2>
 <p>The opendir() function should be used in conjunction with readdir(), closedir(), and rewinddir() to examine the contents of the directory (see the EXAMPLES section in readdir()). This method is recommended for portability. </p>
-<h2><a class="anchor" id="autotoc_md262"></a>
+<h2><a class="anchor" id="autotoc_md263"></a>
 OPTIONS</h2>
 <p>dirname name of directory to open a directory stream for </p>
-<h2><a class="anchor" id="autotoc_md263"></a>
+<h2><a class="anchor" id="autotoc_md264"></a>
 RETURNS</h2>
 <p>dir pointer to directory stream. If an error occurred, it will not be associated. ierr 0 indicates no error occurred </p>
-<h2><a class="anchor" id="autotoc_md264"></a>
+<h2><a class="anchor" id="autotoc_md265"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_opendir use M_system, only : system_opendir,system_readdir use M_system, only : system_closedir use iso_c_binding implicit none type(c_ptr) :: dir character(len=:),allocatable :: filename integer :: ierr !&mdash; open directory stream to read from call system_opendir('.',dir,ierr) if(ierr.eq.0)then !&mdash; read directory stream do call system_readdir(dir,filename,ierr) if(filename.eq.' ')exit write(*,*)filename enddo endif !&mdash; close directory stream call system_closedir(dir,ierr) end program demo_system_opendir </p>
-<h2><a class="anchor" id="autotoc_md265"></a>
+<h2><a class="anchor" id="autotoc_md266"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md266"></a>
+<h2><a class="anchor" id="autotoc_md267"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2454,7 +2521,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_icgraph.png" border="0" usemap="#namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_icgraph" alt=""/></div>
 <map name="namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_icgraph" id="namespacem__system_a622cc67c03e8cdea1d4c2430bb36081b_icgraph">
 <area shape="rect" title=" " alt="" coords="224,5,427,32"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="5,5,176,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
 </map>
 </div>
 
@@ -2475,31 +2542,31 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md359"></a>
+<h2><a class="anchor" id="autotoc_md360"></a>
 NAME</h2>
 <p>system_perm(3f) - [M_system:QUERY_FILE] get file type and permission as a string (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md360"></a>
+<h2><a class="anchor" id="autotoc_md361"></a>
 SYNOPSIS</h2>
 <p>function system_perm(mode) result (perms)</p>
 <p>integer(kind=int64),intent(in) :: MODE character(len=:),allocatable :: PERMS</p>
-<h2><a class="anchor" id="autotoc_md361"></a>
+<h2><a class="anchor" id="autotoc_md362"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_perm(3f) function returns a string containing the type
 and permission of a file implied by the value of the mode value.
-</pre><h2><a class="anchor" id="autotoc_md362"></a>
+</pre><h2><a class="anchor" id="autotoc_md363"></a>
 RETURN VALUE</h2>
 <p>PERMS returns the permission string in a format similar to that used by Unix commands such as ls(1).</p>
-<h2><a class="anchor" id="autotoc_md363"></a>
+<h2><a class="anchor" id="autotoc_md364"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_perm use M_system, only : system_perm, system_stat use,intrinsic :: iso_fortran_env, only : int64 implicit none character(len=4096) :: string integer(kind=int64) :: values(13) integer :: ierr character(len=:),allocatable :: perms values=0 ! get pathname from command line call get_command_argument(1, string) ! get pathname information call system_stat(string,values,ierr) if(ierr.eq.0)then ! convert permit mode to a string perms=system_perm(values(3)) ! print permits as a string, decimal value, and octal value write(*,'("for ",a," permits[",a,"]",1x,i0,1x,o0)') &amp; &amp; trim(string),perms,values(3),values(3) endif end program demo_system_perm</p>
 <p>Results:</p>
 <p>demo_system_perm /tmp</p>
 <p>for /tmp permits[drwxrwxrwx &ndash;S] 17407 41777</p>
-<h2><a class="anchor" id="autotoc_md364"></a>
+<h2><a class="anchor" id="autotoc_md365"></a>
 AUTHOR</h2>
 <p>John S. Urban</p>
-<h2><a class="anchor" id="autotoc_md365"></a>
+<h2><a class="anchor" id="autotoc_md366"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2532,18 +2599,18 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md198"></a>
+<h2><a class="anchor" id="autotoc_md199"></a>
 NAME</h2>
 <p>perror(3f) - [M_system:ERROR_PROCESSING] print error message for last C error on stderr (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md199"></a>
+<h2><a class="anchor" id="autotoc_md200"></a>
 SYNOPSIS</h2>
 <pre class="fragment">  subroutine system_perror(prefix)
 
    character(len=*),intent(in) :: prefix
-</pre><h2><a class="anchor" id="autotoc_md200"></a>
+</pre><h2><a class="anchor" id="autotoc_md201"></a>
 DESCRIPTION</h2>
 <p>Use system_perror(3f) to print an error message on stderr corresponding to the current value of the C global variable errno. Unless you use NULL as the argument prefix, the error message will begin with the prefix string, followed by a colon and a space (:). The remainder of the error message produced is one of the strings described for strerror(3c).</p>
-<h2><a class="anchor" id="autotoc_md201"></a>
+<h2><a class="anchor" id="autotoc_md202"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_perror use M_system, only : system_perror,system_rmdir implicit none character(len=:),allocatable :: DIRNAME DIRNAME='/NOT/THERE/OR/ANYWHERE' ! generate an error with a routine that supports errno and perror(3c) if(system_rmdir(DIRNAME).ne.0)then call system_perror('<em>demo_system_perror</em>:'//DIRNAME) endif write(*,'(a)')"That's all Folks!" end program demo_system_perror</p>
@@ -2588,31 +2655,31 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md290"></a>
+<h2><a class="anchor" id="autotoc_md291"></a>
 NAME</h2>
 <p>system_putenv(3f) - [M_system:ENVIRONMENT] set environment variable from Fortran by calling putenv(3c) (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md291"></a>
+<h2><a class="anchor" id="autotoc_md292"></a>
 SYNOPSIS</h2>
 <pre class="fragment">subroutine system_putenv(string, err)
 
  character(len=*),intent(in)    :: string
  integer, optional, intent(out) :: err
-</pre><h2><a class="anchor" id="autotoc_md292"></a>
+</pre><h2><a class="anchor" id="autotoc_md293"></a>
 DESCRIPTION</h2>
 <p>The <a class="el" href="namespacem__system.html#af0c9df8e59cac9cd617cd1e20448ea7d">system_putenv()</a> function adds or changes the value of environment variables.</p>
-<h2><a class="anchor" id="autotoc_md293"></a>
+<h2><a class="anchor" id="autotoc_md294"></a>
 OPTIONS</h2>
 <p>string string of format "NAME=value". If name does not already exist in the environment, then string is added to the environment. If name does exist, then the value of name in the environment is changed to value. The string passed to putenv(3c) becomes part of the environment, so this routine creates a string each time it is called that increases the amount of memory the program uses. err The <a class="el" href="namespacem__system.html#af0c9df8e59cac9cd617cd1e20448ea7d">system_putenv()</a> function returns zero on success, or nonzero if an error occurs. A non-zero error usually indicates sufficient memory does not exist to store the variable.</p>
-<h2><a class="anchor" id="autotoc_md294"></a>
+<h2><a class="anchor" id="autotoc_md295"></a>
 EXAMPLE</h2>
 <p>Sample setting an environment variable from Fortran:</p>
 <p>program demo_system_putenv use M_system, only : system_putenv use iso_c_binding implicit none integer :: ierr ! write(*,'(a)')'no environment variables containing "GRU":' call execute_command_line('env|grep GRU') ! call system_putenv('GRU=this is the value',ierr) write(*,'(a,i0)')'now "GRU" should be defined: ',ierr call execute_command_line('env|grep GRU') ! call system_putenv('GRU2=this is the second value',ierr) write(*,'(a,i0)')'now "GRU" and "GRU2" should be defined: ',ierr call execute_command_line('env|grep GRU') ! call system_putenv('GRU2',ierr) call system_putenv('GRU',ierr) write(*,'(a,i0)')'should be gone, varies with different putenv(3c): ',ierr call execute_command_line('env|grep GRU') write(*,'(a)')'system_unsetenv(3f) is a better way to remove variables' ! end program demo_system_putenv</p>
 <p>Results:</p>
 <p>no environment variables containing "GRU": now "GRU" should be defined: 0 GRU=this is the value now "GRU" and "GRU2" should be defined: 0 GRU2=this is the second value GRU=this is the value should be gone, varies with different putenv(3c): 0 system_unsetenv(3f) is a better way to remove variables</p>
-<h2><a class="anchor" id="autotoc_md295"></a>
+<h2><a class="anchor" id="autotoc_md296"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md296"></a>
+<h2><a class="anchor" id="autotoc_md297"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2649,23 +2716,23 @@ LICENSE</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md267"></a>
+<h2><a class="anchor" id="autotoc_md268"></a>
 NAME</h2>
 <p>system_readdir(3f) - [M_system:QUERY_FILE] read a directory using readdir(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md268"></a>
+<h2><a class="anchor" id="autotoc_md269"></a>
 SYNOPSIS</h2>
 <p>subroutine system_readdir(dir,filename,ierr)</p>
 <p>type(c_ptr),value :: dir character(len=:),intent(out),allocatable :: filename integer,intent(out) :: ierr</p>
-<h2><a class="anchor" id="autotoc_md269"></a>
+<h2><a class="anchor" id="autotoc_md270"></a>
 DESCRIPTION</h2>
 <pre class="fragment">system_readdir(3f) returns the name of the directory entry at the
 current position in the directory stream specified by the argument
 DIR, and positions the directory stream at the next entry. It returns
 a null name upon reaching the end of the directory stream.
-</pre><h2><a class="anchor" id="autotoc_md270"></a>
+</pre><h2><a class="anchor" id="autotoc_md271"></a>
 OPTIONS</h2>
 <pre class="fragment">DIR       A pointer to the directory opened by system_opendir(3f).
-</pre><h2><a class="anchor" id="autotoc_md271"></a>
+</pre><h2><a class="anchor" id="autotoc_md272"></a>
 RETURNS</h2>
 <pre class="fragment">FILENAME  the name of the directory entry at the current position in
           the directory stream specified by the argument DIR, and
@@ -2682,16 +2749,16 @@ RETURNS</h2>
           reaching the end of the directory stream, the name is a blank name.
 
 IERR      If IERR is set to non-zero on return, an error occurred.
-</pre><h2><a class="anchor" id="autotoc_md272"></a>
+</pre><h2><a class="anchor" id="autotoc_md273"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_readdir use M_system, only : system_opendir,system_readdir use M_system, only : system_rewinddir,system_closedir use iso_c_binding implicit none</p>
 <p>type(c_ptr) :: dir character(len=:),allocatable :: filename integer :: i, ierr !&mdash; open directory stream to read from call system_opendir('.',dir,ierr) if(ierr.eq.0)then !&mdash; read directory stream twice do i=1,2 write(*,'(a,i0)')'PASS ',i do call system_readdir(dir,filename,ierr) if(filename.eq.' ')exit write(*,*)filename enddo call system_rewinddir(dir) enddo endif !&mdash; close directory stream call system_closedir(dir,ierr)</p>
 <p>end program demo_system_readdir</p>
-<h2><a class="anchor" id="autotoc_md273"></a>
+<h2><a class="anchor" id="autotoc_md274"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md274"></a>
+<h2><a class="anchor" id="autotoc_md275"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2711,7 +2778,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_icgraph.png" border="0" usemap="#namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_icgraph" alt=""/></div>
 <map name="namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_icgraph" id="namespacem__system_a983df5b2d7cb5842d69c4a31829403e0_icgraph">
 <area shape="rect" title=" " alt="" coords="224,5,423,32"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="5,5,176,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
 </map>
 </div>
 
@@ -2728,30 +2795,30 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md325"></a>
+<h2><a class="anchor" id="autotoc_md326"></a>
 NAME</h2>
 <p>system_readenv(3f) - [M_system:ENVIRONMENT] step thru and read environment table (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md326"></a>
+<h2><a class="anchor" id="autotoc_md327"></a>
 SYNOPSIS</h2>
 <pre class="fragment">   function system_readenv() result(string)
 
     character(len=:),allocatable  :: string
-</pre> <h2><a class="anchor" id="autotoc_md327"></a>
+</pre> <h2><a class="anchor" id="autotoc_md328"></a>
 DESCRIPTION</h2>
 <p>A simple interface allows reading the environment variable table of the process. Call system_initenv(3f) to initialize reading the environment table, then call system_readenv(3f) can be called until a blank line is returned. If more than one thread reads the environment or the environment is changed while being read the results are undefined. </p>
-<h2><a class="anchor" id="autotoc_md328"></a>
+<h2><a class="anchor" id="autotoc_md329"></a>
 OPTIONS</h2>
 <p>string the string returned from the environment of the form "NAME=VALUE"</p>
-<h2><a class="anchor" id="autotoc_md329"></a>
+<h2><a class="anchor" id="autotoc_md330"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_readenv use M_system, only : <a class="el" href="interfacem__system_1_1system__initenv.html">system_initenv</a>, system_readenv character(len=:),allocatable :: string call system_initenv() do string=<a class="el" href="namespacem__system.html#ae0e43010a82a6a25402568ccb326322d">system_readenv()</a> if(string.eq.'')then exit else write(*,'(a)')string endif enddo end program demo_system_readenv</p>
 <p>Sample results:</p>
 <p>USERDOMAIN_ROAMINGPROFILE=buzz HOMEPATH=\Users\JSU APPDATA=C:\Users\JSU\AppData\Roaming MANPATH=/home/urbanjs/V600/LIBRARY/libGPF/download/tmp/man:/home/urbanjs/V600/doc/man::: DISPLAYNUM=0 ProgramW6432=C:\Program Files HOSTNAME=buzz XKEYSYMDB=/usr/share/X11/XKeysymDB PUBLISH_CMD= OnlineServices=Online Services : : : </p>
-<h2><a class="anchor" id="autotoc_md330"></a>
+<h2><a class="anchor" id="autotoc_md331"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md331"></a>
+<h2><a class="anchor" id="autotoc_md332"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2792,25 +2859,25 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md104"></a>
+<h2><a class="anchor" id="autotoc_md105"></a>
 NAME</h2>
 <p>system_realpath(3f) - [M_system:FILE_SYSTEM] call realpath(3c) to resolve a pathname (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md105"></a>
+<h2><a class="anchor" id="autotoc_md106"></a>
 SYNOPSIS</h2>
 <pre class="fragment">   function system_realpath(input) result(output)
 
     character(len=*),intent(in)  :: input
     character(len=:),allocatable :: output
-</pre> <h2><a class="anchor" id="autotoc_md106"></a>
+</pre> <h2><a class="anchor" id="autotoc_md107"></a>
 DESCRIPTION</h2>
 <p>system_realpath(3f) calls the C routine realpath(3c) to obtain the absolute pathname of given path </p>
-<h2><a class="anchor" id="autotoc_md107"></a>
+<h2><a class="anchor" id="autotoc_md108"></a>
 OPTIONS</h2>
 <pre class="fragment">    INPUT     pathname to resolve
-</pre><h2><a class="anchor" id="autotoc_md108"></a>
+</pre><h2><a class="anchor" id="autotoc_md109"></a>
 RETURN VALUE</h2>
 <p>OUTPUT The absolute pathname of the given input pathname. The pathname shall contain no components that are dot or dot-dot, or are symbolic links. It is equal to the NULL character if an error occurred.</p>
-<h2><a class="anchor" id="autotoc_md109"></a>
+<h2><a class="anchor" id="autotoc_md110"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_realpath use M_system, only : system_realpath, system_perror implicit none ! resolve each pathname given on command line character(len=:),allocatable :: pathi,patho integer :: i integer :: filename_length do i = 1, command_argument_count() ! get pathname from command line arguments call get_command_argument (i , length=filename_length) if(allocated(pathi))deallocate(pathi) allocate(character(len=filename_length) :: pathi) call get_command_argument (i , value=pathi) ! ! resolve each pathname patho=system_realpath(pathi) if(patho.ne.char(0))then write(*,*)trim(pathi),'=&gt;',trim(patho) else call system_perror('<em>system_realpath</em> error for pathname '//trim(pathi)//':') write(*,*)trim(pathi),'=&gt;',trim(patho) endif deallocate(pathi) enddo ! if there were no pathnames given resolve the pathname "." if(i.eq.1)then patho=system_realpath('.') write(*,*)'.=&gt;',trim(patho) endif end program demo_system_realpath</p>
@@ -2847,17 +2914,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md209"></a>
+<h2><a class="anchor" id="autotoc_md210"></a>
 NAME</h2>
 <p>system_remove(3f) - [M_system_FILE_SYSTEM] call remove(3c) to remove file (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md210"></a>
+<h2><a class="anchor" id="autotoc_md211"></a>
 SYNOPSIS</h2>
 <p>elemental impure function system_remove(path) result(err)</p>
 <p>character(*),intent(in) :: path integer(c_int) :: err</p>
-<h2><a class="anchor" id="autotoc_md211"></a>
+<h2><a class="anchor" id="autotoc_md212"></a>
 DESCRIPTION</h2>
 <p>Fortran supports scratch files via the OPEN(3c) command; but does not otherwise allow for removing files. The system_remove(3f) command allows for removing files by name that the user has the authority to remove by calling the C remove(3c) function.</p>
-<h2><a class="anchor" id="autotoc_md212"></a>
+<h2><a class="anchor" id="autotoc_md213"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_remove use M_system, only : system_remove character(len=*),parameter :: FILE='MyJunkFile.txt' integer :: ierr write(*,*)'BEFORE CREATED '//FILE call execute_command_line('ls -l '//FILE) write(*,*)</p>
@@ -2867,10 +2934,10 @@ EXAMPLE</h2>
 <p>end program demo_system_remove</p>
 <p>Expected Results:</p>
 <p>&gt; BEFORE CREATED MyJunkFile.txt &gt; ls: cannot access 'MyJunkFile.txt': No such file or directory &gt; &gt; AFTER OPENED MyJunkFile.txt &gt; -rw-r&ndash;r&ndash; 1 JSU None 0 Nov 19 19:32 MyJunkFile.txt &gt; &gt; AFTER CLOSED &gt; -rw-r&ndash;r&ndash; 1 JSU None 32 Nov 19 19:32 MyJunkFile.txt &gt; &gt; AFTER REMOVED 0 &gt; ls: cannot access 'MyJunkFile.txt': No such file or directory</p>
-<h2><a class="anchor" id="autotoc_md213"></a>
+<h2><a class="anchor" id="autotoc_md214"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md214"></a>
+<h2><a class="anchor" id="autotoc_md215"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -2912,24 +2979,24 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md215"></a>
+<h2><a class="anchor" id="autotoc_md216"></a>
 NAME</h2>
 <p>system_rename(3f) - [M_system_FILE_SYSTEM] call rename(3c) to rename a system file (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md216"></a>
+<h2><a class="anchor" id="autotoc_md217"></a>
 SYNOPSIS</h2>
 <p>function system_rename(input,output) result(ierr)</p>
 <p>character(*),intent(in) :: input,output integer :: ierr </p>
-<h2><a class="anchor" id="autotoc_md217"></a>
+<h2><a class="anchor" id="autotoc_md218"></a>
 DESCRIPTION</h2>
 <p>Rename a file by calling rename(3c). It is not recommended that the rename occur while either filename is being used on a file currently OPEN(3f) by the program.</p>
 <p>Both the old and new names must be on the same device. </p>
-<h2><a class="anchor" id="autotoc_md218"></a>
+<h2><a class="anchor" id="autotoc_md219"></a>
 OPTIONS</h2>
 <p>INPUT system filename of an existing file to rename OUTPUT system filename to be created or overwritten by INPUT file. Must be on the same device as the INPUT file. </p>
-<h2><a class="anchor" id="autotoc_md219"></a>
+<h2><a class="anchor" id="autotoc_md220"></a>
 RETURNS</h2>
 <p>IERR zero (0) if no error occurs. If not zero a call to system_errno(3f) or system_perror(3f) is supported to diagnose error </p>
-<h2><a class="anchor" id="autotoc_md220"></a>
+<h2><a class="anchor" id="autotoc_md221"></a>
 EXAMPLE</h2>
 <pre class="fragment">Sample program:
 
@@ -2977,10 +3044,10 @@ EXAMPLE</h2>
   end program demo_system_rename
 </pre><p>Expected output:</p>
 <p>&gt; should not be zero -1 &gt; <em>demo_system_rename</em>: No such file or directory &gt; should not be zero -1 &gt; <em>demo_system_rename</em>: No such file or directory &gt; Test by renaming "_scratch_file_" to "_renamed_scratch_file_" &gt; IF YOU SEE THIS ON OUTPUT THE RENAME WORKED &gt; should not be zero -1 &gt; should be zero 0</p>
-<h2><a class="anchor" id="autotoc_md221"></a>
+<h2><a class="anchor" id="autotoc_md222"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md222"></a>
+<h2><a class="anchor" id="autotoc_md223"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3012,30 +3079,30 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md275"></a>
+<h2><a class="anchor" id="autotoc_md276"></a>
 NAME</h2>
 <p>system_rewinddir(3f) - [M_system:QUERY_FILE] call rewinddir(3c) to rewind directory stream (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md276"></a>
+<h2><a class="anchor" id="autotoc_md277"></a>
 SYNOPSIS</h2>
 <pre class="fragment">subroutine system_rewinddir(dir)
 
  type(c_ptr),value :: dir
-</pre><h2><a class="anchor" id="autotoc_md277"></a>
+</pre><h2><a class="anchor" id="autotoc_md278"></a>
 DESCRIPTION</h2>
 <p>Return to pointer to the beginning of the list for a currently open directory list.</p>
-<h2><a class="anchor" id="autotoc_md278"></a>
+<h2><a class="anchor" id="autotoc_md279"></a>
 OPTIONS</h2>
 <p>DIR A C_pointer assumed to have been allocated by a call to SYSTEM_OPENDIR(3f).</p>
-<h2><a class="anchor" id="autotoc_md279"></a>
+<h2><a class="anchor" id="autotoc_md280"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_rewinddir use M_system, only : system_opendir,system_readdir use M_system, only : system_rewinddir,system_closedir use iso_c_binding implicit none</p>
 <p>type(c_ptr) :: dir character(len=:),allocatable :: filename integer :: i, ierr !&gt;&gt;&gt; open directory stream to read from call system_opendir('.',dir,ierr) !&gt;&gt;&gt; read directory stream twice do i=1,2 write(*,'(a,i0)')'PASS ',i do call system_readdir(dir,filename,ierr) if(filename.eq.' ')exit write(*,*)filename enddo !&gt;&gt;&gt; rewind directory stream call system_rewinddir(dir) enddo !&gt;&gt;&gt; close directory stream call system_closedir(dir,ierr)</p>
 <p>end program demo_system_rewinddir </p>
-<h2><a class="anchor" id="autotoc_md280"></a>
+<h2><a class="anchor" id="autotoc_md281"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md281"></a>
+<h2><a class="anchor" id="autotoc_md282"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 <div class="dynheader">
@@ -3044,7 +3111,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacem__system_a3ffe757195ade8052e8acabd196ee3ca_icgraph.png" border="0" usemap="#namespacem__system_a3ffe757195ade8052e8acabd196ee3ca_icgraph" alt=""/></div>
 <map name="namespacem__system_a3ffe757195ade8052e8acabd196ee3ca_icgraph" id="namespacem__system_a3ffe757195ade8052e8acabd196ee3ca_icgraph">
 <area shape="rect" title=" " alt="" coords="224,5,439,32"/>
-<area shape="rect" href="namespacem__system.html#a744f46033ef5e7ae95ec6cbff3ae3f89" title=" " alt="" coords="5,5,176,32"/>
+<area shape="rect" href="namespacem__system.html#a90110ae015fec06564f4c9a83f1be74c" title=" " alt="" coords="5,5,176,32"/>
 </map>
 </div>
 
@@ -3065,19 +3132,19 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md237"></a>
+<h2><a class="anchor" id="autotoc_md238"></a>
 NAME</h2>
 <p>system_rmdir(3f) - [M_system:FILE_SYSTEM] call rmdir(3c) to remove empty directories (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md238"></a>
+<h2><a class="anchor" id="autotoc_md239"></a>
 SYNOPSIS</h2>
 <pre class="fragment">function system_rmdir(dirname) result(err)
 
  character(*),intent(in) :: dirname
  integer(c_int) :: err
-</pre><h2><a class="anchor" id="autotoc_md239"></a>
+</pre><h2><a class="anchor" id="autotoc_md240"></a>
 DESCRIPTION</h2>
 <p>DIRECTORY The name of a directory to remove if it is empty err zero (0) if no error occurred</p>
-<h2><a class="anchor" id="autotoc_md240"></a>
+<h2><a class="anchor" id="autotoc_md241"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_rmdir use M_system, only : system_perror use M_system, only : system_rmdir, system_mkdir use M_system, only : RWX_U implicit none integer :: ierr write(*,*)'BEFORE TRY TO CREATE _scratch/' call execute_command_line('ls -ld _scratch')</p>
@@ -3086,10 +3153,10 @@ EXAMPLE</h2>
 <p>write(*,*)'TRY TO REMOVE _scratch when it should be gone/' ierr=system_rmdir('_scratch') call system_perror('<em>test of system_rmdir</em>') write(*,*)'IERR=',ierr call execute_command_line('ls -ld _scratch')</p>
 <p>end program demo_system_rmdir</p>
 <p>Expected output:</p>
-<h2><a class="anchor" id="autotoc_md241"></a>
+<h2><a class="anchor" id="autotoc_md242"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md242"></a>
+<h2><a class="anchor" id="autotoc_md243"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3121,16 +3188,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md188"></a>
+<h2><a class="anchor" id="autotoc_md189"></a>
 NAME</h2>
 <p>system_setumask(3f) - [M_system:FILE_SYSTEM] set the file mode creation umask (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md189"></a>
+<h2><a class="anchor" id="autotoc_md190"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer function system_setumask(new_umask) result (old_umask)
 
  integer,intent(in)  :: new_umask
  integer(kind=c_int) :: umask_c
-</pre><h2><a class="anchor" id="autotoc_md190"></a>
+</pre><h2><a class="anchor" id="autotoc_md191"></a>
 DESCRIPTION</h2>
 <p>The system_umask(3f) function sets the file mode creation mask of the process to cmask and return the previous value of the mask. Only the file permission bits of cmask (see &lt;sys/stat.h&gt;) are used; the meaning of the other bits is implementation-defined.</p>
 <p>The file mode creation mask of the process is used to turn off permission bits in the mode argument supplied during calls to the following functions:</p>
@@ -3141,13 +3208,13 @@ DESCRIPTION</h2>
 <li>sem_open()</li>
 </ul>
 <p>Bit positions that are set in cmask are cleared in the mode of the created file.</p>
-<h2><a class="anchor" id="autotoc_md191"></a>
+<h2><a class="anchor" id="autotoc_md192"></a>
 RETURN VALUE</h2>
 <p>The file permission bits in the value returned by umask() shall be the previous value of the file mode creation mask. The state of any other bits in that value is unspecified, except that a subsequent call to umask() with the returned value as cmask shall leave the state of the mask the same as its state before the first call, including any unspecified use of those bits.</p>
-<h2><a class="anchor" id="autotoc_md192"></a>
+<h2><a class="anchor" id="autotoc_md193"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md193"></a>
+<h2><a class="anchor" id="autotoc_md194"></a>
 EXAMPLE</h2>
 <p>Sample program</p>
 <p>program demo_setumask use M_system, only : system_getumask, system_setumask integer :: newmask integer :: i integer :: old_umask write(*,101)(<a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">system_getumask()</a>,i=1,4) 101 format(1x,i0,1x,"O'",o4.4,"'",1x,'Z"',z0,"'",1x,"B'",b12.12,"'") newmask=63 old_umask=system_setumask(newmask) write(*,*)'NEW' write(*,101)(<a class="el" href="namespacem__system.html#aa9ca951be39d2ea738d627cf42c00ddd">system_getumask()</a>,i=1,4) end program demo_setumask</p>
@@ -3181,10 +3248,10 @@ EXAMPLE</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md85"></a>
+<h2><a class="anchor" id="autotoc_md86"></a>
 NAME</h2>
 <p>system_signal(3f) - [M_system:SIGNALS] install a signal handler (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md86"></a>
+<h2><a class="anchor" id="autotoc_md87"></a>
 SYNOPSIS</h2>
 <pre class="fragment"> subroutine system_signal(sig,handler)
 
@@ -3195,13 +3262,13 @@ SYNOPSIS</h2>
       end subroutine handler
     end interface
     optional :: handler
-</pre><h2><a class="anchor" id="autotoc_md87"></a>
+</pre><h2><a class="anchor" id="autotoc_md88"></a>
 DESCRIPTION</h2>
 <p>Calling system_signal(NUMBER, HANDLER) causes user-defined subroutine HANDLER to be executed when the signal NUMBER is caught. The same subroutine HANDLER maybe installed to handle different signals. HANDLER takes only one integer argument which is assigned the signal number that is caught. See sample program below for illustration.</p>
 <p>Calling system_signal(NUMBER) installs a do-nothing handler. This is not equivalent to ignoring the signal NUMBER though, because the signal can still interrupt any sleep or idle-wait.</p>
 <p>Note that the signals SIGKILL and SIGSTOP cannot be handled this way.</p>
 <p>[Compare signal(2) and the GNU extension signal in gfortran.]</p>
-<h2><a class="anchor" id="autotoc_md88"></a>
+<h2><a class="anchor" id="autotoc_md89"></a>
 EXAMPLE</h2>
 <pre class="fragment">Sample program:
 
@@ -3237,10 +3304,10 @@ EXAMPLE</h2>
    STOP 'Caught SIGQUIT. Stopping demo.'
  end subroutine quit
  end program demo_system_signal
-</pre><h2><a class="anchor" id="autotoc_md89"></a>
+</pre><h2><a class="anchor" id="autotoc_md90"></a>
 AUTHOR</h2>
 <p>Somajit Dey</p>
-<h2><a class="anchor" id="autotoc_md90"></a>
+<h2><a class="anchor" id="autotoc_md91"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3288,14 +3355,14 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md382"></a>
+<h2><a class="anchor" id="autotoc_md383"></a>
 NAME</h2>
 <p>SYSTEM_STAT - [M_system:QUERY_FILE] Get file status information (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md383"></a>
+<h2><a class="anchor" id="autotoc_md384"></a>
 SYNTAX</h2>
 <p>CALL SYSTEM_STAT(NAME, VALUES [, STATUS],[DEBUG])</p>
 <p>character(len=*),intent(in) :: NAME integer(kind=int64),intent(out) :: values(13) integer,optional,intent(out) :: status integer,intent(in) :: debug</p>
-<h2><a class="anchor" id="autotoc_md384"></a>
+<h2><a class="anchor" id="autotoc_md385"></a>
 DESCRIPTION</h2>
 <pre class="fragment">This function returns information about a file. No permissions are
 required on the file itself, but execute (search) permission is required
@@ -3318,7 +3385,7 @@ that are obtained and stored in the array VALUES:
 
 Not all these elements are relevant on all systems. If an element is
 not relevant, it is returned as 0.
-</pre><h2><a class="anchor" id="autotoc_md385"></a>
+</pre><h2><a class="anchor" id="autotoc_md386"></a>
 OPTIONS</h2>
 <pre class="fragment">NAME    The type shall be CHARACTER, of the default kind and a valid
         path within the file system.
@@ -3327,7 +3394,7 @@ STATUS  (Optional) status flag of type INTEGER(4). Returns 0 on success
         and a system specific error code otherwise.
 DEBUG   (Optional) print values being returned from C routine being
         called if value of 0 is used
-</pre><h2><a class="anchor" id="autotoc_md386"></a>
+</pre><h2><a class="anchor" id="autotoc_md387"></a>
 EXAMPLE</h2>
 <p>program demo_system_stat</p>
 <p>use M_system, only : system_stat, system_getpwuid, system_getgrgid use M_time, only : fmtdate, u2d use, intrinsic :: iso_fortran_env, only : int32, int64 implicit none</p>
@@ -3351,10 +3418,10 @@ EXAMPLE</h2>
 <p>end program demo_system_stat</p>
 <p>Results:</p>
 <p>Device ID(hex/decimal): 3E6BE045h/1047257157d Inode number: 1407374886070599 File mode (octal): 100750 Number of links: 1 Owner's uid/username: 18 SYSTEM Owner's gid/group: 18 SYSTEM Device where located: 0 File size(bytes): 824 Last access time: 1557983191 2019-05-16 01:06:31 Last modification time: 1557983191 2019-05-16 01:06:31 Last status change time: 1557983532 2019-05-16 01:12:12 Preferred block size(bytes): 65536 No. of blocks allocated: 4</p>
-<h2><a class="anchor" id="autotoc_md387"></a>
+<h2><a class="anchor" id="autotoc_md388"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md388"></a>
+<h2><a class="anchor" id="autotoc_md389"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3369,6 +3436,48 @@ Here is the call graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="acc8b6fbd846969e3df7479e798ae854a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8b6fbd846969e3df7479e798ae854a">&#9670;&nbsp;</a></span>system_system()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function, public m_system::system_system </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<h2><a class="anchor" id="autotoc_md398"></a>
+NAME</h2>
+<p>system_system(3f) - [M_system:SYSTEM_COMMAND] call execute_command_line (LICENSE:PD)</p>
+<h2><a class="anchor" id="autotoc_md399"></a>
+SYNOPSIS</h2>
+<pre class="fragment"> function system_system(command)
+
+ character(len=*),intent(in) :: command
+</pre><h2><a class="anchor" id="autotoc_md400"></a>
+DESCRIPTION</h2>
+<p>The system_system(3f) function</p>
+<h2><a class="anchor" id="autotoc_md401"></a>
+OPTIONS</h2>
+<h2><a class="anchor" id="autotoc_md402"></a>
+RETURN VALUE</h2>
+<p>Upon successful completion .TRUE. is returned. Otherwise, .FALSE. is returned and errno shall be set to indicate the error, and the file times remain unaffected.</p>
+<h2><a class="anchor" id="autotoc_md403"></a>
+ERRORS</h2>
+<h2><a class="anchor" id="autotoc_md404"></a>
+EXAMPLES</h2>
+<p>Sample program </p><pre class="fragment"> program demo_system_system
+ use M_system, only : system_system
+ implicit none
+ end program demo_system_system
+</pre> 
 </div>
 </div>
 <a id="a04e5d49509c44bcb2ccabfd80ec8cdfb"></a>
@@ -3396,29 +3505,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md339"></a>
+<h2><a class="anchor" id="autotoc_md340"></a>
 NAME</h2>
 <p>system_uname(3f) - [M_system] call a C wrapper that calls uname(3c) to get current system information from Fortran (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md340"></a>
+<h2><a class="anchor" id="autotoc_md341"></a>
 SYNOPSIS</h2>
 <pre class="fragment">subroutine system_uname(WHICH,NAMEOUT)
 
  character(KIND=C_CHAR),intent(in) :: WHICH
  character(len=*),intent(out)      :: NAMEOUT
-</pre> <h2><a class="anchor" id="autotoc_md341"></a>
+</pre> <h2><a class="anchor" id="autotoc_md342"></a>
 DESCRIPTION</h2>
 <p>Given a letter, return a corresponding description of the current operating system. The NAMEOUT variable is assumed sufficiently large enough to hold the value.</p>
 <p>s return the kernel name r return the kernel release v return the kernel version n return the network node hostname m return the machine hardware name T test mode &ndash; print all information, in the following order - srvnm</p>
-<h2><a class="anchor" id="autotoc_md342"></a>
+<h2><a class="anchor" id="autotoc_md343"></a>
 EXAMPLE</h2>
 <p>Call uname(3c) from Fortran</p>
 <p>program demo_system_uname use M_system, only : system_uname implicit none integer,parameter :: is=100 integer :: i character(len=*),parameter :: letters='srvnmxT' character(len=is) :: string=' '</p>
 <p>do i=1,len(letters) write(*,'(80("="))') call system_uname(letters(i:i),string) write(*,*)'=====&gt; TESTING system_uname('//letters(i:i)//')&mdash;&gt;'//trim(string) enddo</p>
 <p>end program demo_system_uname </p>
-<h2><a class="anchor" id="autotoc_md343"></a>
+<h2><a class="anchor" id="autotoc_md344"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md344"></a>
+<h2><a class="anchor" id="autotoc_md345"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3439,15 +3548,15 @@ LICENSE</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md183"></a>
+<h2><a class="anchor" id="autotoc_md184"></a>
 NAME</h2>
 <p>system_unlink(3f) - [M_system:FILE_SYSTEM] remove a directory entry relative to directory file descriptor (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md184"></a>
+<h2><a class="anchor" id="autotoc_md185"></a>
 SYNOPSIS</h2>
 <pre class="fragment">elemental impure integer function unlink(path);
 
  character(len=*) :: path
-</pre><h2><a class="anchor" id="autotoc_md185"></a>
+</pre><h2><a class="anchor" id="autotoc_md186"></a>
 DESCRIPTION</h2>
 <p>The unlink() function shall remove a link to a file. If path names a symbolic link, unlink() shall remove the symbolic link named by path and shall not affect any file or directory named by the contents of the symbolic link. Otherwise, unlink() shall remove the link named by the pathname pointed to by path and shall decrement the link count of the file referenced by the link.</p>
 <p>When the file's link count becomes 0 and no process has the file open, the space occupied by the file shall be freed and the file shall no longer be accessible. If one or more processes have the file open when the last link is removed, the link shall be removed before unlink() returns, but the removal of the file contents shall be postponed until all references to the file are closed.</p>
@@ -3456,12 +3565,12 @@ DESCRIPTION</h2>
 <p>Values for flag are constructed by a bitwise-inclusive OR of flags from the following list, defined in &lt;fcntl.h&gt;:</p>
 <p>AT_REMOVEDIR</p>
 <p>Remove the directory entry specified by fd and path as a directory, not a normal file.</p>
-<h2><a class="anchor" id="autotoc_md186"></a>
+<h2><a class="anchor" id="autotoc_md187"></a>
 RETURN VALUE</h2>
 <pre class="fragment">Upon successful completion, these functions shall return 0. Otherwise,
 these functions shall return -1 and set errno to indicate the error. If
 -1 is returned, the named file shall not be changed.
-</pre><h2><a class="anchor" id="autotoc_md187"></a>
+</pre><h2><a class="anchor" id="autotoc_md188"></a>
 EXAMPLES</h2>
 <p>Removing a link to a file</p>
 <p>program demo_system_unlink use M_system, only : system_unlink, system_perror integer :: ierr ierr = system_unlink('myfile1') if(ierr.ne.0)then call system_perror('<em>demo_system_unlink</em>') endif end program demo_system_unlink </p>
@@ -3504,29 +3613,29 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md318"></a>
+<h2><a class="anchor" id="autotoc_md319"></a>
 NAME</h2>
 <p>system_unsetenv(3f) - [M_system:ENVIRONMENT] delete an environment variable by calling unsetenv(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md319"></a>
+<h2><a class="anchor" id="autotoc_md320"></a>
 SYNOPSIS</h2>
 <p>subroutine system_unsetenv(name,ierr)</p>
 <p>character(len=*),intent(in) :: name integer,intent(out),optional :: ierr</p>
-<h2><a class="anchor" id="autotoc_md320"></a>
+<h2><a class="anchor" id="autotoc_md321"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The system_unsetenv(3f) function deletes the variable name from the
 environment.
-</pre><h2><a class="anchor" id="autotoc_md321"></a>
+</pre><h2><a class="anchor" id="autotoc_md322"></a>
 OPTIONS</h2>
 <p>name name of variable to delete. If name does not exist in the environment, then the function succeeds, and the environment is unchanged.</p>
 <p>ierr The system_unsetenv(3f) function returns zero on success, or -1 on error. name is NULL, points to a string of length 0, or contains an '=' character. Insufficient memory to add a new variable to the environment.</p>
-<h2><a class="anchor" id="autotoc_md322"></a>
+<h2><a class="anchor" id="autotoc_md323"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_unsetenv use M_system, only : system_unsetenv, system_putenv implicit none call system_putenv('GRU=this is the value') write(*,'(a)')'The variable GRU should be set' call execute_command_line('env|grep GRU') call system_unsetenv('GRU') write(*,'(a)')'The variable GRU should not be set' call execute_command_line('env|grep GRU') end program demo_system_unsetenv</p>
-<h2><a class="anchor" id="autotoc_md323"></a>
+<h2><a class="anchor" id="autotoc_md324"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
-<h2><a class="anchor" id="autotoc_md324"></a>
+<h2><a class="anchor" id="autotoc_md325"></a>
 LICENSE</h2>
 <p>Public Domain </p>
 
@@ -3577,29 +3686,29 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md97"></a>
+<h2><a class="anchor" id="autotoc_md98"></a>
 NAME</h2>
 <p>system_utime(3f) - [M_system:FILE_SYSTEM] set file access and modification times (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md98"></a>
+<h2><a class="anchor" id="autotoc_md99"></a>
 SYNOPSIS</h2>
 <pre class="fragment">    function utime(pathname,times)
 
      character(len=*),intent(in) :: pathname
      integer,intent(in),optional :: times(2)
      logical                     :: utime
-</pre><h2><a class="anchor" id="autotoc_md99"></a>
+</pre><h2><a class="anchor" id="autotoc_md100"></a>
 DESCRIPTION</h2>
 <p>The system_utime(3f) function sets the access and modification times of the file named by the path argument by calling utime(3c).</p>
 <p>If times() is not present the access and modification times of the file shall be set to the current time.</p>
 <p>To use system_utime(3f) the effective user ID of the process must match the owner of the file, or the process has to have write permission to the file or have appropriate privileges,</p>
-<h2><a class="anchor" id="autotoc_md100"></a>
+<h2><a class="anchor" id="autotoc_md101"></a>
 OPTIONS</h2>
 <p>times If present, the values will be interpreted as the access and modification times as Unix Epoch values. That is, they are times measured in seconds since the Unix Epoch.</p>
 <p>pathname name of the file whose access and modification times are to be updated.</p>
-<h2><a class="anchor" id="autotoc_md101"></a>
+<h2><a class="anchor" id="autotoc_md102"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion .TRUE. is returned. Otherwise, .FALSE. is returned and errno shall be set to indicate the error, and the file times remain unaffected.</p>
-<h2><a class="anchor" id="autotoc_md102"></a>
+<h2><a class="anchor" id="autotoc_md103"></a>
 ERRORS</h2>
 <p>The underlying utime(3c) function fails if:</p>
 <p>EACCES Search permission is denied by a component of the path prefix; or the times argument is a null pointer and the effective user ID of the process does not match the owner of the file, the process does not have write permission for the file, and the process does not have appropriate privileges.</p>
@@ -3616,7 +3725,7 @@ ERRORS</h2>
                pathname resolution of a symbolic link produced
                an intermediate result with a length that exceeds
                {PATH_MAX}.
-</pre><h2><a class="anchor" id="autotoc_md103"></a>
+</pre><h2><a class="anchor" id="autotoc_md104"></a>
 EXAMPLES</h2>
 <pre class="fragment">  Sample program
 
@@ -3786,16 +3895,16 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md81"></a>
+<h2><a class="anchor" id="autotoc_md82"></a>
 NAME</h2>
 <p>system_initenv(3f) - [M_system:ENVIRONMENT] initialize environment table pointer and size so table can be read by readenv(3f) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md82"></a>
+<h2><a class="anchor" id="autotoc_md83"></a>
 SYNOPSIS</h2>
 <pre class="fragment">   subroutine system_initenv()
-</pre> <h2><a class="anchor" id="autotoc_md83"></a>
+</pre> <h2><a class="anchor" id="autotoc_md84"></a>
 DESCRIPTION</h2>
 <p>A simple interface allows reading the environment variable table of the process. Call system_initenv(3f) to initialize reading the environment table, then call system_readenv(3f) until a blank line is returned. If more than one thread reads the environment or the environment is changed while being read the results are undefined.</p>
-<h2><a class="anchor" id="autotoc_md84"></a>
+<h2><a class="anchor" id="autotoc_md85"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_initenv use M_system, only : <a class="el" href="interfacem__system_1_1system__initenv.html">system_initenv</a>, system_readenv character(len=:),allocatable :: string call system_initenv() do string=<a class="el" href="namespacem__system.html#ae0e43010a82a6a25402568ccb326322d">system_readenv()</a> if(string.eq.'')then exit else write(*,'(a)')string endif enddo end program demo_system_initenv</p>

@@ -80,16 +80,16 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a79ff46722f540f931d947f90bdf2c8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md16"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md17"></a>
 NAME</h2>
 <p>system_kill(3f) - [M_system:SIGNALS] send a signal to a process or a group of processes (LICENSE:PD)</p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer(kind=c_int) function system_kill(pid,sig)
 
    integer,intent(in) :: pid
    integer,intent(in) :: sig
-</pre><h2><a class="anchor" id="autotoc_md18"></a>
+</pre><h2><a class="anchor" id="autotoc_md19"></a>
 DESCRIPTION</h2>
 <pre class="fragment">The kill() function shall send a signal to a process or a group of
 processes specified by pid. The signal to be sent is specified by sig
@@ -137,20 +137,20 @@ existence of some or all of the processes specified by pid.
 The kill() function is successful if the process has permission to send
 sig to any of the processes specified by pid. If kill() fails, no signal
 shall be sent.
-</pre><h2><a class="anchor" id="autotoc_md19"></a>
+</pre><h2><a class="anchor" id="autotoc_md20"></a>
 RETURN VALUE</h2>
 <pre class="fragment">Upon successful completion, 0 shall be returned. Otherwise, -1 shall be
 returned and errno set to indicate the error.
-</pre><h2><a class="anchor" id="autotoc_md20"></a>
+</pre><h2><a class="anchor" id="autotoc_md21"></a>
 ERRORS</h2>
 <p>The kill() function shall fail if:</p>
 <p>EINVAL The value of the sig argument is an invalid or unsupported signal number. EPERM The process does not have permission to send the signal to any receiving process. ESRCH No process or process group can be found corresponding to that specified by pid. The following sections are informative.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 EXAMPLE</h2>
 <p>Sample program:</p>
 <p>program demo_system_kill use M_system, only : <a class="el" href="interfacem__system_1_1system__kill.html">system_kill</a> use M_system, only : system_perror implicit none integer :: i,pid,ios,ierr,signal=9 character(len=80) :: argument</p>
 <p>do i=1,command_argument_count() ! get arguments from command line call get_command_argument(i, argument) ! convert arguments to integers assuming they are PID numbers read(argument,'(i80)',iostat=ios) pid if(ios.ne.0)then write(*,*)'bad PID=',trim(argument) else write(*,*)'kill SIGNAL=',signal,' PID=',pid ! send signal SIGNAL to pid PID ierr=system_kill(pid,signal) ! write message if an error was detected if(ierr.ne.0)then call system_perror('<em>demo_system_kill</em>') endif endif enddo end program demo_system_kill</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 SEE ALSO</h2>
 <p>getpid(), raise(), setsid(), sigaction(), sigqueue(), </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

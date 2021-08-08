@@ -80,20 +80,20 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a0a665987d35f0b81a2358df6c0173122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md55"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md56"></a>
 NAME</h2>
 <p>system_getsid(3f) - [M_system:QUERY] get the process group ID of a session leader (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md57"></a>
 SYNOPSIS</h2>
 <pre class="fragment">    integer(kind=c_int) function system_getsid(pid)
     integer(kind=c_int) :: pid
-</pre> <h2><a class="anchor" id="autotoc_md57"></a>
+</pre> <h2><a class="anchor" id="autotoc_md58"></a>
 DESCRIPTION</h2>
 <p>The <a class="el" href="interfacem__system_1_1system__getsid.html#a0a665987d35f0b81a2358df6c0173122">system_getsid()</a> function obtains the process group ID of the process that is the session leader of the process specified by pid. If pid is 0, it specifies the calling process. </p>
-<h2><a class="anchor" id="autotoc_md58"></a>
+<h2><a class="anchor" id="autotoc_md59"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, <a class="el" href="interfacem__system_1_1system__getsid.html#a0a665987d35f0b81a2358df6c0173122">system_getsid()</a> shall return the process group ID of the session leader of the specified process. Otherwise, it shall return -1 and set errno to indicate the error. </p>
-<h2><a class="anchor" id="autotoc_md59"></a>
+<h2><a class="anchor" id="autotoc_md60"></a>
 EXAMPLE</h2>
 <p>Get SID from Fortran</p>
 <p>program demo_system_getsid use M_system, only : <a class="el" href="interfacem__system_1_1system__getsid.html">system_getsid</a> use ISO_C_BINDING, only : c_int implicit none write(*,*)'SID=',system_getsid(0_c_int) end program demo_system_getsid </p>

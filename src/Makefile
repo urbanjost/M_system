@@ -69,6 +69,9 @@ CPROG = ${CPROGFILES:.c=}
 
 SRCS =  C-M_system.c M_system.f90 
 
+# create a list of corresponding object files
+FOBJS = $(patsubst %.f90,%.o,$(PROGFILES))
+FOBJS_DOT = $(notdir $(FOBJS))
 OBJS =  C-M_system.o M_system.o 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # platform-specific values you will probably change
@@ -86,6 +89,8 @@ LDFLAGS :=
 # (-O1 and more).
 gfortran: F90=gfortran
 gfortran: F90FLAGS := -g -O -Wall -std=f2018 -Wextra -Wno-maybe-uninitialized -Wno-uninitialized -finit-local-zero 
+gfortran: F90FLAGS := -g -O -Wall -Wextra -Wimplicit-interface -fPIC -fmax-errors=1 -g -fcheck=bounds -fcheck=array-temps -fbacktrace -fcoarray=single 
+
 gfortran: all
 	@echo built with $(F90)
 
@@ -113,7 +118,7 @@ $(PROG): $(OBJS)
 	-$(F90) $(F90FLAGS) $(LDFLAGS) $@.f90 -o $@ $(OBJS) $(LIBS)
 
 clean:
-	-rm -f $(PROG) $(CPROG) $(OBJS) *.mod
+	-rm -f $(PROG) $(CPROG) $(OBJS) $(FOBJS) $(FOBJS_DOT) *.mod
 	-rm -f _test* fort.10
 	[ -d _scratch ] && rmdir _scratch || true
 

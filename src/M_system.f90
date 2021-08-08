@@ -21,6 +21,7 @@
 !!    system_realpath,                                       &
 !!    system_access,                                         &
 !!    system_utime,                                          &
+!!    system_system,                                         &
 !!    system_issock, system_perm,                            &
 !!    system_dir,                                            &
 !!    system_memcpy
@@ -119,6 +120,8 @@
 !!        o  system_getpwuid(3f): get login name associated with given UID
 !!        o  system_getgrgid(3f): get group name associated with given GID
 !!        o  system_cpu_time(3f) : get processor time in seconds using times(3c)
+!!##SYSTEM COMMANDS
+!!        o  system_system(3f): call execute_command_line(3c) outputting messages
 !!
 !!##FUTURE DIRECTIONS
 !!    A good idea of what system routines are commonly required is to refer
@@ -203,6 +206,7 @@ public :: system_chown
 public :: system_link
 public :: system_unlink
 public :: system_utime
+public :: system_system
 
 public :: system_setumask
 public :: system_getumask
@@ -5120,15 +5124,17 @@ end subroutine system_stat
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_dir(3f) - [M_system] return filenames in a directory matching specified wildcard string
+!!    system_dir(3f) - [M_io] return filenames in a directory matching
+!!    specified wildcard string
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!   function system_dir(directory,pattern)
+!!   function system_dir(directory,pattern,ignorecase)
 !!
 !!    character(len=*),intent(in),optional  :: directory
 !!    character(len=*),intent(in),optional  :: pattern
+!!    logical,intent(in),optional           :: ignorecase
 !!    character(len=:),allocatable          :: system_dir(:)
 !!
 !!##DESCRIPTION
@@ -5136,15 +5142,19 @@ end subroutine system_stat
 !!    the wildcard string (which defaults to "*").
 !!
 !!##OPTIONS
-!!    DIRECTORY  name of directory to match filenames in. Defaults to ".".
-!!    PATTERN    wildcard string matching the rules of the matchw(3f) function. Basically
-!!                o "*" matches anything
-!!                o "?" matches any single character
+!!    DIRECTORY   name of directory to match filenames in. Defaults to ".".
+!!    PATTERN     wildcard string matching the rules of the matchw(3f)
+!!                function. Basically
+!!                 o "*" matches anything
+!!                 o "?" matches any single character
+!!    IGNORECASE  Boolean value indicating whether to ignore case or not
+!!                when performing matching
 !!
 !!##RETURNS
-!!    system_dir   An array right-padded to the length of the longest
-!!               filename. Note that this means filenames actually containing
-!!               trailing spaces in their names may be incorrect.
+!!    system_dir  An array right-padded to the length of the longest
+!!                filename. Note that this means filenames actually
+!!                containing trailing spaces in their names may be
+!!                incorrect.
 !!
 !!##EXAMPLE
 !!
@@ -5161,12 +5171,13 @@ end subroutine system_stat
 !!
 !!##LICENSE
 !!    Public Domain
-function system_dir(directory,pattern)
+function system_dir(directory,pattern,ignorecase)
 !use M_system, only : system_opendir, system_readdir, system_rewinddir, system_closedir
 use iso_c_binding
 implicit none
 character(len=*),intent(in),optional  :: directory
 character(len=*),intent(in),optional  :: pattern
+logical,intent(in),optional           :: ignorecase
 character(len=:),allocatable          :: system_dir(:)
 character(len=:),allocatable          :: wild
 type(c_ptr)                           :: dir
@@ -5190,7 +5201,7 @@ integer                               :: i, ierr, icount, longest
             call system_readdir(dir, filename, ierr)
             if(filename.eq.' ')exit
             if(wild.ne.'*')then
-              if(.not.matchw(filename, wild))cycle   ! Call a wildcard matching routine.
+              if(.not.matchw(filename, wild, ignorecase))cycle   ! Call a wildcard matching routine.
             endif
             icount=icount+1
             select case(i)
@@ -5214,24 +5225,32 @@ end function system_dir
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
 ! copied from M_strings.ff to make stand-alone github version
-function matchw(tame,wild)
+function matchw(tame,wild,ignorecase)
 
 ! ident_34="@(#)M_strings::matchw(3f): function compares text strings, one of which can have wildcards ('*' or '?')."
 
-logical                    :: matchw
-character(len=*)           :: tame       ! A string without wildcards
-character(len=*)           :: wild       ! A (potentially) corresponding string with wildcards
-character(len=len(tame)+1) :: tametext
-character(len=len(wild)+1) :: wildtext
-character(len=1),parameter :: NULL=char(0)
-integer                    :: wlen
-integer                    :: ti, wi
-integer                    :: i
+logical                      :: matchw
+character(len=*)             :: tame       ! A string without wildcards
+character(len=*)             :: wild       ! A (potentially) corresponding string with wildcards
+logical,intent(in),optional  :: ignorecase
+character(len=len(tame)+1)   :: tametext
+character(len=len(wild)+1)   :: wildtext
+character(len=1),parameter   :: NULL=char(0)
+integer                      :: wlen
+integer                      :: ti, wi
+integer                      :: i
 character(len=:),allocatable :: tbookmark, wbookmark
 ! These two values are set when we observe a wildcard character. They
 ! represent the locations, in the two strings, from which we start once we've observed it.
-   tametext=tame//NULL
-   wildtext=wild//NULL
+   if(present(ignorecase))then
+      if(ignorecase)then
+         tametext=lower(tame)//NULL
+         wildtext=lower(wild)//NULL
+      else
+         tametext=tame//NULL
+         wildtext=wild//NULL
+      endif
+   endif
    tbookmark = NULL
    wbookmark = NULL
    wlen=len(wild)
@@ -5305,6 +5324,26 @@ character(len=:),allocatable :: tbookmark, wbookmark
       endif
    enddo
 end function matchw
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+elemental pure function lower(str) result (string)
+
+! ident_35="@(#)M_system::lower(3f): Changes a string to lowercase"
+
+character(*), intent(in)     :: str
+character(len(str))          :: string
+integer                      :: i
+integer,parameter            :: diff = iachar('A')-iachar('a')
+   string = str
+   do concurrent (i = 1:len_trim(str))
+      select case (str(i:i))
+      case ('A':'Z')
+         string(i:i) = char(iachar(str(i:i))-diff)   ! change letter to miniscule
+      case default
+      end select
+   enddo
+end function lower
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -5398,6 +5437,58 @@ class(*),intent(in)     :: intin
       !stop 'ERROR: *anyinteger_to_64* unknown integer type'
    end select
 end function anyinteger_to_64bit
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+!>
+!!##NAME
+!!    system_system(3f) - [M_system:SYSTEM_COMMAND] call execute_command_line
+!!    (LICENSE:PD)
+!!
+!!##SYNOPSIS
+!!
+!!     function system_system(command)
+!!
+!!     character(len=*),intent(in) :: command
+!!
+!!##DESCRIPTION
+!!    The system_system(3f) function
+!!
+!!
+!!##OPTIONS
+!!
+!!##RETURN VALUE
+!!    Upon successful completion .TRUE. is returned. Otherwise,
+!!    .FALSE. is returned and errno shall be set to indicate the error,
+!!    and the file times remain unaffected.
+!!
+!!##ERRORS
+!!##EXAMPLES
+!!
+!!   Sample program
+!!
+!!        program demo_system_system
+!!        use M_system, only : system_system
+!!        implicit none
+!!        end program demo_system_system
+function system_system(command)
+implicit none
+
+! ident_36="@(#)M_system::system_system(3f): call execute_command_line as a function"
+
+character(len=*),intent(in) :: command
+integer                     :: exitstat
+integer                     :: cmdstat
+integer                     :: system_system
+character(len=256)          :: cmdmsg
+
+   cmdmsg=' '
+   call execute_command_line(command, wait=.true., exitstat=exitstat, cmdstat=cmdstat, cmdmsg=cmdmsg)
+   if(cmdstat.ne.0)then
+      write(*,*)trim(cmdmsg)
+   endif
+   system_system=cmdstat
+end function system_system
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================

@@ -8,15 +8,15 @@ integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system_
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{interfacem__system_1_1system__getegid_autotoc_md35}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getegid_autotoc_md35}
-system\+\_\+getegid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the effective group ID (G\+ID) of current process from Fortran by calling getegid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getegid_autotoc_md36}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getegid_autotoc_md36}
+\hypertarget{interfacem__system_1_1system__getegid_autotoc_md36}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__getegid_autotoc_md36}
+system\+\_\+getegid(3f) -\/ \mbox{[}M\+\_\+system\+:Q\+U\+E\+RY\mbox{]} get the effective group ID (G\+ID) of current process from Fortran by calling getegid(3c) (L\+I\+C\+E\+N\+SE\+:PD) \hypertarget{interfacem__system_1_1system__getegid_autotoc_md37}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__getegid_autotoc_md37}
 \begin{DoxyVerb}integer(kind=c_int) function system_getegid()
 \end{DoxyVerb}
- \hypertarget{interfacem__system_1_1system__getegid_autotoc_md37}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getegid_autotoc_md37}
-The getegid() function returns the effective group ID of the calling process.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md38}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getegid_autotoc_md38}
-The getegid() should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md39}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getegid_autotoc_md39}
-No errors are defined.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md40}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getegid_autotoc_md40}
-getegid(), system\+\_\+geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()\hypertarget{interfacem__system_1_1system__getegid_autotoc_md41}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getegid_autotoc_md41}
+ \hypertarget{interfacem__system_1_1system__getegid_autotoc_md38}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__getegid_autotoc_md38}
+The getegid() function returns the effective group ID of the calling process.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md39}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__getegid_autotoc_md39}
+The getegid() should always be successful and no return value is reserved to indicate an error.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md40}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__getegid_autotoc_md40}
+No errors are defined.\hypertarget{interfacem__system_1_1system__getegid_autotoc_md41}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__getegid_autotoc_md41}
+getegid(), system\+\_\+geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()\hypertarget{interfacem__system_1_1system__getegid_autotoc_md42}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__getegid_autotoc_md42}
 Get group ID from Fortran
 
 program demo\+\_\+system\+\_\+getegid use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__getegid}{system\+\_\+getegid}} implicit none write($\ast$,$\ast$)\textquotesingle{}G\+ID=\textquotesingle{},\mbox{\hyperlink{interfacem__system_1_1system__getegid_a35fcd8b85449dac6703e97290f193ee4}{system\+\_\+getegid()}} end program demo\+\_\+system\+\_\+getegid 

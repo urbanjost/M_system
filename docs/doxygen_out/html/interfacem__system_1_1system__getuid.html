@@ -80,16 +80,16 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:adb2147a5c9768d09bd7741b07f02af05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md31"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md32"></a>
 NAME</h2>
 <p>system_getuid(3f) - [M_system:QUERY] get real UID of current process from Fortran by calling getuid(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer(kind=c_int) function system_getuid()
-</pre><h2><a class="anchor" id="autotoc_md33"></a>
+</pre><h2><a class="anchor" id="autotoc_md34"></a>
 DESCRIPTION</h2>
 <p>The system_getuid(3f) function shall return the real user ID of the calling process. The getuid() function shall always be successful and no return value is reserved to indicate the error. </p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 EXAMPLE</h2>
 <p>Get group ID from Fortran:</p>
 <p>program demo_system_getuid use M_system, only : <a class="el" href="interfacem__system_1_1system__getuid.html">system_getuid</a> implicit none write(*,*)'UID=',<a class="el" href="interfacem__system_1_1system__getuid.html#adb2147a5c9768d09bd7741b07f02af05">system_getuid()</a> end program demo_system_getuid</p>

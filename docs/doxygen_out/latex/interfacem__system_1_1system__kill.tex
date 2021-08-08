@@ -8,14 +8,14 @@ integer(kind=c\+\_\+int) function \mbox{\hyperlink{interfacem__system_1_1system_
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{interfacem__system_1_1system__kill_autotoc_md16}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__kill_autotoc_md16}
-system\+\_\+kill(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} send a signal to a process or a group of processes (L\+I\+C\+E\+N\+SE\+:PD)\hypertarget{interfacem__system_1_1system__kill_autotoc_md17}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__kill_autotoc_md17}
+\hypertarget{interfacem__system_1_1system__kill_autotoc_md17}{}\doxysubsubsection{N\+A\+ME}\label{interfacem__system_1_1system__kill_autotoc_md17}
+system\+\_\+kill(3f) -\/ \mbox{[}M\+\_\+system\+:S\+I\+G\+N\+A\+LS\mbox{]} send a signal to a process or a group of processes (L\+I\+C\+E\+N\+SE\+:PD)\hypertarget{interfacem__system_1_1system__kill_autotoc_md18}{}\doxysubsubsection{S\+Y\+N\+O\+P\+S\+IS}\label{interfacem__system_1_1system__kill_autotoc_md18}
 \begin{DoxyVerb}integer(kind=c_int) function system_kill(pid,sig)
 
    integer,intent(in) :: pid
    integer,intent(in) :: sig
 \end{DoxyVerb}
-\hypertarget{interfacem__system_1_1system__kill_autotoc_md18}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__kill_autotoc_md18}
+\hypertarget{interfacem__system_1_1system__kill_autotoc_md19}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{interfacem__system_1_1system__kill_autotoc_md19}
 \begin{DoxyVerb}The kill() function shall send a signal to a process or a group of
 processes specified by pid. The signal to be sent is specified by sig
 and is either one from the list given in <signal.h> or 0. If sig is 0
@@ -63,19 +63,19 @@ The kill() function is successful if the process has permission to send
 sig to any of the processes specified by pid. If kill() fails, no signal
 shall be sent.
 \end{DoxyVerb}
-\hypertarget{interfacem__system_1_1system__kill_autotoc_md19}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__kill_autotoc_md19}
+\hypertarget{interfacem__system_1_1system__kill_autotoc_md20}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{interfacem__system_1_1system__kill_autotoc_md20}
 \begin{DoxyVerb}Upon successful completion, 0 shall be returned. Otherwise, -1 shall be
 returned and errno set to indicate the error.
 \end{DoxyVerb}
-\hypertarget{interfacem__system_1_1system__kill_autotoc_md20}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__kill_autotoc_md20}
+\hypertarget{interfacem__system_1_1system__kill_autotoc_md21}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{interfacem__system_1_1system__kill_autotoc_md21}
 The kill() function shall fail if\+:
 
-E\+I\+N\+V\+AL The value of the sig argument is an invalid or unsupported signal number. E\+P\+E\+RM The process does not have permission to send the signal to any receiving process. E\+S\+R\+CH No process or process group can be found corresponding to that specified by pid. The following sections are informative.\hypertarget{interfacem__system_1_1system__kill_autotoc_md21}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__kill_autotoc_md21}
+E\+I\+N\+V\+AL The value of the sig argument is an invalid or unsupported signal number. E\+P\+E\+RM The process does not have permission to send the signal to any receiving process. E\+S\+R\+CH No process or process group can be found corresponding to that specified by pid. The following sections are informative.\hypertarget{interfacem__system_1_1system__kill_autotoc_md22}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{interfacem__system_1_1system__kill_autotoc_md22}
 Sample program\+:
 
 program demo\+\_\+system\+\_\+kill use M\+\_\+system, only \+: \mbox{\hyperlink{interfacem__system_1_1system__kill}{system\+\_\+kill}} use M\+\_\+system, only \+: system\+\_\+perror implicit none integer \+:: i,pid,ios,ierr,signal=9 character(len=80) \+:: argument
 
-do i=1,command\+\_\+argument\+\_\+count() ! get arguments from command line call get\+\_\+command\+\_\+argument(i, argument) ! convert arguments to integers assuming they are P\+ID numbers read(argument,\textquotesingle{}(i80)\textquotesingle{},iostat=ios) pid if(ios.\+ne.\+0)then write($\ast$,$\ast$)\textquotesingle{}bad P\+ID=\textquotesingle{},trim(argument) else write($\ast$,$\ast$)\textquotesingle{}kill S\+I\+G\+N\+AL=\textquotesingle{},signal,\textquotesingle{} P\+ID=\textquotesingle{},pid ! send signal S\+I\+G\+N\+AL to pid P\+ID ierr=system\+\_\+kill(pid,signal) ! write message if an error was detected if(ierr.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+kill}\textquotesingle{}) endif endif enddo end program demo\+\_\+system\+\_\+kill\hypertarget{interfacem__system_1_1system__kill_autotoc_md22}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__kill_autotoc_md22}
+do i=1,command\+\_\+argument\+\_\+count() ! get arguments from command line call get\+\_\+command\+\_\+argument(i, argument) ! convert arguments to integers assuming they are P\+ID numbers read(argument,\textquotesingle{}(i80)\textquotesingle{},iostat=ios) pid if(ios.\+ne.\+0)then write($\ast$,$\ast$)\textquotesingle{}bad P\+ID=\textquotesingle{},trim(argument) else write($\ast$,$\ast$)\textquotesingle{}kill S\+I\+G\+N\+AL=\textquotesingle{},signal,\textquotesingle{} P\+ID=\textquotesingle{},pid ! send signal S\+I\+G\+N\+AL to pid P\+ID ierr=system\+\_\+kill(pid,signal) ! write message if an error was detected if(ierr.\+ne.\+0)then call system\+\_\+perror(\textquotesingle{}{\itshape demo\+\_\+system\+\_\+kill}\textquotesingle{}) endif endif enddo end program demo\+\_\+system\+\_\+kill\hypertarget{interfacem__system_1_1system__kill_autotoc_md23}{}\doxysubsubsection{S\+E\+E A\+L\+SO}\label{interfacem__system_1_1system__kill_autotoc_md23}
 getpid(), raise(), setsid(), sigaction(), sigqueue(), 
 
 \doxysubsection{Constructor \& Destructor Documentation}

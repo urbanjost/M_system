@@ -80,16 +80,16 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:af9661841f8178c662ba33a85a938183e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md27"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md28"></a>
 NAME</h2>
 <p>system_geteuid(3f) - [M_system:QUERY] get effective UID of current process from Fortran by calling geteuid(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer(kind=c_int) function system_geteuid()
-</pre><h2><a class="anchor" id="autotoc_md29"></a>
+</pre><h2><a class="anchor" id="autotoc_md30"></a>
 DESCRIPTION</h2>
 <p>The system_geteuid(3f) function shall return the effective user ID of the calling process. The geteuid() function shall always be successful and no return value is reserved to indicate the error. </p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 EXAMPLE</h2>
 <p>Get group ID from Fortran:</p>
 <p>program demo_system_geteuid use M_system, only : <a class="el" href="interfacem__system_1_1system__geteuid.html">system_geteuid</a> implicit none write(*,*)'EFFECTIVE UID=',<a class="el" href="interfacem__system_1_1system__geteuid.html#af9661841f8178c662ba33a85a938183e">system_geteuid()</a> end program demo_system_geteuid </p>

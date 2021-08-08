@@ -26,15 +26,15 @@ Just download the github repository, enter the src/ directory and run make:
      
      # for gfortran
      make clean
-     make F90=gfortran gfortran
+     make gfortran
      
      # for ifort
      make clean
-     make F90=ifort ifort
+     make ifort
 
      # for nvfortran
      make clean
-     make F90=nvfortran nvfortran
+     make nvfortran
 ```
 This will compile the M_system module and build all the example programs
 in the PROGRAMS/ directory. There is an example program for each procedure

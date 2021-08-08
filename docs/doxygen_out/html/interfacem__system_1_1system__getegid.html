@@ -80,25 +80,25 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a35fcd8b85449dac6703e97290f193ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md35"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md36"></a>
 NAME</h2>
 <p>system_getegid(3f) - [M_system:QUERY] get the effective group ID (GID) of current process from Fortran by calling getegid(3c) (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 SYNOPSIS</h2>
 <pre class="fragment">integer(kind=c_int) function system_getegid()
-</pre> <h2><a class="anchor" id="autotoc_md37"></a>
+</pre> <h2><a class="anchor" id="autotoc_md38"></a>
 DESCRIPTION</h2>
 <p>The getegid() function returns the effective group ID of the calling process.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 RETURN VALUE</h2>
 <p>The getegid() should always be successful and no return value is reserved to indicate an error.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 ERRORS</h2>
 <p>No errors are defined.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 SEE ALSO</h2>
 <p>getegid(), system_geteuid(), getuid(), setegid(), seteuid(), setgid(), setregid(), setreuid(), setuid()</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 EXAMPLE</h2>
 <p>Get group ID from Fortran</p>
 <p>program demo_system_getegid use M_system, only : <a class="el" href="interfacem__system_1_1system__getegid.html">system_getegid</a> implicit none write(*,*)'GID=',<a class="el" href="interfacem__system_1_1system__getegid.html#a35fcd8b85449dac6703e97290f193ee4">system_getegid()</a> end program demo_system_getegid </p>

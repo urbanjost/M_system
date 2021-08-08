@@ -80,24 +80,24 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a3368836e902ccbf8e0418c56f18e2df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md49"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md50"></a>
 NAME</h2>
 <p>system_setsid(3f) - [M_system:QUERY] create session and set the process group ID of a session leader (LICENSE:PD) </p>
-<h2><a class="anchor" id="autotoc_md50"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 SYNOPSIS</h2>
 <pre class="fragment">    integer(kind=c_int) function system_setsid(pid)
     integer(kind=c_int) :: pid
-</pre> <h2><a class="anchor" id="autotoc_md51"></a>
+</pre> <h2><a class="anchor" id="autotoc_md52"></a>
 DESCRIPTION</h2>
 <p>The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.</p>
-<h2><a class="anchor" id="autotoc_md52"></a>
+<h2><a class="anchor" id="autotoc_md53"></a>
 RETURN VALUE</h2>
 <p>Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return â-1 and set errno to indicate the error. </p>
-<h2><a class="anchor" id="autotoc_md53"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 ERRORS</h2>
 <p>The setsid() function shall fail if:</p>
 <p>o The calling process is already a process group leader o the process group ID of a process other than the calling process matches the process ID of the calling process. </p>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md55"></a>
 EXAMPLE</h2>
 <p>Set SID from Fortran</p>
 <p>program demo_system_setsid use M_system, only : <a class="el" href="interfacem__system_1_1system__setsid.html">system_setsid</a> implicit none write(*,*)'SID=',<a class="el" href="interfacem__system_1_1system__setsid.html#a3368836e902ccbf8e0418c56f18e2df3">system_setsid()</a> end program demo_system_setsid </p>

@@ -62,7 +62,7 @@ jobs:
 
     - name: tests MacOS
       if: contains(matrix.os, 'macos')
-      run: fpm test --profile release -flag "-D _POSIX_C_SOURCE -D __USE_POSIX"
+      run: fpm test --profile release -flag "-D _POSIX_C_SOURCE -D __USE_POSIX -DMacOS"
       # _POSIX_C_SOURCE should be used instead of __USE_POSIX according to standard.
       # while looking inside "posix1_lim.h" I found out that some
       # stuff has been changed HOST_NAME_MAX now is _POSIX_HOST_NAME_MAX

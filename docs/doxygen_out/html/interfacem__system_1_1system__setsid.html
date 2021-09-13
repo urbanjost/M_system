@@ -92,7 +92,7 @@ DESCRIPTION</h2>
 <p>The setsid() function creates a new session, if the calling process is not a process group leader. Upon return the calling process shall be the session leader of this new session, shall be the process group leader of a new process group, and shall have no controlling terminal. The process group ID of the calling process shall be set equal to the process ID of the calling process. The calling process shall be the only process in the new process group and the only process in the new session.</p>
 <h2><a class="anchor" id="autotoc_md53"></a>
 RETURN VALUE</h2>
-<p>Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return â-1 and set errno to indicate the error. </p>
+<p>Upon successful completion, setsid() shall return the value of the new process group ID of the calling process. Otherwise, it shall return -1 and set errno to indicate the error. </p>
 <h2><a class="anchor" id="autotoc_md54"></a>
 ERRORS</h2>
 <p>The setsid() function shall fail if:</p>

@@ -8,7 +8,6 @@
          _POSIX_C_SOURCE should be #defined instead of __USE_POSIX according
          to standard, but __USE_POSIX appears to need to be declared
    */
-#   define _POSIX_C_SOURCE
 #   define __USE_POSIX
 #endif
 #include <dirent.h>

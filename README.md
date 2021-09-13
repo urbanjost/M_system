@@ -90,12 +90,12 @@ test automatically)_.
 <!--
 ### doxygen
 
-- [doxygen(1) output](https://urbanjost.github.io/M_time/doxygen_out/html/index.html).
+- [doxygen(1) output](https://urbanjost.github.io/M_system/doxygen_out/html/index.html).
 
 ### ford
 -->
 
-- [ford(1) output](https://urbanjost.github.io/M_time/fpm-ford/index.html).
+- [ford(1) output](https://urbanjost.github.io/M_system/fpm-ford/index.html).
 
 
 ## SEE ALSO

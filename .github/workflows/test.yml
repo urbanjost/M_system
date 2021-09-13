@@ -53,13 +53,10 @@ jobs:
         #make -k -p -fNOTTHERE
         echo "end" > foo.f90
         echo "{}" > foo.c
-
         gfortran -cpp -E -dM foo.f90
         gfortran --version
-
         gcc -cpp -E -dM foo.c
 	gcc --version
-
         fpm --version
 
     - name: tests Linux

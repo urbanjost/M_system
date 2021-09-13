@@ -1,4 +1,4 @@
-#ifdef __APPLE__ 1
+#ifdef __APPLE__
     /*
       MacOS
         while looking inside "posix1_lim.h" I found out that some

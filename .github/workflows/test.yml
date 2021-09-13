@@ -56,7 +56,7 @@ jobs:
         gfortran -cpp -E -dM foo.f90
         gfortran --version
         gcc -cpp -E -dM foo.c
-	gcc --version
+        gcc --version
         fpm --version
 
     - name: tests Linux

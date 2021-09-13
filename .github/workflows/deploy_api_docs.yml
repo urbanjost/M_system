@@ -31,7 +31,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
+          BRANCH: master
           FOLDER: docs/fpm-ford
           TARGET_FOLDER: docs/fpm-ford
 #         ford(1) deletes the output directory before running

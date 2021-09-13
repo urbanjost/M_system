@@ -84,5 +84,19 @@ test automatically)_.
 
  + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
    if Javascript is not available.
+
+## DEVELOPER DOCUMENTATION (experimental)
+
+<!--
+### doxygen
+
+- [doxygen(1) output](https://urbanjost.github.io/M_time/doxygen_out/html/index.html).
+
+### ford
+-->
+
+- [ford(1) output](https://urbanjost.github.io/M_time/fpm-ford/index.html).
+
+
 ## SEE ALSO
  + [stdlib discussion on POSIX interfaces](https://github.com/fortran-lang/stdlib/issues/22#issuecomment-733021530)

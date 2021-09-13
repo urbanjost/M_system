@@ -3,12 +3,12 @@
       MacOS
         while looking inside "posix1_lim.h" I found out that some
         stuff has been changed HOST_NAME_MAX now is _POSIX_HOST_NAME_MAX
-        LOGIN_NAME_MAX now is _POSIX_LOGIN_NAME_MAX pastebin.com/kFmAbWcJ
+        LOGIN_NAME_MAX now is _POSIX_LOGIN_NAME_MAX
 
          _POSIX_C_SOURCE should be #defined instead of __USE_POSIX according
          to standard, but __USE_POSIX appears to need to be declared
    */
-#   define __USE_POSIX
+#   define _POSIX_C_SOURCE
 #endif
 #include <dirent.h>
 #include <errno.h>

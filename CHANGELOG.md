@@ -2,7 +2,7 @@
 
 The intent of this changelog is to keep everyone in the loop about
 what's new in the M_system  project. It is a curated, chronologically ordered
-list of notable changes including`records of change such as bug fixes,
+list of notable changes including records of change such as bug fixes,
 new features, changes, and relevant notifications.
 
 ---

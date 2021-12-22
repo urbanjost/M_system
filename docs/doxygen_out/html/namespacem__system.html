@@ -1489,7 +1489,11 @@ OPTIONS</h2>
 <h2><a class="anchor" id="autotoc_md302"></a>
 EXAMPLE</h2>
 <p>Sample setting an environment variable from Fortran:</p>
-<p>program demo_system_getenv use M_system, only : system_getenv implicit none write(*,'("USER     : ",a)')system_getenv('USER') write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME') write(*,'("USERNAME : ",a)')system_getenv('USERNAME') end program demo_system_getenv</p>
+<p>program demo_system_getenv use M_system, only : system_getenv use M_system, only : ge=&gt;system_getenv implicit none character(len=:),allocatable :: TMPDIR</p>
+<p>write(*,'("USER     : ",a)')system_getenv('USER') write(*,'("LOGNAME  : ",a)')system_getenv('LOGNAME') write(*,'("USERNAME : ",a)')system_getenv('USERNAME')</p>
+<p>! look first for USER then LOGNAME then USERNAME write(*, *)ge('USER', ge('LOGNAME', ge('USERNAME', 'UNKNOWN')))</p>
+<p>TMPDIR= ge('TMPDIR', ge('TMP', ge('TEMPDIR', ge('TEMP', '/tmp')))) write(*,*)'favorite scratch area is ',TMPDIR</p>
+<p>end program demo_system_getenv</p>
 <h2><a class="anchor" id="autotoc_md303"></a>
 AUTHOR</h2>
 <p>John S. Urban </p>
@@ -3463,12 +3467,12 @@ SYNOPSIS</h2>
  character(len=*),intent(in) :: command
 </pre><h2><a class="anchor" id="autotoc_md400"></a>
 DESCRIPTION</h2>
-<p>The system_system(3f) function</p>
+<p>If a function that calls execute_command_line(3f). That is, system_system(3f) executes a string as a system command after trimming the string.</p>
 <h2><a class="anchor" id="autotoc_md401"></a>
 OPTIONS</h2>
 <h2><a class="anchor" id="autotoc_md402"></a>
 RETURN VALUE</h2>
-<p>Upon successful completion .TRUE. is returned. Otherwise, .FALSE. is returned and errno shall be set to indicate the error, and the file times remain unaffected.</p>
+<p>Upon successful completion .TRUE. is returned. Otherwise, .FALSE. is returned. If an error occurs an error message is written to stdout.</p>
 <h2><a class="anchor" id="autotoc_md403"></a>
 ERRORS</h2>
 <h2><a class="anchor" id="autotoc_md404"></a>

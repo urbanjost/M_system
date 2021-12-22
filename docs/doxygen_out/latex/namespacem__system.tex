@@ -845,7 +845,15 @@ The \mbox{\hyperlink{namespacem__system_a0f91f973a4288ebda0e75ea0869a43af}{syste
 name Return the value of the specified environment variable or blank if the variable is not defined. default If the value returned would be blank this value will be used instead.\hypertarget{namespacem__system_autotoc_md302}{}\doxysubsubsection{E\+X\+A\+M\+P\+LE}\label{namespacem__system_autotoc_md302}
 Sample setting an environment variable from Fortran\+:
 
-program demo\+\_\+system\+\_\+getenv use M\+\_\+system, only \+: system\+\_\+getenv implicit none write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R     \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+ER\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+L\+O\+G\+N\+A\+M\+E  \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}L\+O\+G\+N\+A\+ME\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R\+N\+A\+M\+E \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+E\+R\+N\+A\+ME\textquotesingle{}) end program demo\+\_\+system\+\_\+getenv\hypertarget{namespacem__system_autotoc_md303}{}\doxysubsubsection{A\+U\+T\+H\+OR}\label{namespacem__system_autotoc_md303}
+program demo\+\_\+system\+\_\+getenv use M\+\_\+system, only \+: system\+\_\+getenv use M\+\_\+system, only \+: ge=$>$system\+\_\+getenv implicit none character(len=\+:),allocatable \+:: T\+M\+P\+D\+IR
+
+write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R     \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+ER\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+L\+O\+G\+N\+A\+M\+E  \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}L\+O\+G\+N\+A\+ME\textquotesingle{}) write($\ast$,\textquotesingle{}(\char`\"{}\+U\+S\+E\+R\+N\+A\+M\+E \+: \char`\"{},a)\textquotesingle{})system\+\_\+getenv(\textquotesingle{}U\+S\+E\+R\+N\+A\+ME\textquotesingle{})
+
+! look first for U\+S\+ER then L\+O\+G\+N\+A\+ME then U\+S\+E\+R\+N\+A\+ME write($\ast$, $\ast$)ge(\textquotesingle{}U\+S\+ER\textquotesingle{}, ge(\textquotesingle{}L\+O\+G\+N\+A\+ME\textquotesingle{}, ge(\textquotesingle{}U\+S\+E\+R\+N\+A\+ME\textquotesingle{}, \textquotesingle{}U\+N\+K\+N\+O\+WN\textquotesingle{})))
+
+T\+M\+P\+D\+IR= ge(\textquotesingle{}T\+M\+P\+D\+IR\textquotesingle{}, ge(\textquotesingle{}T\+MP\textquotesingle{}, ge(\textquotesingle{}T\+E\+M\+P\+D\+IR\textquotesingle{}, ge(\textquotesingle{}T\+E\+MP\textquotesingle{}, \textquotesingle{}/tmp\textquotesingle{})))) write($\ast$,$\ast$)\textquotesingle{}favorite scratch area is \textquotesingle{},T\+M\+P\+D\+IR
+
+end program demo\+\_\+system\+\_\+getenv\hypertarget{namespacem__system_autotoc_md303}{}\doxysubsubsection{A\+U\+T\+H\+OR}\label{namespacem__system_autotoc_md303}
 John S. Urban \hypertarget{namespacem__system_autotoc_md304}{}\doxysubsubsection{L\+I\+C\+E\+N\+SE}\label{namespacem__system_autotoc_md304}
 Public Domain \mbox{\Hypertarget{namespacem__system_aec137429fbb8c848db4ecd914466d7e8}\label{namespacem__system_aec137429fbb8c848db4ecd914466d7e8}} 
 \index{m\_system@{m\_system}!system\_getgrgid@{system\_getgrgid}}
@@ -2108,9 +2116,9 @@ system\+\_\+system(3f) -\/ \mbox{[}M\+\_\+system\+:S\+Y\+S\+T\+E\+M\+\_\+\+C\+O\
  character(len=*),intent(in) :: command
 \end{DoxyVerb}
 \hypertarget{namespacem__system_autotoc_md400}{}\doxysubsubsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{namespacem__system_autotoc_md400}
-The system\+\_\+system(3f) function\hypertarget{namespacem__system_autotoc_md401}{}\doxysubsubsection{O\+P\+T\+I\+O\+NS}\label{namespacem__system_autotoc_md401}
+If a function that calls execute\+\_\+command\+\_\+line(3f). That is, system\+\_\+system(3f) executes a string as a system command after trimming the string.\hypertarget{namespacem__system_autotoc_md401}{}\doxysubsubsection{O\+P\+T\+I\+O\+NS}\label{namespacem__system_autotoc_md401}
 \hypertarget{namespacem__system_autotoc_md402}{}\doxysubsubsection{R\+E\+T\+U\+R\+N V\+A\+L\+UE}\label{namespacem__system_autotoc_md402}
-Upon successful completion .T\+R\+UE. is returned. Otherwise, .F\+A\+L\+SE. is returned and errno shall be set to indicate the error, and the file times remain unaffected.\hypertarget{namespacem__system_autotoc_md403}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{namespacem__system_autotoc_md403}
+Upon successful completion .T\+R\+UE. is returned. Otherwise, .F\+A\+L\+SE. is returned. If an error occurs an error message is written to stdout.\hypertarget{namespacem__system_autotoc_md403}{}\doxysubsubsection{E\+R\+R\+O\+RS}\label{namespacem__system_autotoc_md403}
 \hypertarget{namespacem__system_autotoc_md404}{}\doxysubsubsection{E\+X\+A\+M\+P\+L\+ES}\label{namespacem__system_autotoc_md404}
 Sample program \begin{DoxyVerb} program demo_system_system
  use M_system, only : system_system

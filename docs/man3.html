@@ -46,69 +46,76 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 <div id="Container">
 <div id="Content">
 <h1>M_system man(3) pages</h1>
+<font size=-1>
+<script language="JavaScript">
+<!---//hide script from old browsers; automatically update modification date
+   document.write( "<i>Date last updated: " + document.lastModified + "</i>");
+//end hiding contents --->
+</script>
+</font>
 <table border="1">
 <tr> <th>grouping</th> <th>page</th> <th>description</th> </tr>
-<tr><td style="background:#e2e9de;">M_system::INTRO</td><td><a href="M_system.3m_system.html">M_system</a></td><td> Fortran interface to C system interface (LICENSE:PD)</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="set_environment_variable.3m_system.html">set_environment_variable</a></td><td> call setenv(3c) to set environment variable (LICENSE:PD)</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_clearenv.3m_system.html">system_clearenv</a></td><td> clear environment by calling clearenv(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_getenv.3m_system.html">system_getenv</a></td><td> get environment variable from Fortran by calling get_environment_variable(3f) ...</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_initenv.3m_system.html">system_initenv</a></td><td> initialize environment table pointer and size so table can be read by readenv...</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_putenv.3m_system.html">system_putenv</a></td><td> set environment variable from Fortran by calling putenv(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_readenv.3m_system.html">system_readenv</a></td><td> step thru and read environment table (LICENSE:PD)</td></tr>
-<tr><td style="background:#ddf8c4;">M_system:ENVIRONMENT</td><td><a href="system_unsetenv.3m_system.html">system_unsetenv</a></td><td> delete an environment variable by calling unsetenv(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#f6dae0;">M_system:ERROR_PROCESSING</td><td><a href="system_errno.3m_system.html">system_errno</a></td><td> C error return value (LICENSE:PD)</td></tr>
-<tr><td style="background:#f6dae0;">M_system:ERROR_PROCESSING</td><td><a href="system_perror.3m_system.html">system_perror</a></td><td> print error message for last C error on stderr (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_chown.3m_system.html">system_chown</a></td><td> change file owner and group (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_link.3m_system.html">system_link</a></td><td> link one file to another file relative to two directory file descriptors (LICENS...</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_mkdir.3m_system.html">system_mkdir</a></td><td> call mkdir(3c) to create a new directory (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_mkfifo.3m_system.html">system_mkfifo</a></td><td> make a FIFO special file relative to directory file descriptor (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_realpath.3m_system.html">system_realpath</a></td><td> call realpath(3c) to resolve a pathname (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_rmdir.3m_system.html">system_rmdir</a></td><td> call rmdir(3c) to remove empty directories (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_setumask.3m_system.html">system_setumask</a></td><td> set the file mode creation umask (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_unlink.3m_system.html">system_unlink</a></td><td> remove a directory entry relative to directory file descriptor (LICENSE:PD)</td></tr>
-<tr><td style="background:#e6faf5;">M_system:FILE_SYSTEM</td><td><a href="system_utime.3m_system.html">system_utime</a></td><td> set file access and modification times (LICENSE:PD)</td></tr>
-<tr><td style="background:#c4f3e4;">M_system:PSEUDORANDOM</td><td><a href="system_rand.3m_system.html">system_rand</a></td><td> call pseudo-random number generator rand(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c4f3e4;">M_system:PSEUDORANDOM</td><td><a href="system_srand.3m_system.html">system_srand</a></td><td> set seed for pseudo-random number generator system_rand(3f) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getegid.3m_system.html">system_getegid</a></td><td> get the effective group ID (GID) of current process from Fortran by calling getegid...</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_geteuid.3m_system.html">system_geteuid</a></td><td> get effective UID of current process from Fortran by calling geteuid(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getgid.3m_system.html">system_getgid</a></td><td> get the real group ID (GID) of current process from Fortran by calling getgid(3c) (L...</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getgrgid.3m_system.html">system_getgrgid</a></td><td> get groupd name associated with a GID (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_gethostname.3m_system.html">system_gethostname</a></td><td> get name of current host (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getlogin.3m_system.html">system_getlogin</a></td><td> get login name (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getpid.3m_system.html">system_getpid</a></td><td> get PID (process ID) of current process from Fortran by calling getpid(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getppid.3m_system.html">system_getppid</a></td><td> get parent process ID (PPID) of current process from Fortran by calling getppid(3c)...</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getpwuid.3m_system.html">system_getpwuid</a></td><td> get login name associated with a UID (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getsid.3m_system.html">system_getsid</a></td><td> get the process group ID of a session leader (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_getuid.3m_system.html">system_getuid</a></td><td> get real UID of current process from Fortran by calling getuid(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c3c8f7;">M_system:QUERY</td><td><a href="system_setsid.3m_system.html">system_setsid</a></td><td> create session and set the process group ID of a session leader (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="fileglob.3m_system.html">fileglob</a></td><td> Read output of an ls(1) command from Fortran (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_access.3m_system.html">system_access</a></td><td> checks accessibility or existence of a pathname (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_closedir.3m_system.html">system_closedir</a></td><td> close a directory stream by calling closedir(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_getcwd.3m_system.html">system_getcwd</a></td><td> call getcwd(3c) to get the pathname of the current working directory (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_getumask.3m_system.html">system_getumask</a></td><td> get current umask (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_isblk.3m_system.html">system_isblk</a></td><td> checks if argument is a block device (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_ischr.3m_system.html">system_ischr</a></td><td> checks if argument is a character device (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_isdir.3m_system.html">system_isdir</a></td><td> checks if argument is a directory path (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_isfifo.3m_system.html">system_isfifo</a></td><td> checks if argument is a fifo - named pipe (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_islnk.3m_system.html">system_islnk</a></td><td> checks if argument is a link (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_isreg.3m_system.html">system_isreg</a></td><td> checks if argument is a regular file (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_issock.3m_system.html">system_issock</a></td><td> checks if argument is a socket (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_opendir.3m_system.html">system_opendir</a></td><td> open directory stream by calling opendir(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_perm.3m_system.html">system_perm</a></td><td> get file type and permission as a string (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_readdir.3m_system.html">system_readdir</a></td><td> read a directory using readdir(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_rewinddir.3m_system.html">system_rewinddir</a></td><td> call rewinddir(3c) to rewind directory stream (LICENSE:PD)</td></tr>
-<tr><td style="background:#d8e4f0;">M_system:QUERY_FILE</td><td><a href="system_stat.3m_system.html">system_stat</a></td><td> Get file status information (LICENSE:PD)</td></tr>
-<tr><td style="background:#dcd4f1;">M_system:SIGNALS</td><td><a href="system_kill.3m_system.html">system_kill</a></td><td> send a signal to a process or a group of processes (LICENSE:PD)</td></tr>
-<tr><td style="background:#dcd4f1;">M_system:SIGNALS</td><td><a href="system_signal.3m_system.html">system_signal</a></td><td> install a signal handler (LICENSE:PD)</td></tr>
-<tr><td style="background:#d3e2dd;">M_system:SYSTEM_COMMAND</td><td><a href="system_system.3m_system.html">system_system</a></td><td> call execute_command_line (LICENSE:PD)</td></tr>
-<tr><td style="background:#c0ccc7;">M_system</td><td><a href="system_cpu_time.3m_system.html">system_cpu_time</a></td><td> get processor time by calling times(3c) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c0ccc7;">M_system</td><td><a href="system_dir.3m_system.html">system_dir</a></td><td> return filenames in a directory matching specified wildcard string (LICENSE:PD)</td></tr>
-<tr><td style="background:#c0ccc7;">M_system</td><td><a href="system_stat_print.3m_system.html">system_stat_print</a></td><td> print the principal info obtained for a pathname from system_stat(3f) (LICENSE:PD)</td></tr>
-<tr><td style="background:#c0ccc7;">M_system</td><td><a href="system_uname.3m_system.html">system_uname</a></td><td> call a C wrapper that calls uname(3c) to get current system information from Fortran (LICEN...</td></tr>
-<tr><td style="background:#dbdcc8;">M_system_FILE_SYSTEM</td><td><a href="system_chdir.3m_system.html">system_chdir</a></td><td> call chdir(3c) from Fortran to change working directory (LICENSE:PD)</td></tr>
-<tr><td style="background:#dbdcc8;">M_system_FILE_SYSTEM</td><td><a href="system_chmod.3m_system.html">system_chmod</a></td><td> call chmod(3c) to change permission mode of a file relative to directory file d...</td></tr>
-<tr><td style="background:#dbdcc8;">M_system_FILE_SYSTEM</td><td><a href="system_remove.3m_system.html">system_remove</a></td><td> call remove(3c) to remove file (LICENSE:PD)</td></tr>
-<tr><td style="background:#dbdcc8;">M_system_FILE_SYSTEM</td><td><a href="system_rename.3m_system.html">system_rename</a></td><td> call rename(3c) to rename a system file (LICENSE:PD)</td></tr>
+<tr><td style="background:#d0ccc8;">M_system::INTRO</td><td><a href="M_system.3m_system.html">M_system</a></td><td> Fortran interface to C system interface (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="set_environment_variable.3m_system.html">set_environment_variable</a></td><td> call setenv(3c) to set environment variable (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_clearenv.3m_system.html">system_clearenv</a></td><td> clear environment by calling clearenv(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_getenv.3m_system.html">system_getenv</a></td><td> get environment variable from Fortran by calling get_environment_variable(3f) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_initenv.3m_system.html">system_initenv</a></td><td> initialize environment table pointer and size so table can be read by readenv(3f) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_putenv.3m_system.html">system_putenv</a></td><td> set environment variable from Fortran by calling putenv(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_readenv.3m_system.html">system_readenv</a></td><td> step thru and read environment table (LICENSE:PD)</td></tr>
+<tr><td style="background:#d5daf0;">M_system:ENVIRONMENT</td><td><a href="system_unsetenv.3m_system.html">system_unsetenv</a></td><td> delete an environment variable by calling unsetenv(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d9c7f4;">M_system:ERROR_PROCESSING</td><td><a href="system_errno.3m_system.html">system_errno</a></td><td> C error return value (LICENSE:PD)</td></tr>
+<tr><td style="background:#d9c7f4;">M_system:ERROR_PROCESSING</td><td><a href="system_perror.3m_system.html">system_perror</a></td><td> print error message for last C error on stderr (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_chown.3m_system.html">system_chown</a></td><td> change file owner and group (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_link.3m_system.html">system_link</a></td><td> link one file to another file relative to two directory file descriptors (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_mkdir.3m_system.html">system_mkdir</a></td><td> call mkdir(3c) to create a new directory (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_mkfifo.3m_system.html">system_mkfifo</a></td><td> make a FIFO special file relative to directory file descriptor (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_realpath.3m_system.html">system_realpath</a></td><td> call realpath(3c) to resolve a pathname (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_rmdir.3m_system.html">system_rmdir</a></td><td> call rmdir(3c) to remove empty directories (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_setumask.3m_system.html">system_setumask</a></td><td> set the file mode creation umask (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_unlink.3m_system.html">system_unlink</a></td><td> remove a directory entry relative to directory file descriptor (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7f9e8;">M_system:FILE_SYSTEM</td><td><a href="system_utime.3m_system.html">system_utime</a></td><td> set file access and modification times (LICENSE:PD)</td></tr>
+<tr><td style="background:#c5e9c4;">M_system:PSEUDORANDOM</td><td><a href="system_rand.3m_system.html">system_rand</a></td><td> call pseudo-random number generator rand(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#c5e9c4;">M_system:PSEUDORANDOM</td><td><a href="system_srand.3m_system.html">system_srand</a></td><td> set seed for pseudo-random number generator system_rand(3f) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getegid.3m_system.html">system_getegid</a></td><td> get the effective group ID (GID) of current process from Fortran by calling getegid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_geteuid.3m_system.html">system_geteuid</a></td><td> get effective UID of current process from Fortran by calling geteuid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getgid.3m_system.html">system_getgid</a></td><td> get the real group ID (GID) of current process from Fortran by calling getgid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getgrgid.3m_system.html">system_getgrgid</a></td><td> get groupd name associated with a GID (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_gethostname.3m_system.html">system_gethostname</a></td><td> get name of current host (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getlogin.3m_system.html">system_getlogin</a></td><td> get login name (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getpid.3m_system.html">system_getpid</a></td><td> get PID (process ID) of current process from Fortran by calling getpid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getppid.3m_system.html">system_getppid</a></td><td> get parent process ID (PPID) of current process from Fortran by calling getppid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getpwuid.3m_system.html">system_getpwuid</a></td><td> get login name associated with a UID (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getsid.3m_system.html">system_getsid</a></td><td> get the process group ID of a session leader (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_getuid.3m_system.html">system_getuid</a></td><td> get real UID of current process from Fortran by calling getuid(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#d7c5fd;">M_system:QUERY</td><td><a href="system_setsid.3m_system.html">system_setsid</a></td><td> create session and set the process group ID of a session leader (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="fileglob.3m_system.html">fileglob</a></td><td> Read output of an ls(1) command from Fortran (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_access.3m_system.html">system_access</a></td><td> checks accessibility or existence of a pathname (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_closedir.3m_system.html">system_closedir</a></td><td> close a directory stream by calling closedir(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_getcwd.3m_system.html">system_getcwd</a></td><td> call getcwd(3c) to get the pathname of the current working directory (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_getumask.3m_system.html">system_getumask</a></td><td> get current umask (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_isblk.3m_system.html">system_isblk</a></td><td> checks if argument is a block device (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_ischr.3m_system.html">system_ischr</a></td><td> checks if argument is a character device (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_isdir.3m_system.html">system_isdir</a></td><td> checks if argument is a directory path (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_isfifo.3m_system.html">system_isfifo</a></td><td> checks if argument is a fifo - named pipe (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_islnk.3m_system.html">system_islnk</a></td><td> checks if argument is a link (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_isreg.3m_system.html">system_isreg</a></td><td> checks if argument is a regular file (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_issock.3m_system.html">system_issock</a></td><td> checks if argument is a socket (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_opendir.3m_system.html">system_opendir</a></td><td> open directory stream by calling opendir(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_perm.3m_system.html">system_perm</a></td><td> get file type and permission as a string (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_readdir.3m_system.html">system_readdir</a></td><td> read a directory using readdir(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_rewinddir.3m_system.html">system_rewinddir</a></td><td> call rewinddir(3c) to rewind directory stream (LICENSE:PD)</td></tr>
+<tr><td style="background:#fbdbe9;">M_system:QUERY_FILE</td><td><a href="system_stat.3m_system.html">system_stat</a></td><td> Get file status information (LICENSE:PD)</td></tr>
+<tr><td style="background:#f7ddfa;">M_system:SIGNALS</td><td><a href="system_kill.3m_system.html">system_kill</a></td><td> send a signal to a process or a group of processes (LICENSE:PD)</td></tr>
+<tr><td style="background:#f7ddfa;">M_system:SIGNALS</td><td><a href="system_signal.3m_system.html">system_signal</a></td><td> install a signal handler (LICENSE:PD)</td></tr>
+<tr><td style="background:#cec3f6;">M_system:SYSTEM_COMMAND</td><td><a href="system_system.3m_system.html">system_system</a></td><td> call execute_command_line (LICENSE:PD)</td></tr>
+<tr><td style="background:#cce0e8;">M_system</td><td><a href="system_cpu_time.3m_system.html">system_cpu_time</a></td><td> get processor time by calling times(3c) (LICENSE:PD)</td></tr>
+<tr><td style="background:#cce0e8;">M_system</td><td><a href="system_dir.3m_system.html">system_dir</a></td><td> return filenames in a directory matching specified wildcard string (LICENSE:PD)</td></tr>
+<tr><td style="background:#cce0e8;">M_system</td><td><a href="system_stat_print.3m_system.html">system_stat_print</a></td><td> print the principal info obtained for a pathname from system_stat(3f) (LICENSE:PD)</td></tr>
+<tr><td style="background:#cce0e8;">M_system</td><td><a href="system_uname.3m_system.html">system_uname</a></td><td> call a C wrapper that calls uname(3c) to get current system information from Fortran (LICENSE:PD)</td></tr>
+<tr><td style="background:#f4d7dc;">M_system_FILE_SYSTEM</td><td><a href="system_chdir.3m_system.html">system_chdir</a></td><td> call chdir(3c) from Fortran to change working directory (LICENSE:PD)</td></tr>
+<tr><td style="background:#f4d7dc;">M_system_FILE_SYSTEM</td><td><a href="system_chmod.3m_system.html">system_chmod</a></td><td> call chmod(3c) to change permission mode of a file relative to directory file descriptor (LICENSE:PD)</td></tr>
+<tr><td style="background:#f4d7dc;">M_system_FILE_SYSTEM</td><td><a href="system_remove.3m_system.html">system_remove</a></td><td> call remove(3c) to remove file (LICENSE:PD)</td></tr>
+<tr><td style="background:#f4d7dc;">M_system_FILE_SYSTEM</td><td><a href="system_rename.3m_system.html">system_rename</a></td><td> call rename(3c) to rename a system file (LICENSE:PD)</td></tr>
 </table>
 </div>
 </div>

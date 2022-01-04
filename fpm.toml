@@ -20,3 +20,11 @@ source-dir="src"
    M_msg          = { git = "https://github.com/urbanjost/M_msg.git" }
    M_time         = { git = "https://github.com/urbanjost/M_time.git" }
    M_process      = { git = "https://github.com/urbanjost/M_process.git" }
+
+[[executable]]
+name="penv"
+source-dir="app"
+main="penv.f90"
+[executable.dependencies]
+M_kracken = { git = "https://github.com/urbanjost/M_kracken.git" }
+M_strings = { git = "https://github.com/urbanjost/M_strings.git" }

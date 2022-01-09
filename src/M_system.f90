@@ -4151,7 +4151,8 @@ character(len=*)               :: NAME
 character(len=*)               :: VALUE
 integer, optional, intent(out) :: STATUS
 integer                        :: loc_err
-character(kind=c_char,len=1),allocatable :: temp(:)
+character(kind=c_char,len=1),allocatable :: temp1(:)
+character(kind=c_char,len=1),allocatable :: temp2(:)
 
 interface
    integer(kind=c_int) function c_setenv(c_name,c_VALUE) bind(C,NAME="setenv")
@@ -4161,8 +4162,9 @@ interface
    end function
 end interface
 
-   temp = str2_carr(trim(NAME)) ! kludge for bug in ifort (IFORT) 2021.3.0 20210609
-   loc_err =  c_setenv(temp,str2_carr(VALUE))
+   temp1 = str2_carr(trim(NAME)) ! kludge for bug in ifort (IFORT) 2021.3.0 20210609
+   temp2 = str2_carr(trim(VALUE)) ! kludge for bug in ifort (IFORT) 2021.3.0 20210609
+   loc_err =  c_setenv(temp1,temp2)
    if (present(STATUS)) STATUS = loc_err
 end subroutine set_environment_variable
 !===================================================================================================================================

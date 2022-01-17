@@ -85,6 +85,8 @@ test automatically)_.
  + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
    if Javascript is not available.
 
+ + [CHANGELOG](docs/CHANGELOG.md) provides a history of significant changes
+
 ## DEVELOPER DOCUMENTATION (experimental)
 
 <!--

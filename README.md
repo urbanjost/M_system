@@ -69,9 +69,11 @@ _(ie. the test requires several other modules not in this repository but
 if you are on the network fpm(1) will download and build those for the
 test automatically)_.
 
-## DOCUMENTATION
+## DOCUMENTATION   ![docs](docs/images/docs.gif)
 
- + There are *manpages* included in 
+### USER
+
+ + There are *man-pages* included in 
     + [manpages.zip](docs/manpages.zip) 
     + [manpages.tgz](docs/manpages.tgz) 
 
@@ -87,7 +89,7 @@ test automatically)_.
 
  + [CHANGELOG](docs/CHANGELOG.md) provides a history of significant changes
 
-## DEVELOPER DOCUMENTATION (experimental)
+### DEVELOPER DOCUMENTATION (experimental)
 
 <!--
 ### doxygen

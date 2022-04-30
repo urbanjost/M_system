@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['environ_17',['environ',['../C-M__system_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'C-M_system.c']]],
-  ['ep_18',['ep',['../C-M__system_8c.html#a8f6f268f0282f4a41c1569e80963f328',1,'C-M_system.c']]]
+  ['getkeyc_18',['getkeyC',['../C-M__system_8c.html#a00682f21b3d8ff5bbe69bf47e00f60ab',1,'C-M_system.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['integer_42',['integer',['../new_8txt.html#a9ee7cdd594869e5d220b027e63ef451e',1,'new.txt']]]
+  ['new_2etxt_49',['new.txt',['../new_8txt.html',1,'']]]
 ];

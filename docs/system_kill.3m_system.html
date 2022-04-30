@@ -53,7 +53,8 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-<B>system_kill</B>(3f) - [M_system:SIGNALS] send a signal to a process or a group of processes
+<B>system_kill</B>(3f) - [M_system:SIGNALS] send a signal to a process or
+a group of processes
 (LICENSE:PD)
 <P>
 </BLOCKQUOTE>
@@ -88,54 +89,53 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 <BLOCKQUOTE>
 <P>
 The <B>kill</B>() function shall send a signal to a process or a group of
-processes specified by pid. The signal to be sent is specified by sig
-and is either one from the list given in &lt;signal.h&gt; or 0. If sig is 0
-(the null signal), error checking is performed but no signal is actually
-sent. The null signal can be used to check the validity of pid.
+processes specified by pid. The signal to be sent is specified by
+sig and is either one from the list given in &lt;signal.h&gt; or 0. If sig
+is 0 (the null signal), error checking is performed but no signal
+is actually sent. The null signal can be used to check the validity
+of pid.
 <P>
-For a process to have permission to send a signal to a process designated
-by pid, unless the sending process has appropriate privileges, the real
-or effective user ID of the sending process shall match the real or
-saved set-user-ID of the receiving process.
+For a process to have permission to send a signal to a process
+designated by pid, unless the sending process has appropriate
+privileges, the real or effective user ID of the sending process
+shall match the real or saved set-user-ID of the receiving process.
 <P>
-If pid is greater than 0, sig shall be sent to the process whose process
-ID is equal to pid.
+If pid is greater than 0, sig shall be sent to the process whose
+process ID is equal to pid.
 <P>
-If pid is 0, sig shall be sent to all processes (excluding an unspecified
-set of system processes) whose process group ID is equal to the process
-group ID of the sender, and for which the process has permission to send
-a signal.
-<P>
-If pid is <B>-1</B>, sig shall be sent to all processes (excluding an unspecified
-set of system processes) for which the process has permission to send
-that signal.
-<P>
-If pid is negative, but not <B>-1</B>, sig shall be sent to all processes
-(excluding an unspecified set of system processes) whose process group
-ID is equal to the absolute value of pid, and for which the process has
+If pid is 0, sig shall be sent to all processes (excluding an
+unspecified set of system processes) whose process group ID is equal
+to the process group ID of the sender, and for which the process has
 permission to send a signal.
 <P>
+If pid is <B>-1</B>, sig shall be sent to all processes (excluding an
+unspecified set of system processes) for which the process has
+permission to send that signal.
+<P>
+If pid is negative, but not <B>-1</B>, sig shall be sent to all processes
+(excluding an unspecified set of system processes) whose process
+group ID is equal to the absolute value of pid, and for which the
+process has permission to send a signal.
+<P>
 If the value of pid causes sig to be generated for the sending process,
-and if sig is not blocked for the calling thread and if no other thread
-has sig unblocked or is waiting in a <B>sigwait</B>() function for sig, either
-sig or at least one pending unblocked signal shall be delivered to the
-sending thread before <B>kill</B>() returns.
+and if sig is not blocked for the calling thread and if no other
+thread has sig unblocked or is waiting in a <B>sigwait</B>() function for
+sig, either sig or at least one pending unblocked signal shall be
+delivered to the sending thread before <B>kill</B>() returns.
 <P>
 The user ID tests described above shall not be applied when sending
-SIGCONT to a process that is a member of the same session as the sending
-process.
+SIGCONT to a process that is a member of the same session as the
+sending process.
 <P>
 An implementation that provides extended security controls may impose
 further implementation-defined restrictions on the sending of signals,
 including the null signal. In particular, the system may deny the
 existence of some or all of the processes specified by pid.
 <P>
-The <B>kill</B>() function is successful if the process has permission to send
-sig to any of the processes specified by pid. If <B>kill</B>() fails, no signal
-shall be sent.
+The <B>kill</B>() function is successful if the process has permission to
+send sig to any of the processes specified by pid. If <B>kill</B>() fails,
+no signal shall be sent.
 </BLOCKQUOTE>
-<P>
-<P>
 <A name=3>
 
      <H3>RETURN VALUE</H3>
@@ -217,7 +217,7 @@ end program demo_system_kill
 <B>getpid</B>(), <B>raise</B>(), <B>setsid</B>(), <B>sigaction</B>(), <B>sigqueue</B>(),
 </BLOCKQUOTE>
 <P><HR>
-<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>system_kill (3m_system)</TD> <TD align=right width=33%><I>April 30, 2022</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 3fede8b5-eafa-4df3-bc97-ebc87470be7e using man macros.</FONT>
+<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>system_kill (3m_system)</TD> <TD align=right width=33%><I>April 30, 2022</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 190c3cb0-798c-425d-bf1f-adc3ae5127bf using man macros.</FONT>
 <br><br><center><img src="images/system_kill.gif"></center>
 </div>
 </div>

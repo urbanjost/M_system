@@ -1,12 +1,18 @@
 var searchData=
 [
-  ['d_5fino_305',['d_ino',['../structm__system_1_1dirent__systema.html#af056795fe78ea5cd27c6763f6136a2ac',1,'m_system::dirent_systema::d_ino()'],['../structm__system_1_1dirent__cygwin.html#aaba36e38344bc1aa3da128a142fecd13',1,'m_system::dirent_cygwin::d_ino()']]],
-  ['d_5finternal1_306',['d_internal1',['../structm__system_1_1dirent__cygwin.html#a87c389181b48af24ef039be0d3ef110d',1,'m_system::dirent_cygwin']]],
-  ['d_5fname_307',['d_name',['../structm__system_1_1dirent__systema.html#a295bfaa44b4193abef0be4980394a0a3',1,'m_system::dirent_systema::d_name()'],['../structm__system_1_1dirent__cygwin.html#ae793965c099bb7d8ef2d753e1fb1108a',1,'m_system::dirent_cygwin::d_name()']]],
-  ['d_5foff_308',['d_off',['../structm__system_1_1dirent__systema.html#a4f317f4bd63c3aeca25f5f6df681a7d3',1,'m_system::dirent_systema']]],
-  ['d_5freclen_309',['d_reclen',['../structm__system_1_1dirent__systema.html#a74c3e2cb9fd26444b7c7837d4ce69baf',1,'m_system::dirent_systema']]],
-  ['d_5ftype_310',['d_type',['../structm__system_1_1dirent__cygwin.html#a416199c581f2d978d4ff238ae11de028',1,'m_system::dirent_cygwin']]],
-  ['d_5funused1_311',['d_unused1',['../structm__system_1_1dirent__cygwin.html#ae193da2503dd1c4368b288bfb2677369',1,'m_system::dirent_cygwin']]],
-  ['d_5fversion_312',['d_version',['../structm__system_1_1dirent__cygwin.html#a406355db287a68f3939379a9e2337484',1,'m_system::dirent_cygwin']]],
-  ['deffilemode_313',['deffilemode',['../namespacem__system.html#aa717905c14f48e05ae4c576ff4ab14c6',1,'m_system']]]
+  ['faccessperms_86',['FACCESSPERMS',['../C-M__system_8c.html#a2d221d0dde92c4e100c2bc959832f1df',1,'C-M_system.c']]],
+  ['fdeffilemode_87',['FDEFFILEMODE',['../C-M__system_8c.html#a4ec9ddefca39a5f2bc0aa0cb9cc8a760',1,'C-M_system.c']]],
+  ['fhost_5fname_5fmax_88',['FHOST_NAME_MAX',['../C-M__system_8c.html#a55fec1e650e6037d352db493bea1716f',1,'C-M_system.c']]],
+  ['fs_5firgrp_89',['FS_IRGRP',['../C-M__system_8c.html#a9e37e108fa1a58b85031aed8634f65d0',1,'C-M_system.c']]],
+  ['fs_5firoth_90',['FS_IROTH',['../C-M__system_8c.html#a310094a449c3371ef9cf8b0776213835',1,'C-M_system.c']]],
+  ['fs_5firusr_91',['FS_IRUSR',['../C-M__system_8c.html#a03e3496451f60edd6c69c3802e11db67',1,'C-M_system.c']]],
+  ['fs_5firwxg_92',['FS_IRWXG',['../C-M__system_8c.html#ab4e744ca243de9628a7e9651695d7a97',1,'C-M_system.c']]],
+  ['fs_5firwxo_93',['FS_IRWXO',['../C-M__system_8c.html#a612adf3e64ccb1734ab64ef6d73fa87b',1,'C-M_system.c']]],
+  ['fs_5firwxu_94',['FS_IRWXU',['../C-M__system_8c.html#acb420eb45e494ab53bbfd018c2262ff2',1,'C-M_system.c']]],
+  ['fs_5fiwgrp_95',['FS_IWGRP',['../C-M__system_8c.html#a739522a271fd37727d6f266197ded32b',1,'C-M_system.c']]],
+  ['fs_5fiwoth_96',['FS_IWOTH',['../C-M__system_8c.html#a1ed0df6f1e0108d07c0fe7880402f8c0',1,'C-M_system.c']]],
+  ['fs_5fiwusr_97',['FS_IWUSR',['../C-M__system_8c.html#ade549697e7611d5c3755b1befcd796b8',1,'C-M_system.c']]],
+  ['fs_5fixgrp_98',['FS_IXGRP',['../C-M__system_8c.html#ac01832589f29b7d987cb90be63cc3dc8',1,'C-M_system.c']]],
+  ['fs_5fixoth_99',['FS_IXOTH',['../C-M__system_8c.html#aafbcf1020ef1a8f3999526f88f349fe3',1,'C-M_system.c']]],
+  ['fs_5fixusr_100',['FS_IXUSR',['../C-M__system_8c.html#acc949c15ea63678fc34579213919906f',1,'C-M_system.c']]]
 ];

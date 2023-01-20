@@ -1,10 +1,10 @@
 # M_system.f90 and associated files
 
-## NAME
+## Name
 
    M_system - Fortran module for calling basic (mostly POSIX) C system routines
 
-## DESCRIPTION
+## Description
 
 M_system(3f) is a module that allows Fortran to call commonly available C
 routines that perform basic system operations like creating and deleting
@@ -15,7 +15,7 @@ MSWindows systems are not POSIX compliant, so on those platforms you
 would need to use the Windows Subsystem for Linux (WSL) on Windows 10
 or install CygWin or a similar product.
 
-## DOWNLOAD AND BUILD
+## Download and Build
 
 Just download the github repository, enter the src/ directory and run make:
 
@@ -44,7 +44,7 @@ that is also part of the manpage for each procedure.
 ![fpm](docs/images/fpm_logo.gif)
 ---
 
-## SUPPORTS FPM
+## Supports FPM
 #### (registered at the [fpm(1) registry](https://github.com/fortran-lang/fpm-registry) )
 
 Alternatively, download the github repository and build it with 
@@ -76,9 +76,9 @@ test automatically)_.
 ![docs](docs/images/docs.gif)
 ---
 
-## DOCUMENTATION
+## Documentation
 
-### USER
+### User
 
  + There are *man-pages* included in 
     + [manpages.zip](docs/manpages.zip) 
@@ -96,7 +96,7 @@ test automatically)_.
 
  + [CHANGELOG](docs/CHANGELOG.md) provides a history of significant changes
 
-### DEVELOPER DOCUMENTATION (experimental)
+### Developer Documentation (experimental)
 
 <!--
 ### doxygen
@@ -109,5 +109,5 @@ test automatically)_.
 - [ford(1) output](https://urbanjost.github.io/M_system/fpm-ford/index.html).
 
 
-## SEE ALSO
+## See Also
  + [stdlib discussion on POSIX interfaces](https://github.com/fortran-lang/stdlib/issues/22#issuecomment-733021530)

@@ -4834,7 +4834,7 @@ end interface
       !x! in windows 10 subsystem running Ubunto does not work
       !x!write(*,'(a)')'*system_getlogin* Error getting username. not associated'
       !x!fname=c_null_char
-      ! add 0+ to avoid bug with gfortran-11 when passing a function call as a class(*) argument
+      ! add 0+ to avoid gfortran-11 bug when passing a function call as a class(*) argument
       fname=system_getpwuid(0+system_geteuid())
    else
       fname=c2f_string(username)
@@ -5325,7 +5325,7 @@ end subroutine system_stat
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_dir(3f) - [M_io] return filenames in a directory matching
+!!    system_dir(3f) - [M_system] return filenames in a directory matching
 !!    specified wildcard string
 !!    (LICENSE:PD)
 !!

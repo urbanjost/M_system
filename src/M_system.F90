@@ -4566,6 +4566,7 @@ end function system_readenv
 !!       use M_system, only : fileglob
 !!       character(len=255),pointer :: list(:)
 !!       character(len=*) :: string
+!!       integer :: i
 !!       call fileglob(string, list)
 !!       write(*,*)'Files:',size(list)
 !!       write(*,'(a)')(trim(list(i)),i=1,size(list))

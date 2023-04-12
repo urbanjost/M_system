@@ -1,119 +1,4 @@
 $!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-$BLOCK NULL
-  Exercise environment variable routines
-
-   penv (1)                          - print all or part of environment in formats readable by various shells
-   SET 
-      o system_putenv (3)            - set environment variable from Fortran by calling putenv(3c)
-----> o set_environment_variable (3) - call setenv(3c) to set environment variable
-   GET 
-      o get_environment_variable (3) - fortran intrinsic for reading an environment variable
-
-      o system_initenv (3)           - initialize environment table pointer and size to it can be read by readenv(3f)
-      o system_readenv (3)           - step thru and read environment table
-   REMOVE 
-      o system_unsetenv (3)          - change or add an environment variable by calling unsetenv(3c)
-      o system_clearenv (3)          - clear environment
-
-   Make it do this too ...
-      Support command to execute in environment. After -- rest is command and/or --cmd 'command'
-
-      Allow for quoted strings so can set variables (if NAME= instead of NAME variable is set instead of displayed)
-
-      penv PATH=$PATH HOME=$HOME -clear -cmd bash
-
-    COMMAND ENVIRONMENT: penv [variable...] [--unset] [--clear] [--cmd COMMAND]
-
-    VARIABLE SELECTION
-
-       variable(s)=VALUE(s)  If variable names are given they must be followed
-                             by  a value, and they will be set before the 
-			     command is specified.
-       --clear         clear the environment before starting to set variables and
-                       executing command
-       --unset NAME(s) unset the specifically named variables
-       --cmd COMMAND   process this command in the temporary environment created
-
-$BLOCK
-$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-$BLOCK HELP -file penv.1.man
-NAME
-       penv(1f) - [M_system:ENVIRONMENT] print all or part of environment
-                  in formats readable by various shells
-       (LICENSE:PD)
-SYNOPSIS
-    penv [variable...] [ -C| -B| -v] 
-
-    penv [ --help| --version]
-DESCRIPTION
-    If no arguments are given, penv(1f) prints the entire environment.
-    If one or more variable names are given, it prints the value of
-    each one that is set, and nothing for each one that is not set.
-
-OPTIONS
-    OUTPUT FORMAT
-       -C           print output in a form that can be sourced into a
-                    C shell (eg. as a setenv(1) command).
-
-       -B           print output in a form that can be sourced into a
-                    Bourne shell.
-
-       -v           values only. Do not print variable names
-
-       variable(s)  if variable names are given, print the value for
-                    each one that is set. If quoted may include basic
-		    globbing where "*" represents any string and "?"
-		    represents any single character. The expression must
-		    must represent the entire string.
-                    
-    INFORMATION
-       --help       display this help and exit
-       --version    output version information and exit
-
-USAGE
-     Example commands:
-
-      penv           # print entire environment
-      penv 'PREFIX*' # print environment variables beginning with PREFIX
-      penv HOME TMP LOGNAME USER # print selected variables
-
-      # csh(1)/tcsh(1) example:
-        % penv -C > readme.csh
-        % source readme.csh
-      # sh(1)/bash(1)/zsh(1) ... example:
-        $ penv -B > readme.sh
-        $ . readme.sh
-      # print specified variable names
-        % penv TMP TEMPDIR TMPDIR TEMP
-      # print variables starting with A or H
-        % penv 'A*' 'H*'
-      # print variables containing LIBRARY
-        % penv '*LIBRARY*' 
-
-EXIT STATUS
-       The exit status is:
-
-        0  if all variables specified were found
-        1  otherwise
-SEE ALSO
-       env(1), printenv(1)
-AUTHOR
-   John S. Urban
-LICENSE
-   Public Domain
-$BLOCK END
-$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-$BLOCK VERSION
-PRODUCT:        GPF (General Purpose Fortran) utilities and examples
-PROGRAM:        penv(1f)
-DESCRIPTION:    Print values from the environment table
-VERSION:        1.0 2016-11-27
-AUTHOR:         John S. Urban
-REPORTING BUGS: http://www.urbanjost.altervista.org/
-HOME PAGE:      http://www.urbanjost.altervista.org/index.html
-COPYRIGHT:      Copyright (C) 2016 John S. Urban. Public Domain
-$BLOCK END
-$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 program penv
 use M_kracken, only : kracken, lget, sget, sgets, IPvalue
 use M_system, only : system_initenv, system_readenv, system_unsetenv, system_putenv
@@ -270,6 +155,121 @@ character                      :: c
    quoted=quoted//"'"
 end function printquoted_CSH
 !-----------------------------------------------------------------------------------------------------------------------------------
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$BLOCK NULL
+  Exercise environment variable routines
+
+   penv (1)                          - print all or part of environment in formats readable by various shells
+   SET 
+      o system_putenv (3)            - set environment variable from Fortran by calling putenv(3c)
+----> o set_environment_variable (3) - call setenv(3c) to set environment variable
+   GET 
+      o get_environment_variable (3) - fortran intrinsic for reading an environment variable
+
+      o system_initenv (3)           - initialize environment table pointer and size to it can be read by readenv(3f)
+      o system_readenv (3)           - step thru and read environment table
+   REMOVE 
+      o system_unsetenv (3)          - change or add an environment variable by calling unsetenv(3c)
+      o system_clearenv (3)          - clear environment
+
+   Make it do this too ...
+      Support command to execute in environment. After -- rest is command and/or --cmd 'command'
+
+      Allow for quoted strings so can set variables (if NAME= instead of NAME variable is set instead of displayed)
+
+      penv PATH=$PATH HOME=$HOME -clear -cmd bash
+
+    COMMAND ENVIRONMENT: penv [variable...] [--unset] [--clear] [--cmd COMMAND]
+
+    VARIABLE SELECTION
+
+       variable(s)=VALUE(s)  If variable names are given they must be followed
+                             by  a value, and they will be set before the 
+			     command is specified.
+       --clear         clear the environment before starting to set variables and
+                       executing command
+       --unset NAME(s) unset the specifically named variables
+       --cmd COMMAND   process this command in the temporary environment created
+
+$BLOCK
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$BLOCK HELP -file penv.1.man
+NAME
+       penv(1f) - [M_system:ENVIRONMENT] print all or part of environment
+                  in formats readable by various shells
+       (LICENSE:PD)
+SYNOPSIS
+    penv [variable...] [ -C| -B| -v] 
+
+    penv [ --help| --version]
+DESCRIPTION
+    If no arguments are given, penv(1f) prints the entire environment.
+    If one or more variable names are given, it prints the value of
+    each one that is set, and nothing for each one that is not set.
+
+OPTIONS
+    OUTPUT FORMAT
+       -C           print output in a form that can be sourced into a
+                    C shell (eg. as a setenv(1) command).
+
+       -B           print output in a form that can be sourced into a
+                    Bourne shell.
+
+       -v           values only. Do not print variable names
+
+       variable(s)  if variable names are given, print the value for
+                    each one that is set. If quoted may include basic
+		    globbing where "*" represents any string and "?"
+		    represents any single character. The expression must
+		    must represent the entire string.
+                    
+    INFORMATION
+       --help       display this help and exit
+       --version    output version information and exit
+
+USAGE
+     Example commands:
+
+      penv           # print entire environment
+      penv 'PREFIX*' # print environment variables beginning with PREFIX
+      penv HOME TMP LOGNAME USER # print selected variables
+
+      # csh(1)/tcsh(1) example:
+        % penv -C > readme.csh
+        % source readme.csh
+      # sh(1)/bash(1)/zsh(1) ... example:
+        $ penv -B > readme.sh
+        $ . readme.sh
+      # print specified variable names
+        % penv TMP TEMPDIR TMPDIR TEMP
+      # print variables starting with A or H
+        % penv 'A*' 'H*'
+      # print variables containing LIBRARY
+        % penv '*LIBRARY*' 
+
+EXIT STATUS
+       The exit status is:
+
+        0  if all variables specified were found
+        1  otherwise
+SEE ALSO
+       env(1), printenv(1)
+AUTHOR
+   John S. Urban
+LICENSE
+   Public Domain
+$BLOCK END
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$BLOCK VERSION
+PRODUCT:        GPF (General Purpose Fortran) utilities and examples
+PROGRAM:        penv(1f)
+DESCRIPTION:    Print values from the environment table
+VERSION:        1.0 2016-11-27
+AUTHOR:         John S. Urban
+REPORTING BUGS: http://www.urbanjost.altervista.org/
+HOME PAGE:      http://www.urbanjost.altervista.org/index.html
+COPYRIGHT:      Copyright (C) 2016 John S. Urban. Public Domain
+$BLOCK END
 end program penv
 $!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 $BLOCK NULL

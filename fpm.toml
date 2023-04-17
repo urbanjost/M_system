@@ -1,4 +1,4 @@
-# TOML file for fpm as described at https://github.com/fortran-lang/fpm/blob/master/manifest-reference.md
+# TOML file for fpm as described at https://fpm.fortran-lang.org/en/spec/manifest.html
 name = "M_system"
 version = "0.1.0"
 license = "Public Domain"
@@ -12,12 +12,13 @@ homepage = "https://github.com/urbanjost/M_system.git"
 
 [build]
 auto-executables = false
+#module-naming = true
 
 [library]
 source-dir="src"
 
 [dev-dependencies]
-   M_msg          = { git = "https://github.com/urbanjost/M_msg.git" }
+   M_framework    = { git = "https://github.com/urbanjost/M_framework.git" }
    M_time         = { git = "https://github.com/urbanjost/M_time.git" }
    M_process      = { git = "https://github.com/urbanjost/M_process.git" }
 

@@ -1,6 +1,9 @@
 program runtest
-use M_verify, only : unit_check_stop
+use M_verify, only : unit_check_command, unit_check_keep_going, unit_check_level, unit_check_stop
 implicit none
+   unit_check_command=''
+   unit_check_keep_going=.true.
+   unit_check_level=0
    call test_suite_M_system_tests()
    call unit_check_stop()
 end program runtest
@@ -11,6 +14,7 @@ use,intrinsic :: iso_fortran_env, only : int8, int16, int32, int64, real32, real
 use M_msg,     only : str
 use M_verify,   only : unit_check, unit_check_start, unit_check_good, unit_check_bad, unit_check_done
 use M_verify,   only : unit_check_msg
+use M_verify,   only : unit_check_level
 use M_system
 use M_process, only : process_readall
 use M_time,    only : fmtdate, u2d

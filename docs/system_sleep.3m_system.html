@@ -48,7 +48,7 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 <div id="Container">
 <div id="Content">
 <CENTER>
-<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>system_isblk (3m_system)</NOBR><HR></H1>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>system_sleep (3m_system)</NOBR><HR></H1>
 </CENTER>
 <A name=0>
 
@@ -56,33 +56,32 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-system_isblk(3f) - [M_system:QUERY_FILE] checks if argument is a block device
+system_sleep(3f) - [M_system:C_INTERFACE] call C sleep(3c) or usleep(3c)
+procedure
 (LICENSE:PD)
-<P>
 </BLOCKQUOTE>
 <A name=contents></A><H3>CONTENTS</H3></A>
 <BLOCKQUOTE>
 <A HREF=#1>Synopsis</A><BR>
 <A HREF=#2>Description</A><BR>
 <A HREF=#3>Options</A><BR>
-<A HREF=#4>Return Value</A><BR>
-<A HREF=#5>Errors</A><BR>
-<A HREF=#6>See Also</A><BR>
-<A HREF=#7>Example</A><BR>
+<A HREF=#4>Example</A><BR>
+<A HREF=#5>Author</A><BR>
+<A HREF=#6>License</A><BR>
 </BLOCKQUOTE>
-<A name=8>
+<A name=7>
 
      <H3>SYNOPSIS</H3>
 
 </A>
 <BLOCKQUOTE>
-elemental impure logical function system_isblk(pathname)
+subroutine system_sleep(wait_seconds)
 <P>
 <PRE>
-   character(len=*),intent(in) :: pathname
-   logical                     :: system_isblk
+      type(TYPE),intent(in)  :: wait_seconds
 <P>
 </PRE>
+where TYPE may be INTEGER, REAL, or DOUBLEPRECISION
 </BLOCKQUOTE>
 <A name=2>
 
@@ -90,7 +89,9 @@ elemental impure logical function system_isblk(pathname)
 
 </A>
 <BLOCKQUOTE>
-The isblk(3f) function checks if path is a path to a block device.
+The system_sleep(3f) routine uses the intrinsic ISO_C_BINDING
+interface to call the C sleep(3c) procedure or usleep(3c)
+routine.
 </BLOCKQUOTE>
 <A name=3>
 
@@ -99,69 +100,81 @@ The isblk(3f) function checks if path is a path to a block device.
 </A>
 <BLOCKQUOTE>
 <TABLE cellpadding=3>
-<TR valign=top><TD width=6% nowrap>
-<B>path</B> </TD><TD valign=bottom>
-a character string representing a block device pathname. Trailing
-spaces are ignored.
+<TR valign=top><TD colspan=2>
+<B>wait_seconds</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
+integer,real or doubleprecision number of seconds for
+process to sleep.
 </TD></TR>
 <TR></TR></TABLE></BLOCKQUOTE>
 <A name=4>
-
-     <H3>RETURN VALUE</H3>
-
-</A>
-<BLOCKQUOTE>
-The system_isblk() function should always be successful and no
-return value is reserved to indicate an error.
-</BLOCKQUOTE>
-<A name=5>
-
-     <H3>ERRORS</H3>
-
-</A>
-<BLOCKQUOTE>
-No errors are defined.
-</BLOCKQUOTE>
-<A name=6>
-
-     <H3>SEE ALSO</H3>
-
-</A>
-<BLOCKQUOTE>
-system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
-</BLOCKQUOTE>
-<A name=7>
 
      <H3>EXAMPLE</H3>
 
 </A>
 <BLOCKQUOTE>
-check if filename is a block device
+Sample program:
 <P>
 <PRE>
-   program demo_system_isblk
-   use M_system, only : system_isblk
-   implicit none
-   integer                     :: i
-   character(len=80),parameter :: names(*)=[ &
-   &#146;/tmp            &#146;, &
-   &#146;/tmp/NOTTHERE   &#146;, &
-   &#146;/usr/local      &#146;, &
-   &#146;.               &#146;, &
-   &#146;block_device.tst&#146;, &
-   &#146;PROBABLY_NOT    &#146;]
-   do i=1,size(names)
-       write(*,*)&#146; is &#146;,trim(names(i)),&#146; a block device? &#146;, &
-               & system_isblk(names(i))
-   enddo
-   end program demo_system_isblk
+    program demo_system_sleep
+    use M_system, only : system_sleep
+    use M_time, only : now
+    implicit none
+    integer :: i
+       !
+       write(*,&#146;(a)&#146;)"Time before integer call is: ",now()
+       call system_sleep(4)
+       write(*,&#146;(a)&#146;)"Time after  integer call is: ",now()
+       !
+       write(*,&#146;(a)&#146;)"Time before real call is: ",now()
+       call system_sleep(4.0)
+       write(*,&#146;(a)&#146;)"Time after  real call is: ",now()
+       !
+       write(*,&#146;(a)&#146;)"Time before loop is: ",now()
+       do i=1,1000
+          call system_sleep(4.0/1000.0)
+       enddo
+       write(*,&#146;(a)&#146;)"Time after loop  is: ",now()
+       !
+    end program demo_system_sleep
 <P>
 </PRE>
-Results:
+results
+<P>
+<PRE>
+     Time before integer call is:
+     Sunday, July 17th, 2016 2:29:45 AM UTC-0240
+     Time after integer call is:
+     Sunday, July 17th, 2016 2:29:49 AM UTC-0240
+     Time before real call is:
+     Sunday, July 17th, 2016 2:29:49 AM UTC-0240
+     Time after  real call is:
+     Sunday, July 17th, 2016 2:29:53 AM UTC-0240
+     Time before loop is:
+     Sunday, July 17th, 2016 2:29:53 AM UTC-0240
+     Time after loop  is:
+     Sunday, July 17th, 2016 2:30:09 AM UTC-0240
+<P>
+</PRE>
+</BLOCKQUOTE>
+<A name=5>
+
+     <H3>AUTHOR</H3>
+
+</A>
+<BLOCKQUOTE>
+John S. Urban, 2015
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>LICENSE</H3>
+
+</A>
+<BLOCKQUOTE>
+Public Domain
 </BLOCKQUOTE>
 <P><HR>
-<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>system_isblk (3m_system)</TD> <TD align=right width=33%><I>June 05, 2023</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 411d7099-3a08-4b49-8abe-9f23ff77c842 using man macros.</FONT>
-<br><br><center><img src="images/system_isblk.gif"></center>
+<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>system_sleep (3m_system)</TD> <TD align=right width=33%><I>June 05, 2023</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 247d007a-c71a-4f41-a9ef-bd4bae2473b8 using man macros.</FONT>
+<br><br><center><img src="images/system_sleep.gif"></center>
 </div>
 </div>
 </body>

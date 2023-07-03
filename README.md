@@ -1,4 +1,5 @@
-# M_system.f90 and associated files
+[![](docs/images/small_pc.gif)](https://urbanjost.github.io/M_system/fpm-ford/index.html)
+# [M_system](https://urbanjost.github.io/M_system/man3.html)
 
 ## Name
 

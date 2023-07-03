@@ -97,7 +97,7 @@ test automatically)_.
 
  + [CHANGELOG](docs/CHANGELOG.md) provides a history of significant changes
 
-### Developer Documentation (experimental)
+### Developer Documentation
 
 <!--
 ### doxygen

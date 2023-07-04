@@ -24,11 +24,11 @@ Just download the github repository, enter the src/ directory and run make:
      git clone https://github.com/urbanjost/M_system.git
      cd M_system/src
      # change Makefile if not using one of the listed compilers
-     
+
      # for gfortran
      make clean
      make gfortran
-     
+
      # for ifort
      make clean
      make ifort
@@ -48,7 +48,7 @@ that is also part of the manpage for each procedure.
 ## Supports FPM
 #### (registered at the [fpm(1) registry](https://github.com/fortran-lang/fpm-registry) )
 
-Alternatively, download the github repository and build it with 
+Alternatively, download the github repository and build it with
 fpm ( as described at [Fortran Package Manager](https://github.com/fortran-lang/fpm) )
 
 ```bash
@@ -81,19 +81,17 @@ test automatically)_.
 
 ### User
 
- + There are *man-pages* included in 
-    + [manpages.zip](docs/manpages.zip) 
-    + [manpages.tgz](docs/manpages.tgz) 
-
- + These have been rendered into HTML and can be browsed one procedure at a time
+ + There are *man-pages*. These have been rendered into HTML and can be
+ browsed one procedure at a time
    using the
    [*manpage index*](https://urbanjost.github.io/M_system/man3.html)
 
  + or as a combined file in a
    [*Javascript BOOK*](https://urbanjost.github.io/M_system/BOOK_M_system.html)
 
- + or as a single simple [*HTML file*](https://urbanjost.github.io/M_system/M_system.html).
-   if Javascript is not available.
+ + Unix-like systems can install the man-pages themselves:
+    + [manpages.zip](docs/manpages.zip)
+    + [manpages.tgz](docs/manpages.tgz)
 
  + [CHANGELOG](docs/CHANGELOG.md) provides a history of significant changes
 
@@ -108,7 +106,6 @@ test automatically)_.
 -->
 
 - [ford(1) output](https://urbanjost.github.io/M_system/fpm-ford/index.html).
-
 
 ## See Also
  + [stdlib discussion on POSIX interfaces](https://github.com/fortran-lang/stdlib/issues/22#issuecomment-733021530)

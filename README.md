@@ -89,7 +89,8 @@ test automatically)_.
  + or as a combined file in a
    [*Javascript BOOK*](https://urbanjost.github.io/M_system/BOOK_M_system.html)
 
- + Unix-like systems can install the man-pages themselves:
+ + The man-pages themselves can be installed On Unix-like systems for use with the
+   man(1) command:
     + [manpages.zip](docs/manpages.zip)
     + [manpages.tgz](docs/manpages.tgz)
 

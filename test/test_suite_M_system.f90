@@ -14,7 +14,6 @@ use M_framework__verify,   only : unit_check, unit_check_start, unit_check_good,
 use M_framework__verify,   only : unit_check_msg
 use M_system
 use M_process, only : process_readall
-use M_time,    only : fmtdate, u2d
 integer :: ierr
 !! setup
    ierr=system_rmdir('fort.10')
@@ -83,7 +82,7 @@ call test_system_getcwd()
    call test_system_realpath()
    call test_system_setumask()
    call test_system_stat()
-   !-!call test_system_stat_print()
+   call test_system_stat_print()
    call test_system_uname()
    call test_system_unlink()
    call test_system_utime()
@@ -95,13 +94,13 @@ call test_system_getcwd()
    ierr=system_rmdir('_test3')
 contains
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-!-!subroutine test_system_stat_print()
-!-!   call unit_check_start('system_stat_print',msg='')
-!-!   call system_stat_print('/tmp')
-!-!   call system_stat_print('/etc/hosts')
-!-!   !!call unit_check('system_stat_print', 0.eq.0, 'checking',100)
-!-!   call unit_check_done('system_stat_print',msg='')
-!-!end subroutine test_system_stat_print
+subroutine test_system_stat_print()
+   call unit_check_start('system_stat_print',msg='')
+   call system_stat_print('/tmp')
+   call system_stat_print('/etc/hosts')
+   !!call unit_check('system_stat_print', 0.eq.0, 'checking',100)
+   call unit_check_done('system_stat_print',msg='')
+end subroutine test_system_stat_print
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 subroutine test_system_srand()
 integer :: i,j
@@ -1129,13 +1128,10 @@ subroutine test_system_stat()
 
 integer(kind=int64)  :: buff(13)
 integer(kind=int32)  :: status
-character(len=*),parameter :: fmt_date='year-month-day hour:minute:second'
 integer(kind=int64)  :: &
    Device_ID,           Inode_number,          File_mode,                  Number_of_links,  Owner_uid,         &
    Owner_gid,           Directory_device,      File_size,                  Last_access,      Last_modification, &
    Last_status_change,  Preferred_block_size,  Number_of_blocks_allocated
-character(len=:),allocatable         :: temp
-integer              :: dat(8)
 equivalence                                    &
    ( buff(1)  , Device_ID                  ) , &
    ( buff(2)  , Inode_number               ) , &
@@ -1154,6 +1150,7 @@ equivalence                                    &
    call system_stat("/etc/hosts", buff, status)
 
    if (status == 0) then
+      write (*, FMT="('Pathname:',                    T30, A)") '/etc/hosts'
       write (*, FMT="('Device ID(hex/decimal):',      T30, Z0,'h/',I0,'d')") buff(1),buff(1)
       write (*, FMT="('Inode number:',                T30, I0)") buff(2)
       write (*, FMT="('File mode (octal):',           T30, O19)") buff(3)
@@ -1162,15 +1159,9 @@ equivalence                                    &
       write (*, FMT="('Owner''s gid/group:',          T30, I0,1x, A)") buff(6), system_getgrgid(buff(6))
       write (*, FMT="('Device where located:',        T30, I0)") buff(7)
       write (*, FMT="('File size(bytes):',            T30, I0)") buff(8)
-      dat=u2d(0+int(buff(9))) ! add 0 to avoid gfortran-11 bug
-      temp=fmtdate(dat,fmt_date) ! kludge for ifort (IFORT) 2021.3.0 20210609
-      write (*, FMT="('Last access time:',            T30, I0,1x, A)") buff(9), temp
-      dat=u2d(0+int(buff(10)))
-      temp=fmtdate(dat,fmt_date) ! kludge for ifort (IFORT) 2021.3.0 20210609
-      write (*, FMT="('Last modification time:',      T30, I0,1x, A)") buff(10),temp
-      dat=u2d(0+int(buff(11)))
-      temp=fmtdate(dat,fmt_date) ! kludge for ifort (IFORT) 2021.3.0 20210609
-      write (*, FMT="('Last status change time:',     T30, I0,1x, A)") buff(11),temp
+      write (*, FMT="('Last access time:',            T30, I0,1x, A)") buff(9), epoch_to_calendar(buff(9))
+      write (*, FMT="('Last modification time:',      T30, I0,1x, A)") buff(10),epoch_to_calendar(buff(10))
+      write (*, FMT="('Last status change time:',     T30, I0,1x, A)") buff(11),epoch_to_calendar(buff(11))
       write (*, FMT="('Preferred block size(bytes):', T30, I0)") buff(12)
       write (*, FMT="('No. of blocks allocated:',     T30, I0)") buff(13)
    endif

@@ -19,8 +19,8 @@ source-dir="src"
 
 [dev-dependencies]
    M_framework    = { git = "https://github.com/urbanjost/M_framework.git" }
-   M_time         = { git = "https://github.com/urbanjost/M_time.git" }
    M_process      = { git = "https://github.com/urbanjost/M_process.git" }
+#  M_time         = { git = "https://github.com/urbanjost/M_time.git" }
 
 [[executable]]
 name="penv"

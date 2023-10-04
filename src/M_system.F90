@@ -5373,7 +5373,6 @@ end subroutine system_stat
 !!    Public Domain
 subroutine system_stat_print(filename,lun)
 !-!use M_system, only      : system_getpwuid, system_getgrgid, system_perm, system_stat
-use M_time, only          : fmtdate, u2d
 use, intrinsic :: iso_fortran_env, only : OUTPUT_UNIT
 implicit none
 character(len=*),intent(in)  :: filename
@@ -5939,7 +5938,7 @@ end subroutine call_usleep
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
-character(len=40) function epoch_to_calendar(iepoch)
+character(len=28) function epoch_to_calendar(iepoch)
 integer(kind=int64),intent(in),optional :: iepoch
 integer                                 :: dat(8)
 integer                                 :: ierr

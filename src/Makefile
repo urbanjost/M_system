@@ -150,7 +150,7 @@ doxygen:
 
 .PHONY: help
 help:
-	: make    '-- build M_time module'
+	: make    '-- build M_system module'
 #	: run     '-- run manpage demo programs and test program'
 #	: test    '-- run test program'
 	: man     '-- show all manpages as text'

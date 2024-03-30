@@ -1,19 +1,21 @@
       program demo_system_sleep
-      use M_system, only : system_sleep, epoch_to_calendar
+      use M_system, only : system_sleep
+      use M_time, only : now
       implicit none
       integer :: i
          !
-         write(*,'(2a)')"Time before integer call is: ",epoch_to_calendar()
+         write(*,'(a)')"Time before integer call is: ",now()
          call system_sleep(4)
-         write(*,'(2a)')"Time after  integer call is: ",epoch_to_calendar()
-         write(*,*)
-         write(*,'(2a)')"Time before real call is: ",epoch_to_calendar()
+         write(*,'(a)')"Time after  integer call is: ",now()
+         !
+         write(*,'(a)')"Time before real call is: ",now()
          call system_sleep(4.0)
-         write(*,'(2a)')"Time after  real call is: ",epoch_to_calendar()
-         write(*,*)
-         write(*,'(2a)')"Time before loop is: ",epoch_to_calendar()
+         write(*,'(a)')"Time after  real call is: ",now()
+         !
+         write(*,'(a)')"Time before loop is: ",now()
          do i=1,1000
             call system_sleep(4.0/1000.0)
          enddo
-         write(*,'(2a)')"Time after loop  is: ",epoch_to_calendar()
+         write(*,'(a)')"Time after loop  is: ",now()
+         !
       end program demo_system_sleep

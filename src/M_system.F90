@@ -5468,10 +5468,13 @@ end subroutine system_stat_print
 !!    use M_system, only : system_dir, system_isdir
 !!    implicit none
 !!    character(len=:),allocatable :: dirname
-!!       write(*, '(a)')system_dir(pattern='*.f90')
+!!       write(*, '("*.f90",a)')system_dir(pattern='*.f90')
+!!       write(*, '("*.F90",a)')system_dir(pattern='*.F90')
+!!       write(*, '("ignorecase:*.F90",a)')system_dir(pattern='*.F90',ignorecase=.true.)
+!!       write(*, '("ignorecase:*.f90",a)')system_dir(pattern='*.F90',ignorecase=.true.)
 !!       dirname='/tmp'
 !!       if(system_isdir(dirname))then
-!!          write(*, '(a)')system_dir(directory='/tmp',pattern='*.f90')
+!!          write(*, '("/tmp/*.f90:",a)')system_dir(directory='/tmp',pattern='*.f90')
 !!       else
 !!          write(*, '(a)')'<WARNING:>'//dirname//' does not exist'
 !!       endif
@@ -5490,10 +5493,17 @@ character(len=*),intent(in),optional  :: directory
 character(len=*),intent(in),optional  :: pattern
 logical,intent(in),optional           :: ignorecase
 character(len=:),allocatable          :: system_dir(:)
+
 character(len=:),allocatable          :: wild
 type(c_ptr)                           :: dir
 character(len=:),allocatable          :: filename
 integer                               :: i, ierr, icount, longest
+logical                               :: ignorecase_local
+   if(present(ignorecase))then
+      ignorecase_local=ignorecase
+   else
+      ignorecase_local=.false.
+   endif
    longest=0
    icount=0
    if(present(pattern))then
@@ -5516,7 +5526,7 @@ integer                               :: i, ierr, icount, longest
             call system_readdir(dir, filename, ierr)
             if(filename.eq.' ')exit
             if(wild.ne.'*')then
-              if(.not.matchw(filename, wild, ignorecase))cycle   ! Call a wildcard matching routine.
+              if(.not.matchw(filename, wild, ignorecase_local))cycle   ! Call a wildcard matching routine.
             endif
             icount=icount+1
             select case(i)

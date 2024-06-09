@@ -7,6 +7,7 @@ interface; subroutine test_suite_M_system_tests(); end ; end interface
 end program runtest
 
 subroutine test_suite_M_system_tests()
+use,intrinsic :: iso_fortran_env, only : stderr=>ERROR_UNIT, stdin=>INPUT_UNIT, stdout=>OUTPUT_UNIT
 use,intrinsic :: iso_c_binding,   only : c_int32_t, c_int, c_ptr, c_size_t, c_short, c_float, c_char, c_null_char
 use,intrinsic :: iso_fortran_env, only : int8, int16, int32, int64, real32, real64, real128
 use M_framework__msg,     only : str
@@ -14,6 +15,7 @@ use M_framework__verify,   only : unit_check, unit_check_start, unit_check_good,
 use M_framework__verify,   only : unit_check_msg
 use M_system
 use M_process, only : process_readall
+character(len=:), allocatable :: data(:)
 integer :: ierr
 !! setup
    ierr=system_rmdir('fort.10')
@@ -1250,11 +1252,141 @@ integer             :: i
 end subroutine test_system_utime
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 subroutine test_system_dir()
+character(len=:),allocatable :: expected(:), found(:)
+character(len=:),allocatable :: hold
 
-   call unit_check_start('system_dir',msg='')
-   !!call unit_check('system_dir', 0.eq.0, 'checking',100)
+   call unit_check_start('system_dir',msg=' returns an array of filenames in the specified directory matching the wildcard string')
+   ! make and enter scratch directory
+   ierr=system_mkdir('_scratch',IANY([R_USR,W_USR,X_USR]))
+   ! create some files in the scratch directory
+   data = [character(len=80) :: &
+        &'This is the text to write  ', &
+        &'into the file. It will be  ', &
+        &'trimmed on the right side. ', &
+        &' ', &
+        &'     That is all Folks!    ', &
+        &'']
+   call system_chdir('_scratch',ierr)
+   ierr = filewrite('_scratch.txt', data)
+   ierr = filewrite('_SCRATCH.txt', data)
+   ierr = filewrite('third.txt',    data)
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt','..','.' ]
+   !found = system_dir(directory='_scratch',pattern='*.f90',ignorecase=.true.)
+   found = system_dir()
+   ! use the index array to actually move the input array into a sorted order
+   found=found(very_slow_sort_character(found)) ! bug in gfortran. 
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), 'all files')
+   endif
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt']
+   found = system_dir(pattern='*.txt')
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), '*.txt')
+   endif
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt']
+   found = system_dir(pattern='*scratch.txt',ignorecase=.true.)
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), '*scratch.txt')
+   endif
+
+   ! test directory option
+   call system_chdir('..',ierr)
+   call system_getcwd(hold,ierr)
+   write(*,*)'DIR:',hold
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt','..','.' ]
+   found = system_dir(directory='_scratch')
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), 'all files')
+   endif
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt']
+   found = system_dir(directory='_scratch',pattern='*.txt')
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), '*.txt')
+   endif
+
+   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt']
+   found = system_dir(directory='_scratch',pattern='*scratch.txt',ignorecase=.true.)
+   expected(very_slow_sort_character(expected))=expected
+   found(very_slow_sort_character(found))=found
+   call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
+   if(size(expected).eq.size(found))then
+      call unit_check('system_dir', all(expected.eq.found), '*scratch.txt')
+   endif
+
+   ! teardown
+   call system_chdir('_scratch',ierr)
+   ierr=system_remove('_scratch.txt')
+   ierr=system_remove('_SCRATCH.txt')
+   ierr=system_remove('third.txt')
+   call system_chdir('..',ierr)
+   ierr=system_rmdir('_scratch')
    call unit_check_done('system_dir',msg='')
 end subroutine test_system_dir
+
+!TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+function filewrite(filename, filedata) result(ierr)
+! write filedata to file filename
+character(len=*), intent(in)           :: filename
+character(len=*), intent(in)           :: filedata(:)
+integer                               :: ierr
+integer                               :: lun, i, iostat
+character(len=256)                    :: message
+   ierr = 0
+   open (file=filename, &
+      & newunit=lun, &
+      & form='formatted', &         !  FORM      =  FORMATTED   |  UNFORMATTED
+      & access='sequential', &      !  ACCESS    =  SEQUENTIAL  |  DIRECT       |  STREAM
+      & action='write', &           !  ACTION    =  READ|WRITE  |  READWRITE
+      & position='REWIND',       &  !  POSITION  =  ASIS        |  REWIND       |  APPEND
+      & status='NEW',        &      !  STATUS    =  NEW         |  REPLACE      |  OLD     |  SCRATCH   | UNKNOWN
+      & iostat=iostat, &
+      & iomsg=message)
+   if (iostat /= 0) then
+      write (stderr, '(*(a,1x))') '*filewrite* error:', filename, trim(message)
+      ierr = iostat
+   else
+      do i = 1, size(filedata)                                                    ! write file
+         write (lun, '(a)', iostat=iostat, iomsg=message) trim(filedata(i))
+         if (iostat /= 0) then
+            write (stderr, '(*(a,1x))') '*filewrite* error:', filename, trim(message)
+            ierr = iostat
+            exit
+         end if
+      end do
+   end if
+   close (unit=lun, iostat=iostat, iomsg=message)                                 ! close file
+   if (iostat /= 0) then
+      write (stderr, '(*(a,1x))') '*filewrite* error:', trim(message)
+      ierr = iostat
+   end if
+end function filewrite
+!TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+function very_slow_sort_character(input) result(counts)
+character(len=*),intent(in) :: input(:)
+integer :: counts(size(input)), i
+   counts=[(count(input(i) > input)+count(input(i) == input(:i)),i=1, size(input) )]
+end function very_slow_sort_character
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 end subroutine test_suite_M_system_tests
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

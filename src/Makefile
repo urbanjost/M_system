@@ -134,7 +134,7 @@ clean:
 run: $(PROG)
 	# run everything
 	rm -f fort.10 _test1 _test2 _test3
-	[ -d _scratch ] && rmdir _scratch
+	-[ -d _scratch ] && rmdir -v _scratch
 	echo $? |xargs -n 1|xargs -iXX time XX
 	rm -f fort.10 _test1 _test2 _test3
 	[ -d _scratch ] && rmdir _scratch

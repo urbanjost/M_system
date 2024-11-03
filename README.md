@@ -19,7 +19,6 @@ or install CygWin or a similar product.
 ## Download and Build
 
 Just download the github repository, enter the src/ directory and run make:
-
 ```bash
      git clone https://github.com/urbanjost/M_system.git
      cd M_system/src
@@ -38,7 +37,7 @@ Just download the github repository, enter the src/ directory and run make:
      make nvfortran
 ```
 This will compile the M_system module and build all the example programs
-in the example/ directory. There is an example program for each procedure
+in the PROGRAMS/ directory. There is an example program for each procedure
 that is also part of the manpage for each procedure.
 
 ---
@@ -50,24 +49,20 @@ that is also part of the manpage for each procedure.
 
 Alternatively, download the github repository and build it with
 fpm ( as described at [Fortran Package Manager](https://github.com/fortran-lang/fpm) )
-
 ```bash
      git clone https://github.com/urbanjost/M_system.git
      cd M_system
+     fpm build
      fpm test
-     fpm run --example
-
-This will compile the M_system module, run the unit tests and build all
-the example programs from the document pages in the example/ sub-directory
-and run them.
+```
+This will compile the M_system module and build all the example programs from
+the document pages in the PROGRAMS/ sub-directory.
 
 or just list it as a dependency in your fpm.toml project file.
-
 ```toml
      [dependencies]
      M_system        = { git = "https://github.com/urbanjost/M_system.git" }
 ```
-
 Note that the unit test is dependent on several other modules built via
 fpm(1) so it can not be run from the standard Makefile described above
 _(ie. the test requires several other modules not in this repository but

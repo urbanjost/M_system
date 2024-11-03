@@ -1267,11 +1267,11 @@ character(len=:),allocatable :: hold
         &'     That is all Folks!    ', &
         &'']
    call system_chdir('_scratch',ierr)
-   ierr = filewrite('_scratch.txt', data)
-   ierr = filewrite('_SCRATCH.txt', data)
+   ierr = filewrite('_scratchl.txt', data)
+   ierr = filewrite('_SCRATCHU.txt', data)
    ierr = filewrite('third.txt',    data)
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt','..','.' ]
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt', 'third.txt','..','.' ]
    !found = system_dir(directory='_scratch',pattern='*.f90',ignorecase=.true.)
    found = system_dir()
    ! use the index array to actually move the input array into a sorted order
@@ -1284,7 +1284,7 @@ character(len=:),allocatable :: hold
       call unit_check('system_dir', all(expected.eq.found), 'all files')
    endif
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt']
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt', 'third.txt']
    found = system_dir(pattern='*.txt')
    expected(very_slow_sort_character(expected))=expected
    found(very_slow_sort_character(found))=found
@@ -1293,13 +1293,13 @@ character(len=:),allocatable :: hold
       call unit_check('system_dir', all(expected.eq.found), '*.txt')
    endif
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt']
-   found = system_dir(pattern='*scratch.txt',ignorecase=.true.)
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt']
+   found = system_dir(pattern='*scratch*.txt',ignorecase=.true.)
    expected(very_slow_sort_character(expected))=expected
    found(very_slow_sort_character(found))=found
    call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
    if(size(expected).eq.size(found))then
-      call unit_check('system_dir', all(expected.eq.found), '*scratch.txt')
+      call unit_check('system_dir', all(expected.eq.found), '*scratchl.txt')
    endif
 
    ! test directory option
@@ -1307,7 +1307,7 @@ character(len=:),allocatable :: hold
    call system_getcwd(hold,ierr)
    write(*,*)'DIR:',hold
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt','..','.' ]
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt', 'third.txt','..','.' ]
    found = system_dir(directory='_scratch')
    expected(very_slow_sort_character(expected))=expected
    found(very_slow_sort_character(found))=found
@@ -1316,7 +1316,7 @@ character(len=:),allocatable :: hold
       call unit_check('system_dir', all(expected.eq.found), 'all files')
    endif
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt', 'third.txt']
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt', 'third.txt']
    found = system_dir(directory='_scratch',pattern='*.txt')
    expected(very_slow_sort_character(expected))=expected
    found(very_slow_sort_character(found))=found
@@ -1325,19 +1325,19 @@ character(len=:),allocatable :: hold
       call unit_check('system_dir', all(expected.eq.found), '*.txt')
    endif
 
-   expected = [character(len=80) :: '_scratch.txt', '_SCRATCH.txt']
-   found = system_dir(directory='_scratch',pattern='*scratch.txt',ignorecase=.true.)
+   expected = [character(len=80) :: '_scratchl.txt', '_SCRATCHU.txt']
+   found = system_dir(directory='_scratch',pattern='*scratch*.txt',ignorecase=.true.)
    expected(very_slow_sort_character(expected))=expected
    found(very_slow_sort_character(found))=found
    call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
    if(size(expected).eq.size(found))then
-      call unit_check('system_dir', all(expected.eq.found), '*scratch.txt')
+      call unit_check('system_dir', all(expected.eq.found), '*scratchl.txt')
    endif
 
    ! teardown
    call system_chdir('_scratch',ierr)
-   ierr=system_remove('_scratch.txt')
-   ierr=system_remove('_SCRATCH.txt')
+   ierr=system_remove('_scratchl.txt')
+   ierr=system_remove('_SCRATCHU.txt')
    ierr=system_remove('third.txt')
    call system_chdir('..',ierr)
    ierr=system_rmdir('_scratch')

@@ -37,7 +37,7 @@ Just download the github repository, enter the src/ directory and run make:
      make nvfortran
 ```
 This will compile the M_system module and build all the example programs
-in the PROGRAMS/ directory. There is an example program for each procedure
+in the example/ directory. There is an example program for each procedure
 that is also part of the manpage for each procedure.
 
 ---
@@ -55,8 +55,9 @@ fpm ( as described at [Fortran Package Manager](https://github.com/fortran-lang/
      fpm build
      fpm test
 ```
-This will compile the M_system module and build all the example programs from
-the document pages in the PROGRAMS/ sub-directory.
+This will compile the M_system module, run the unit tests and build
+all the example programs from the document pages in the example/
+sub-directory.
 
 or just list it as a dependency in your fpm.toml project file.
 ```toml
@@ -68,11 +69,9 @@ fpm(1) so it can not be run from the standard Makefile described above
 _(ie. the test requires several other modules not in this repository but
 if you are on the network fpm(1) will download and build those for the
 test automatically)_.
-
 ---
 ![docs](docs/images/docs.gif)
 ---
-
 ## Documentation
 
 ### User

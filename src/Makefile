@@ -125,7 +125,7 @@ clean:
 .SUFFIXES: $(SUFFIXES) .f90 .F90 
 
 .f90.o:
-	$(F90) $(F90FLAGS) -c $<
+	$(F90) $(F90FLAGS) :-c $<
 
 .F90.o:
 	$(F90) $(F90FLAGS) -c $<
@@ -134,8 +134,8 @@ clean:
 run: $(PROG)
 	# run everything
 	rm -f fort.10 _test1 _test2 _test3
-	[ -d _scratch ] && rmdir _scratch
-	echo $? |xargs -n 1|xargs -iXX time XX
+	-[ -d _scratch ] && rmdir -v _scratch
+	echo $? |xargs -n 1|xargs -iXX bash -c 'exec 2>&1;echo ">>>>>>>>> XX";time XX'
 	rm -f fort.10 _test1 _test2 _test3
 	[ -d _scratch ] && rmdir _scratch
 
@@ -151,7 +151,7 @@ doxygen:
 .PHONY: help
 help:
 	: make    '-- build M_system module'
-#	: run     '-- run manpage demo programs and test program'
+	: run     '-- run manpage demo programs '
 #	: test    '-- run test program'
 	: man     '-- show all manpages as text'
 	: clean   '-- clean directory of object files and executables'

@@ -53,6 +53,8 @@ call test_system_readenv()
 call test_system_remove()
 call test_system_getcwd()
 
+   call test_system_getchar()
+   call test_system_putchar()
    call test_system_dir()
    call test_system_clearenv()
    call test_system_access()
@@ -1236,6 +1238,18 @@ subroutine test_system_memcpy()
    call unit_check_done('system_memcpy',msg='')
 end subroutine test_system_memcpy
 !TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+subroutine test_system_getchar()
+   call unit_check_start('system_getchar',msg='')
+   !!call unit_check('system_getchar', 0.eq.0, 'checking',100)
+   call unit_check_done('system_getchar',msg='')
+end subroutine test_system_getchar
+!TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+subroutine test_system_putchar()
+   call unit_check_start('system_putchar',msg='')
+   !!call unit_check('system_putchar', 0.eq.0, 'checking',100)
+   call unit_check_done('system_putchar',msg='')
+end subroutine test_system_putchar
+!TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 subroutine test_system_utime()
 character(len=4096) :: pathname
 integer             :: times(2)
@@ -1299,7 +1313,7 @@ character(len=:),allocatable :: hold
    found(very_slow_sort_character(found))=found
    call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
    if(size(expected).eq.size(found))then
-      call unit_check('system_dir', all(expected.eq.found), '*scratchl.txt')
+      call unit_check('system_dir', all(expected.eq.found), '*scratch*.txt')
    endif
 
    ! test directory option
@@ -1331,7 +1345,7 @@ character(len=:),allocatable :: hold
    found(very_slow_sort_character(found))=found
    call unit_check('system_dir', size(expected).eq.size(found), 'expected size',size(expected),'found',size(found))
    if(size(expected).eq.size(found))then
-      call unit_check('system_dir', all(expected.eq.found), '*scratchl.txt')
+      call unit_check('system_dir', all(expected.eq.found), '*scratch*.txt')
    endif
 
    ! teardown

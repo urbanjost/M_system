@@ -21,7 +21,7 @@
 !!    system_realpath,                                       &
 !!    system_access,                                         &
 !!    system_utime, system_time, system_sleep,               &
-!!    system_system,                                         &
+!!    system_cmd,                                            &
 !!    system_issock, system_perm,                            &
 !!    system_stat_print,                                     &
 !!    epoch_to_calendar,                                     &
@@ -138,7 +138,7 @@
 !!        o  system_getgrgid(3f): get group name associated with given GID
 !!        o  system_cpu_time(3f) : get processor time in seconds using times(3c)
 !!##SYSTEM COMMANDS
-!!        o  system_system(3f): call execute_command_line(3c) outputting messages
+!!        o  system_cmd(3f): call execute_command_line(3f) outputting messages
 !!
 !!##FUTURE DIRECTIONS
 !!    A good idea of what system routines are commonly required is to refer
@@ -190,6 +190,10 @@ public :: system_signal                  ! (signal,[handler]) install signal han
 public :: system_errno
 public :: system_perror
 
+
+public :: system_getchar
+public :: system_putchar
+
 public :: system_putenv
 public :: system_getenv
 public :: set_environment_variable
@@ -201,7 +205,7 @@ public :: system_clearenv
 
 public :: system_stat                    ! call stat(3c) to determine system information of file by name
 public :: system_stat_print              ! call stat(3f) and print principal pathname information
-public :: epoch_to_calendar              ! convert integer unix epoch time to calendard string
+public :: epoch_to_calendar              ! convert integer unix epoch time to calendar string
 public :: system_perm                    ! create string representing file permission and type
 public :: system_access                  ! determine filename access or existence
 public :: system_isdir                   ! determine if filename is a directory
@@ -225,7 +229,7 @@ public :: system_chown
 public :: system_link
 public :: system_unlink
 public :: system_utime
-public :: system_system
+public :: system_cmd
 
 public :: system_setumask
 public :: system_getumask
@@ -401,7 +405,7 @@ end interface
 !!
 !!##SYNOPSIS
 !!
-!!    subroutine system_srand()
+!!     subroutine system_srand()
 !!
 !!##DESCRIPTION
 !!    system_srand(3f) calls the C routine srand(3c) The
@@ -412,7 +416,7 @@ end interface
 !!    provided, the system_rand(3f) function is automatically seeded with
 !!    a value of 1.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Sample program:
 !!
@@ -428,29 +432,31 @@ end interface
 !!          write(*,*)
 !!       enddo
 !!       end program demo_system_srand
-!!   expected results:
 !!
-!!      1512084687
-!!      1329390995
-!!      1874040748
-!!        60731048
-!!       239808950
-!!      2017891911
-!!        22055588
-!!      1105177318
-!!       347750200
-!!      1729645355
+!! Results:
 !!
-!!      1512084687
-!!      1329390995
-!!      1874040748
-!!        60731048
-!!       239808950
-!!      2017891911
-!!        22055588
-!!      1105177318
-!!       347750200
-!!      1729645355
+!!  >   1223490636
+!!  >    730990195
+!!  >   1030677782
+!!  >   1440331359
+!!  >    235485591
+!!  >   2084196099
+!!  >    766055354
+!!  >   1140745811
+!!  >   1912226401
+!!  >     18044253
+!!  >
+!!  >   1223490636
+!!  >    730990195
+!!  >   1030677782
+!!  >   1440331359
+!!  >    235485591
+!!  >   2084196099
+!!  >    766055354
+!!  >   1140745811
+!!  >   1912226401
+!!  >     18044253
+!!  >
 !!
 !!##SEE ALSO
 !!    drand48(3c), random(3c)
@@ -472,13 +478,12 @@ end interface
 !!
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_kill(pid,sig)
+!!     integer(kind=c_int) function system_kill(pid,sig)
 !!
-!!       integer,intent(in) :: pid
-!!       integer,intent(in) :: sig
+!!      integer,intent(in) :: pid
+!!      integer,intent(in) :: sig
 !!
 !!##DESCRIPTION
-!!
 !!    The kill() function shall send a signal to a process or a group of
 !!    processes specified by pid. The signal to be sent is specified by
 !!    sig and is either one from the list given in <signal.h> or 0. If sig
@@ -542,7 +547,7 @@ end interface
 !!    ESRCH   No process or process group can be found corresponding to
 !!            that specified by pid. The following sections are informative.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -593,7 +598,7 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_errno()
+!!     integer(kind=c_int) function system_errno()
 !!
 !!##DESCRIPTION
 !!    Many C routines return an error code which can be queried by errno.
@@ -601,7 +606,7 @@ end interface
 !!    call C routines. In the cases where an error code is returned vi
 !!    system_errno(3f) these routines will indicate it.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -616,10 +621,10 @@ end interface
 !!    endif
 !!    end program demo_system_errno
 !!
-!!   Typical Results:
+!! Results:
 !!
-!!    err=           2
-!!    *demo_system_errno*: No such file or directory
+!!  >  err=           2
+!!  >  *demo_system_errno*: No such file or directory
 
 interface
    integer(kind=c_int) function system_errno() bind (C,name="my_errno")
@@ -643,13 +648,13 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_geteuid()
+!!     integer(kind=c_int) function system_geteuid()
 !!
 !!##DESCRIPTION
-!!        The system_geteuid(3f) function shall return the effective user
-!!        ID of the calling process. The geteuid() function shall always be
-!!        successful and no return value is reserved to indicate the error.
-!!##EXAMPLE
+!!    The system_geteuid(3f) function shall return the effective user
+!!    ID of the calling process. The geteuid() function shall always be
+!!    successful and no return value is reserved to indicate the error.
+!!##EXAMPLES
 !!
 !!   Get group ID from Fortran:
 !!
@@ -658,6 +663,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'EFFECTIVE UID=',system_geteuid()
 !!    end program demo_system_geteuid
+!!
+!! Results:
+!!
+!!  >  EFFECTIVE UID=        1000
 interface
    integer(kind=c_int) function system_geteuid() bind (C,name="geteuid")
       import c_int
@@ -673,13 +682,13 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_getuid()
+!!     integer(kind=c_int) function system_getuid()
 !!
 !!##DESCRIPTION
-!!        The system_getuid(3f) function shall return the real user ID
-!!        of the calling process. The getuid() function shall always be
-!!        successful and no return value is reserved to indicate the error.
-!!##EXAMPLE
+!!    The system_getuid(3f) function shall return the real user ID
+!!    of the calling process. The getuid() function shall always be
+!!    successful and no return value is reserved to indicate the error.
+!!##EXAMPLES
 !!
 !!   Get group ID from Fortran:
 !!
@@ -689,9 +698,9 @@ end interface
 !!       write(*,*)'UID=',system_getuid()
 !!    end program demo_system_getuid
 !!
-!!   Results:
+!! Results:
 !!
-!!    UID=      197609
+!!  >  UID=        1000
 interface
    integer(kind=c_int) function system_getuid() bind (C,name="getuid")
       import c_int
@@ -707,31 +716,35 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_getegid()
+!!     integer(kind=c_int) function system_getegid()
 !!##DESCRIPTION
-!!        The getegid() function returns the effective group ID of the
-!!        calling process.
+!!    The getegid() function returns the effective group ID of the
+!!    calling process.
 !!
 !!##RETURN VALUE
-!!        The getegid() should always be successful and no return value is
-!!        reserved to indicate an error.
+!!    The getegid() should always be successful and no return value is
+!!    reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
-!!        getegid(), system_geteuid(), getuid(), setegid(), seteuid(), setgid(),
-!!        setregid(), setreuid(), setuid()
+!!    getegid(), system_geteuid(), getuid(), setegid(), seteuid(), setgid(),
+!!    setregid(), setreuid(), setuid()
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Get group ID from Fortran
 !!
 !!    program demo_system_getegid
 !!    use M_system, only : system_getegid
 !!    implicit none
-!!       write(*,*)'GID=',system_getegid()
+!!       write(*,*)'EGID=',system_getegid()
 !!    end program demo_system_getegid
+!!
+!! Results:
+!!
+!!  >  EGID=        1000
 interface
    integer(kind=c_int) function system_getegid() bind (C,name="getegid")
       import c_int
@@ -747,23 +760,23 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_getgid()
+!!     integer(kind=c_int) function system_getgid()
 !!##DESCRIPTION
-!!        The getgid() function returns the real group ID of the calling
-!!        process.
+!!    The getgid() function returns the real group ID of the calling
+!!    process.
 !!
 !!##RETURN VALUE
-!!        The getgid() should always be successful and no return value is
-!!        reserved to indicate an error.
+!!    The getgid() should always be successful and no return value is
+!!    reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
-!!        getegid(), system_geteuid(), getuid(), setegid(), seteuid(), setgid(),
-!!        setregid(), setreuid(), setuid()
+!!    getegid(), system_geteuid(), getuid(), setegid(), seteuid(), setgid(),
+!!    setregid(), setreuid(), setuid()
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Get group ID from Fortran
 !!
@@ -772,6 +785,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'GID=',system_getgid()
 !!    end program demo_system_getgid
+!!
+!! Results:
+!!
+!!  >  GID=        1000
 interface
    integer(kind=c_int) function system_getgid() bind (C,name="getgid")
       import c_int
@@ -787,29 +804,30 @@ end interface
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!        integer(kind=c_int) function system_setsid(pid)
-!!        integer(kind=c_int) :: pid
+!!     integer(kind=c_int) function system_setsid(pid)
+!!
+!!      integer(kind=c_int) :: pid
 !!##DESCRIPTION
-!!        The setsid() function creates a new session, if the calling
-!!        process is not a process group leader. Upon return the calling
-!!        process shall be the session leader of this new session, shall be
-!!        the process group leader of a new process group, and shall have no
-!!        controlling terminal. The process group ID of the calling process
-!!        shall be set equal to the process ID of the calling process. The
-!!        calling process shall be the only process in the new process
-!!        group and the only process in the new session.
+!!    The setsid() function creates a new session, if the calling
+!!    process is not a process group leader. Upon return the calling
+!!    process shall be the session leader of this new session, shall be
+!!    the process group leader of a new process group, and shall have no
+!!    controlling terminal. The process group ID of the calling process
+!!    shall be set equal to the process ID of the calling process. The
+!!    calling process shall be the only process in the new process
+!!    group and the only process in the new session.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion, setsid() shall return the value
-!!        of the new process group ID of the calling process. Otherwise,
-!!        it shall return -1 and set errno to indicate the error.
+!!    Upon successful completion, setsid() shall return the value
+!!    of the new process group ID of the calling process. Otherwise,
+!!    it shall return -1 and set errno to indicate the error.
 !!##ERRORS
-!!        The setsid() function shall fail if:
+!!    The setsid() function shall fail if:
 !!
-!!         o The calling process is already a process group leader
-!!         o the process group ID of a process other than the calling
-!!           process matches the process ID of the calling process.
-!!##EXAMPLE
+!!     o The calling process is already a process group leader
+!!     o the process group ID of a process other than the calling
+!!       process matches the process ID of the calling process.
+!!##EXAMPLES
 !!
 !!   Set SID from Fortran
 !!
@@ -818,6 +836,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'SID=',system_setsid()
 !!    end program demo_system_setsid
+!!
+!! Results:
+!!
+!!  >  SID=      484299
 interface
    integer(kind=c_int) function system_setsid() bind (C,name="setsid")
       import c_int
@@ -833,18 +855,19 @@ end interface
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!        integer(kind=c_int) function system_getsid(pid)
-!!        integer(kind=c_int) :: pid
+!!     integer(kind=c_int) function system_getsid(pid)
+!!
+!!      integer(kind=c_int) :: pid
 !!##DESCRIPTION
-!!        The system_getsid() function obtains the process group ID of the
-!!        process that is the session leader of the process specified by pid.
-!!        If pid is 0, it specifies the calling process.
+!!    The system_getsid() function obtains the process group ID of the
+!!    process that is the session leader of the process specified by pid.
+!!    If pid is 0, it specifies the calling process.
 !!##RETURN VALUE
-!!        Upon successful completion, system_getsid() shall return
-!!        the process group ID of the session leader of the specified
-!!        process. Otherwise, it shall return -1 and set errno to indicate
-!!        the error.
-!!##EXAMPLE
+!!    Upon successful completion, system_getsid() shall return
+!!    the process group ID of the session leader of the specified
+!!    process. Otherwise, it shall return -1 and set errno to indicate
+!!    the error.
+!!##EXAMPLES
 !!
 !!   Get SID from Fortran
 !!
@@ -854,6 +877,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'SID=',system_getsid(0_c_int)
 !!    end program demo_system_getsid
+!!
+!! Results:
+!!
+!!  >  SID=          -1
 interface
    integer(kind=c_int) function system_getsid(c_pid) bind (C,name="getsid")
       import c_int
@@ -870,15 +897,15 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer function system_getpid()
+!!     integer function system_getpid()
 !!##DESCRIPTION
-!!        The system_getpid() function returns the process ID of the
-!!        calling process.
+!!    The system_getpid() function returns the process ID of the
+!!    calling process.
 !!##RETURN VALUE
-!!        The value returned is the integer process ID. The system_getpid()
-!!        function shall always be successful and no return value is reserved
-!!        to indicate an error.
-!!##EXAMPLE
+!!    The value returned is the integer process ID. The system_getpid()
+!!    function shall always be successful and no return value is reserved
+!!    to indicate an error.
+!!##EXAMPLES
 !!
 !!   Get process PID from Fortran
 !!
@@ -887,6 +914,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'PID=',system_getpid()
 !!    end program demo_system_getpid
+!!
+!! Results:
+!!
+!!  >  PID=      484721
 
 interface
    pure integer(kind=c_int) function system_getpid() bind (C,name="getpid")
@@ -903,23 +934,23 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_getppid()
+!!     integer(kind=c_int) function system_getppid()
 !!##DESCRIPTION
-!!        The system_getppid() function returns the parent process ID of
-!!        the calling process.
+!!    The system_getppid() function returns the parent process ID of
+!!    the calling process.
 !!
 !!##RETURN VALUE
-!!        The system_getppid() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_getppid() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
-!!        exec, fork(), getpgid(), getpgrp(), getpid(), kill(),
-!!        setpgid(), setsid()
+!!    exec, fork(), getpgid(), getpgrp(), getpid(), kill(),
+!!    setpgid(), setsid()
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Get parent process PID (PPID) from Fortran
 !!
@@ -928,6 +959,10 @@ end interface
 !!    implicit none
 !!       write(*,*)'PPID=',system_getppid()
 !!    end program demo_system_getppid
+!!
+!! Results:
+!!
+!!  >  PPID=      484730
 interface
    integer(kind=c_int) function system_getppid() bind (C,name="getppid")
    import c_int
@@ -942,34 +977,34 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) function system_umask(umask_value)
+!!     integer(kind=c_int) function system_umask(umask_value)
 !!
 !!##DESCRIPTION
-!!        The system_umask() function shall set the file mode creation
-!!        mask of the process to cmask and return the previous value of the
-!!        mask. Only the file permission bits of cmask (see <sys/stat.h>)
-!!        are used; the meaning of the other bits is implementation-defined.
+!!    The system_umask() function shall set the file mode creation
+!!    mask of the process to cmask and return the previous value of the
+!!    mask. Only the file permission bits of cmask (see <sys/stat.h>)
+!!    are used; the meaning of the other bits is implementation-defined.
 !!
-!!        The file mode creation mask of the process is used to turn off
-!!        permission bits in the mode argument supplied during calls to
-!!        the following functions:
+!!    The file mode creation mask of the process is used to turn off
+!!    permission bits in the mode argument supplied during calls to
+!!    the following functions:
 !!
-!!         *  open(), openat(), creat(), mkdir(), mkdirat(), mkfifo(), and mkfifoat()
-!!         *  mknod(), mknodat()
-!!         *  mq_open()
-!!         *  sem_open()
+!!     *  open(), openat(), creat(), mkdir(), mkdirat(), mkfifo(), and mkfifoat()
+!!     *  mknod(), mknodat()
+!!     *  mq_open()
+!!     *  sem_open()
 !!
-!!        Bit positions that are set in cmask are cleared in the mode of the created file.
+!!    Bit positions that are set in cmask are cleared in the mode of the created file.
 !!
 !!##RETURN VALUE
-!!        The file permission bits in the value returned by umask() shall be
-!!        the previous value of the file mode creation mask. The state of any
-!!        other bits in that value is unspecified, except that a subsequent
-!!        call to umask() with the returned value as cmask shall leave the
-!!        state of the mask the same as its state before the first call,
-!!        including any unspecified use of those bits.
+!!    The file permission bits in the value returned by umask() shall be
+!!    the previous value of the file mode creation mask. The state of any
+!!    other bits in that value is unspecified, except that a subsequent
+!!    call to umask() with the returned value as cmask shall leave the
+!!    state of the mask the same as its state before the first call,
+!!    including any unspecified use of those bits.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -978,7 +1013,7 @@ end interface
 !!    implicit none
 !!    integer value
 !!    integer mask
-!!    mask=O'002'
+!!    mask=int(O'002')
 !!    value=system_setumask(mask)
 !!    write(*,'(a,"octal=",O4.4," decimal=",i0)')'OLD VALUE=',value,value
 !!    value=system_getumask()
@@ -986,11 +1021,11 @@ end interface
 !!    write(*,'(a,"octal=",O4.4," decimal=",i0)')'NEW VALUE=',value,value
 !!    end program demo_system_umask
 !!
-!!   Expected results:
+!! Results:
 !!
-!!    OLD VALUE=octal=0022 decimal=18
-!!    MASK=octal=0002 decimal=2
-!!    NEW VALUE=octal=0002 decimal=2
+!!  > OLD VALUE=octal=0002 decimal=2
+!!  > MASK=octal=0002 decimal=2
+!!  > NEW VALUE=octal=0002 decimal=2
 interface
    integer(kind=c_int) function system_umask(umask_value) bind (C,name="umask")
    import c_int
@@ -1007,11 +1042,11 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer(kind=c_int) :: function system_rand()
+!!     integer(kind=c_int) :: function system_rand()
 !!##DESCRIPTION
 !!    Use rand(3c) to generate pseudo-random numbers.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Sample program:
 !!
@@ -1027,29 +1062,20 @@ end interface
 !!       write(*,*)
 !!
 !!       end program demo_system_rand
-!!   expected results:
 !!
-!!      1512084687
-!!      1329390995
-!!      1874040748
-!!        60731048
-!!       239808950
-!!      2017891911
-!!        22055588
-!!      1105177318
-!!       347750200
-!!      1729645355
+!! Results:
 !!
-!!      1512084687
-!!      1329390995
-!!      1874040748
-!!        60731048
-!!       239808950
-!!      2017891911
-!!        22055588
-!!      1105177318
-!!       347750200
-!!      1729645355
+!!  >   1828856591
+!!  >    238982045
+!!  >    764441674
+!!  >    195845482
+!!  >   1154046339
+!!  >   2054478192
+!!  >   1697119394
+!!  >    233976085
+!!  >   1369589941
+!!  >   2011286580
+!!  >
 interface
    integer(kind=c_int) function system_rand() bind (C,name="rand")
       import c_int
@@ -1072,7 +1098,7 @@ end interface
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!       subroutine system_initenv()
+!!     subroutine system_initenv()
 !!##DESCRIPTION
 !!    A simple interface allows reading the environment variable table
 !!    of the process. Call system_initenv(3f) to initialize reading the
@@ -1080,7 +1106,7 @@ end interface
 !!    is returned. If more than one thread reads the environment or the
 !!    environment is changed while being read the results are undefined.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -1172,6 +1198,25 @@ end type handler_pointer
 integer, parameter :: no_of_signals=64   !  obtained with command: kill -l
 type(handler_pointer), dimension(no_of_signals) :: handler_ptr_array
 !===================================================================================================================================
+interface
+   integer(kind=c_int) function C_putchar(ichar) bind (C,name="putchar")
+      import c_int
+      integer(kind=c_int),intent(in),value :: ichar
+   end function C_putchar
+end interface
+
+interface
+   integer(kind=c_int) function C_getchar() bind (C,name="getchar")
+      import c_int
+   end function C_getchar
+end interface
+!===================================================================================================================================
+! aliases for backward compatibility
+interface system_system
+   module procedure system_cmd
+end interface system_system
+public system_system
+
 contains
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
@@ -1185,13 +1230,13 @@ contains
 !!
 !!     subroutine system_signal(sig,handler)
 !!
-!!        integer,intent(in) :: sig
-!!        interface
-!!          subroutine handler(signum)
-!!          integer :: signum
-!!          end subroutine handler
-!!        end interface
-!!        optional :: handler
+!!      integer,intent(in) :: sig
+!!      interface
+!!        subroutine handler(signum)
+!!        integer :: signum
+!!        end subroutine handler
+!!      end interface
+!!      optional :: handler
 !!
 !!##DESCRIPTION
 !!    Calling system_signal(NUMBER, HANDLER) causes user-defined
@@ -1210,7 +1255,7 @@ contains
 !!
 !!    [Compare signal(2) and the GNU extension signal in gfortran.]
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Sample program:
 !!
@@ -1292,13 +1337,12 @@ end subroutine f_handler
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_access(pathname,amode)
+!!     elemental impure logical function system_access(pathname,amode)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    integer,intent(in)          :: amode
+!!      character(len=*),intent(in) :: pathname
+!!      integer,intent(in)          :: amode
 !!
 !!##DESCRIPTION
-!!
 !!    The system_access(3f) function checks pathname existence and access
 !!    permissions. The function checks the pathname for accessibility
 !!    according to the bit pattern contained in amode, using the real user
@@ -1319,7 +1363,7 @@ end subroutine f_handler
 !!        If not true an error occurred or the requested access is not
 !!        granted
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is accessible
 !!
@@ -1346,6 +1390,29 @@ end subroutine f_handler
 !!                       & system_access(names(i),X_OK)
 !!           enddo
 !!           end program demo_system_access
+!!
+!! Results:
+!!
+!!  >   does /usr/bin/bash exist?     T
+!!  >   is /usr/bin/bash readable?      T
+!!  >   is /usr/bin/bash writable?      F
+!!  >   is /usr/bin/bash executable?    T
+!!  >   does /tmp/NOTTHERE exist?     F
+!!  >   is /tmp/NOTTHERE readable?      F
+!!  >   is /tmp/NOTTHERE writable?      F
+!!  >   is /tmp/NOTTHERE executable?    F
+!!  >   does /usr/local exist?     T
+!!  >   is /usr/local readable?      T
+!!  >   is /usr/local writable?      F
+!!  >   is /usr/local executable?    T
+!!  >   does . exist?     T
+!!  >   is . readable?      T
+!!  >   is . writable?      T
+!!  >   is . executable?    T
+!!  >   does PROBABLY_NOT exist?     F
+!!  >   is PROBABLY_NOT readable?      F
+!!  >   is PROBABLY_NOT writable?      F
+!!  >   is PROBABLY_NOT executable?    F
 elemental impure function system_access(pathname,amode)
 implicit none
 
@@ -1388,79 +1455,79 @@ end function system_access
 !!
 !!##SYNOPSIS
 !!
-!!        function utime(pathname,times)
+!!     function utime(pathname,times)
 !!
-!!         character(len=*),intent(in) :: pathname
-!!         integer,intent(in),optional :: times(2)
-!!         logical                     :: utime
+!!      character(len=*),intent(in) :: pathname
+!!      integer,intent(in),optional :: times(2)
+!!      logical                     :: utime
 !!
 !!##DESCRIPTION
-!!        The system_utime(3f) function sets the access and modification
-!!        times of the file named by the path argument by calling utime(3c).
+!!    The system_utime(3f) function sets the access and modification
+!!    times of the file named by the path argument by calling utime(3c).
 !!
-!!        If times() is not present the access and modification times of
-!!        the file shall be set to the current time.
+!!    If times() is not present the access and modification times of
+!!    the file shall be set to the current time.
 !!
-!!        To use system_utime(3f) the effective user ID of the process must
-!!        match the owner of the file, or the process has to have write
-!!        permission to the file or have appropriate privileges,
+!!    To use system_utime(3f) the effective user ID of the process must
+!!    match the owner of the file, or the process has to have write
+!!    permission to the file or have appropriate privileges,
 !!
 !!##OPTIONS
-!!        times     If present, the values will be interpreted as the access
-!!                  and modification times as Unix Epoch values. That is,
-!!                  they are times measured in seconds since the Unix Epoch.
+!!     times     If present, the values will be interpreted as the access
+!!               and modification times as Unix Epoch values. That is,
+!!               they are times measured in seconds since the Unix Epoch.
 !!
-!!        pathname  name of the file whose access and modification times
-!!                  are to be updated.
+!!     pathname  name of the file whose access and modification times
+!!               are to be updated.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion .TRUE. is returned. Otherwise,
-!!        .FALSE. is returned and errno shall be set to indicate the error,
-!!        and the file times remain unaffected.
+!!    Upon successful completion .TRUE. is returned. Otherwise,
+!!    .FALSE. is returned and errno shall be set to indicate the error,
+!!    and the file times remain unaffected.
 !!
 !!##ERRORS
-!!        The underlying utime(3c) function fails if:
+!!    The underlying utime(3c) function fails if:
 !!
-!!        EACCES  Search permission is denied by a component of the path
-!!                prefix; or the times argument is a null pointer and the
-!!                effective user ID of the process does not match the owner
-!!                of the file, the process does not have write permission
-!!                for the file, and the process does not have appropriate
-!!                privileges.
+!!    EACCES  Search permission is denied by a component of the path
+!!            prefix; or the times argument is a null pointer and the
+!!            effective user ID of the process does not match the owner
+!!            of the file, the process does not have write permission
+!!            for the file, and the process does not have appropriate
+!!            privileges.
 !!
-!!        ELOOP  A loop exists in symbolic links encountered during
-!!               resolution of the path argument.
+!!    ELOOP  A loop exists in symbolic links encountered during
+!!           resolution of the path argument.
 !!
-!!        ENAMETOOLONG   The length of a component of a pathname is longer
-!!                       than {NAME_MAX}.
+!!    ENAMETOOLONG   The length of a component of a pathname is longer
+!!                   than {NAME_MAX}.
 !!
-!!        ENOENT   A component of path does not name an existing file
-!!                 or path is an empty string.
+!!    ENOENT   A component of path does not name an existing file
+!!             or path is an empty string.
 !!
-!!        ENOTDIR  A component of the path prefix names an existing file
-!!                 that is neither a directory nor a symbolic link to a
-!!                 directory, or the path argument contains at least one
-!!                 non-<slash> character and ends with one or more trailing
-!!                 <slash> characters and the last pathname component
-!!                 names an existing file that is neither a directory nor
-!!                 a symbolic link to a directory.
+!!    ENOTDIR  A component of the path prefix names an existing file
+!!             that is neither a directory nor a symbolic link to a
+!!             directory, or the path argument contains at least one
+!!             non-<slash> character and ends with one or more trailing
+!!             <slash> characters and the last pathname component
+!!             names an existing file that is neither a directory nor
+!!             a symbolic link to a directory.
 !!
-!!        EPERM  The times argument is not a null pointer and the effective
-!!               user ID of the calling process does not match the owner
-!!               of the file and the calling process does not have
-!!               appropriate privileges.
+!!    EPERM  The times argument is not a null pointer and the effective
+!!           user ID of the calling process does not match the owner
+!!           of the file and the calling process does not have
+!!           appropriate privileges.
 !!
-!!        EROFS  The file system containing the file is read-only.
+!!    EROFS  The file system containing the file is read-only.
 !!
-!!   The utime() function may fail if:
+!!  The utime() function may fail if:
 !!
-!!        ELOOP  More than {SYMLOOP_MAX} symbolic links were encountered
-!!               during resolution of the path argument.
+!!    ELOOP  More than {SYMLOOP_MAX} symbolic links were encountered
+!!           during resolution of the path argument.
 !!
-!!        ENAMETOOLONG  The length of a pathname exceeds {PATH_MAX}, or
-!!                      pathname resolution of a symbolic link produced
-!!                      an intermediate result with a length that exceeds
-!!                      {PATH_MAX}.
+!!    ENAMETOOLONG  The length of a pathname exceeds {PATH_MAX}, or
+!!                  pathname resolution of a symbolic link produced
+!!                  an intermediate result with a length that exceeds
+!!                  {PATH_MAX}.
 !!
 !!##EXAMPLES
 !!
@@ -1537,29 +1604,29 @@ end function timestamp
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_realpath(3f) - [M_system:FILE_SYSTEM] call realpath(3c)
-!!                             to resolve a pathname
-!!       (LICENSE:PD)
+!!    system_realpath(3f) - [M_system:FILE_SYSTEM] call realpath(3c)
+!!                          to resolve a pathname
+!!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!       function system_realpath(input) result(output)
+!!     function system_realpath(input) result(output)
 !!
-!!        character(len=*),intent(in)  :: input
-!!        character(len=:),allocatable :: output
+!!      character(len=*),intent(in)  :: input
+!!      character(len=:),allocatable :: output
 !!##DESCRIPTION
-!!        system_realpath(3f) calls the C routine realpath(3c) to obtain
-!!        the absolute pathname of given path
+!!    system_realpath(3f) calls the C routine realpath(3c) to obtain
+!!    the absolute pathname of given path
 !!##OPTIONS
 !!
-!!        INPUT     pathname to resolve
+!!    INPUT     pathname to resolve
 !!
 !!##RETURN VALUE
-!!        OUTPUT    The absolute pathname of the given input pathname.
-!!                  The pathname shall contain no components that are dot
-!!                  or dot-dot, or are symbolic links. It is equal to the
-!!                  NULL character if an error occurred.
+!!    OUTPUT    The absolute pathname of the given input pathname.
+!!              The pathname shall contain no components that are dot
+!!              or dot-dot, or are symbolic links. It is equal to the
+!!              NULL character if an error occurred.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -1640,29 +1707,29 @@ end function system_realpath
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_issock(pathname)
+!!     elemental impure logical function system_issock(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_issock
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_issock
 !!
 !!##DESCRIPTION
-!!        The issock(3f) function checks if path is a path to a socket
+!!    The issock(3f) function checks if path is a path to a socket
 !!
 !!##OPTIONS
-!!        path   a character string representing a socket pathname. Trailing
-!!               spaces are ignored.
+!!    path   a character string representing a socket pathname. Trailing
+!!           spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_issock() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_issock() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is a socket
 !!
@@ -1718,30 +1785,30 @@ end function system_issock
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_isfifo(pathname)
+!!     elemental impure logical function system_isfifo(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_isfifo
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_isfifo
 !!
 !!##DESCRIPTION
-!!        The isfifo(3f) function checks if path is a path to a fifo -
-!!        named pipe.
+!!    The isfifo(3f) function checks if path is a path to a fifo -
+!!    named pipe.
 !!
 !!##OPTIONS
-!!        path   a character string representing a fifo - named pipe
-!!               pathname. Trailing spaces are ignored.
+!!    path   a character string representing a fifo - named pipe
+!!           pathname. Trailing spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_isfifo() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_isfifo() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is a FIFO file
 !!
@@ -1797,30 +1864,30 @@ end function system_isfifo
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_ischr(pathname)
+!!     elemental impure logical function system_ischr(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_ischr
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_ischr
 !!
 !!##DESCRIPTION
-!!        The ischr(3f) function checks if path is a path to a character
-!!        device.
+!!    The ischr(3f) function checks if path is a path to a character
+!!    device.
 !!
 !!##OPTIONS
-!!        path   a character string representing a character device
-!!               pathname. Trailing spaces are ignored.
+!!    path   a character string representing a character device
+!!           pathname. Trailing spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_ischr() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_ischr() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is a character file
 !!
@@ -1829,6 +1896,12 @@ end function system_isfifo
 !!    implicit none
 !!    integer                     :: i
 !!    character(len=80),parameter :: names(*)=[ &
+!!    '/dev/tty        ', &
+!!    '/dev/null       ', &
+!!    '/dev/console    ', &
+!!    '/dev/random     ', &
+!!    '/dev/urandom    ', &
+!!    '/dev/zero       ', &
 !!    '/tmp            ', &
 !!    '/tmp/NOTTHERE   ', &
 !!    '/usr/local      ', &
@@ -1843,7 +1916,20 @@ end function system_isfifo
 !!    enddo
 !!    end program demo_system_ischr
 !!
-!!   Results:
+!! Results:
+!!
+!!  >   is /dev/tty a character device?  T
+!!  >   is /dev/null a character device?  T
+!!  >   is /dev/console a character device?  T
+!!  >   is /dev/random a character device?  T
+!!  >   is /dev/urandom a character device?  T
+!!  >   is /dev/zero a character device?  T
+!!  >   is /tmp a character device?  F
+!!  >   is /tmp/NOTTHERE a character device?  F
+!!  >   is /usr/local a character device?  F
+!!  >   is . a character device?  F
+!!  >   is char_dev.test a character device?  F
+!!  >   is PROBABLY_NOT a character device?  F
 elemental impure function system_ischr(pathname)
 implicit none
 
@@ -1880,29 +1966,29 @@ end function system_ischr
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_isreg(pathname)
+!!     elemental impure logical function system_isreg(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_isreg
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_isreg
 !!
 !!##DESCRIPTION
-!!        The isreg(3f) function checks if path is a regular file
+!!    The isreg(3f) function checks if path is a regular file
 !!
 !!##OPTIONS
-!!        path   a character string representing a pathname. Trailing spaces
-!!               are ignored.
+!!    path   a character string representing a pathname. Trailing spaces
+!!           are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_isreg() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_isreg() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_islnk(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is a regular file
 !!
@@ -1981,13 +2067,13 @@ end function system_isreg
 !!
 !!##SYNOPSIS
 !!
-!!    elemental impure logical function system_islnk(pathname)
+!!     elemental impure logical function system_islnk(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_islnk
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_islnk
 !!
 !!##DESCRIPTION
-!!        The islnk(3f) function checks if path is a path to a link.
+!!    The islnk(3f) function checks if path is a path to a link.
 !!
 !!##OPTIONS
 !!    path          a character string representing a link
@@ -1999,12 +2085,12 @@ end function system_isreg
 !!                  indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!
 !!   Sample program:
@@ -2062,29 +2148,29 @@ end function system_islnk
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_isblk(pathname)
+!!     elemental impure logical function system_isblk(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_isblk
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_isblk
 !!
 !!##DESCRIPTION
-!! The isblk(3f) function checks if path is a path to a block device.
+!!    The isblk(3f) function checks if path is a path to a block device.
 !!
 !!##OPTIONS
-!! path   a character string representing a block device pathname. Trailing
-!!        spaces are ignored.
+!!    path   a character string representing a block device pathname. Trailing
+!!           spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_isblk() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_isblk() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_isreg(3f), system_stat(3f), system_isdir(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   check if filename is a block device
 !!
@@ -2142,29 +2228,29 @@ end function system_isblk
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_isdir(pathname)
+!!     elemental impure logical function system_isdir(pathname)
 !!
-!!    character(len=*),intent(in) :: pathname
-!!    logical                     :: system_isdir
+!!      character(len=*),intent(in) :: pathname
+!!      logical                     :: system_isdir
 !!
 !!##DESCRIPTION
-!!        The system_isdir(3f) function checks if path is a directory.
+!!    The system_isdir(3f) function checks if path is a directory.
 !!
 !!##OPTIONS
-!!        path   a character string representing a directory
-!!               pathname. Trailing spaces are ignored.
+!!    path   a character string representing a directory
+!!           pathname. Trailing spaces are ignored.
 !!
 !!##RETURN VALUE
-!!        The system_isdir() function should always be successful and no
-!!        return value is reserved to indicate an error.
+!!    The system_isdir() function should always be successful and no
+!!    return value is reserved to indicate an error.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##SEE ALSO
 !!    system_islnk(3f), system_stat(3f), isreg(3f), system_perm(3f)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!
 !!   Sample program
@@ -2245,36 +2331,36 @@ end function system_isdir
 !!
 !!##SYNOPSIS
 !!
-!!   elemental impure logical function system_chown(path,owner,group)
+!!     elemental impure logical function system_chown(path,owner,group)
 !!
-!!    character(len=*),intent(in) :: path
-!!    integer,intent(in)          :: owner
-!!    integer,intent(in)          :: group
+!!      character(len=*),intent(in) :: path
+!!      integer,intent(in)          :: owner
+!!      integer,intent(in)          :: group
 !!
 !!##DESCRIPTION
-!!        The chown(3f) function changes owner and group of a file
+!!   The chown(3f) function changes owner and group of a file
 !!
-!!       The path argument points to a pathname naming a file. The
-!!       user ID and group ID of the named file shall be set to the numeric
-!!       values contained in owner and group, respectively.
+!!   The path argument points to a pathname naming a file. The
+!!   user ID and group ID of the named file shall be set to the numeric
+!!   values contained in owner and group, respectively.
 !!
-!!       Only processes with an effective user ID equal to the user ID of
-!!       the file or with appropriate privileges may change the ownership
-!!       of a file.
+!!   Only processes with an effective user ID equal to the user ID of
+!!   the file or with appropriate privileges may change the ownership
+!!   of a file.
 !!
 !!##OPTIONS
-!!       path   a character string representing a file pathname.
-!!              Trailing spaces are ignored.
-!!       owner  UID of owner that ownership is to be changed to
-!!       group  GID of group that ownership is to be changed to
+!!     path   a character string representing a file pathname.
+!!            Trailing spaces are ignored.
+!!     owner  UID of owner that ownership is to be changed to
+!!     group  GID of group that ownership is to be changed to
 !!
 !!##RETURN VALUE
-!!       The system_chown(3f) function should return zero 0 if successful.
-!!       Otherwise, these functions shall return 1 and set errno to
-!!       indicate the error. If 1 is returned, no changes are made in
-!!       the user ID and group ID of the file.
+!!    The system_chown(3f) function should return zero 0 if successful.
+!!    Otherwise, these functions shall return 1 and set errno to
+!!    indicate the error. If 1 is returned, no changes are made in
+!!    the user ID and group ID of the file.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!
 !!   Sample program:
@@ -2340,21 +2426,25 @@ end function system_chown
 !!
 !!##SYNOPSIS
 !!
-!!        subroutine system_cpu_time(c_user, c_system, c_total)
+!!     subroutine system_cpu_time(c_user, c_system, c_total)
 !!
-!!         real,intent(out) :: c_total
-!!         real,intent(out) :: c_user
-!!         real,intent(out) :: c_system
+!!      real,intent(out) :: c_total
+!!      real,intent(out) :: c_user
+!!      real,intent(out) :: c_system
 !!
 !!##DESCRIPTION
 !!
+!!    Calls the C times(3c) procedure and returns the total processor time
+!!    in seconds as well as the two times contributing to it (user time
+!!    and system time).
+!!
 !!##OUTPUT
-!!         c_total   total processor time ( c_user + c_system )
-!!         c_user    processor user time
-!!         c_system  processor system time
+!!    c_total   total processor time ( c_user + c_system )
+!!    c_user    processor user time
+!!    c_system  processor system time
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
 !!##EXAMPLES
 !!
@@ -2418,86 +2508,86 @@ end subroutine system_cpu_time
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_link(3f) - [M_system:FILE_SYSTEM] link one file to another
-!!                          file relative to two directory file descriptors
-!!        (LICENSE:PD)
+!!    system_link(3f) - [M_system:FILE_SYSTEM] link one file to another
+!!                      file relative to two directory file descriptors
+!!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!    elemental impure integer function link(oldpath,newpath);
+!!     elemental impure integer function link(oldpath,newpath);
 !!
-!!     character(len=*),intent(in) :: oldpath
-!!     character(len=*),intent(in) :: newpath
+!!      character(len=*),intent(in) :: oldpath
+!!      character(len=*),intent(in) :: newpath
 !!
 !!##DESCRIPTION
-!!        The link() function shall create a new link (directory entry)
-!!        for the existing file, path1.
+!!    The link() function shall create a new link (directory entry)
+!!    for the existing file, path1.
 !!
-!!        The path1 argument points to a pathname naming an existing
-!!        file. The path2 argument points to a pathname naming the
-!!        new directory entry to be created. The link() function shall
-!!        atomically create a new link for the existing file and the link
-!!        count of the file shall be incremented by one.
+!!    The path1 argument points to a pathname naming an existing
+!!    file. The path2 argument points to a pathname naming the
+!!    new directory entry to be created. The link() function shall
+!!    atomically create a new link for the existing file and the link
+!!    count of the file shall be incremented by one.
 !!
-!!        If path1 names a directory, link() shall fail unless the process
-!!        has appropriate privileges and the implementation supports using
-!!        link() on directories.
+!!    If path1 names a directory, link() shall fail unless the process
+!!    has appropriate privileges and the implementation supports using
+!!    link() on directories.
 !!
-!!        If path1 names a symbolic link, it is implementation-defined
-!!        whether link() follows the symbolic link, or creates a new link
-!!        to the symbolic link itself.
+!!    If path1 names a symbolic link, it is implementation-defined
+!!    whether link() follows the symbolic link, or creates a new link
+!!    to the symbolic link itself.
 !!
-!!        Upon successful completion, link() shall mark for update the
-!!        last file status change timestamp of the file. Also, the last
-!!        data modification and last file status change timestamps of the
-!!        directory that contains the new entry shall be marked for update.
+!!    Upon successful completion, link() shall mark for update the
+!!    last file status change timestamp of the file. Also, the last
+!!    data modification and last file status change timestamps of the
+!!    directory that contains the new entry shall be marked for update.
 !!
-!!        If link() fails, no link shall be created and the link count of
-!!        the file shall remain unchanged.
+!!    If link() fails, no link shall be created and the link count of
+!!    the file shall remain unchanged.
 !!
-!!        The implementation may require that the calling process has
-!!        permission to access the existing file.
+!!    The implementation may require that the calling process has
+!!    permission to access the existing file.
 !!
-!!        The linkat() function shall be equivalent to the link() function
-!!        except that symbolic links shall be handled as specified by the
-!!        value of flag (see below) and except in the case where either path1
-!!        or path2 or both are relative paths. In this case a relative path
-!!        path1 is interpreted relative to the directory associated with
-!!        the file descriptor fd1 instead of the current working directory
-!!        and similarly for path2 and the file descriptor fd2. If the
-!!        file descriptor was opened without O_SEARCH, the function shall
-!!        check whether directory searches are permitted using the current
-!!        permissions of the directory underlying the file descriptor. If
-!!        the file descriptor was opened with O_SEARCH, the function shall
-!!        not perform the check.
+!!    The linkat() function shall be equivalent to the link() function
+!!    except that symbolic links shall be handled as specified by the
+!!    value of flag (see below) and except in the case where either path1
+!!    or path2 or both are relative paths. In this case a relative path
+!!    path1 is interpreted relative to the directory associated with
+!!    the file descriptor fd1 instead of the current working directory
+!!    and similarly for path2 and the file descriptor fd2. If the
+!!    file descriptor was opened without O_SEARCH, the function shall
+!!    check whether directory searches are permitted using the current
+!!    permissions of the directory underlying the file descriptor. If
+!!    the file descriptor was opened with O_SEARCH, the function shall
+!!    not perform the check.
 !!
-!!        Values for flag are constructed by a bitwise-inclusive OR of
-!!        flags from the following list, defined in <fcntl.h>:
+!!    Values for flag are constructed by a bitwise-inclusive OR of
+!!    flags from the following list, defined in <fcntl.h>:
 !!
-!!        AT_SYMLINK_FOLLOW
-!!              If path1 names a symbolic link, a new link for the target
-!!              of the symbolic link is created.
+!!    AT_SYMLINK_FOLLOW
+!!          If path1 names a symbolic link, a new link for the target
+!!          of the symbolic link is created.
 !!
-!!        If linkat() is passed the special value AT_FDCWD in the fd1 or
-!!        fd2 parameter, the current working directory shall be used for the
-!!        respective path argument. If both fd1 and fd2 have value AT_FDCWD,
-!!        the behavior shall be identical to a call to link(), except that
-!!        symbolic links shall be handled as specified by the value of flag.
+!!    If linkat() is passed the special value AT_FDCWD in the fd1 or
+!!    fd2 parameter, the current working directory shall be used for the
+!!    respective path argument. If both fd1 and fd2 have value AT_FDCWD,
+!!    the behavior shall be identical to a call to link(), except that
+!!    symbolic links shall be handled as specified by the value of flag.
 !!
-!!        Some implementations do allow links between file systems.
+!!    Some implementations do allow links between file systems.
 !!
-!!        If path1 refers to a symbolic link, application developers should
-!!        use linkat() with appropriate flags to select whether or not the
-!!        symbolic link should be resolved.
+!!    If path1 refers to a symbolic link, application developers should
+!!    use linkat() with appropriate flags to select whether or not the
+!!    symbolic link should be resolved.
 !!
-!!        If the AT_SYMLINK_FOLLOW flag is clear in the flag argument and
-!!        the path1 argument names a symbolic link, a new link is created
-!!        for the symbolic link path1 and not its target.
+!!    If the AT_SYMLINK_FOLLOW flag is clear in the flag argument and
+!!    the path1 argument names a symbolic link, a new link is created
+!!    for the symbolic link path1 and not its target.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion, these functions shall return
-!!        0. Otherwise, these functions shall return -1 and set errno to
-!!        indicate the error.
+!!    Upon successful completion, these functions shall return
+!!    0. Otherwise, these functions shall return -1 and set errno to
+!!    indicate the error.
 !!
 !!##EXAMPLES
 !!
@@ -2542,15 +2632,15 @@ end function system_link
 !===================================================================================================================================
 !>
 !!##NAME
-!!        system_unlink(3f) - [M_system:FILE_SYSTEM] remove a directory
-!!        entry relative to directory file descriptor
-!!        (LICENSE:PD)
+!!    system_unlink(3f) - [M_system:FILE_SYSTEM] remove a directory
+!!    entry relative to directory file descriptor
+!!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!    elemental impure integer function unlink(path);
+!!     elemental impure integer function unlink(path);
 !!
-!!     character(len=*) :: path
+!!      character(len=*) :: path
 !!
 !!##DESCRIPTION
 !!    The unlink() function shall remove a link to a file. If path names a
@@ -2632,42 +2722,42 @@ end function system_unlink
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    integer function system_setumask(new_umask) result (old_umask)
+!!     integer function system_setumask(new_umask) result (old_umask)
 !!
-!!     integer,intent(in)  :: new_umask
-!!     integer(kind=c_int) :: umask_c
+!!      integer,intent(in)  :: new_umask
+!!      integer(kind=c_int) :: umask_c
 !!
 !!##DESCRIPTION
-!!        The system_umask(3f) function sets the file mode creation mask
-!!        of the process to cmask and return the previous value of the
-!!        mask. Only the file permission bits of cmask (see <sys/stat.h>)
-!!        are used; the meaning of the other bits is implementation-defined.
+!!    The system_umask(3f) function sets the file mode creation mask
+!!    of the process to cmask and return the previous value of the
+!!    mask. Only the file permission bits of cmask (see <sys/stat.h>)
+!!    are used; the meaning of the other bits is implementation-defined.
 !!
-!!        The file mode creation mask of the process is used to turn off
-!!        permission bits in the mode argument supplied during calls to
-!!        the following functions:
+!!    The file mode creation mask of the process is used to turn off
+!!    permission bits in the mode argument supplied during calls to
+!!    the following functions:
 !!
-!!         *  open(), openat(), creat(), mkdir(), mkdirat(), mkfifo(),
-!!            and mkfifoat()
-!!         *  mknod(), mknodat()
-!!         *  mq_open()
-!!         *  sem_open()
+!!     *  open(), openat(), creat(), mkdir(), mkdirat(), mkfifo(),
+!!        and mkfifoat()
+!!     *  mknod(), mknodat()
+!!     *  mq_open()
+!!     *  sem_open()
 !!
-!!        Bit positions that are set in cmask are cleared in the mode of
-!!        the created file.
+!!    Bit positions that are set in cmask are cleared in the mode of
+!!    the created file.
 !!
 !!##RETURN VALUE
-!!        The file permission bits in the value returned by umask() shall be
-!!        the previous value of the file mode creation mask. The state of any
-!!        other bits in that value is unspecified, except that a subsequent
-!!        call to umask() with the returned value as cmask shall leave the
-!!        state of the mask the same as its state before the first call,
-!!        including any unspecified use of those bits.
+!!    The file permission bits in the value returned by umask() shall be
+!!    the previous value of the file mode creation mask. The state of any
+!!    other bits in that value is unspecified, except that a subsequent
+!!    call to umask() with the returned value as cmask shall leave the
+!!    state of the mask the same as its state before the first call,
+!!    including any unspecified use of those bits.
 !!
 !!##ERRORS
-!!        No errors are defined.
+!!    No errors are defined.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program
 !!
@@ -2676,19 +2766,19 @@ end function system_unlink
 !!    integer :: newmask
 !!    integer :: i
 !!    integer :: old_umask
-!!    write(*,101)(system_getumask(),i=1,4)
-!!    101 format(1x,i0,1x,"O'",o4.4,"'",1x,'Z"',z0,"'",1x,"B'",b12.12,"'")
-!!    newmask=63
-!!    old_umask=system_setumask(newmask)
-!!    write(*,*)'NEW'
-!!    write(*,101)(system_getumask(),i=1,4)
+!!       write(*,101)(system_getumask(),i=1,4)
+!!       101 format(1x,i0,1x,"O'",o4.4,"'",1x,'Z"',z0,"'",1x,"B'",b12.12,"'")
+!!       newmask=63
+!!       old_umask=system_setumask(newmask)
+!!       write(*,*)'NEW'
+!!       write(*,101)(system_getumask(),i=1,4)
 !!    end program demo_setumask
 !!
-!!   Expected output
+!! Results:
 !!
-!!     18 O'022' Z"12' B'000010010"
-!!     NEW
-!!     63 O'077' Z"3F' B'000111111"
+!!  >  2 O'0002' Z"2' B'000000000010'
+!!  >  NEW
+!!  >  63 O'0077' Z"3F' B'000000111111'
 integer function system_setumask(umask_value) result (old_umask)
 integer,intent(in)  :: umask_value
 integer(kind=c_int) :: umask_c
@@ -2706,11 +2796,11 @@ end function system_setumask
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   integer function system_getumask() result (umask_value)
+!!     integer function system_getumask() result (umask_value)
 !!##DESCRIPTION
 !!   The return value from getumask(3f) is the value of the file
 !!   creation mask, obtained by using umask(3c).
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program
 !!
@@ -2748,9 +2838,9 @@ end function system_getumask
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!      subroutine system_perror(prefix)
+!!     subroutine system_perror(prefix)
 !!
-!!       character(len=*),intent(in) :: prefix
+!!      character(len=*),intent(in) :: prefix
 !!
 !!##DESCRIPTION
 !!    Use system_perror(3f) to print an error message on stderr
@@ -2760,7 +2850,7 @@ end function system_getumask
 !!    (:). The remainder of the error message produced is one of the
 !!    strings described for strerror(3c).
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -2814,10 +2904,10 @@ end subroutine system_perror
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    subroutine system_chdir(path, err)
+!!     subroutine system_chdir(path, err)
 !!
-!!     character(len=*)               :: path
-!!     integer, optional, intent(out) :: err
+!!      character(len=*)               :: path
+!!      integer, optional, intent(out) :: err
 !!
 !!##DESCRIPTION
 !!
@@ -2849,7 +2939,7 @@ end subroutine system_perror
 !!
 !!    chroot(2), getcwd(3), path_resolution(7)
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Change working directory from Fortran
 !!
@@ -2902,10 +2992,10 @@ end subroutine system_chdir
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   elemental impure function system_remove(path) result(err)
+!!     elemental impure function system_remove(path) result(err)
 !!
-!!    character(*),intent(in) :: path
-!!    integer(c_int)          :: err
+!!      character(*),intent(in) :: path
+!!      integer(c_int)          :: err
 !!
 !!##DESCRIPTION
 !!    Fortran supports scratch files via the OPEN(3c) command; but does
@@ -2913,7 +3003,7 @@ end subroutine system_chdir
 !!    allows for removing files by name that the user has the authority to
 !!    remove by calling the C remove(3c) function.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -2991,10 +3081,10 @@ end function system_remove
 !!      (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   function system_rename(input,output) result(ierr)
+!!     function system_rename(input,output) result(ierr)
 !!
-!!    character(*),intent(in)    :: input,output
-!!    integer                    :: ierr
+!!      character(*),intent(in)    :: input,output
+!!      integer                    :: ierr
 !!##DESCRIPTION
 !!     Rename a file by calling rename(3c). It is not recommended that the
 !!     rename occur while either filename is being used on a file currently
@@ -3009,7 +3099,7 @@ end function system_remove
 !!     IERR    zero (0) if no error occurs. If not zero a call to
 !!             system_errno(3f) or system_perror(3f) is supported
 !!             to diagnose error
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Sample program:
 !!
@@ -3099,51 +3189,51 @@ end function system_rename
 !===================================================================================================================================
 !>
 !!##NAME
-!!       system_chmod(3f) - [M_system_FILE_SYSTEM] call chmod(3c) to change
-!!       permission mode of a file relative to directory file descriptor
-!!       (LICENSE:PD)
+!!    system_chmod(3f) - [M_system_FILE_SYSTEM] call chmod(3c) to change
+!!    permission mode of a file relative to directory file descriptor
+!!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    function system_chmod(filename,mode) result(ierr)
+!!     function system_chmod(filename,mode) result(ierr)
 !!
-!!       character(len=*),intent(in)  :: filename
-!!       integer,value,intent(in)     :: mode
-!!       integer                      :: ierr
+!!      character(len=*),intent(in)  :: filename
+!!      integer,value,intent(in)     :: mode
+!!      integer                      :: ierr
 !!
 !!##DESCRIPTION
-!!        The system_chmod(3f) function shall change UID, _ISGID, S_ISVTX,
-!!        and the file permission bits of the file named by the pathname
-!!        pointed to by the path argument to the corresponding bits in the
-!!        mode argument. The application shall ensure that the effective
-!!        user ID of the process matches the owner of the file or the
-!!        process has appropriate privileges in order to do this.
+!!    The system_chmod(3f) function shall change UID, _ISGID, S_ISVTX,
+!!    and the file permission bits of the file named by the pathname
+!!    pointed to by the path argument to the corresponding bits in the
+!!    mode argument. The application shall ensure that the effective
+!!    user ID of the process matches the owner of the file or the
+!!    process has appropriate privileges in order to do this.
 !!
-!!        S_ISUID, S_ISGID, S_ISVTX, and the file permission bits are
-!!        described in <sys/stat.h>.
+!!    S_ISUID, S_ISGID, S_ISVTX, and the file permission bits are
+!!    described in <sys/stat.h>.
 !!
-!!        If the calling process does not have appropriate privileges,
-!!        and if the group ID of the file does not match the effective
-!!        group ID or one of the supplementary group IDs and if the file
-!!        is a regular file, bit S_ISGID (set-group-ID on execution) in the
-!!        file's mode shall be cleared upon successful return from chmod().
+!!    If the calling process does not have appropriate privileges,
+!!    and if the group ID of the file does not match the effective
+!!    group ID or one of the supplementary group IDs and if the file
+!!    is a regular file, bit S_ISGID (set-group-ID on execution) in the
+!!    file's mode shall be cleared upon successful return from chmod().
 !!
-!!        Additional implementation-defined restrictions may cause the
-!!        S_ISUID and S_ISGID bits in mode to be ignored.
+!!    Additional implementation-defined restrictions may cause the
+!!    S_ISUID and S_ISGID bits in mode to be ignored.
 !!
-!!        Upon successful completion, system_chmod() marks for update the
-!!        last file status change timestamp of the file.
+!!    Upon successful completion, system_chmod() marks for update the
+!!    last file status change timestamp of the file.
 !!
-!!        Values for flag are constructed by a bitwise-inclusive OR of
-!!        flags from the following list, defined in <fcntl.h>:
+!!    Values for flag are constructed by a bitwise-inclusive OR of
+!!    flags from the following list, defined in <fcntl.h>:
 !!
-!!        AT_SYMLINK_NOFOLLOW
-!!              If path names a symbolic link, then the mode of the symbolic
-!!              link is changed.
+!!    AT_SYMLINK_NOFOLLOW
+!!          If path names a symbolic link, then the mode of the symbolic
+!!          link is changed.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion, system_chmod(3f) returns 0.
-!!        Otherwise, it returns -1 and sets errno to indicate the error. If
-!!        -1 is returned, no change to the file mode occurs.
+!!    Upon successful completion, system_chmod(3f) returns 0.
+!!    Otherwise, it returns -1 and sets errno to indicate the error. If
+!!    -1 is returned, no change to the file mode occurs.
 !!
 !!##EXAMPLES
 !!
@@ -3235,21 +3325,21 @@ end function system_chmod
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!       subroutine system_getcwd(output,ierr)
+!!     subroutine system_getcwd(output,ierr)
 !!
-!!        character(len=:),allocatable,intent(out) :: output
-!!        integer,intent(out)                      :: ierr
+!!      character(len=:),allocatable,intent(out) :: output
+!!      integer,intent(out)                      :: ierr
 !!##DESCRIPTION
-!!        system_getcwd(3f) calls the C routine getcwd(3c) to obtain the
-!!        absolute pathname of the current working directory.
+!!    system_getcwd(3f) calls the C routine getcwd(3c) to obtain the
+!!    absolute pathname of the current working directory.
 !!
 !!##RETURN VALUE
-!!        OUTPUT   The absolute pathname of the current working directory
-!!                 The pathname shall contain no components that are dot
-!!                 or dot-dot, or are symbolic links.
-!!        IERR     is not zero if an error occurs.
+!!    OUTPUT   The absolute pathname of the current working directory
+!!             The pathname shall contain no components that are dot
+!!             or dot-dot, or are symbolic links.
+!!    IERR     is not zero if an error occurs.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3309,16 +3399,19 @@ end subroutine system_getcwd
 !!
 !!##SYNOPSIS
 !!
-!!    function system_rmdir(dirname) result(err)
+!!     function system_rmdir(dirname) result(err)
 !!
-!!     character(*),intent(in) :: dirname
-!!     integer(c_int) :: err
+!!      character(*),intent(in) :: dirname
+!!      integer(c_int) :: err
 !!
 !!##DESCRIPTION
-!!        DIRECTORY  The name of a directory to remove if it is empty
-!!        err        zero (0) if no error occurred
+!!    Remove a directory
 !!
-!!##EXAMPLE
+!!##OPTIONS
+!!    DIRECTORY  The name of a directory to remove if it is empty
+!!    err        zero (0) if no error occurred
+!!
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3385,11 +3478,11 @@ end function system_rmdir
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   function system_mkfifo(pathname,mode) result(ierr)
+!!     function system_mkfifo(pathname,mode) result(ierr)
 !!
-!!    character(len=*),intent(in)       :: pathname
-!!    integer,intent(in)                :: mode
-!!    integer :: ierr
+!!      character(len=*),intent(in)       :: pathname
+!!      integer,intent(in)                :: mode
+!!      integer :: ierr
 !!
 !!##DESCRIPTION
 !!    A regular pipe can only connect two related processes. It is created
@@ -3529,8 +3622,12 @@ end function system_mkfifo
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!##DESCRIPTION
+!!     function system_mkdir(dirname,mode) result(ierr)
 !!
+!!      character(len=*),intent(in) :: dirname
+!!      integer,intent(in)          :: mode
+!!      integer                     :: ierr
+!!##DESCRIPTION
 !!    Predefined variables are typically used to set permission modes.
 !!    You can bytewise-OR together these variables to create the most common
 !!    permissions mode:
@@ -3561,7 +3658,7 @@ end function system_mkfifo
 !!      ierr= mkdir("mydir",IANY([RWX_U,RWX_G,RWX_O]));
 !!      ierr= mkdir("mydir",ACCESSPERMS);
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3630,68 +3727,68 @@ end function system_mkdir
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   subroutine system_opendir(dirname,dir,ierr)
+!!     subroutine system_opendir(dirname,dir,ierr)
 !!
-!!    character(len=*), intent(in) :: dirname
-!!    type(c_ptr)                  :: dir
-!!    integer,intent(out)          :: ierr
+!!      character(len=*), intent(in) :: dirname
+!!      type(c_ptr)                  :: dir
+!!      integer,intent(out)          :: ierr
 !!
 !!##DESCRIPTION
-!!        The system_opendir(3f) procedure opens a directory stream
-!!        corresponding to the directory named by the dirname argument.
-!!        The directory stream is positioned at the first entry.
+!!    The system_opendir(3f) procedure opens a directory stream
+!!    corresponding to the directory named by the dirname argument.
+!!    The directory stream is positioned at the first entry.
 !!
 !!##RETURN VALUE
-!!        Upon successful completion, a pointer to a C dir type is returned.
-!!        Otherwise, these functions shall return a null pointer and set
-!!        IERR to indicate the error.
+!!    Upon successful completion, a pointer to a C dir type is returned.
+!!    Otherwise, these functions shall return a null pointer and set
+!!    IERR to indicate the error.
 !!
 !!##ERRORS
 !!
-!!        An error corresponds to a condition described in opendir(3c):
+!!    An error corresponds to a condition described in opendir(3c):
 !!
-!!        EACCES    Search permission is denied for the component of the
-!!                  path prefix of dirname or read permission is denied
-!!                  for dirname.
+!!    EACCES    Search permission is denied for the component of the
+!!              path prefix of dirname or read permission is denied
+!!              for dirname.
 !!
-!!        ELOOP     A loop exists in symbolic links encountered during
-!!                  resolution of the dirname argument.
+!!    ELOOP     A loop exists in symbolic links encountered during
+!!              resolution of the dirname argument.
 !!
-!!        ENAMETOOLONG  The length of a component of a pathname is longer
-!!                      than {NAME_MAX}.
+!!    ENAMETOOLONG  The length of a component of a pathname is longer
+!!                  than {NAME_MAX}.
 !!
-!!        ENOENT        A component of dirname does not name an existing
-!!                      directory or dirname is an empty string.
+!!    ENOENT        A component of dirname does not name an existing
+!!                  directory or dirname is an empty string.
 !!
-!!        ENOTDIR       A component of dirname names an existing file that
-!!                      is neither a directory nor a symbolic link to
-!!                      a directory.
+!!    ENOTDIR       A component of dirname names an existing file that
+!!                  is neither a directory nor a symbolic link to
+!!                  a directory.
 !!
-!!        ELOOP         More than {SYMLOOP_MAX} symbolic links were
-!!                      encountered during resolution of the dirname argument.
+!!    ELOOP         More than {SYMLOOP_MAX} symbolic links were
+!!                  encountered during resolution of the dirname argument.
 !!
-!!        EMFILE        All file descriptors available to the process are
-!!                      currently open.
+!!    EMFILE        All file descriptors available to the process are
+!!                  currently open.
 !!
-!!        ENAMETOOLONG  The length of a pathname exceeds {PATH_MAX},
-!!                      or pathname resolution of a symbolic link produced
-!!                      an intermediate result with a length that exceeds
-!!                      {PATH_MAX}.
+!!    ENAMETOOLONG  The length of a pathname exceeds {PATH_MAX},
+!!                  or pathname resolution of a symbolic link produced
+!!                  an intermediate result with a length that exceeds
+!!                  {PATH_MAX}.
 !!
-!!        ENFILE        Too many files are currently open in the system.
+!!    ENFILE        Too many files are currently open in the system.
 !!
 !!##APPLICATION USAGE
-!!        The opendir() function should be used in conjunction with
-!!        readdir(), closedir(), and rewinddir() to examine the contents
-!!        of the directory (see the EXAMPLES section in readdir()). This
-!!        method is recommended for portability.
+!!    The opendir() function should be used in conjunction with
+!!    readdir(), closedir(), and rewinddir() to examine the contents
+!!    of the directory (see the EXAMPLES section in readdir()). This
+!!    method is recommended for portability.
 !!##OPTIONS
-!!       dirname name of directory to open a directory stream for
+!!   dirname name of directory to open a directory stream for
 !!##RETURNS
-!!       dir   pointer to directory stream. If an
-!!             error occurred, it will not be associated.
-!!       ierr  0 indicates no error occurred
-!!##EXAMPLE
+!!   dir   pointer to directory stream. If an
+!!         error occurred, it will not be associated.
+!!   ierr  0 indicates no error occurred
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3759,14 +3856,13 @@ end subroutine system_opendir
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!! subroutine system_readdir(dir,filename,ierr)
+!!     subroutine system_readdir(dir,filename,ierr)
 !!
-!!  type(c_ptr),value                         :: dir
-!!  character(len=:),intent(out),allocatable  :: filename
-!!  integer,intent(out)                       :: ierr
+!!      type(c_ptr),value                         :: dir
+!!      character(len=:),intent(out),allocatable  :: filename
+!!      integer,intent(out)                       :: ierr
 !!
 !!##DESCRIPTION
-!!
 !!    system_readdir(3f) returns the name of the directory entry at the
 !!    current position in the directory stream specified by the argument
 !!    DIR, and positions the directory stream at the next entry. It returns
@@ -3795,7 +3891,7 @@ end subroutine system_opendir
 !!
 !!    IERR      If IERR is set to non-zero on return, an error occurred.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3865,9 +3961,9 @@ end subroutine system_readdir
 !!       (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    subroutine system_rewinddir(dir)
+!!     subroutine system_rewinddir(dir)
 !!
-!!     type(c_ptr),value :: dir
+!!      type(c_ptr),value :: dir
 !!
 !!##DESCRIPTION
 !!     Return to pointer to the beginning of the list for a currently open
@@ -3877,7 +3973,7 @@ end subroutine system_readdir
 !!     DIR  A C_pointer assumed to have been allocated by a call to
 !!          SYSTEM_OPENDIR(3f).
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -3934,24 +4030,24 @@ end subroutine system_rewinddir
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!        subroutine system_closedir(dir,ierr)
+!!     subroutine system_closedir(dir,ierr)
 !!
-!!         type(c_ptr)         :: dir
-!!         integer,intent(out) :: ierr
+!!      type(c_ptr)         :: dir
+!!      integer,intent(out) :: ierr
 !!##DESCRIPTION
-!!        The SYSTEM_CLOSEDIR(3f) function closes the directory stream
-!!        referred to by the argument DIR. Upon return, the value of DIR
-!!        may no longer point to an accessible object.
+!!    The SYSTEM_CLOSEDIR(3f) function closes the directory stream
+!!    referred to by the argument DIR. Upon return, the value of DIR
+!!    may no longer point to an accessible object.
 !!##OPTIONS
-!!        dir     directory stream pointer opened by SYSTEM_OPENDIR(3f).
-!!        ierr    Upon successful completion, SYSTEM_CLOSEDIR(3f) returns 0;
-!!                otherwise, an error has occurred.
+!!    dir     directory stream pointer opened by SYSTEM_OPENDIR(3f).
+!!    ierr    Upon successful completion, SYSTEM_CLOSEDIR(3f) returns 0;
+!!            otherwise, an error has occurred.
 !!##ERRORS
-!!        system_closedir(3f) may fail if:
+!!    system_closedir(3f) may fail if:
 !!
-!!        EBADF    The dirp argument does not refer to an open directory stream.
-!!        EINTR    The closedir() function was interrupted by a signal.
-!!##EXAMPLE
+!!    EBADF    The dirp argument does not refer to an open directory stream.
+!!    EINTR    The closedir() function was interrupted by a signal.
+!!##EXAMPLES
 !!
 !!   Sample program
 !!
@@ -4015,10 +4111,10 @@ end subroutine system_closedir
 !!
 !!##SYNOPSIS
 !!
-!!    subroutine system_putenv(string, err)
+!!     subroutine system_putenv(string, err)
 !!
-!!     character(len=*),intent(in)    :: string
-!!     integer, optional, intent(out) :: err
+!!      character(len=*),intent(in)    :: string
+!!      integer, optional, intent(out) :: err
 !!
 !!##DESCRIPTION
 !!    The system_putenv() function adds or changes the value of environment
@@ -4036,7 +4132,7 @@ end subroutine system_closedir
 !!            nonzero if an error occurs. A non-zero error usually indicates
 !!            sufficient memory does not exist to store the variable.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample setting an environment variable from Fortran:
 !!
@@ -4122,11 +4218,11 @@ end subroutine system_putenv
 !!
 !!##SYNOPSIS
 !!
-!!    function system_getenv(name,default)
+!!     function system_getenv(name,default)
 !!
-!!     character(len=:),allocatable         :: system_getenv
-!!     character(len=*),intent(in)          :: name
-!!     character(len=*),intent(in),optional :: default
+!!      character(len=:),allocatable         :: system_getenv
+!!      character(len=*),intent(in)          :: name
+!!      character(len=*),intent(in),optional :: default
 !!
 !!##DESCRIPTION
 !!    The system_getenv() function gets the value of an environment variable.
@@ -4137,7 +4233,7 @@ end subroutine system_putenv
 !!    default  If the value returned would be blank this value will be used
 !!             instead.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample setting an environment variable from Fortran:
 !!
@@ -4207,11 +4303,11 @@ end function system_getenv
 !!
 !!##SYNOPSIS
 !!
-!!   subroutine set_environment_variable(NAME, VALUE, STATUS)
+!!     subroutine set_environment_variable(NAME, VALUE, STATUS)
 !!
-!!    character(len=*)               :: NAME
-!!    character(len=*)               :: VALUE
-!!    integer, optional, intent(out) :: STATUS
+!!      character(len=*)               :: NAME
+!!      character(len=*)               :: VALUE
+!!      integer, optional, intent(out) :: STATUS
 !!
 !!##DESCRIPTION
 !!    The set_environment_variable() procedure adds or changes the value
@@ -4226,7 +4322,7 @@ end function system_getenv
 !!            A non-zero error usually indicates sufficient memory does
 !!            not exist to store the variable.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample setting an environment variable from Fortran:
 !!
@@ -4299,9 +4395,9 @@ end subroutine set_environment_variable
 !!
 !!##SYNOPSIS
 !!
-!!    subroutine system_clearenv(ierr)
+!!     subroutine system_clearenv(ierr)
 !!
-!!     integer,intent(out),optional :: ierr
+!!      integer,intent(out),optional :: ierr
 !!
 !!##DESCRIPTION
 !!    The clearenv() procedure clears the environment of all name-value
@@ -4312,7 +4408,7 @@ end subroutine set_environment_variable
 !!    ierr  returns zero on success, and a nonzero value on failure. Optional.
 !!          If not present and an error occurs the program stops.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!
 !!   Sample program:
@@ -4392,13 +4488,12 @@ end subroutine system_clearenv
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   subroutine system_unsetenv(name,ierr)
+!!     subroutine system_unsetenv(name,ierr)
 !!
-!!    character(len=*),intent(in)  :: name
-!!    integer,intent(out),optional :: ierr
+!!      character(len=*),intent(in)  :: name
+!!      integer,intent(out),optional :: ierr
 !!
 !!##DESCRIPTION
-!!
 !!    The system_unsetenv(3f) function deletes the variable name from the
 !!    environment.
 !!
@@ -4412,7 +4507,7 @@ end subroutine system_clearenv
 !!           or contains an '=' character. Insufficient memory to add a
 !!           new variable to the environment.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -4469,9 +4564,9 @@ end subroutine system_unsetenv
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!       function system_readenv() result(string)
+!!     function system_readenv() result(string)
 !!
-!!        character(len=:),allocatable  :: string
+!!      character(len=:),allocatable  :: string
 !!##DESCRIPTION
 !!    A simple interface allows reading the environment variable table of the
 !!    process. Call system_initenv(3f) to initialize reading the environment
@@ -4481,7 +4576,7 @@ end subroutine system_unsetenv
 !!##OPTIONS
 !!    string  the string returned from the environment of the form "NAME=VALUE"
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -4549,10 +4644,10 @@ end function system_readenv
 !!
 !!##SYNOPSIS
 !!
-!!   subroutine fileglob(glob,list)
+!!     subroutine fileglob(glob,list)
 !!
-!!    character(len=*),intent(in)   :: glob
-!!    character(len=*),pointer      :: list(:)
+!!      character(len=*),intent(in)   :: glob
+!!      character(len=*),pointer      :: list(:)
 !!
 !!##DESCRIPTION
 !!    Non-portable procedure uses the shell and the ls(1) command to expand
@@ -4563,7 +4658,7 @@ end function system_readenv
 !!    list   Allocated list of filenames (returned), the caller must
 !!           deallocate it.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Read output of an ls(1) command from Fortran
 !!
@@ -4632,10 +4727,10 @@ end subroutine fileglob
 !!   (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    subroutine system_uname(WHICH,NAMEOUT)
+!!     subroutine system_uname(WHICH,NAMEOUT)
 !!
-!!     character(KIND=C_CHAR),intent(in) :: WHICH
-!!     character(len=*),intent(out)      :: NAMEOUT
+!!      character(KIND=C_CHAR),intent(in) :: WHICH
+!!      character(len=*),intent(out)      :: NAMEOUT
 !!##DESCRIPTION
 !!        Given a letter, return a corresponding description of the current
 !!        operating system. The NAMEOUT variable is assumed sufficiently
@@ -4648,7 +4743,7 @@ end subroutine fileglob
 !!        m   return the machine hardware name
 !!        T   test mode -- print all information, in the following order - srvnm
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Call uname(3c) from Fortran
 !!
@@ -4705,10 +4800,10 @@ end subroutine system_uname
 !!        (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!       subroutine system_gethostname(string,ierr)
+!!     subroutine system_gethostname(string,ierr)
 !!
-!!        character(len=:),allocatable,intent(out) :: NAME
-!!        integer,intent(out)                      :: IERR
+!!      character(len=:),allocatable,intent(out) :: NAME
+!!      integer,intent(out)                      :: IERR
 !!##DESCRIPTION
 !!        The system_gethostname(3f) procedure returns the standard host
 !!        name for the current machine.
@@ -4717,7 +4812,7 @@ end subroutine system_uname
 !!        string  returns the hostname. Must be an allocatable CHARACTER variable.
 !!        ierr    Upon successful completion, 0 shall be returned; otherwise, -1
 !!                shall be returned.
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -4774,12 +4869,11 @@ end subroutine system_gethostname
 !!
 !!##SYNOPSIS
 !!
-!!   function system_getlogin() result (fname)
+!!     function system_getlogin() result (fname)
 !!
-!!    character(len=:),allocatable :: FNAME
+!!      character(len=:),allocatable :: FNAME
 !!
 !!##DESCRIPTION
-!!
 !!    The system_getlogin(3f) function returns a string containing the user
 !!    name associated by the login activity with the controlling terminal
 !!    of the current process. Otherwise, it returns a null string and sets
@@ -4797,7 +4891,7 @@ end subroutine system_gethostname
 !!##RETURN VALUE
 !!    fname  returns the login name.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -4863,13 +4957,12 @@ end function system_getlogin
 !!
 !!##SYNOPSIS
 !!
-!!   function system_perm(mode) result (perms)
+!!     function system_perm(mode) result (perms)
 !!
-!!    integer(kind=int64),intent(in)   :: MODE
-!!    character(len=:),allocatable :: PERMS
+!!      integer(kind=int64),intent(in)   :: MODE
+!!      character(len=:),allocatable :: PERMS
 !!
 !!##DESCRIPTION
-!!
 !!    The system_perm(3f) function returns a string containing the type
 !!    and permission of a file implied by the value of the mode value.
 !!
@@ -4877,7 +4970,7 @@ end function system_getlogin
 !!    PERMS  returns the permission string in a format similar to that
 !!           used by Unix commands such as ls(1).
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -4946,13 +5039,12 @@ end function system_perm
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   function system_getgrgid(gid) result (gname)
+!!     function system_getgrgid(gid) result (gname)
 !!
-!!    class(*),intent(in)          :: gid   ! any INTEGER type
-!!    character(len=:),allocatable :: gname
+!!      class(*),intent(in)          :: gid   ! any INTEGER type
+!!      character(len=:),allocatable :: gname
 !!
 !!##DESCRIPTION
-!!
 !!    The system_getlogin() function returns a string containing the group
 !!    name associated with the given GID. If no match is found
 !!    it returns a null string and sets errno to indicate the error.
@@ -4964,7 +5056,7 @@ end function system_perm
 !!##RETURN VALUE
 !!    gname  returns the group name. Blank if an error occurs
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -5019,13 +5111,12 @@ end function system_getgrgid
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   function system_getpwuid(uid) result (uname)
+!!     function system_getpwuid(uid) result (uname)
 !!
-!!    class(*),intent(in)          :: uid    ! any INTEGER type
-!!    character(len=:),allocatable :: uname
+!!      class(*),intent(in)          :: uid    ! any INTEGER type
+!!      character(len=:),allocatable :: uname
 !!
 !!##DESCRIPTION
-!!
 !!    The system_getpwuid() function returns a string containing the user
 !!    name associated with the given UID. If no match is found it returns
 !!    a null string and sets errno to indicate the error.
@@ -5037,7 +5128,7 @@ end function system_getgrgid
 !!##RETURN VALUE
 !!    uname  returns the login name.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -5176,7 +5267,6 @@ end function C2F_string
 !!    integer,intent(in)                   :: debug
 !!
 !!##DESCRIPTION
-!!
 !!    This function returns information about a file. No permissions are
 !!    required on the file itself, but execute (search) permission is required
 !!    on all of the directories in path that lead to the file. The elements
@@ -5212,7 +5302,7 @@ end function C2F_string
 !!    DEBUG   (Optional) print values being returned from C routine being
 !!            called if value of 0 is used
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   program demo_system_stat
 !!
@@ -5342,16 +5432,16 @@ end subroutine system_stat
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!   subroutine system_stat_print(filename)
+!!     subroutine system_stat_print(filename)
 !!
-!!    character(len=*),intent(in)  :: filename
-!!    integer,intent(in),optional :: lun
+!!      character(len=*),intent(in)  :: filename
+!!      integer,intent(in),optional :: lun
 !!##DESCRIPTION
 !!      Call the system_stat(3f) routine and print the results
 !!##OPTIONS
 !!    filename   pathname to print information for
 !!    lun        unit number to write to. Optional
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program
 !!
@@ -5434,12 +5524,12 @@ end subroutine system_stat_print
 !!
 !!##SYNOPSIS
 !!
-!!   function system_dir(directory,pattern,ignorecase)
+!!     function system_dir(directory,pattern,ignorecase)
 !!
-!!    character(len=*),intent(in),optional  :: directory
-!!    character(len=*),intent(in),optional  :: pattern
-!!    logical,intent(in),optional           :: ignorecase
-!!    character(len=:),allocatable          :: system_dir(:)
+!!      character(len=*),intent(in),optional  :: directory
+!!      character(len=*),intent(in),optional  :: pattern
+!!      logical,intent(in),optional           :: ignorecase
+!!      character(len=:),allocatable          :: system_dir(:)
 !!
 !!##DESCRIPTION
 !!    returns an array of filenames in the specified directory matching
@@ -5460,7 +5550,7 @@ end subroutine system_stat_print
 !!                containing trailing spaces in their names may be
 !!                incorrect.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!   Sample program:
 !!
@@ -5468,13 +5558,13 @@ end subroutine system_stat_print
 !!    use M_system, only : system_dir, system_isdir
 !!    implicit none
 !!    character(len=:),allocatable :: dirname
-!!       write(*, '("*.f90",a)')system_dir(pattern='*.f90')
-!!       write(*, '("*.F90",a)')system_dir(pattern='*.F90')
-!!       write(*, '("ignorecase:*.F90",a)')system_dir(pattern='*.F90',ignorecase=.true.)
-!!       write(*, '("ignorecase:*.f90",a)')system_dir(pattern='*.F90',ignorecase=.true.)
+!!       write(*, '("*.f90: ",a)')system_dir(pattern='*.f90')
+!!       write(*, '("*.F90: ",a)')system_dir(pattern='*.F90')
+!!       write(*, '("ignorecase:*.F90: ",a)')system_dir(pattern='*.F90',ignorecase=.true.)
+!!       write(*, '("ignorecase:*.f90: ",a)')system_dir(pattern='*.F90',ignorecase=.true.)
 !!       dirname='/tmp'
 !!       if(system_isdir(dirname))then
-!!          write(*, '("/tmp/*.f90:",a)')system_dir(directory='/tmp',pattern='*.f90')
+!!          write(*, '("/tmp/*.f90: ",a)')system_dir(directory='/tmp',pattern='*.f90')
 !!       else
 !!          write(*, '(a)')'<WARNING:>'//dirname//' does not exist'
 !!       endif
@@ -5774,54 +5864,61 @@ end function anyinteger_to_64bit
 !===================================================================================================================================
 !>
 !!##NAME
-!!    system_system(3f) - [M_system:SYSTEM_COMMAND] call execute_command_line
+!!    system_cmd(3f) - [M_system:SYSTEM_COMMAND] call execute_command_line(3f)
 !!    (LICENSE:PD)
 !!
 !!##SYNOPSIS
 !!
-!!     function system_system(command)
+!!     function system_cmd(command)
 !!
-!!     character(len=*),intent(in) :: command
+!!      character(len=*),intent(in) :: command
+!!      logical :: system_cmd
 !!
 !!##DESCRIPTION
-!!    If a function that calls execute_command_line(3f). That is,
-!!    system_system(3f) executes a string as a system command after
+!!    Is a function that calls execute_command_line(3f).
+!!    system_cmd(3f) executes a string as a system command after
 !!    trimming the string.
 !!
 !!##OPTIONS
+!!    command  string specifying system command to execute
 !!
 !!##RETURN VALUE
 !!    Upon successful completion .TRUE. is returned. Otherwise,
 !!    .FALSE. is returned.
 !!    If an error occurs an error message is written to stdout.
 !!
-!!##ERRORS
 !!##EXAMPLES
 !!
 !!   Sample program
 !!
-!!        program demo_system_system
-!!        use M_system, only : system_system
+!!        program demo_system_cmd
+!!        use M_system, only : system_cmd
 !!        implicit none
-!!        end program demo_system_system
-function system_system(command)
+!!        logical,allocatable :: status(:)
+!!           status=system_cmd([character(len=1024) :: 'date','pwd','logname'])
+!!           write(*,*)'status=',status
+!!        end program demo_system_cmd
+impure elemental function system_cmd(command)
 implicit none
 
-! ident_35="@(#) M_system system_system(3f) call execute_command_line as a function"
+! ident_35="@(#) M_system system_cmd(3f) call execute_command_line as a function"
 
 character(len=*),intent(in) :: command
 integer                     :: exitstat
 integer                     :: cmdstat
-integer                     :: system_system
 character(len=256)          :: cmdmsg
-
+logical                     :: system_cmd
+   exitstat=0
+   cmdstat=0
    cmdmsg=' '
    call execute_command_line(trim(command), wait=.true., exitstat=exitstat, cmdstat=cmdstat, cmdmsg=cmdmsg)
-   if(cmdstat.ne.0)then
-      write(*,*)trim(cmdmsg)
+   if(cmdstat.ne.0.or.exitstat.ne.0)then
+      write(*,'(*(g0))')'exitstat=',exitstat,' cmdstat=',cmdstat,' cmd=',trim(command),' msg=',trim(cmdmsg)
+      system_cmd=.false.
+   else
+      system_cmd=.true.
    endif
-   system_system=cmdstat
-end function system_system
+end function system_cmd
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================
@@ -5832,7 +5929,7 @@ end function system_system
 !!    (LICENSE:PD)
 !!##SYNOPSIS
 !!
-!!    subroutine system_sleep(wait_seconds)
+!!     subroutine system_sleep(wait_seconds)
 !!
 !!       type(TYPE),intent(in)  :: wait_seconds
 !!
@@ -5847,7 +5944,7 @@ end function system_system
 !!    wait_seconds  integer,real or doubleprecision number of seconds for
 !!                  process to sleep.
 !!
-!!##EXAMPLE
+!!##EXAMPLES
 !!
 !!    Sample program:
 !!
@@ -6042,6 +6139,116 @@ integer                          :: jalpha,ja,jb,jc,jd,je,ijul
    ierr=0
 
 end subroutine unix_to_date
+!===================================================================================================================================
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!===================================================================================================================================
+!>
+!!##NAME
+!!    system_putchar(3f) - [M_system:IO] writes a character to the stdout stream.
+!!    (LICENSE:PD)
+!!##SYNOPSIS
+!!
+!!     integer(kind=c_int) function system_putchar(ch)
+!!
+!!      character(len=1),intent(in) :: ch
+!!##DESCRIPTION
+!!    system_putchar(3f) writes the character CH to the stdout stream via C I/O
+!!    by passing the character on to putchar(3c).
+!!
+!!##RETURN VALUE
+!!    A negative value is returned on error. Otherwise putchar(3f) returns
+!!    a default integer with the ADE (ASCII Decimal Equivalent) of the
+!!    character written.
+!!
+!!##EXAMPLES
+!!
+!!   Example program
+!!
+!!        program demo_system_putchar
+!!        use M_system,      only : system_putchar
+!!        implicit none
+!!        integer :: i, j
+!!        integer :: iostat
+!!        j=0
+!!        do i=32,126 ! printable ASCII characters
+!!           iostat=system_putchar(achar(i))
+!!           if(iostat.lt.0)stop '<ERROR> *main* character '//achar(i)
+!!           j=j+1
+!!           if(j.ge.19)then
+!!              iostat=system_putchar(new_line('a'))
+!!              j=0
+!!           endif
+!!        enddo
+!!        iostat=system_putchar(new_line('a'))
+!!        end program demo_system_putchar
+!!
+!! Results:
+!!
+!!  >  !"#$%&'()*+,-./012
+!!  > 3456789:;<=>?@ABCDE
+!!  > FGHIJKLMNOPQRSTUVWX
+!!  > YZ[\]^_`abcdefghijk
+!!  > lmnopqrstuvwxyz{|}~
+!!  >
+impure elemental function system_putchar(ch)
+character(len=1),intent(in) :: ch
+integer :: system_putchar
+   system_putchar=C_putchar(ichar(ch,kind=c_int))
+end function system_putchar
+!-----------------------------------------------------------------------------------------------------------------------------------
+!>
+!!##NAME
+!!    system_getchar(3f) - [M_system:IO] reads a character from the stdin
+!!    stream.
+!!    (LICENSE:PD)
+!!
+!!##SYNOPSIS
+!!
+!!     integer(kind=c_int) function system_getchar(ch)
+!!
+!!      character(len=1),intent(out) :: ch
+!!
+!!##DESCRIPTION
+!!    system_getchar(3f) read the character CH from the stdin stream via
+!!    C I/O.
+!!
+!!##RETURN VALUE
+!!    If an error occurs the return value is negative. Otherwise
+!!    getchar(3C) returns the character read as a default integer value
+!!    that is the ADE (ASCII Decimal Equivalent) of the character.
+!!
+!!    In addition, the option CH contains the character read.
+!!
+!!##EXAMPLES
+!!
+!!   Example program
+!!
+!!    program demo_system_getchar
+!!    use M_system, only : system_getchar, system_putchar
+!!    implicit none
+!!    character(len=1) :: ch
+!!    integer :: iostat
+!!    integer :: icount
+!!    icount=0
+!!    ! copy first 1024 characters from stdin to stdout
+!!       do while(system_getchar(ch).ge.0)
+!!          iostat=system_putchar(ch)
+!!          icount=icount+1
+!!          if(icount > 1024 ) exit
+!!       enddo
+!!    end program demo_system_getchar
+function system_getchar(ch)
+character(len=1),intent(out) :: ch
+integer                      :: system_getchar
+integer(kind=c_int)          :: ich
+   ich=C_getchar()
+   if(ich.ge.0)then
+      ch=char(ich)
+   else
+      ch=char(0)
+   endif
+   system_getchar=ich
+end function system_getchar
 !===================================================================================================================================
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !===================================================================================================================================

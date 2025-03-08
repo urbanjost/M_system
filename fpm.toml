@@ -18,14 +18,25 @@ auto-executables = false
 source-dir="src"
 
 [dev-dependencies]
-   M_framework    = { git = "https://github.com/urbanjost/M_framework.git" }
-   M_process      = { git = "https://github.com/urbanjost/M_process.git" }
-#  M_time         = { git = "https://github.com/urbanjost/M_time.git" }
+   M_framework = { git = "https://github.com/urbanjost/M_framework.git" }
+   M_process   = { git = "https://github.com/urbanjost/M_process.git"   }
+
+   #M_framework = { namespace = "GPF" }
+   #M_process   = { namespace = "GPF" }
+
+   #M_framework  = { path="GLINKS/M_framework"}
+   #M_process    = { path="GLINKS/M_process"  }
 
 [[executable]]
 name="penv"
 source-dir="app"
 main="penv.f90"
 [executable.dependencies]
-M_kracken = { git = "https://github.com/urbanjost/M_kracken.git" }
-M_strings = { git = "https://github.com/urbanjost/M_strings.git" }
+   M_kracken = {  git                         = "https://github.com/urbanjost/M_kracken.git" }
+   M_strings = {  git                         = "https://github.com/urbanjost/M_strings.git" }
+
+   #M_kracken = {  namespace                   = "GPF"                                        }
+   #M_strings = {  namespace                   = "GPF"                                        }
+
+   #M_kracken  = {  path="GLINKS/M_kracken" }
+   #M_strings  = {  path="GLINKS/M_strings" }

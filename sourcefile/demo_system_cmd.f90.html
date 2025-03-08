@@ -10,7 +10,7 @@
     <meta name="author" content="John S. Urban" >
     <link rel="icon" href="../favicon.png">
 
-    <title>demo_system_stat_print.f90 &ndash; M_system</title>
+    <title>demo_system_cmd.f90 &ndash; M_system</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -62,7 +62,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>demo_system_stat_print.f90
+    <h1>demo_system_cmd.f90
       <small>Source File</small>
       
     </h1>
@@ -73,19 +73,19 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 0.2% of total for source files.">6 statements</a>
+                 title=" 0.2% of total for source files.">7 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/demo_system_stat_print.f90"> Source File</a>
+              <a href="../src/demo_system_cmd.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-            <li class="breadcrumb-item active" aria-current="page">demo_system_stat_print.f90</li>
+            <li class="breadcrumb-item active" aria-current="page">demo_system_cmd.f90</li>
           </ol>
         </nav>
       </div>
@@ -113,7 +113,7 @@
       </a>
       <div id="progs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_system_stat_print.html">demo_system_stat_print</a>
+            <a class="list-group-item" href="../program/demo_system_cmd.html">demo_system_cmd</a>
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@
     <div class="card card-primary">
       <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../sourcefile/demo_system_stat_print.f90.html#src">demo_system_stat_print.f90</a>
+        <a class="list-group-item" href="../sourcefile/demo_system_cmd.f90.html#src">demo_system_cmd.f90</a>
       </div>
     </div>
 
@@ -150,12 +150,13 @@
 
       <section>
         <h2><span class="anchor" id="src"></span>Source Code</h2>
-        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="w">     </span><span class="k">program </span><span class="n">demo_system_stat_print</span>
-<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">     </span><span class="k">use </span><span class="n">M_system</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">system_stat_print</span>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">     </span><span class="k">implicit none</span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="k">        call </span><span class="n">system_stat_print</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">)</span>
-<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">        </span><span class="k">call </span><span class="n">system_stat_print</span><span class="p">(</span><span class="s1">&#39;/etc/hosts&#39;</span><span class="p">)</span>
-<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">     </span><span class="k">end program </span><span class="n">demo_system_stat_print</span>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="w">         </span><span class="k">program </span><span class="n">demo_system_cmd</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">         </span><span class="k">use </span><span class="n">M_system</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">system_cmd</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">         </span><span class="k">implicit none</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="k">         </span><span class="kt">logical</span><span class="p">,</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">status</span><span class="p">(:)</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">            </span><span class="n">status</span><span class="o">=</span><span class="n">system_cmd</span><span class="p">([</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;pwd&#39;</span><span class="p">,</span><span class="s1">&#39;logname&#39;</span><span class="p">])</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">            </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;status=&#39;</span><span class="p">,</span><span class="n">status</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">         </span><span class="k">end program </span><span class="n">demo_system_cmd</span>
 </pre></div>
 
       </section>

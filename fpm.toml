@@ -20,12 +20,15 @@ source-dir="src"
 [dev-dependencies]
    M_framework = { git = "https://github.com/urbanjost/M_framework.git" }
    M_process   = { git = "https://github.com/urbanjost/M_process.git"   }
+   M_time      = { git = "https://github.com/urbanjost/M_time.git"      }
 
    #M_framework = { namespace = "GPF" }
    #M_process   = { namespace = "GPF" }
+   ##M_time      = { namespace = "GPF" }
 
    #M_framework  = { path="GLINKS/M_framework"}
    #M_process    = { path="GLINKS/M_process"  }
+   ##M_time       = { path="GLINKS/M_time"     }
 
 [[executable]]
 name="penv"

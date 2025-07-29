@@ -70,9 +70,10 @@ or just list it as a dependency in your fpm.toml project file.
 
 The unit test is dependent on several other modules built via
 fpm(1) so it cannot be run from the standard Makefile described above
-(ie. the test requires several other modules not in this repository
+_(ie. the test requires several other modules not in this repository
 but if you are on the network fpm(1) will download and build those for
-the test automatically).
+the test automatically)._
+
 ---
 ![docs](docs/images/docs.gif)
 ---

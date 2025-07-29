@@ -1,0 +1,344 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran interface to C POSIX procedures">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>system_kill &ndash; M_system</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_system </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>system_kill
+      <small>Interface</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.4% of total for procedures.">8 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/M_system.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/m_system.f90.html'>M_system.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_system.html'>M_system</a></li>
+            <li class="breadcrumb-item active" aria-current="page">system_kill</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <em>None</em>
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      <h2>interface</h2>
+      <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">system_kill</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">[</span><span class="n">M_system</span><span class="p">:</span><span class="n">SIGNALS</span><span class="p">]</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="ow">or</span><span class="w"></span>
+<span class="w">                  </span><span class="n">a</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">processes</span><span class="w"></span>
+<span class="p">(</span><span class="n">LICENSE</span><span class="p">:</span><span class="n">PD</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+<div class="codehilite"><pre><span></span><code> integer(kind=c_int) function system_kill(pid,sig)
+
+  integer,intent(in) :: pid
+  integer,intent(in) :: sig
+</code></pre></div>
+
+<h2 id="description">DESCRIPTION</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">The</span><span class="w"> </span><span class="n">kill</span><span class="p">()</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">of</span><span class="w"></span>
+<span class="n">processes</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"></span>
+<span class="n">sig</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="k">signal</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mf">0.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">sig</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"> </span><span class="k">signal</span><span class="p">),</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="k">signal</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">sent</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">validity</span><span class="w"></span>
+<span class="n">of</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"></span>
+<span class="n">designated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">appropriate</span><span class="w"></span>
+<span class="n">privileges</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">effective</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">process</span><span class="w"></span>
+<span class="n">shall</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="n">set</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">receiving</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">whose</span><span class="w"></span>
+<span class="n">process</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="p">(</span><span class="n">excluding</span><span class="w"> </span><span class="n">an</span><span class="w"></span>
+<span class="n">unspecified</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">processes</span><span class="p">)</span><span class="w"> </span><span class="n">whose</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">equal</span><span class="w"></span>
+<span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"></span>
+<span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">signal</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="p">(</span><span class="n">excluding</span><span class="w"> </span><span class="n">an</span><span class="w"></span>
+<span class="n">unspecified</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">processes</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"></span>
+<span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">signal</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">negative</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">processes</span><span class="w"></span>
+<span class="p">(</span><span class="n">excluding</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unspecified</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">processes</span><span class="p">)</span><span class="w"> </span><span class="n">whose</span><span class="w"> </span><span class="n">process</span><span class="w"></span>
+<span class="n">group</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">signal</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">causes</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">process</span><span class="p">,</span><span class="w"></span>
+<span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">blocked</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">calling</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">other</span><span class="w"></span>
+<span class="n">thread</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">unblocked</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sigwait</span><span class="p">()</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="k">for</span><span class="w"></span>
+<span class="n">sig</span><span class="p">,</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="n">unblocked</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"></span>
+<span class="n">delivered</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">kill</span><span class="p">()</span><span class="w"> </span><span class="n">returns</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">sending</span><span class="w"></span>
+<span class="n">SIGCONT</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="n">sending</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">An</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">impose</span><span class="w"></span>
+<span class="n">further</span><span class="w"> </span><span class="n">implementation</span><span class="o">-</span><span class="n">defined</span><span class="w"> </span><span class="n">restrictions</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">signals</span><span class="p">,</span><span class="w"></span>
+<span class="n">including</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"> </span><span class="k">signal</span><span class="o">.</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">particular</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">deny</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="n">existence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"></span>
+
+<span class="n">The</span><span class="w"> </span><span class="n">kill</span><span class="p">()</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
+<span class="n">send</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">kill</span><span class="p">()</span><span class="w"> </span><span class="n">fails</span><span class="p">,</span><span class="w"></span>
+<span class="n">no</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="return-value">RETURN VALUE</h2>
+<div class="codehilite"><pre><span></span><code>Upon successful completion, 0 shall be returned. Otherwise, -1 shall be
+returned and errno set to indicate the error.
+</code></pre></div>
+
+<h2 id="errors">ERRORS</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">The</span><span class="w"> </span><span class="n">kill</span><span class="p">()</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="k">if</span><span class="p">:</span><span class="w"></span>
+
+<span class="n">EINVAL</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unsupported</span><span class="w"></span>
+<span class="w">        </span><span class="k">signal</span><span class="w"> </span><span class="n">number</span><span class="o">.</span><span class="w"></span>
+<span class="n">EPERM</span><span class="w">   </span><span class="n">The</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
+<span class="w">        </span><span class="n">any</span><span class="w"> </span><span class="n">receiving</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w"></span>
+<span class="n">ESRCH</span><span class="w">   </span><span class="n">No</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
+<span class="w">        </span><span class="n">that</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pid</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">sections</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">informative</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="examples">EXAMPLES</h2>
+<p>Sample program:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">program</span><span class="w"> </span><span class="n">demo_system_kill</span><span class="w"></span>
+<span class="n">use</span><span class="w"> </span><span class="n">M_system</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">system_kill</span><span class="w"></span>
+<span class="n">use</span><span class="w"> </span><span class="n">M_system</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">system_perror</span><span class="w"></span>
+<span class="n">implicit</span><span class="w"> </span><span class="n">none</span><span class="w"></span>
+<span class="n">integer</span><span class="w">           </span><span class="p">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">pid</span><span class="p">,</span><span class="n">ios</span><span class="p">,</span><span class="n">ierr</span><span class="p">,</span><span class="k">signal</span><span class="o">=</span><span class="mi">9</span><span class="w"></span>
+<span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">argument</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">do</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">command_argument_count</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="o">!</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"></span>
+<span class="w">      </span><span class="n">call</span><span class="w"> </span><span class="n">get_command_argument</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">argument</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">!</span><span class="w"> </span><span class="nb">convert</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">assuming</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">PID</span><span class="w"> </span><span class="n">numbers</span><span class="w"></span>
+<span class="w">      </span><span class="n">read</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span><span class="s1">&#39;(i80)&#39;</span><span class="p">,</span><span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">)</span><span class="w"> </span><span class="n">pid</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">ios</span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span><span class="n">then</span><span class="w"></span>
+<span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;bad PID=&#39;</span><span class="p">,</span><span class="n">trim</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span><span class="w"></span>
+<span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;kill SIGNAL=&#39;</span><span class="p">,</span><span class="k">signal</span><span class="p">,</span><span class="s1">&#39; PID=&#39;</span><span class="p">,</span><span class="n">pid</span><span class="w"></span>
+<span class="w">      </span><span class="o">!</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">SIGNAL</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">PID</span><span class="w"></span>
+<span class="w">         </span><span class="n">ierr</span><span class="o">=</span><span class="n">system_kill</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="k">signal</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">!</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">detected</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">ierr</span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span><span class="n">then</span><span class="w"></span>
+<span class="w">            </span><span class="n">call</span><span class="w"> </span><span class="n">system_perror</span><span class="p">(</span><span class="s1">&#39;*demo_system_kill*&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">endif</span><span class="w"></span>
+<span class="w">      </span><span class="n">endif</span><span class="w"></span>
+<span class="w">   </span><span class="n">enddo</span><span class="w"></span>
+<span class="n">end</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">demo_system_kill</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="see-also">SEE ALSO</h2>
+<div class="codehilite"><pre><span></span><code>getpid(), raise(), setsid(), sigaction(), sigqueue(),
+</code></pre></div>
+      <br>
+      <h2>public  function system_kill(c_pid, c_signal) result(c_ierr) bind(c,name="kill"))  
+</h2>
+
+    
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c_pid"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>c_pid</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c_signal"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>c_signal</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <h3>Return Value <span class="anchor" id="variable-c_ierr"></span><small>integer(kind=c_int)</small></h3>
+    
+    <br>
+
+ </div>
+</div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_system
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-29 02:39 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

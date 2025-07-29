@@ -64,6 +64,7 @@ or just list it as a dependency in your fpm.toml project file.
      [dependencies]
      M_system        = { git = "https://github.com/urbanjost/M_system.git" }
 ```
+
 Note that the unit test is dependent on several other modules built via
 fpm(1) so it can not be run from the standard Makefile described above
 _(ie. the test requires several other modules not in this repository but

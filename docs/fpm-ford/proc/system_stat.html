@@ -1,0 +1,439 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran interface to C POSIX procedures">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>system_stat &ndash; M_system</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_system </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>system_stat
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.1% of total for procedures.">24 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/M_system.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/m_system.f90.html'>M_system.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_system.html'>M_system</a></li>
+            <li class="breadcrumb-item active" aria-current="page">system_stat</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/system_stat.html#src">system_stat</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine system_stat(pathname, values, ierr)  
+</h2>
+    
+
+    <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code>SYSTEM_STAT - [M_system:QUERY_FILE] Get file status information
+(LICENSE:PD)
+</code></pre></div>
+
+<h2 id="syntax">SYNTAX</h2>
+<p>CALL SYSTEM_STAT(NAME, VALUES [, STATUS],[DEBUG])</p>
+<div class="codehilite"><pre><span></span><code>character(len=*),intent(in)          :: NAME
+integer(kind=int64),intent(out)      :: values(13)
+integer,optional,intent(out)         :: status
+integer,intent(in)                   :: debug
+</code></pre></div>
+
+<h2 id="description">DESCRIPTION</h2>
+<div class="codehilite"><pre><span></span><code><span class="nv">This</span> <span class="nv">function</span> <span class="nv">returns</span> <span class="nv">information</span> <span class="nv">about</span> <span class="nv">a</span> <span class="nv">file</span>. <span class="nv">No</span> <span class="nv">permissions</span> <span class="nv">are</span>
+<span class="nv">required</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">itself</span>, <span class="nv">but</span> <span class="nv">execute</span> <span class="ss">(</span><span class="nv">search</span><span class="ss">)</span> <span class="nv">permission</span> <span class="nv">is</span> <span class="nv">required</span>
+<span class="nv">on</span> <span class="nv">all</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">directories</span> <span class="nv">in</span> <span class="nv">path</span> <span class="nv">that</span> <span class="nv">lead</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">file</span>. <span class="nv">The</span> <span class="nv">elements</span>
+<span class="nv">that</span> <span class="nv">are</span> <span class="nv">obtained</span> <span class="nv">and</span> <span class="nv">stored</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">array</span> <span class="nv">VALUES</span>:
+
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">Device</span> <span class="nv">ID</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> <span class="nv">Inode</span> <span class="nv">number</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span> <span class="nv">File</span> <span class="nv">mode</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">4</span><span class="ss">)</span> <span class="nv">Number</span> <span class="nv">of</span> <span class="nv">links</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span> <span class="nv">Owner</span><span class="s1">&#39;</span><span class="s">s uid</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">6</span><span class="ss">)</span> <span class="nv">Owner</span><span class="s1">&#39;</span><span class="s">s gid</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">7</span><span class="ss">)</span> <span class="nv">ID</span> <span class="nv">of</span> <span class="nv">device</span> <span class="nv">containing</span> <span class="nv">directory</span> <span class="nv">entry</span> <span class="k">for</span> <span class="nv">file</span> <span class="ss">(</span><span class="mi">0</span> <span class="k">if</span>
+             <span class="nv">not</span> <span class="nv">available</span><span class="ss">)</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">8</span><span class="ss">)</span> <span class="nv">File</span> <span class="nv">size</span> <span class="ss">(</span><span class="nv">bytes</span><span class="ss">)</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">9</span><span class="ss">)</span> <span class="nv">Last</span> <span class="nv">access</span> <span class="nv">time</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">Unix</span> <span class="nv">Epoch</span> <span class="nv">time</span> <span class="nv">rounded</span> <span class="nv">to</span> <span class="nv">seconds</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">10</span><span class="ss">)</span> <span class="nv">Last</span> <span class="nv">modification</span> <span class="nv">time</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">Unix</span> <span class="nv">Epoch</span> <span class="nv">time</span> <span class="nv">rounded</span>
+              <span class="nv">to</span> <span class="nv">seconds</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">11</span><span class="ss">)</span> <span class="nv">Last</span> <span class="nv">file</span> <span class="nv">status</span> <span class="nv">change</span> <span class="nv">time</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">Unix</span> <span class="nv">Epoch</span> <span class="nv">time</span>
+              <span class="nv">rounded</span> <span class="nv">to</span> <span class="nv">seconds</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">12</span><span class="ss">)</span> <span class="nv">Preferred</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span> <span class="nv">block</span> <span class="nv">size</span> <span class="ss">(</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="nv">not</span> <span class="nv">available</span><span class="ss">)</span>
+   <span class="nv">VALUES</span><span class="ss">(</span><span class="mi">13</span><span class="ss">)</span> <span class="nv">Number</span> <span class="nv">of</span> <span class="nv">blocks</span> <span class="nv">allocated</span> <span class="ss">(</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="nv">not</span> <span class="nv">available</span><span class="ss">)</span>
+
+<span class="nv">Not</span> <span class="nv">all</span> <span class="nv">these</span> <span class="nv">elements</span> <span class="nv">are</span> <span class="nv">relevant</span> <span class="nv">on</span> <span class="nv">all</span> <span class="nv">systems</span>. <span class="k">If</span> <span class="nv">an</span> <span class="nv">element</span> <span class="nv">is</span>
+<span class="nv">not</span> <span class="nv">relevant</span>, <span class="nv">it</span> <span class="nv">is</span> <span class="nv">returned</span> <span class="nv">as</span> <span class="mi">0</span>.
+</code></pre></div>
+
+<h2 id="options">OPTIONS</h2>
+<div class="codehilite"><pre><span></span><code><span class="nv">NAME</span>    <span class="nv">The</span> <span class="nv">type</span> <span class="nv">shall</span> <span class="nv">be</span> <span class="nv">CHARACTER</span>, <span class="nv">of</span> <span class="nv">the</span> <span class="nv">default</span> <span class="nv">kind</span> <span class="nv">and</span> <span class="nv">a</span> <span class="nv">valid</span>
+        <span class="nv">path</span> <span class="nv">within</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">system</span>.
+<span class="nv">VALUES</span>  <span class="nv">The</span> <span class="nv">type</span> <span class="nv">shall</span> <span class="nv">be</span> <span class="nv">INTEGER</span><span class="ss">(</span><span class="mi">8</span><span class="ss">)</span>, <span class="nv">DIMENSION</span><span class="ss">(</span><span class="mi">13</span><span class="ss">)</span>.
+<span class="nv">STATUS</span>  <span class="ss">(</span><span class="nv">Optional</span><span class="ss">)</span> <span class="nv">status</span> <span class="nv">flag</span> <span class="nv">of</span> <span class="nv">type</span> <span class="nv">INTEGER</span><span class="ss">(</span><span class="mi">4</span><span class="ss">)</span>. <span class="nv">Returns</span> <span class="mi">0</span> <span class="nv">on</span> <span class="nv">success</span>
+        <span class="nv">and</span> <span class="nv">a</span> <span class="nv">system</span> <span class="nv">specific</span> <span class="nv">error</span> <span class="nv">code</span> <span class="nv">otherwise</span>.
+<span class="nv">DEBUG</span>   <span class="ss">(</span><span class="nv">Optional</span><span class="ss">)</span> <span class="nv">print</span> <span class="nv">values</span> <span class="nv">being</span> <span class="nv">returned</span> <span class="nv">from</span> <span class="nv">C</span> <span class="nv">routine</span> <span class="nv">being</span>
+        <span class="nv">called</span> <span class="k">if</span> <span class="nv">value</span> <span class="nv">of</span> <span class="mi">0</span> <span class="nv">is</span> <span class="nv">used</span>
+</code></pre></div>
+
+<h2 id="examples">EXAMPLES</h2>
+<p>program demo_system_stat</p>
+<div class="codehilite"><pre><span></span><code><span class="n">use</span><span class="w"> </span><span class="s">M_system,</span><span class="w"> </span><span class="s">only</span><span class="w"> </span><span class="s">:</span><span class="w"> </span><span class="s">system_stat,</span><span class="w"> </span><span class="s">system_getpwuid,</span><span class="w"> </span><span class="s">system_getgrgid</span><span class="w"></span>
+<span class="n">use</span><span class="w"> </span><span class="s">M_system,</span><span class="w"> </span><span class="s">only</span><span class="w"> </span><span class="s">:</span><span class="w"> </span><span class="s">epoch_to_calendar</span><span class="w"></span>
+<span class="sx">!use M_time, only :   fmtdate, u2d</span><span class="w"></span>
+<span class="n">use</span><span class="p">,</span><span class="w"> </span><span class="n">intrinsic</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">int32</span><span class="p">,</span><span class="w"> </span><span class="nb">int64</span><span class="w"></span>
+<span class="n">implicit</span><span class="w"> </span><span class="s">none</span><span class="w"></span>
+
+<span class="n">integer</span><span class="p">(</span><span class="n">kind</span><span class="p">=</span><span class="nb">int64</span><span class="p">)</span><span class="w">  </span><span class="p">::</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="n">integer</span><span class="p">(</span><span class="n">kind</span><span class="p">=</span><span class="nb">int32</span><span class="p">)</span><span class="w">  </span><span class="p">::</span><span class="w"> </span><span class="n">status</span><span class="w"></span>
+<span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="p">=</span><span class="o">*</span><span class="p">),</span><span class="n">parameter</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">fmt_date</span><span class="p">=</span><span class="s">&#39;year-month-day hour:minute:second&#39;</span><span class="w"></span>
+
+<span class="n">integer</span><span class="p">(</span><span class="n">kind</span><span class="p">=</span><span class="nb">int64</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w"> </span><span class="n">Device_ID</span><span class="p">,</span><span class="w"> </span><span class="n">Inode_number</span><span class="p">,</span><span class="w">     </span><span class="n">File_mode</span><span class="p">,</span><span class="w"> </span><span class="n">Number_of_links</span><span class="p">,</span><span class="w"> </span><span class="n">Owner_uid</span><span class="p">,</span><span class="w">        </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w"> </span><span class="n">Owner_gid</span><span class="p">,</span><span class="w"> </span><span class="n">Directory_device</span><span class="p">,</span><span class="w"> </span><span class="n">File_size</span><span class="p">,</span><span class="w"> </span><span class="n">Last_access</span><span class="p">,</span><span class="w">     </span><span class="n">Last_modification</span><span class="p">,</span><span class="o">&amp;</span><span class="w"></span>
+<span class="w"> </span><span class="n">Last_status_change</span><span class="p">,</span><span class="w">  </span><span class="n">Preferred_block_size</span><span class="p">,</span><span class="w">  </span><span class="n">Number_of_blocks_allocated</span><span class="w"></span>
+<span class="n">equivalence</span><span class="w">                                    </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Device_ID</span><span class="w">                  </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Inode_number</span><span class="w">               </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">File_mode</span><span class="w">                  </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Number_of_links</span><span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Owner_uid</span><span class="w">                  </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Owner_gid</span><span class="w">                  </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Directory_device</span><span class="w">           </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">File_size</span><span class="w">                  </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Last_access</span><span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Last_modification</span><span class="w">          </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Last_status_change</span><span class="w">         </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Preferred_block_size</span><span class="w">       </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Number_of_blocks_allocated</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="n">CALL</span><span class="w"> </span><span class="s">SYSTEM_STAT(&quot;/etc/hosts&quot;,</span><span class="w"> </span><span class="s">buff,</span><span class="w"> </span><span class="s">status)</span><span class="w"></span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Device ID(hex/decimal):&#39;,      &amp;</span>
+<span class="s">   &amp; T30, Z0,&#39;h/&#39;,I0,&#39;d&#39;)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">buff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Inode number:&#39;,                &amp;</span>
+<span class="s">   &amp; T30, I0)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;File mode (octal):&#39;,           &amp;</span>
+<span class="s">   &amp; T30, O19)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Number of links:&#39;,             &amp;</span>
+<span class="s">   &amp; T30, I0)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Owner&#39;&#39;s uid/username:&#39;,       &amp;</span>
+<span class="s">   &amp; T30, I0,1x, A)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">system_getpwuid</span><span class="p">(</span><span class="n">buff</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Owner&#39;&#39;s gid/group:&#39;,          &amp;</span>
+<span class="s">   &amp; T30, I0,1x, A)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="w"> </span><span class="n">system_getgrgid</span><span class="p">(</span><span class="n">buff</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Device where located:&#39;,        &amp;</span>
+<span class="s">   &amp; T30, I0)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;File size(bytes):&#39;,            &amp;</span>
+<span class="s">   &amp; T30, I0)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Last access time:&#39;,            &amp;</span>
+<span class="s">   &amp; T30, I0,1x, A)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span><span class="w">  </span><span class="n">epoch_to_calendar</span><span class="p">(</span><span class="n">buff</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span>!<span class="o">&amp;</span><span class="w"> </span><span class="n">T30</span><span class="p">,</span><span class="w"> </span><span class="n">I0</span><span class="p">,</span>1<span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="s">&quot;) buff(9), fmtdate(u2d(int(buff(9))),fmt_date)</span>
+<span class="s">   write (*, FMT=&quot;</span><span class="p">(</span><span class="s">&#39;Last modification time:&#39;</span><span class="p">,</span><span class="w">      </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="o">&amp;</span><span class="w"> </span><span class="n">T30</span><span class="p">,</span><span class="w"> </span><span class="n">I0</span><span class="p">,</span>1<span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="s">&quot;) buff(10), epoch_to_calendar(buff(10))</span>
+<span class="s">   !&amp; T30, I0,1x, A)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">buff</span><span class="p">(</span><span class="mi">10</span><span class="p">))),</span><span class="n">fmt_date</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">FMT</span><span class="p">=</span><span class="s">&quot;(&#39;Last status change time:&#39;,     &amp;</span>
+<span class="s">   &amp; T30, I0,1x, A)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span><span class="w"> </span><span class="n">epoch_to_calendar</span><span class="p">(</span><span class="n">buff</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span>!<span class="o">&amp;</span><span class="w"> </span><span class="n">T30</span><span class="p">,</span><span class="w"> </span><span class="n">I0</span><span class="p">,</span>1<span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="s">&quot;) buff(11),fmtdate(u2d(int(buff(11))),fmt_date)</span>
+<span class="s">   write (*, FMT=&quot;</span><span class="p">(</span><span class="s">&#39;Preferred block size(bytes):&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="o">&amp;</span><span class="w"> </span><span class="n">T30</span><span class="p">,</span><span class="w"> </span><span class="n">I0</span><span class="p">)</span><span class="s">&quot;) buff(12)</span>
+<span class="s">   write (*, FMT=&quot;</span><span class="p">(</span><span class="s">&#39;No. of blocks allocated:&#39;</span><span class="p">,</span><span class="w">     </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">   </span><span class="o">&amp;</span><span class="w"> </span><span class="n">T30</span><span class="p">,</span><span class="w"> </span><span class="n">I0</span><span class="p">)</span>&quot;<span class="p">)</span><span class="w"> </span><span class="n">buff</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="n">endif</span><span class="w"></span>
+
+<span class="s">end</span><span class="w"> </span><span class="s">program</span><span class="w"> </span><span class="s">demo_system_stat</span><span class="w"></span>
+</code></pre></div>
+
+<p>Results:</p>
+<div class="codehilite"><pre><span></span><code>Device ID(hex/decimal):      3E6BE045h/1047257157d
+Inode number:                1407374886070599
+File mode (octal):                        100750
+Number of links:             1
+Owner&#39;s uid/username:        18 SYSTEM
+Owner&#39;s gid/group:           18 SYSTEM
+Device where located:        0
+File size(bytes):            824
+Last access time:            1557983191 2019-05-16 01:06:31
+Last modification time:      1557983191 2019-05-16 01:06:31
+Last status change time:     1557983532 2019-05-16 01:12:12
+Preferred block size(bytes): 65536
+No. of blocks allocated:     4
+</code></pre></div>
+
+<h2 id="author">AUTHOR</h2>
+<div class="codehilite"><pre><span></span><code>John S. Urban
+</code></pre></div>
+
+<h2 id="license">LICENSE</h2>
+<div class="codehilite"><pre><span></span><code>Public Domain
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pathname~18"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pathname</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-values~3"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>values</strong>(13)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~59"></span>
+              integer,
+            </td>
+<td>intent(out),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">system_stat</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span><span class="n">values</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span><span class="w"></span>
+
+<span class="c">! ident_32=&quot;@(#) M_system system_stat(3f) call stat(3c) to get pathname information&quot;</span>
+
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">pathname</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">values</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_long</span><span class="p">)</span><span class="w">                 </span><span class="kd">::</span><span class="w"> </span><span class="n">cvalues</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">optional</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_int</span><span class="p">)</span><span class="w">                  </span><span class="kd">::</span><span class="w"> </span><span class="n">cierr</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_char</span><span class="p">,</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temp</span><span class="p">(:)</span><span class="w"></span>
+
+<span class="k">interface</span>
+<span class="k">   subroutine </span><span class="n">c_stat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="n">cvalues</span><span class="p">,</span><span class="n">cierr</span><span class="p">,</span><span class="n">cdebug</span><span class="p">)</span><span class="w"> </span><span class="k">bind</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_stat&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">import </span><span class="kt">c_char</span><span class="p">,</span><span class="w"> </span><span class="kt">c_size_t</span><span class="p">,</span><span class="w"> </span><span class="kt">c_ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">c_int</span><span class="p">,</span><span class="w"> </span><span class="kt">c_long</span>
+<span class="kt">      character</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_char</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_long</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">cvalues</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_int</span><span class="p">)</span><span class="w">                 </span><span class="kd">::</span><span class="w"> </span><span class="n">cierr</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="kt">c_int</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">cdebug</span><span class="w"></span>
+<span class="w">   </span><span class="k">end subroutine </span><span class="n">c_stat</span><span class="w"></span>
+<span class="k">end interface</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2_carr</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">pathname</span><span class="p">))</span><span class="w"> </span><span class="c">! kludge for bug in ifort (IFORT) 2021.3.0 20210609</span>
+<span class="w">   </span><span class="k">call </span><span class="n">c_stat</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">cvalues</span><span class="p">,</span><span class="n">cierr</span><span class="p">,</span><span class="mi">0_c_int</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">values</span><span class="o">=</span><span class="n">cvalues</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ierr</span><span class="p">))</span><span class="k">then</span>
+<span class="k">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">cierr</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">end subroutine </span><span class="n">system_stat</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_system
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-29 02:32 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
